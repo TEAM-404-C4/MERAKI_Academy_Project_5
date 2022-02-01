@@ -16,7 +16,7 @@ Create Table Admin(
     lastName varchar(255),
     phone varchar(255),
   roleId int not null,
-    FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 Create Table Patient(
@@ -69,7 +69,7 @@ workingDays varchar(255),
     ScientificCertificate varchar(255),
     FOREIGN Key(departmentId) REFERENCES MedicalDepartment(id) ON DELETE CASCADE ON UPDATE CASCADE
     FOREIGN Key(cityId) REFERENCES City(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 Create table Comment(
