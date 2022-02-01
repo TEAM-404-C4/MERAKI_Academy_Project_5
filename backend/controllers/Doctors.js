@@ -1,4 +1,4 @@
-const connection = require("../db/db");
+const connection = require("../database/db");
 
 //Create New Doctors
 const createNewDoctor = () => {};

@@ -61,13 +61,13 @@ workingDays varchar(255),
     address varchar(255),
     careersLicense varchar(255),
     waitingTime varchar(255),
-    consultationFeed varchar(255),
+    consultationFee varchar(255),
     departmentId int not null,
     cityId int not null,
     roleId int not null,
 
     ScientificCertificate varchar(255),
-    FOREIGN Key(departmentId) REFERENCES MedicalDepartment(id) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN Key(departmentId) REFERENCES MedicalDepartment(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(cityId) REFERENCES City(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 
