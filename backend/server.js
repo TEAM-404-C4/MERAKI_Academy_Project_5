@@ -12,7 +12,7 @@ const connection = require("./database/db");
 const PaitientRouter = require("./routes/patients");
 const doctorRouter = require("./routes/doctors");
 const loginRouter = require("./routes/login");
-const registerRouter = require("./routes/register");
+const RoleRouter = require("./routes/Role");
 
 app.use(express.json());
 
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use("/patients", PaitientRouter);
 app.use("/doctors", doctorRouter);
 app.use("/login", loginRouter);
-app.use("/register", registerRouter);
+app.use("/role", RoleRouter);
 
 // Handles any other endpoints [unassigned - endpoints]
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
