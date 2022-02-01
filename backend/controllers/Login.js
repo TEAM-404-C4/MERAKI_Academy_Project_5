@@ -1,4 +1,4 @@
-const connection = require("../db/db");
+const connection = require("../database/db");
 
 // This function checks user login credentials
 const login = () => {};
