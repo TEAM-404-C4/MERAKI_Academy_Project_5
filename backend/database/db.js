@@ -1,4 +1,5 @@
 const mysql = require("mysql2");
+require("dotenv").config();
 
 const connection = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -14,3 +15,5 @@ connection.connect((err) => {
   }
   console.log("connected as id: " + connection.threadId);
 });
+
+module.exports = connection;
