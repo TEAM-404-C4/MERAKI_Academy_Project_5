@@ -4,19 +4,21 @@ const express = require("express");
 const {
   createNewPatient,
   getAllPatients,
-  getPatientById,
+  getPatientByPhone,
   deletePatientById,
+  updatePatientByid,
 } = require("../controllers/Patients");
 const { authentication } = require("../middleware/authentication");
 
 // Create Paitient router
 const PaitientRouter = express.Router();
 
-PaitientRouter.get("/all", authentication,getAllPatients);
+PaitientRouter.get("/all", authentication, getAllPatients);
 
 PaitientRouter.post("/create", createNewPatient);
+PaitientRouter.put("/:id", updatePatientByid);
 
-PaitientRouter.get("/Search_1/:id", getPatientById);
+PaitientRouter.get("/phone", getPatientByPhone);
 
 PaitientRouter.delete("/:id", deletePatientById);
 
