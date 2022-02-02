@@ -46,6 +46,8 @@ Create Table City(
 
 Create Table Doctor(
     id int not null auto_increment primary key,
+    firstName varchar(255),
+    lastName varchar(255),
     email varchar(255),
     password varchar(255),
     profileImage varchar(255),
