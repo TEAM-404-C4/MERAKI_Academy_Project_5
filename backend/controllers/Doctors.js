@@ -88,6 +88,46 @@ const getAllDoctors = (req, res) => {
   });
 };
 
+const getDoctorByDepartment=(req,res) => {
+  const {city,department}=req.body;
+  let subQuery;
+  
+  let data = [department,city ];
+  if (city!==undefined &&department!==undefined) {
+    subQuery=' where departmentId = ? and cityId = ?'
+  }
+  else if(city===undefined) {
+    subQuery='where departmentId = ? and cityId = ALL (SELECT cityId FROM healthcare.city)';
+    
+  }
+  else if(department===undefined) {
+    subQuery=' where departmentId =  ALL (SELECT departmentId FROM healthcare.MedicalDepartment) and cityId = ?';
+    data=[city];
+  }
+  // ANY (SELECT id FROM city)
+  const query=`SELECT * FROM healthcare.doctor  ${subQuery}`;
+
+  connection.query(query,data,(err,result)=>{
+    if (result.length===0) {
+      res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+console.log(data);
+    // result are the data returned by mysql server
+    res.status(200).json({
+      success: true,
+      massage: "All the Doctors in MedicalDepartment = ",
+      results: result,
+    });
+  });
+}
+
+
+
+
 const updateDoctorById = async (req, res) => {
   const query = `UPDATE Doctor SET fullName=?,email=?,password=?,profileImage=?,gender=?,Nationality=?,specialization=?,phone=?,workingDays=?,address=?,careersLicense=?,waitingTime=?,consultationFee=?,departmentId=?,cityId=?,ScientificCertificate=? WHERE id= ?;`;
   const {
@@ -108,6 +148,7 @@ const updateDoctorById = async (req, res) => {
     cityId,
     ScientificCertificate,
   } = req.body;
+
   const id = req.params.id;
 
   try {
@@ -210,4 +251,5 @@ module.exports = {
   updateDoctorById,
   deleteDoctorById,
   getDoctorByName,
+  getDoctorByDepartment
 };
