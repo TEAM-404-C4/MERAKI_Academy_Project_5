@@ -194,15 +194,15 @@ const deleteDoctorById = (req, res) => {
 //Get Doctor By NAME
 
 const getDoctorByName = (req, res) => {
-  const name = req.body.name;
+  const fullName = req.body.fullName;
   const query = `SELECT fullName FROM doctor WHERE fullName  REGEXP  ?  `;
-  const data = [name];
+  const data = [fullName];
   connection.query(query, data, (err, result) => {
     res.json(result);
   });
 };
 
-//get doctor by dewpartment
+//get doctor by department
 
 module.exports = {
   createNewDoctor,
