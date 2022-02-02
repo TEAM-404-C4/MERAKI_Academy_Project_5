@@ -38,13 +38,81 @@ const getAllDoctors=(req,res) => {
       });
     }
     // result are the data returned by mysql server
-    res.status(201).json({
+    res.status(200).json({
       success: true,
       massage: "All the Doctors",
       results: result,
     });
   });
 }
+const updateDoctorById=(req,res)=>{
+const query="UPDATE Doctor SET firstName=? WHERE id= ?;";
+const { firstName} = req.body;
+const id = req.params.id;
+
+const data = [
+  firstName,id
+];
+connection.query(query, data, (err, result) => {
+  if (err) {
+    return res.status(404).json({
+      success: false,
+      massage: `Server error`,
+      err: err,
+    });
+  }
+  if (result.changedRows == 0) {
+    res.status(404).json({
+      success: false,
+      massage: `The Doctor: ${id} is not found`,
+      // err: err,
+    });
+
+  }
+  // result are the data returned by mysql server
+  res.status(201).json({
+    success: true,
+    massage: `Doctor updated`,
+    results: result.data,
+  });
+
+});
+};
+const deleteDoctorById=(req,res)=>{
+  const id = req.params.id;
+
+  const query = `UPDATE Doctor SET isDeleted=1 WHERE id=?;`;
+
+ 
+
+  connection.query(query, id, (err, results) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    }
+    if (!results.changedRows) {
+      return res.status(404).json({
+        success: false,
+        massage: `The Doctor: ${id} is not found`,
+        err: err,
+      });
+    }
+    res.status(200).json({
+      success: true,
+      massage: `Succeeded to delete Doctor with id: ${id}`,
+      results: results,
+    });
+  });
+
+
+
+};
 module.exports = {
   createNewDoctor,
+  getAllDoctors,
+  updateDoctorById,
+  deleteDoctorById
 };
