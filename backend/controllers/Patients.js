@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 
 //This function creates a new Patient (new user)
 const createNewPatient = async (req, res) => {
+  console.log("its run");
   let { firstName, lastName, password, phone, roleId } = req.body;
   const query = `INSERT INTO patient (firstName,lastName, password,phone,roleId) VALUES (?,?,?,?,?)`;
   password = await bcrypt.hash(password, 10);
@@ -24,6 +25,27 @@ const createNewPatient = async (req, res) => {
   });
 };
 
+//This function get All  Patients
+
+const getAllPatients = (req, res) => {
+  const query = `SELECT* FROM patient`;
+  connection.query(query, (err, result) => {
+    if (result.length) {
+      res.status(200).json({
+        success: true,
+        message: `All the patient`,
+        patients: result,
+      });
+    } else {
+      res.status(200).json({
+        success: false,
+        message: `No patient Yet`,
+      });
+    }
+  });
+};
+
 module.exports = {
   createNewPatient,
+  getAllPatients,
 };
