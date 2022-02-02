@@ -81,3 +81,8 @@ Create table Comment(
     isDeleted TINYINT Default 0,
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+Insert INTO City (Name) VALUES ('Amman');
+Insert INTO Role (Name) VALUES ('Doctor');
+Insert INTO MedicalDepartment (Name) VALUES ('Teeth');
+
