@@ -87,6 +87,7 @@ const getAllDoctors = (req, res) => {
     });
   });
 };
+
 const getDoctorByDepartment=(req,res) => {
   const {city,department}=req.body;
   let subQuery;
@@ -124,33 +125,84 @@ console.log(data);
   });
 }
 
-const updateDoctorById = (req, res) => {
-  const query = "UPDATE Doctor SET firstName=?  WHERE id= ?;";
-  const { firstName } = req.body;
+
+
+
+const updateDoctorById = async (req, res) => {
+  const query = `UPDATE Doctor SET fullName=?,email=?,password=?,profileImage=?,gender=?,Nationality=?,specialization=?,phone=?,workingDays=?,address=?,careersLicense=?,waitingTime=?,consultationFee=?,departmentId=?,cityId=?,ScientificCertificate=? WHERE id= ?;`;
+  const {
+    fullName,
+    email,
+    password,
+    profileImage,
+    gender,
+    Nationality,
+    specialization,
+    phone,
+    workingDays,
+    address,
+    careersLicense,
+    waitingTime,
+    consultationFee,
+    departmentId,
+    cityId,
+    ScientificCertificate,
+  } = req.body;
+
   const id = req.params.id;
 
-  const data = [firstName, id];
-  connection.query(query, data, (err, result) => {
-    if (err) {
-      return res.status(404).json({
-        success: false,
-        massage: `Server error`,
-        err: err,
+  try {
+    const hashPass = await bcrypt.hash(password, 2);
+    const data = [
+      fullName,
+      email,
+      hashPass,
+      profileImage,
+      gender,
+      Nationality,
+      specialization,
+      phone,
+      workingDays,
+      address,
+      careersLicense,
+      waitingTime,
+      consultationFee,
+      departmentId,
+      cityId,
+      ScientificCertificate,
+      id,
+    ];
+    connection.query(query, data, (err, result) => {
+      if (err) {
+        return res.status(404).json({
+          success: false,
+          massage: `Server error`,
+          err: err,
+        });
+      }
+      if (result.changedRows == 0) {
+        res.status(404).json({
+          success: false,
+          massage: `The Doctor: ${id} is not found`,
+          // err: err,
+        });
+      }
+      // result are the data returned by mysql server
+      res.status(201).json({
+        success: true,
+        massage: `Doctor updated`,
+        results: result.data,
+
+
       });
-    }
-    if (result.changedRows == 0) {
-      res.status(404).json({
-        success: false,
-        massage: `The Doctor: ${id} is not found`,
-      });
-    }
-    // result are the data returned by mysql server
-    res.status(201).json({
-      success: true,
-      massage: `Doctor updated`,
-      results: result.data,
     });
-  });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "hash pass error",
+      err,
+    });
+  }
 };
 const deleteDoctorById = (req, res) => {
   const id = req.params.id;
@@ -183,15 +235,15 @@ const deleteDoctorById = (req, res) => {
 //Get Doctor By NAME
 
 const getDoctorByName = (req, res) => {
-  const name = req.body.name;
+  const fullName = req.body.fullName;
   const query = `SELECT fullName FROM doctor WHERE fullName  REGEXP  ?  `;
-  const data = [name];
+  const data = [fullName];
   connection.query(query, data, (err, result) => {
     res.json(result);
   });
 };
 
-//get doctor by dewpartment
+//get doctor by department
 
 module.exports = {
   createNewDoctor,
