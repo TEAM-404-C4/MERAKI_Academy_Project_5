@@ -7,11 +7,12 @@ const {
   getPatientById,
   deletePatientById,
 } = require("../controllers/Patients");
+const { authentication } = require("../middleware/authentication");
 
 // Create Paitient router
 const PaitientRouter = express.Router();
 
-PaitientRouter.get("/all", getAllPatients);
+PaitientRouter.get("/all", authentication,getAllPatients);
 
 PaitientRouter.post("/create", createNewPatient);
 
