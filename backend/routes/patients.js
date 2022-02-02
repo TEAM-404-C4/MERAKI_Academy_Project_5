@@ -5,6 +5,7 @@ const {
   createNewPatient,
   getAllPatients,
   getPatientById,
+  deletePatientById,
 } = require("../controllers/Patients");
 
 // Create Paitient router
@@ -15,5 +16,7 @@ PaitientRouter.get("/all", getAllPatients);
 PaitientRouter.post("/create", createNewPatient);
 
 PaitientRouter.get("/Search_1/:id", getPatientById);
+
+PaitientRouter.delete("/:id", deletePatientById);
 
 module.exports = PaitientRouter;

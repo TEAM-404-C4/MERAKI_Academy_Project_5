@@ -45,7 +45,7 @@ const getAllPatients = (req, res) => {
   });
 };
 
-//Delete Patient by id
+//get Patient by id
 const getPatientById = (req, res) => {
   let id = req.params.id;
   const query = `SELECT firstName,lastName,phone FROM patient WHERE id=?`;
@@ -66,8 +66,30 @@ const getPatientById = (req, res) => {
   });
 };
 
+//delete patient by id
+const deletePatientById = (req, res) => {
+  const id = req.params.id;
+  const query = `UPDATE patient SET isDeleted=1  WHERE id=?`;
+  const data = [id];
+  connection.query(query, data, (err, result) => {
+    if (!err) {
+      res.status(404).json({
+        success: true,
+        message: `Succeeded to delete patient with id => ${id}`,
+        result: result,
+      });
+    } else {
+      res.status(404).json({
+        success: false,
+        message: `The patient => ${id} is not found`,
+      });
+    }
+  });
+};
+
 module.exports = {
   createNewPatient,
   getAllPatients,
   getPatientById,
+  deletePatientById,
 };
