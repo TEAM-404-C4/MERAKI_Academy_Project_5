@@ -19,5 +19,4 @@ doctorRouter.put("/:id", updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.get("/Search", getDoctorByName);
 
-getDoctorById;
 module.exports = doctorRouter;

@@ -4,10 +4,9 @@ const bcrypt = require("bcrypt");
 //Create New Doctors
 const createNewDoctor = async (req, res) => {
   const query =
-    "insert into doctor (firstName,lastName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    "insert into doctor (fullName,lastName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   const {
-    firstName,
-    lastName,
+    fullName,
     email,
     password,
     profileImage,
@@ -29,8 +28,7 @@ const createNewDoctor = async (req, res) => {
   try {
     const hashPass = await bcrypt.hash(password, 2);
     const data = [
-      firstName,
-      lastName,
+      fullName,
       email,
       hashPass,
       profileImage,
@@ -149,12 +147,14 @@ const deleteDoctorById = (req, res) => {
 
 const getDoctorByName = (req, res) => {
   const name = req.body.name;
-  const query = `SELECT firstName,lastName FROM doctor WHERE firstName  REGEXP  ? OR lastName REGEXP ? `;
+  const query = `SELECT fullName FROM doctor WHERE fullName  REGEXP  ?  `;
   const data = [name];
   connection.query(query, data, (err, result) => {
     res.json(result);
   });
 };
+
+//get doctor by dewpartment
 
 module.exports = {
   createNewDoctor,
