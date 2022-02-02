@@ -4,10 +4,9 @@ const bcrypt = require("bcrypt");
 //Create New Doctors
 const createNewDoctor = async (req, res) => {
   const query =
-    "insert into doctor (firstName,lastName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    "insert into doctor (fullName,lastName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   const {
-    firstName,
-    lastName,
+    fullName,
     email,
     password,
     profileImage,
@@ -29,8 +28,7 @@ const createNewDoctor = async (req, res) => {
   try {
     const hashPass = await bcrypt.hash(password, 2);
     const data = [
-      firstName,
-      lastName,
+      fullName,
       email,
       hashPass,
       profileImage,
@@ -90,7 +88,7 @@ const getAllDoctors = (req, res) => {
   });
 };
 const updateDoctorById = (req, res) => {
-  const query = "UPDATE Doctor SET firstName=? WHERE id= ?;";
+  const query = "UPDATE Doctor SET firstName=?  WHERE id= ?;";
   const { firstName } = req.body;
   const id = req.params.id;
 
@@ -107,7 +105,6 @@ const updateDoctorById = (req, res) => {
       res.status(404).json({
         success: false,
         massage: `The Doctor: ${id} is not found`,
-        // err: err,
       });
     }
     // result are the data returned by mysql server
@@ -121,7 +118,7 @@ const updateDoctorById = (req, res) => {
 const deleteDoctorById = (req, res) => {
   const id = req.params.id;
 
-  const query = `UPDATE Doctor SET isDeleted=1 WHERE id=?;`;
+  const query = `UPDATE Doctor SET is_deleted=1 WHERE id=?;`;
 
   connection.query(query, id, (err, results) => {
     if (err) {
@@ -145,9 +142,24 @@ const deleteDoctorById = (req, res) => {
     });
   });
 };
+
+//Get Doctor By NAME
+
+const getDoctorByName = (req, res) => {
+  const name = req.body.name;
+  const query = `SELECT fullName FROM doctor WHERE fullName  REGEXP  ?  `;
+  const data = [name];
+  connection.query(query, data, (err, result) => {
+    res.json(result);
+  });
+};
+
+//get doctor by dewpartment
+
 module.exports = {
   createNewDoctor,
   getAllDoctors,
   updateDoctorById,
   deleteDoctorById,
+  getDoctorByName,
 };

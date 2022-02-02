@@ -6,6 +6,7 @@ const {
   getAllDoctors,
   updateDoctorById,
   deleteDoctorById,
+  getDoctorByName,
 } = require("../controllers/Doctors");
 const { authentication } = require("../middleware/authentication");
 
@@ -16,5 +17,6 @@ doctorRouter.post("/", createNewDoctor);
 doctorRouter.get("/", authentication, getAllDoctors);
 doctorRouter.put("/:id", updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
+doctorRouter.get("/Search", getDoctorByName);
 
 module.exports = doctorRouter;
