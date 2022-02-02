@@ -107,7 +107,6 @@ const updateDoctorById = (req, res) => {
       res.status(404).json({
         success: false,
         massage: `The Doctor: ${id} is not found`,
-        // err: err,
       });
     }
     // result are the data returned by mysql server
@@ -145,9 +144,23 @@ const deleteDoctorById = (req, res) => {
     });
   });
 };
+
+//Get Doctor By NAME
+
+const getDoctorById = (req, res) => {
+  const name = req.body.name;
+  const query = `SELECT firstName,lastName FROM doctor WHERE firstName  REGEXP  ? OR lastName REGEXP ? `;
+  const data = [name, name];
+  console.log("name", name);
+  connection.query(query, data, (err, result) => {
+    res.json(result);
+  });
+};
+
 module.exports = {
   createNewDoctor,
   getAllDoctors,
   updateDoctorById,
   deleteDoctorById,
+  getDoctorById,
 };
