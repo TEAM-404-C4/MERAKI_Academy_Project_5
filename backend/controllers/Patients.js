@@ -33,13 +33,13 @@ const getAllPatients = (req, res) => {
     if (result.length) {
       res.status(200).json({
         success: true,
-        message: `All the patient`,
+        message: `All the patients`,
         patients: result,
       });
     } else {
       res.status(200).json({
         success: false,
-        message: `No patient Yet`,
+        message: `No patients Yet`,
       });
     }
   });
