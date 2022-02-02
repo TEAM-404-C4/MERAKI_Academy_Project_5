@@ -1,35 +1,79 @@
 const connection = require("../database/db");
+const bcrypt = require("bcrypt");
 
 //Create New Doctors
-const createNewDoctor = (req, res) => {
-  const query = "insert into doctor (firstName,lastName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
-  const { firstName, lastName, email, password, profileImage, gender, Nationality, specialization, phone, workingDays, address, careersLicense, waitingTime, consultationFee, departmentId, cityId, roleId, ScientificCertificate } = req.body;
-  const data = [
-    firstName, lastName, email, password,
-     profileImage, gender, Nationality,
-      specialization, phone, workingDays,
-       address, careersLicense, waitingTime, consultationFee, departmentId, 
-    cityId, roleId, ScientificCertificate
-  ];
-  connection.query(query, data,(err, result) => {
-    if (err) {
-      res.status(500).json({
-        success: false,
-        massage: "server error",
-        err: err,
+const createNewDoctor = async (req, res) => {
+  const query =
+    "insert into doctor (firstName,lastName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    profileImage,
+    gender,
+    Nationality,
+    specialization,
+    phone,
+    workingDays,
+    address,
+    careersLicense,
+    waitingTime,
+    consultationFee,
+    departmentId,
+    cityId,
+    roleId,
+    ScientificCertificate,
+  } = req.body;
+
+  try {
+    const hashPass = await bcrypt.hash(password, 2);
+    const data = [
+      firstName,
+      lastName,
+      email,
+      hashPass,
+      profileImage,
+      gender,
+      Nationality,
+      specialization,
+      phone,
+      workingDays,
+      address,
+      careersLicense,
+      waitingTime,
+      consultationFee,
+      departmentId,
+      cityId,
+      roleId,
+      ScientificCertificate,
+    ];
+    connection.query(query, data, (err, result) => {
+      if (err) {
+        res.status(500).json({
+          success: false,
+          massage: "server error",
+          err: err,
+        });
+      }
+      // result are the data returned by mysql server
+      res.status(201).json({
+        success: true,
+        massage: "Create New Doctor",
+        results: result,
       });
-    }
-    // result are the data returned by mysql server
-    res.status(201).json({
-      success: true,
-      massage: "Create New Doctor",
-      results: result,
     });
-  });
+  } catch (err) {
+    return res.status(404).json({
+      success: false,
+      message: "hash password error",
+      err,
+    });
+  }
 };
-const getAllDoctors=(req,res) => {
-  const query="SELECT * FROM Doctor";
-  connection.query(query,(err,result)=>{
+const getAllDoctors = (req, res) => {
+  const query = "SELECT * FROM Doctor";
+  connection.query(query, (err, result) => {
     if (err) {
       res.status(500).json({
         success: false,
@@ -44,46 +88,40 @@ const getAllDoctors=(req,res) => {
       results: result,
     });
   });
-}
-const updateDoctorById=(req,res)=>{
-const query="UPDATE Doctor SET firstName=? WHERE id= ?;";
-const { firstName} = req.body;
-const id = req.params.id;
-
-const data = [
-  firstName,id
-];
-connection.query(query, data, (err, result) => {
-  if (err) {
-    return res.status(404).json({
-      success: false,
-      massage: `Server error`,
-      err: err,
-    });
-  }
-  if (result.changedRows == 0) {
-    res.status(404).json({
-      success: false,
-      massage: `The Doctor: ${id} is not found`,
-      // err: err,
-    });
-
-  }
-  // result are the data returned by mysql server
-  res.status(201).json({
-    success: true,
-    massage: `Doctor updated`,
-    results: result.data,
-  });
-
-});
 };
-const deleteDoctorById=(req,res)=>{
+const updateDoctorById = (req, res) => {
+  const query = "UPDATE Doctor SET firstName=? WHERE id= ?;";
+  const { firstName } = req.body;
+  const id = req.params.id;
+
+  const data = [firstName, id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(404).json({
+        success: false,
+        massage: `Server error`,
+        err: err,
+      });
+    }
+    if (result.changedRows == 0) {
+      res.status(404).json({
+        success: false,
+        massage: `The Doctor: ${id} is not found`,
+        // err: err,
+      });
+    }
+    // result are the data returned by mysql server
+    res.status(201).json({
+      success: true,
+      massage: `Doctor updated`,
+      results: result.data,
+    });
+  });
+};
+const deleteDoctorById = (req, res) => {
   const id = req.params.id;
 
   const query = `UPDATE Doctor SET isDeleted=1 WHERE id=?;`;
-
- 
 
   connection.query(query, id, (err, results) => {
     if (err) {
@@ -106,13 +144,10 @@ const deleteDoctorById=(req,res)=>{
       results: results,
     });
   });
-
-
-
 };
 module.exports = {
   createNewDoctor,
   getAllDoctors,
   updateDoctorById,
-  deleteDoctorById
+  deleteDoctorById,
 };
