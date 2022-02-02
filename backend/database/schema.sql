@@ -6,8 +6,8 @@ Use HealthCare;
 
 Create Table Role(
     id int not null auto_increment primary key,
-    isDeleted TINYINT Default 0,
-    Name varchar(255)
+    Name varchar(255),
+    isDeleted TINYINT Default 0
 );
 
 Create Table Admin(
@@ -25,23 +25,23 @@ Create Table Patient(
     id int not null auto_increment primary key,
     firstName varchar(255),
     lastName varchar(255),
+    password varchar(255),
     phone varchar(255),
-    isDeleted TINYINT Default 0,
     roleId int not null,
-    FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    password varchar(255)
+    isDeleted TINYINT Default 0,
+    FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 Create Table MedicalDepartment(
     id int not null auto_increment primary key,
-    isDeleted TINYINT Default 0,
-    Name varchar(255)
+    Name varchar(255),
+    isDeleted TINYINT Default 0
 );
 
 Create Table City(
     id int not null auto_increment primary key,
-    isDeleted TINYINT Default 0,
-    Name varchar(255)
+    Name varchar(255),
+    isDeleted TINYINT Default 0
 );
 
 Create Table Doctor(
@@ -55,7 +55,6 @@ Create Table Doctor(
     status varchar(255),
     Nationality varchar(255),
     specialization varchar(255),
-    isDeleted TINYINT Default 0,
     phone varchar(255),
     workingDays varchar(255),
     address varchar(255),
@@ -66,6 +65,7 @@ Create Table Doctor(
     cityId int not null,
     roleId int not null,
     ScientificCertificate varchar(255),
+    isDeleted TINYINT Default 0,
     FOREIGN Key(departmentId) REFERENCES MedicalDepartment(id) ON DELETE CASCADE ON UPDATE CASCADE, 
     FOREIGN Key(cityId) REFERENCES City(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
