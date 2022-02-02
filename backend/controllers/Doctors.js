@@ -22,12 +22,29 @@ const createNewDoctor = (req, res) => {
     // result are the data returned by mysql server
     res.status(201).json({
       success: true,
-      massage: "All the Doctors",
+      massage: "Create New Doctor",
       results: result,
     });
   });
 };
-
+const getAllDoctors=(req,res) => {
+  const query="SELECT * FROM Doctor";
+  connection.query(query,(err,result)=>{
+    if (err) {
+      res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+    // result are the data returned by mysql server
+    res.status(201).json({
+      success: true,
+      massage: "All the Doctors",
+      results: result,
+    });
+  });
+}
 module.exports = {
   createNewDoctor,
 };
