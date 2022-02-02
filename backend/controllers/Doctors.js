@@ -90,7 +90,7 @@ const getAllDoctors = (req, res) => {
   });
 };
 const updateDoctorById = (req, res) => {
-  const query = "UPDATE Doctor SET firstName=? WHERE id= ?;";
+  const query = "UPDATE Doctor SET firstName=?  WHERE id= ?;";
   const { firstName } = req.body;
   const id = req.params.id;
 
@@ -147,11 +147,10 @@ const deleteDoctorById = (req, res) => {
 
 //Get Doctor By NAME
 
-const getDoctorById = (req, res) => {
+const getDoctorByName = (req, res) => {
   const name = req.body.name;
   const query = `SELECT firstName,lastName FROM doctor WHERE firstName  REGEXP  ? OR lastName REGEXP ? `;
-  const data = [name, name];
-  console.log("name", name);
+  const data = [name];
   connection.query(query, data, (err, result) => {
     res.json(result);
   });
@@ -162,5 +161,5 @@ module.exports = {
   getAllDoctors,
   updateDoctorById,
   deleteDoctorById,
-  getDoctorById,
+  getDoctorByName,
 };
