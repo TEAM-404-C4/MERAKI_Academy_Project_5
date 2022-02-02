@@ -12,7 +12,7 @@ Create Table Role(
 
 Create Table Admin(
     id int not null auto_increment primary key,
-    email varchar(255),
+    email varchar(255) unique,
     password varchar(255),
     firstName varchar(255),
     lastName varchar(255),
@@ -25,8 +25,9 @@ Create Table Patient(
     id int not null auto_increment primary key,
     firstName varchar(255),
     lastName varchar(255),
+    phone varchar(255) unique,
+    isDeleted TINYINT Default 0,
     password varchar(255),
-    phone varchar(255),
     roleId int not null,
     isDeleted TINYINT Default 0,
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -55,7 +56,8 @@ Create Table Doctor(
     status varchar(255),
     Nationality varchar(255),
     specialization varchar(255),
-    phone varchar(255),
+    isDeleted TINYINT Default 0,
+    phone varchar(255) unique,
     workingDays varchar(255),
     address varchar(255),
     careersLicense varchar(255),
