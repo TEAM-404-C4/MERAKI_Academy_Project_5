@@ -1,9 +1,11 @@
 const express = require("express");
 
+// Import Paitient controllers
+const { createNewRole } = require("../controllers/Roles");
+
+// Create Paitient router
 const RoleRouter = express.Router();
 
-RoleRouter.get("/", (req, res) => {
-  res.json("RoleRouter");
-});
+RoleRouter.post("/", createNewRole);
 
 module.exports = RoleRouter;
