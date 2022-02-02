@@ -7,7 +7,7 @@ Use HealthCare;
 Create Table Role(
     id int not null auto_increment primary key,
     Name varchar(255),
-    isDeleted TINYINT Default 0
+    is_deleted TINYINT Default 0
 );
 
 Create Table Admin(
@@ -28,20 +28,20 @@ Create Table Patient(
     phone varchar(255) unique,
     password varchar(255),
     roleId int not null,
-    isDeleted TINYINT Default 0,
+    is_deleted TINYINT Default 0,
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 Create Table MedicalDepartment(
     id int not null auto_increment primary key,
     Name varchar(255),
-    isDeleted TINYINT Default 0
+    is_deleted TINYINT Default 0
 );
 
 Create Table City(
     id int not null auto_increment primary key,
     Name varchar(255),
-    isDeleted TINYINT Default 0
+    is_deleted TINYINT Default 0
 );
 
 Create Table Doctor(
@@ -65,7 +65,7 @@ Create Table Doctor(
     cityId int not null,
     roleId int not null,
     ScientificCertificate varchar(255),
-    isDeleted TINYINT Default 0,
+    is_deleted TINYINT Default 0,
     FOREIGN Key(departmentId) REFERENCES MedicalDepartment(id) ON DELETE CASCADE ON UPDATE CASCADE, 
     FOREIGN Key(cityId) REFERENCES City(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -76,7 +76,7 @@ Create table Comment(
     comment varchar(255),
     rating int default 0,
     doctorId int not null,
-    isDeleted TINYINT Default 0,
+    is_deleted TINYINT Default 0,
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -132,7 +132,7 @@ Insert INTO MedicalDepartment (Name) VALUES ('PHYCHIATRIC');
 Insert INTO MedicalDepartment (Name) VALUES ('NEUROLOGY');
 Insert INTO MedicalDepartment (Name) VALUES ('GENERAL DOCTOR');
 
-
+-- Doctors DATA
 
 INSERT INTO doctor (firstName,lastName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("HAITHAM","NAWWAF","haitham@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,1111111111,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
 INSERT INTO doctor (firstName,lastName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("OMAR","Kataa","omark@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,2222222222,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");

@@ -120,7 +120,7 @@ const updateDoctorById = (req, res) => {
 const deleteDoctorById = (req, res) => {
   const id = req.params.id;
 
-  const query = `UPDATE Doctor SET isDeleted=1 WHERE id=?;`;
+  const query = `UPDATE Doctor SET is_deleted=1 WHERE id=?;`;
 
   connection.query(query, id, (err, results) => {
     if (err) {
