@@ -1,5 +1,9 @@
 const express = require("express");
 
+// Import Paitient controllers
+const { reateNewPatient } = require("../controllers/Patients");
+
+// Create Paitient router
 const PaitientRouter = express.Router();
 
 PaitientRouter.get("/", (req, res) => {
