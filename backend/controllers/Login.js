@@ -16,10 +16,7 @@ const doctorLogin = (req, res) => {
 
     if (!result.length) {
       next();
-      // res.status(404).json({
-      //   success: false,
-      //   message: `The account doesn't exist`,
-      // });
+     
     } else {
       try {
         console.log("password", result[0].password);
@@ -64,10 +61,7 @@ const login = (req, res, next) => {
 
     if (!result.length) {
       next();
-      // res.status(404).json({
-      //   success: false,
-      //   message: `The account doesn't exist`,
-      // });
+     
     } else {
       try {
         console.log("password", result[0].password);

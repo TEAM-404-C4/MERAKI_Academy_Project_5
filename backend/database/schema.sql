@@ -7,7 +7,7 @@ Use HealthCare;
 Create Table Role(
     id int not null auto_increment primary key,
     Name varchar(255),
-    isDeleted TINYINT Default 0
+    is_deleted TINYINT Default 0
 );
 
 Create Table Admin(
@@ -28,26 +28,25 @@ Create Table Patient(
     phone varchar(255) unique,
     password varchar(255),
     roleId int not null,
-    isDeleted TINYINT Default 0,
+    is_deleted TINYINT Default 0,
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 Create Table MedicalDepartment(
     id int not null auto_increment primary key,
     Name varchar(255),
-    isDeleted TINYINT Default 0
+    is_deleted TINYINT Default 0
 );
 
 Create Table City(
     id int not null auto_increment primary key,
     Name varchar(255),
-    isDeleted TINYINT Default 0
+    is_deleted TINYINT Default 0
 );
 
 Create Table Doctor(
     id int not null auto_increment primary key,
-    firstName varchar(255),
-    lastName varchar(255),
+    fullName varchar(255),
     email varchar(255),
     password varchar(255),
     profileImage varchar(255),
@@ -65,7 +64,7 @@ Create Table Doctor(
     cityId int not null,
     roleId int not null,
     ScientificCertificate varchar(255),
-    isDeleted TINYINT Default 0,
+    is_deleted TINYINT Default 0,
     FOREIGN Key(departmentId) REFERENCES MedicalDepartment(id) ON DELETE CASCADE ON UPDATE CASCADE, 
     FOREIGN Key(cityId) REFERENCES City(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -76,7 +75,7 @@ Create table Comment(
     comment varchar(255),
     rating int default 0,
     doctorId int not null,
-    isDeleted TINYINT Default 0,
+    is_deleted TINYINT Default 0,
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -132,3 +131,14 @@ Insert INTO MedicalDepartment (Name) VALUES ('PHYCHIATRIC');
 Insert INTO MedicalDepartment (Name) VALUES ('NEUROLOGY');
 Insert INTO MedicalDepartment (Name) VALUES ('GENERAL DOCTOR');
 
+-- Doctors DATA
+
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("HAITHAM NAWWAF","haitham@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,1111111111,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("OMAR Kataa","omark@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,2222222222,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("Iyad Saadeh","iyad@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,3333333333,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("HAITHAM NAWWAF","haitham@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,4444444444,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("OMAR Kataa","omark@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,5555555555,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("Iyad Saadeh","iyad@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,6666666666,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("HAITHAM NAWWAF","haitham@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,7777777777,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("OMAR Kataa","omark@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,8888888888,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("Iyad Saadeh","iyad@yahoo.com","1234vcbvcb56","http://wwww","Male","Single","Jordanian",3,9999999999,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");

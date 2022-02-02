@@ -129,7 +129,7 @@ const updatePatientByid = async (req, res) => {
 //delete patient by id
 const deletePatientById = (req, res) => {
   const id = req.params.id;
-  const query = `UPDATE patient SET isDeleted=1  WHERE id=?`;
+  const query = `UPDATE patient SET is_deleted=1  WHERE id=?`;
   const data = [id];
   connection.query(query, data, (err, result) => {
     if (!err) {
