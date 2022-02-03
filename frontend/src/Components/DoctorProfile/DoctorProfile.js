@@ -17,15 +17,19 @@ const state = useSelector((state)=>{
 
 
 
-useLayoutEffect(async() => {
+useEffect(async() => {
 try{
 
-    const res = await axios.get(`http://localhost:5000/doctors/:${state}`)
-
-    console.log(res.data.result);
+    const res = await axios.get(`http://localhost:5000/doctors/${state.doctorId}`)
+    
+    setDoctor(res.data.result[0])
+    
 }
 
-  
+  catch(err){
+
+    console.log(err);
+  }
 }, []);
 
 
@@ -36,7 +40,7 @@ try{
 
   return <div>
 
-
+    
 
 
 

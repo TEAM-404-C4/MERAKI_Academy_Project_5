@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CardDoctor from "./CardDoctor";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setDoctors } from "../Reducer/Doctor/index";
+import setDoctors from "../Reducer/Doctor/index";
 
 export default function MainPage() {
   const dispatch = useDispatch();
