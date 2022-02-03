@@ -5,6 +5,7 @@ import Navigation from "./Components/navigation/navigation";
 import Login from "./Components/login/login";
 import Register from "./Components/Register/Register";
 import MainPage from "./Components/MainPage/MainPage";
+import DoctorProfile from "./Components/DoctorProfile/DoctorProfile";
 
 //App Function
 function App() {

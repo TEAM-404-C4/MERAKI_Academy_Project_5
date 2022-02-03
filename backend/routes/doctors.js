@@ -3,6 +3,7 @@ const express = require("express");
 // Import doctors controllers
 const {
   createNewDoctor,
+  getDoctorById,
   getAllDoctors,
   updateDoctorById,
   deleteDoctorById,
@@ -19,6 +20,7 @@ doctorRouter.get("/", getAllDoctors);
 doctorRouter.put("/:id", updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.get("/Search", getDoctorByName);
+doctorRouter.get("/:id", getDoctorById);
 doctorRouter.get("/department", getDoctorByDepartment);
 
 module.exports = doctorRouter;

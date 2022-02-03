@@ -23,6 +23,7 @@ export default function MainPage() {
       setMessage("Error happened while Get Data, please try again");
     }
   };
+
   let doctorCard = doctors.map((card) => {
     return (
       <CardDoctor
