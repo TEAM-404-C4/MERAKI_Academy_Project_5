@@ -12,14 +12,14 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <MainPage />
-      <DoctorProfile />
+
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Register />} />
+
         <Route path="/MainPage" element={<MainPage />} />
       </Routes>
       <h1>Start project 5</h1>
-      <Register />
     </div>
   );
 }
