@@ -3,11 +3,12 @@ const express = require("express");
 // Import doctors controllers
 const {
   createNewDoctor,
+  getDoctorById,
   getAllDoctors,
   updateDoctorById,
   deleteDoctorById,
   getDoctorByName,
-  getDoctorByDepartment
+  getDoctorByDepartment,
 } = require("../controllers/Doctors");
 const { authentication } = require("../middleware/authentication");
 
@@ -15,10 +16,11 @@ const { authentication } = require("../middleware/authentication");
 const doctorRouter = express.Router();
 
 doctorRouter.post("/", createNewDoctor);
-doctorRouter.get("/", authentication, getAllDoctors);
+doctorRouter.get("/", getAllDoctors);
 doctorRouter.put("/:id", updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.get("/Search", getDoctorByName);
+doctorRouter.get("/:id", getDoctorById);
 doctorRouter.get("/department", getDoctorByDepartment);
 
 module.exports = doctorRouter;
