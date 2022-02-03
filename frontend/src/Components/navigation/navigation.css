@@ -40,7 +40,6 @@ a:hover {
 }
 .logo:hover {
   cursor: pointer;
-  background-size: 125px;
 }
 
 .nav_label {
