@@ -10,6 +10,7 @@ const Register = () => {
   const [phonePatient, setPhonePatient] = useState("");
   const [passwordPatient, setPasswordPatient] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState(false);
 
   // ===============================================
   const navigate = useNavigate();
@@ -30,21 +31,30 @@ const Register = () => {
   const submitPatientRegister = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post("http://localhost:5000/patients/create", {
+      const res = await axios.post("http://localhost:5000/patients/create", {
         firstName: firstNamePatient,
         lastName: lastNamePatient,
         phone: phonePatient,
         password: passwordPatient,
         roleId: 3,
       });
-      console.log(result);
-      setMessage("successfully");
-      setFirstNamePatient("");
-      setLastNamePatient("");
-      setPhonePatient("");
-      setPasswordPatient("");
-    } catch (err) {
-      console.log(err);
+
+      console.log("result", res);
+      if (res.data.success) {
+        setFirstNamePatient("");
+        setLastNamePatient("");
+        setPhonePatient("");
+        setPasswordPatient("");
+        setStatus(true);
+        navigate("/login");
+        setMessage(res.data.message);
+      } else throw Error;
+    } catch (error) {
+      if (error.response && error.response.data) {
+        setStatus(true);
+        return setMessage(error.response.data.message);
+      }
+      setMessage("Error happened while Login, please try again");
     }
   };
 
@@ -56,16 +66,14 @@ const Register = () => {
       <div className="signUpInstructions">
         <span className="register">Register Now It's Free.</span>
         <span className="inst">
-          {" "}
           <BsCheckSquareFill style={{ color: "green" }} />  Why to Register on
-          Shafaa Network?{" "}
+          Shafaa Network?
         </span>
         <span className="inst">
           <BsCheckSquareFill style={{ color: "green" }} />  Access a Large
-          Network of Doctor .{" "}
+          Network of Doctor.
         </span>
         <span className="inst">
-          {" "}
           <BsCheckSquareFill style={{ color: "green" }} />  Get Medical
           Consultations via Phone Call or Whats App.
         </span>
@@ -73,10 +81,14 @@ const Register = () => {
           <BsCheckSquareFill style={{ color: "green" }} />  Book Your Doctor
           Visit Online.
         </span>
+        <div>
+          {status ? message && <div className="Message">{message}</div> : <></>}
+        </div>
       </div>
       <form className="patientRegisterForm" onSubmit={submitPatientRegister}>
         <div className="firstAndLastName">
           <input
+            required
             placeholder="First Name"
             className="firstNamePatient"
             value={firstNamePatient}
@@ -85,6 +97,7 @@ const Register = () => {
           />
           <input
             placeholder="Last Name"
+            required
             className="lastNamePatient"
             value={lastNamePatient}
             type="text"
@@ -94,16 +107,19 @@ const Register = () => {
 
         <input
           placeholder="Phone Number"
+          required
           className="phonePatient"
           value={phonePatient}
-          type="text"
+          type="number"
           onChange={phoneHandler}
         />
         <input
           placeholder="Password"
+          required
           className="passwordPatient"
           value={passwordPatient}
           type="password"
+          minLength={6}
           onChange={passwordHandler}
         />
         <div className="DoctorRoute">
