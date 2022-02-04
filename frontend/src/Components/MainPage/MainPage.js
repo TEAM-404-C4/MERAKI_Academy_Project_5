@@ -38,5 +38,4 @@ export default function MainPage() {
     );
   });
   return <div>{doctorCard}</div>;
->>>>>>> cd97f8b4833ecaba849b4c7b6172465b1dd302fe
 }

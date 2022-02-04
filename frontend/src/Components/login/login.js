@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../Reducer/login/index";
 import { useNavigate } from "react-router-dom";
-
 import axios from "axios";
+import "./login.css";
 
 const Login = (e) => {
   const history = useNavigate();
@@ -28,9 +28,9 @@ const Login = (e) => {
         phone,
         password,
       });
+      console.log(res, "-------------------------------");
       if (res.data.success) {
         setMessage("");
-
         history("/mainpage");
         dispatch(
           loginRedux({
@@ -42,7 +42,6 @@ const Login = (e) => {
         );
       } else throw Error;
     } catch (error) {
-      console.log(error);
       if (error.response && error.response.data) {
         setStatus(true);
         return setMessage(error.response.data.message);
@@ -55,23 +54,28 @@ const Login = (e) => {
 
   return (
     <>
-      <div>
-        <form onSubmit={checkUser}>
+      <div className="DoctorsImage"></div>
+      <div className="loginDiv">
+        <form onSubmit={checkUser} className="loginForm">
           <input
+            className="phone"
+            placeholder="Mobile Number"
             onChange={(e) => {
               setPhone(e.target.value);
             }}
           />
           <input
+            className="password"
+            placeholder="Password"
             onChange={(e) => {
               setPassword(e.target.value);
             }}
           />
-          <button> Log in </button>
+          <button className="loginButton"> Log in </button>
         </form>
-        {status
-          ? message && <div className="SuccessMessage">{message}</div>
-          : message && <div className="ErrorMessage">{message}</div>}
+        <div>
+          {status ? message && <div className="Message">{message}</div> : <></>}
+        </div>
       </div>
     </>
   );
