@@ -19,7 +19,7 @@ doctorRouter.post("/", createNewDoctor);
 doctorRouter.get("/", getAllDoctors);
 doctorRouter.put("/:id", updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
-doctorRouter.get("/Search", getDoctorByName);
+doctorRouter.post("/Search", getDoctorByName);
 doctorRouter.get("/:id", getDoctorById);
 doctorRouter.get("/department", getDoctorByDepartment);
 
