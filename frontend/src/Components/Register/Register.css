@@ -10,7 +10,6 @@
 }
 
 .instructor {
-  background-color: red;
   width: 400px;
 }
 .patientRegisterForm {
@@ -48,6 +47,8 @@
   height: 20px;
   border-radius: 5px;
   border: 2px solid grey;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .phonePatient,
@@ -55,6 +56,8 @@
 .firstNamePatient,
 .lastNamePatient:focus {
   outline-color: rgb(145, 209, 189);
+  text-align: left;
+  padding-left: 10px;
 }
 
 .signUpBtn {

@@ -58,8 +58,10 @@ const Login = (e) => {
       <div className="loginDiv">
         <form onSubmit={checkUser} className="loginForm">
           <input
+            type="number"
             className="phone"
             placeholder="Mobile Number"
+            required
             onChange={(e) => {
               setPhone(e.target.value);
             }}
