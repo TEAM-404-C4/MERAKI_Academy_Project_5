@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   BsHouseFill,
   BsLockFill,
@@ -6,9 +7,12 @@ import {
   BsBoxArrowInRight,
   BsWindow,
 } from "react-icons/bs";
+import { logoutRedux } from "../Reducer/login/index";
 
 import "./navigation.css";
 const Navigation = () => {
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="navigation">
@@ -37,8 +41,12 @@ const Navigation = () => {
           </Link>
           <p className="nav_label">Dashbord</p>
         </div>
-        <div>
-          <Link to="/logout">
+        <div
+          onClick={() => {
+            dispatch(logoutRedux());
+          }}
+        >
+          <Link to="/mainpage">
             <BsBoxArrowInRight />
           </Link>
           <p className="nav_label">logout</p>
