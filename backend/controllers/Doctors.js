@@ -123,12 +123,15 @@ const getDoctorByDepartment = (req, res) => {
   let subQuery;
 
   let data = [department, city];
-  if (city !== undefined && department !== undefined) {
+  if (city != 0 && department != 0) {
+    console.log("omar");
     subQuery = " where departmentId = ? and cityId = ?";
-  } else if (city === undefined) {
+  } else if (city == undefined || city == 0) {
+    console.log(city);
     subQuery =
       "where departmentId = ? and cityId = ALL (SELECT cityId FROM healthcare.city)";
-  } else if (department === undefined) {
+  } else if (department == undefined || department == 0) {
+    console.log(city);
     subQuery =
       " where departmentId =  ALL (SELECT departmentId FROM healthcare.MedicalDepartment) and cityId = ?";
     data = [city];
@@ -137,18 +140,24 @@ const getDoctorByDepartment = (req, res) => {
   const query = `SELECT * FROM healthcare.doctor  ${subQuery}`;
 
   connection.query(query, data, (err, result) => {
+    console.log(result, req.body);
+    if (err) {
+      return res.json(err);
+    }
+
     if (result.length === 0) {
-      res.status(500).json({
-        success: false,
-        massage: "server error",
-        err: err,
-      });
+      return res.status(200).json({ result: [] });
+      // res.status(500).json({
+      //   success: false,
+      //   massage: "server error",
+      //   err: err,
+      // });
     }
     // result are the data returned by mysql server
     res.status(200).json({
       success: true,
       massage: "All the Doctors in MedicalDepartment = ",
-      results: result,
+      result: result,
     });
   });
 };

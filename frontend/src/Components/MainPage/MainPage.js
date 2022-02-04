@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CardDoctor from "./CardDoctor";
 import axios from "axios";
 import Search from "./Search";
+import Filter from "./Filter";
 export default function MainPage() {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
@@ -69,6 +70,7 @@ export default function MainPage() {
 
   return (
     <div>
+      <Filter setSearch={setSearch}/>
       <Search setSearch={setSearch} />
 
       {search ? seachDoctorCard : doctorCard}
