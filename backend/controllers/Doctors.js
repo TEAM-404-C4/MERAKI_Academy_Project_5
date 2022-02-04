@@ -96,9 +96,13 @@ const getDoctorById = (req, res) => {
   const doctorId = req.params.id;
   console.log(doctorId);
 
-  const query = `SELECT * FROM doctor WHERE id = ?`;
+  const query = `SELECT * FROM doctor
+  JOIN MedicalDepartment ON
+  doctor.departmentId=MedicalDepartment.id
+  WHERE doctor.id = ?`;
   const data = [doctorId];
   connection.query(query, data, (err, result) => {
+    console.log(result);
     if (err) {
       return res.status(404).json({
         success: false,

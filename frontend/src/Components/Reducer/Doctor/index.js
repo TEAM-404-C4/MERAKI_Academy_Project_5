@@ -1,7 +1,7 @@
 // Reducer File
 // initialState
 const initialState = {
-  doctorId: 0,
+  doctorId: 10,
 };
 // Reducer
 const doctorsReducer = (state = initialState, { type, payload }) => {
