@@ -262,7 +262,16 @@ const getDoctorByName = (req, res) => {
   const query = `SELECT fullName FROM doctor WHERE fullName  REGEXP  ?  `;
   const data = [fullName];
   connection.query(query, data, (err, result) => {
-    res.json(result);
+    if (result) {
+      return res.json({
+        success: true,
+        result,
+      });
+    }
+    return res.json({
+      success: true,
+      result: "",
+    });
   });
 };
 
