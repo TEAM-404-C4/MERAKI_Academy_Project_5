@@ -88,6 +88,31 @@ const getAllDoctors = (req, res) => {
   });
 };
 
+// ============================
+
+// get doctor by id
+
+const getDoctorById = (req, res) => {
+  const doctorId = req.params.id;
+  console.log(doctorId);
+
+  const query = `SELECT * FROM doctor WHERE id = ?`;
+  const data = [doctorId];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(404).json({
+        success: false,
+        massage: `Server error`,
+        err: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      result,
+    });
+  });
+};
+
 const getDoctorByDepartment = (req, res) => {
   const { city, department } = req.body;
   let subQuery;
@@ -240,6 +265,7 @@ const getDoctorByName = (req, res) => {
 
 module.exports = {
   createNewDoctor,
+  getDoctorById,
   getAllDoctors,
   updateDoctorById,
   deleteDoctorById,

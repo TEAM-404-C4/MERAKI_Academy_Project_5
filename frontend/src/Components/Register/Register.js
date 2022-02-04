@@ -8,7 +8,6 @@ const Register = () => {
   const [passwordPatient, setPasswordPatient] = useState("");
   const [message, setMessage] = useState("");
 
-
   // ===============================================
 
   const firstNameHandler = (e) => {
@@ -18,7 +17,7 @@ const Register = () => {
     setLastNamePatient(e.target.value);
   };
   const phoneHandler = (e) => {
-    setPhonePatient(`+962${e.target.value}`);
+    setPhonePatient(`${e.target.value}`);
   };
   const passwordHandler = (e) => {
     setPasswordPatient(e.target.value);
@@ -26,33 +25,23 @@ const Register = () => {
 
   const submitPatientRegister = async (e) => {
     e.preventDefault();
-    try{
-
-        const result = await axios.post("http://localhost:5000/patients/create",{
-
-       firstName: firstNamePatient,
-       lastName: lastNamePatient,
-       phone: phonePatient,
-       password: passwordPatient,
-        roleId:3
-
-        },)
-        console.log(result);
-        setMessage("successfully")
-        setFirstNamePatient("")
-        setLastNamePatient("")
-        setPhonePatient("")
-        setPasswordPatient("")
-
-    }catch(err){
-
-        console.log(err);
-
-
+    try {
+      const result = await axios.post("http://localhost:5000/patients/create", {
+        firstName: firstNamePatient,
+        lastName: lastNamePatient,
+        phone: phonePatient,
+        password: passwordPatient,
+        roleId: 3,
+      });
+      console.log(result);
+      setMessage("successfully");
+      setFirstNamePatient("");
+      setLastNamePatient("");
+      setPhonePatient("");
+      setPasswordPatient("");
+    } catch (err) {
+      console.log(err);
     }
-
-
-  
   };
 
   return (
@@ -71,7 +60,8 @@ const Register = () => {
           value={lastNamePatient}
           type="text"
           onChange={lastNameHandler}
-        /> <br />
+        />{" "}
+        <br />
         <label>+962</label>
         <input
           placeholder="PHONE NUMBER"
