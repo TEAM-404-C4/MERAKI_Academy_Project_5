@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import CardDoctor from "./CardDoctor";
 import axios from "axios";
+import Search from "./Search";
 export default function MainPage() {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
+  const [search, setSearch] = useState("");
+
+  // =====================================
   useEffect(() => {
     getAllDoctors();
   }, []);
@@ -25,17 +29,24 @@ export default function MainPage() {
 
   let doctorCard = doctors.map((card) => {
     return (
-      <CardDoctor
-        key={card.id}
-        id={card.id}
-        fullName={card.fullName}
-        address={card.address}
-        profileImage={card.profileImage}
-        consultationFee={card.consultationFee}
-        department={card.departmentId}
-        ScientificCertificate={card.scientificCertificate}
-      />
+      <>
+        <CardDoctor
+          key={card.id}
+          id={card.id}
+          fullName={card.fullName}
+          address={card.address}
+          profileImage={card.profileImage}
+          consultationFee={card.consultationFee}
+          department={card.departmentId}
+          ScientificCertificate={card.scientificCertificate}
+        />
+      </>
     );
   });
-  return <div>{doctorCard}</div>;
+  return (
+    <div>
+      <Search setSearch={setSearch} />
+      {doctorCard}
+    </div>
+  );
 }
