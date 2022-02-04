@@ -10,10 +10,12 @@ const doctorLogin = (req, res) => {
   const phone = req.body.phone;
   const query = `SELECT * FROM doctor WHERE phone=?`;
   const data = [phone];
-
   connection.query(query, data, async (err, result) => {
     if (!result.length) {
-      res.json("This is Acount dose not exist");
+      res.status(403).json({
+        success: false,
+        message: `This is account dose not exist`,
+      });
     } else {
       try {
         const valid = await bcrypt.compare(password, result[0].password);
