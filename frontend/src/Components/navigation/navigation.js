@@ -26,10 +26,10 @@ const Navigation = () => {
           <p className="nav_label">Login</p>
         </div>
         <div>
-          <Link to="/signup">
+          <Link to="/Register">
             <BsNewspaper />
           </Link>
-          <p className="nav_label">Sign up</p>
+          <p className="nav_label">Register</p>
         </div>
         <div>
           <Link to="/dashBoard">

@@ -139,7 +139,6 @@ const getDoctorByDepartment = (req, res) => {
         err: err,
       });
     }
-    console.log(data);
     // result are the data returned by mysql server
     res.status(200).json({
       success: true,

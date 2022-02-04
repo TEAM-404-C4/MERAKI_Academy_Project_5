@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CardDoctor from "./CardDoctor";
 import axios from "axios";
-
 export default function MainPage() {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
@@ -39,4 +38,5 @@ export default function MainPage() {
     );
   });
   return <div>{doctorCard}</div>;
+>>>>>>> cd97f8b4833ecaba849b4c7b6172465b1dd302fe
 }

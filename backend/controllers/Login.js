@@ -12,14 +12,10 @@ const doctorLogin = (req, res) => {
   const data = [phone];
 
   connection.query(query, data, async (err, result) => {
-    console.log("result", result);
-
     if (!result.length) {
-      next();
-     
+      res.json("This is Acount dose not exist");
     } else {
       try {
-        console.log("password", result[0].password);
         const valid = await bcrypt.compare(password, result[0].password);
         if (!valid) {
           return res.status(403).json({
@@ -57,14 +53,10 @@ const login = (req, res, next) => {
   const query = `SELECT * FROM patient WHERE phone=?`;
   const data = [phone];
   connection.query(query, data, async (err, result) => {
-    console.log("result", result);
-
     if (!result.length) {
       next();
-     
     } else {
       try {
-        console.log("password", result[0].password);
         const valid = await bcrypt.compare(password, result[0].password);
         if (!valid) {
           return res.status(403).json({
