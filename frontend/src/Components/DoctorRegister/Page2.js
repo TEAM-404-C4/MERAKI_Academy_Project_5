@@ -5,7 +5,7 @@ import {addInfoPage} from "../Reducer/DoctorRegister/index"
 
 const Page2 = () => {
 
-    const [gender, setGender] = useState("");
+    const [gender, setGender] = useState("MALE");
     const [Nationality, setNationality] = useState("");
     const [specialization, setSpecialization] = useState("");
     const [phone, setPhone] = useState("");
