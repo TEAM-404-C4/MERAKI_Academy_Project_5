@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios, { Axios } from "axios";
+import "./Register.css";
+import { useNavigate } from "react-router-dom";
+import { BsCheckSquareFill } from "react-icons/bs";
 
 const Register = () => {
   const [firstNamePatient, setFirstNamePatient] = useState("");
@@ -9,6 +12,7 @@ const Register = () => {
   const [message, setMessage] = useState("");
 
   // ===============================================
+  const navigate = useNavigate();
 
   const firstNameHandler = (e) => {
     setFirstNamePatient(e.target.value);
@@ -45,41 +49,79 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <>
+      <div className="RegisterHeader">
+        <h1>Sign Up</h1>
+      </div>
+      <div className="signUpInstructions">
+        <span className="register">Register Now It's Free.</span>
+        <span className="inst">
+          {" "}
+          <BsCheckSquareFill style={{ color: "green" }} />  Why to Register on
+          Shafaa Network?{" "}
+        </span>
+        <span className="inst">
+          <BsCheckSquareFill style={{ color: "green" }} />  Access a Large
+          Network of Doctor .{" "}
+        </span>
+        <span className="inst">
+          {" "}
+          <BsCheckSquareFill style={{ color: "green" }} />  Get Medical
+          Consultations via Phone Call or Whats App.
+        </span>
+        <span className="inst">
+          <BsCheckSquareFill style={{ color: "green" }} />  Book Your Doctor
+          Visit Online.
+        </span>
+      </div>
       <form className="patientRegisterForm" onSubmit={submitPatientRegister}>
+        <div className="firstAndLastName">
+          <input
+            placeholder="First Name"
+            className="firstNamePatient"
+            value={firstNamePatient}
+            type="text"
+            onChange={firstNameHandler}
+          />
+          <input
+            placeholder="Last Name"
+            className="lastNamePatient"
+            value={lastNamePatient}
+            type="text"
+            onChange={lastNameHandler}
+          />
+        </div>
+
         <input
-          placeholder="FIRST NAME"
-          className="firstNamePatient"
-          value={firstNamePatient}
-          type="text"
-          onChange={firstNameHandler}
-        />
-        <input
-          placeholder="LAST NAME"
-          className="lastNamePatient"
-          value={lastNamePatient}
-          type="text"
-          onChange={lastNameHandler}
-        />{" "}
-        <br />
-        <label>+962</label>
-        <input
-          placeholder="PHONE NUMBER"
+          placeholder="Phone Number"
           className="phonePatient"
           value={phonePatient}
           type="text"
           onChange={phoneHandler}
         />
         <input
-          placeholder="PASSWORD"
+          placeholder="Password"
           className="passwordPatient"
           value={passwordPatient}
           type="password"
           onChange={passwordHandler}
         />
-        <input type="submit" />
+        <div className="DoctorRoute">
+          <span>
+            Are you a doctor?
+            <button
+              className="clickmebtn"
+              onClick={() => {
+                navigate("/doctorsignup1");
+              }}
+            >
+                Click Here
+            </button>
+          </span>
+        </div>
+        <button className="signUpBtn"> Sign Up </button>
       </form>
-    </div>
+    </>
   );
 };
 

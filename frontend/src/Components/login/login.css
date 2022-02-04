@@ -23,7 +23,7 @@
 .phone,
 .password {
   height: 40px;
-  border: 2px solid rgb(145, 209, 189);
+  border: 2px solid grey;
   border-radius: 5px;
   text-align: left;
   padding-left: 10px;
@@ -31,7 +31,7 @@
 
 .phone,
 .password:focus {
-  outline-color: rgb(8, 175, 122);
+  outline-color: rgb(145, 209, 189);
 }
 
 .loginButton {
@@ -50,7 +50,7 @@
 
 .loginButton {
   color: rgb(66, 66, 66);
-  background-color: rgb(145, 209, 189);
+  background-color: rgb(185, 247, 227);
   outline: none;
   border: none;
   border-radius: 5px;
@@ -60,7 +60,7 @@
   word-spacing: 2px;
 }
 .loginButton:hover {
-  background-color: rgb(89, 206, 169);
+  background-color: rgb(145, 209, 189);
   color: black;
   cursor: pointer;
 }
