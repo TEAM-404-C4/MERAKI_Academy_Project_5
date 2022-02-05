@@ -21,6 +21,6 @@ doctorRouter.put("/:id", updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.post("/Search", getDoctorByName);
 doctorRouter.get("/:id", getDoctorById);
-doctorRouter.get("/department", getDoctorByDepartment);
+doctorRouter.post("/department", getDoctorByDepartment);
 
 module.exports = doctorRouter;
