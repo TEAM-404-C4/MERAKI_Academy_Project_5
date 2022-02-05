@@ -16,28 +16,47 @@ const CardDoctor = ({
   consultationFee,
   department,
   ScientificCertificate,
+  city,
+  Department,
+  workingDays,
+  waitingTime,
 }) => {
-  //======================================================//Return
+  //====================================================//Return
   return (
     <div className="card">
       <div>
-        <Link to="/">
-          {" "}
-          <img className="card-image" src={profileImage} alt={fullName} />
-        </Link>
+        <img
+          className="card-image"
+          src={profileImage}
+          alt={fullName}
+          onClick={(id) => {
+            dispatch(setDoctor(id));
+            history("/DoctorProfile");
+          }}
+        />
       </div>
       <div className="card-information">
-        <Link to="/">
+        <Link to={"/DoctorProfile/" + id}>
           <h3>{fullName}</h3>
         </Link>
-        <h5>{department} </h5>
+        <h5>{Department}</h5>
         <div className="card-row">
           <FaHandHoldingMedical />
           <h6>{ScientificCertificate}</h6>
         </div>
         <div className="card-row">
           <ImLocation />
-          <h6>{address}</h6>
+          <h6>
+            {city},{address}
+          </h6>
+        </div>
+        <div className="card-row">
+          <FaRegMoneyBillAlt />
+          <h6>{waitingTime} </h6>
+        </div>
+        <div className="card-row">
+          <FaRegMoneyBillAlt />
+          <h6>{workingDays} </h6>
         </div>
         <div className="card-row">
           <FaRegMoneyBillAlt />

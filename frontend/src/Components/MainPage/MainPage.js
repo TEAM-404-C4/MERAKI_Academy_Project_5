@@ -5,16 +5,23 @@ import axios from "axios";
 import Search from "./Search";
 import "./style.css";
 import Filter from "./Filter";
+import { setDoctor } from "../Reducer/Doctor/";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { useNavigate } from "react-router-dom";
 
 //====================================================//Create Main Page Funtion
 const MainPage = () => {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState("");
-  // Status For Pagination
-  const [itemsPerPage, setitemsPerPage] = useState(5);
-  const [currentPage, setcurrentPage] = useState(1);
+  const history = useNavigate();
 
+  // Status For Pagination
+  const [itemsPerPage, setitemsPerPage] = useState(10);
+  const [currentPage, setcurrentPage] = useState(1);
+  const dispatch = useDispatch();
   const [pageNumberLimit, setpageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
@@ -95,8 +102,7 @@ const MainPage = () => {
     setitemsPerPage(itemsPerPage + 5);
   };
   const renderData = (data) => {
-    let doctorCard = data.map((card) => {
-      //======================================================//Return
+    let doctorCard = data.map((card, index) => {
       return (
         <>
           <CardDoctor
@@ -108,7 +114,20 @@ const MainPage = () => {
             consultationFee={card.consultationFee}
             department={card.departmentId}
             ScientificCertificate={card.scientificCertificate}
+            city={card.city}
+            Department={card.Department}
+            workingDays={card.workingDays}
+            waitingTime={card.waitingTime}
           />
+          <button
+            value={card.id}
+            onClick={(e) => {
+              dispatch(setDoctor(e.target.value));
+              history("/DoctorProfile");
+            }}
+          >
+            profile
+          </button>
         </>
       );
     });
@@ -128,6 +147,10 @@ const MainPage = () => {
               consultationFee={card.consultationFee}
               department={card.departmentId}
               ScientificCertificate={card.scientificCertificate}
+              city={card.city}
+              Department={card.Department}
+              workingDays={card.workingDays}
+              waitingTime={card.waitingTime}
             />
           </>
         );

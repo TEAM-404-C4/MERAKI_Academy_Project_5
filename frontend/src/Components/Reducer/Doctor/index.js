@@ -1,7 +1,7 @@
 // Reducer File
 // initialState
 const initialState = {
-  doctorId: 10,
+  doctorId: 2,
 };
 // Reducer
 const doctorsReducer = (state = initialState, { type, payload }) => {
@@ -19,5 +19,6 @@ export default doctorsReducer;
 // Actions
 
 export const setDoctor = (id) => {
-  return { type: "set_Doctor", payload: id };
+  return { type: "SET_Doctor", payload: id };
 };
+
