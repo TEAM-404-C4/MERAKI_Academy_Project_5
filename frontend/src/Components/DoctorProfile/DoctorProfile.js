@@ -1,6 +1,8 @@
-import axios from 'axios';
-import React,{useState,useEffect} from 'react';
-import { useDispatch,useSelector } from 'react-redux';
+//====================================================//Require
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+
 
 
 const DoctorProfile = () => {
@@ -20,15 +22,12 @@ const state = useSelector((state)=>{
 useEffect(async() => {
 try{
 
-    const res = await axios.get(`http://localhost:5000/doctors/${state.doctorId}`)
-    
+    const res = await axios.get(`http://localhost:5000/doctors/${state}`)
     setDoctor(res.data.result[0])
-    console.log(res.data.result[0]);
 }
 
   catch(err){
 
-    console.log(err);
   }
 }, []);
 
@@ -46,6 +45,9 @@ try{
     <p>Nationality{doctor.Nationality} </p>
     <p>careersLicense{doctor.careersLicense} </p>
     <p>address{doctor.address} </p>
+    <p>Department{doctor.Department} </p>
+    <p>city{doctor.city} </p>
+
     <p>Name{doctor.Name} </p>
     <p>email{doctor.email} </p>
     <p>phone{doctor.phone} </p>
@@ -58,6 +60,6 @@ try{
 
 
   </div>;
-};
+
 
 export default DoctorProfile;

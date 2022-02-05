@@ -1,14 +1,16 @@
+
+//====================================================//Require
 import axios from "axios";
 import React, { useState } from "react";
 
+//====================================================//Create Filter Function
 const Filter = ({ setSearch }) => {
   const [department1, setDepartment] = useState(0);
   const [city, setCity] = useState(0);
-  // =====================
 
+  //====================================================//Submit Department Function
   const submitDep = async (e) => {
     setDepartment(e.target.value);
-    console.log("department", department1, "city", city);
 
     if (e.target.value != 0) {
       try {
@@ -28,11 +30,10 @@ const Filter = ({ setSearch }) => {
       setSearch("");
     }
   };
-  // =================================
+
+  //====================================================//Submit City Function
   const submitCity = async (e) => {
     setCity(e.target.value);
-    console.log("department", department1, "city", city);
-
     if (e.target.value != 0) {
       try {
         const res = await axios.post(
@@ -51,7 +52,7 @@ const Filter = ({ setSearch }) => {
       setSearch("");
     }
   };
-
+  //======================================================//Return
   return (
     <div>
       <select
@@ -77,6 +78,7 @@ const Filter = ({ setSearch }) => {
         <option value={15}>NEUROLOGY</option>
         <option value={16}>GENERAL DOCTOR</option>
       </select>
+
       {/* ================================== */}
 
       <select
