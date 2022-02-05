@@ -3,11 +3,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaRegMoneyBillAlt, FaHandHoldingMedical } from "react-icons/fa";
 import { ImLocation } from "react-icons/im";
+import { setDoctor } from "../Reducer/Doctor/";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 //CSS File
 import "./CardDoctor.css";
 
-//====================================================//Create Card Doctor Function
+//=====================================================//Create Card Doctor Function
 const CardDoctor = ({
   id,
   fullName,
@@ -21,6 +24,9 @@ const CardDoctor = ({
   workingDays,
   waitingTime,
 }) => {
+  const history = useNavigate();
+  const dispatch = useDispatch();
+
   //====================================================//Return
   return (
     <div className="card">
