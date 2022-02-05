@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import CardDoctor from "./CardDoctor";
 import axios from "axios";
 import Search from "./Search";
-import PaginationScreen from "./Pagination/PaginationScreen";
 import './style.css'
 export default function MainPage() {
   const [doctors, setDoctors] = useState([]);
