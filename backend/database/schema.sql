@@ -108,7 +108,7 @@ Insert INTO City (Name) VALUES ('AQABA');
 
 
 
--- ====================================================//Role DATA
+-- =====================================================//Role DATA
 Insert INTO Role (Name) VALUES ('ADMIN');
 Insert INTO Role (Name) VALUES ('DOCTOR');
 Insert INTO Role (Name) VALUES ('PATIENT');
