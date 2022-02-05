@@ -4,14 +4,20 @@ import axios from "axios";
 import Search from "./Search";
 import './style.css'
 import Filter from "./Filter";
+import {setDoctor} from '../Reducer/Doctor/'
+import { useDispatch,useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+
 export default function MainPage() {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState("");
-  // Status For Pagination
-  const [itemsPerPage, setitemsPerPage] = useState(5);
-const [currentPage, setcurrentPage] = useState(1);
+  const history = useNavigate();
 
+  // Status For Pagination
+  const [itemsPerPage, setitemsPerPage] = useState(10);
+const [currentPage, setcurrentPage] = useState(1);
+const dispatch= useDispatch()
   const [pageNumberLimit, setpageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
@@ -95,10 +101,11 @@ const renderPageNumbers = pages.map((number) => {
     setitemsPerPage(itemsPerPage + 5);
   };
   const renderData =(data)=>{
-    let doctorCard = data.map((card) => {
+    let doctorCard = data.map((card,index) => {
     return (
       <>
         <CardDoctor
+
           key={card.id}
           id={card.id}
           fullName={card.fullName}
@@ -106,8 +113,15 @@ const renderPageNumbers = pages.map((number) => {
           profileImage={card.profileImage}
           consultationFee={card.consultationFee}
           department={card.departmentId}
-          ScientificCertificate={card.scientificCertificate}
-        />
+          ScientificCertificate={card.scientificCertificate} city={card.city}
+          Department={card.Department} workingDays={card.workingDays} waitingTime={card.waitingTime}
+        /><button value={card.id} onClick={(e)=>{
+          dispatch(setDoctor(e.target.value)
+          )
+          console.log(e.target.value);
+          history('/DoctorProfile');
+          }
+          }>profile</button>
 
       </>
     );
@@ -122,13 +136,14 @@ const renderPageNumbers = pages.map((number) => {
           <>
             <CardDoctor
               key={card.id}
-              id={card.id}
-              fullName={card.fullName}
-              address={card.address}
-              profileImage={card.profileImage}
-              consultationFee={card.consultationFee}
-              department={card.departmentId}
-              ScientificCertificate={card.scientificCertificate}
+          id={card.id}
+          fullName={card.fullName}
+          address={card.address}
+          profileImage={card.profileImage}
+          consultationFee={card.consultationFee}
+          department={card.departmentId}
+          ScientificCertificate={card.scientificCertificate} city={card.city}
+          Department={card.Department} workingDays={card.workingDays} waitingTime={card.waitingTime}
             />
           </>
         );

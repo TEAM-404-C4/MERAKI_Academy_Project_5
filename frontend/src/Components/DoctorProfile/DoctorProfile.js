@@ -3,6 +3,7 @@ import React,{useState,useEffect} from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 
 
+
 const DoctorProfile = () => {
 
 const [doctor, setDoctor] = useState("");
@@ -20,10 +21,10 @@ const state = useSelector((state)=>{
 useEffect(async() => {
 try{
 
-    const res = await axios.get(`http://localhost:5000/doctors/${state.doctorId}`)
-    
+    const res = await axios.get(`http://localhost:5000/doctors/${state}`)
+    console.log("Doctor id",state,res);
     setDoctor(res.data.result[0])
-    console.log(res.data.result[0]);
+    console.log('dd',res.data.result[0]);
 }
 
   catch(err){
@@ -46,6 +47,9 @@ try{
     <p>Nationality{doctor.Nationality} </p>
     <p>careersLicense{doctor.careersLicense} </p>
     <p>address{doctor.address} </p>
+    <p>Department{doctor.Department} </p>
+    <p>city{doctor.city} </p>
+
     <p>Name{doctor.Name} </p>
     <p>email{doctor.email} </p>
     <p>phone{doctor.phone} </p>
