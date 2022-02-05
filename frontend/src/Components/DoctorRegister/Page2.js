@@ -1,59 +1,91 @@
-import React,{useState} from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
-import {addInfoPage} from "../Reducer/DoctorRegister/index"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addInfoPage } from "../Reducer/DoctorRegister/index";
+import {
+  BsFillArrowRightCircleFill,
+  BsFillArrowLeftCircleFill,
+} from "react-icons/bs";
+
+import "./Page2.css";
 
 const Page2 = () => {
+  const [gender, setGender] = useState("MALE");
+  const [Nationality, setNationality] = useState("");
+  const [specialization, setSpecialization] = useState("");
+  const [phone, setPhone] = useState("");
 
-    const [gender, setGender] = useState("MALE");
-    const [Nationality, setNationality] = useState("");
-    const [specialization, setSpecialization] = useState("");
-    const [phone, setPhone] = useState("");
+  // =========================================
+  const history = useNavigate();
 
-    // =========================================
-    const history=useNavigate()
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch()
+  const nextButton = async () => {
+    await dispatch(addInfoPage({ gender, Nationality, specialization, phone }));
+    history("/doctorsignup3");
+  };
 
-    const nextButton = async ()=>{
-
-       await dispatch(addInfoPage({gender,Nationality,specialization,phone}))
-       history("/doctorsignup3")
-
-    }
-
-
-  return <div>
-
-      <select className='genderDoctorRegister' onChange={(e)=>{
-    setGender(e.target.value)
-}} >
-
-    <option value="MALE">MALE</option>
-    <option value="FEMALE">FEMALE</option>
-
-      </select>
-
-<input placeholder='NATIONALITY' type="text" className='NationalityDoctorRegister' onChange={(e)=>{
-    setNationality(e.target.value)
-}}/>
-<input placeholder='SPECIALIZATION' type="text" className='specializationDoctorRegister' onChange={(e)=>{
-
-setSpecialization(e.target.value)
-}} />
-
-<input placeholder='PHONE' type="text" className='phoneDoctorRegister' onChange={(e)=>{
-    setPhone("+962"+e.target.value)
-}}/> <br />
-
-<button className='backButton' onClick={()=>{
-
-history("/doctorsignup1")
-
-}}>BACK</button>
-<button onClick={nextButton}>NEXT</button>
-
-  </div>;
+  return (
+    <>
+      <div className="mainPage2">
+        <div className="Page2">
+          <label className="levelLabel2">
+            {" "}
+            Gender , Nationality ,Specialization and Phone- Step 2 of 5
+          </label>
+          <select
+            placeholder="Gender"
+            className="doctorGender"
+            onChange={(e) => {
+              setGender(e.target.value);
+            }}
+          >
+            <option value="MALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
+          </select>
+          <input
+            placeholder="NATIONALITY"
+            type="text"
+            className="doctorNationality"
+            onChange={(e) => {
+              setNationality(e.target.value);
+            }}
+          />
+          <input
+            placeholder="SPECIALIZATION"
+            type="text"
+            className="doctorSpecialization"
+            onChange={(e) => {
+              setSpecialization(e.target.value);
+            }}
+          />
+          <input
+            placeholder="PHONE"
+            type="text"
+            className="doctorPhone"
+            onChange={(e) => {
+              setPhone("+962" + e.target.value);
+            }}
+          />{" "}
+          <br />
+          <div className="nextAndBackBtn">
+            <button
+              onClick={nextButton}
+              className="backBtn"
+              onClick={() => {
+                history("/doctorsignup1");
+              }}
+            >
+              <BsFillArrowLeftCircleFill />
+            </button>
+            <button onClick={nextButton} className="nextBtn">
+              <BsFillArrowRightCircleFill />
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Page2;

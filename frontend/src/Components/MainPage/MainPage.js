@@ -3,6 +3,7 @@ import CardDoctor from "./CardDoctor";
 import axios from "axios";
 import Search from "./Search";
 import './style.css'
+import Filter from "./Filter";
 export default function MainPage() {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
@@ -138,6 +139,7 @@ const renderPageNumbers = pages.map((number) => {
     <div>
       
 
+      <Filter setSearch={setSearch}/>
       <Search setSearch={setSearch} />
 
       {search ? seachDoctorCard : renderData(currentItems)}
