@@ -1,11 +1,15 @@
+//====================================================//Require
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addInfoPage } from "../Reducer/DoctorRegister/index";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BsCheckSquareFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
+
+//CSS File
 import "./Page4.css";
 
+//====================================================//Page 4 Function
 const Page4 = () => {
   const [consultationFee, setConsultationFee] = useState("");
   const [departmentDoctorRegister, setDepartmentDoctorRegister] = useState(5);
@@ -16,14 +20,16 @@ const Page4 = () => {
   ] = useState("");
   const [message, setMessage] = useState("");
 
-  // ========================================
+  //Selector
   const state = useSelector((state) => {
     return state.doctorRegReducer;
   });
+
+  //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
   const history = useNavigate();
-  // ==================
 
+  //====================================================//Next Button Function
   const nextButton = async () => {
     try {
       const res = await dispatch(
@@ -35,8 +41,6 @@ const Page4 = () => {
           ScientificCertificateDoctorRegister,
         })
       );
-
-      console.log(state, res);
 
       const result = await axios.post("http://localhost:5000/doctors/", {
         fullName: state.doctorInfo.fullName,
@@ -63,6 +67,7 @@ const Page4 = () => {
     }
   };
 
+  //======================================================//Return
   return (
     <>
       <div className="mainPage4">
