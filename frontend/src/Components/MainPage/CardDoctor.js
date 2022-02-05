@@ -1,9 +1,14 @@
+//====================================================//Require
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaRegMoneyBillAlt, FaHandHoldingMedical } from "react-icons/fa";
 import { ImLocation } from "react-icons/im";
+
+//CSS File
 import "./CardDoctor.css";
-export default function CardDoctor({
+
+//====================================================//Create Card Doctor Function
+const CardDoctor = ({
   id,
   fullName,
   address,
@@ -11,7 +16,8 @@ export default function CardDoctor({
   consultationFee,
   department,
   ScientificCertificate,
-}) {
+}) => {
+  //======================================================//Return
   return (
     <div className="card">
       <div>
@@ -40,4 +46,6 @@ export default function CardDoctor({
       </div>
     </div>
   );
-}
+};
+
+export default CardDoctor;

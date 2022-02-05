@@ -1,7 +1,7 @@
-//===================================================//Require 
+//====================================================//Require 
 const connection = require("../database/db");
 
-//===================================================//Create Comment Function
+//====================================================//Create Comment Function
 const createComment = (req, res) => {
   const { comment, reating, doctorId } = req.body;
   const query = `INSERT INTO Comment (comment,rating,doctorId) VALUES (?,?,?)`;
@@ -21,7 +21,7 @@ const createComment = (req, res) => {
   });
 };
 
-//===================================================//Get All Comments Function
+//====================================================//Get All Comments Function
 const getAllComments = (req, res) => {
   const doctorId = req.body.doctorId;
   const query = `SELECT comment,rating FROM Comment where doctorId=?`;

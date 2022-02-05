@@ -1,8 +1,8 @@
-//===================================================//Require
+//====================================================//Require
 const connection = require("../database/db");
 const bcrypt = require("bcrypt");
 
-//===================================================//Create New Doctor
+//====================================================//Create New Doctor
 const createNewDoctor = async (req, res) => {
   const query =
     "insert into doctor (fullName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
