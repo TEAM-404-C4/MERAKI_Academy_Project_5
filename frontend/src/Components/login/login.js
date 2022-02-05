@@ -1,11 +1,14 @@
+//====================================================//Require
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../Reducer/login/index";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./login.css";
+
+//CSS File
 import "./login.css";
 
+//====================================================//Create Login Function
 const Login = (e) => {
   const history = useNavigate();
   const [phone, setPhone] = useState("");
@@ -21,7 +24,7 @@ const Login = (e) => {
     };
   });
 
-  //check User Function
+  //======================================================//CheckUser Function
   const checkUser = async (e) => {
     e.preventDefault();
     try {
@@ -29,7 +32,6 @@ const Login = (e) => {
         phone,
         password,
       });
-      console.log(res, "-------------------------------");
       if (res.data.success) {
         setMessage("");
         history("/mainpage");
@@ -50,9 +52,9 @@ const Login = (e) => {
       setMessage("Error happened while Login, please try again");
     }
   };
-  // =================================================================
+  //======================================================//UseEffect
   useEffect(() => {}, [message]);
-
+  //======================================================//Return
   return (
     <>
       <div className="DoctorsImage"></div>

@@ -1,9 +1,14 @@
+//====================================================//Require
 import React from "react";
-import { Link,useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaRegMoneyBillAlt, FaHandHoldingMedical } from "react-icons/fa";
 import { ImLocation } from "react-icons/im";
+
+//CSS File
 import "./CardDoctor.css";
-export default function CardDoctor({
+
+//====================================================//Create Card Doctor Function
+const CardDoctor = ({
   id,
   fullName,
   address,
@@ -11,22 +16,27 @@ export default function CardDoctor({
   consultationFee,
   department,
   ScientificCertificate,
-  city,Department,workingDays,waitingTime
-})
- {
-// id=useParams();
-
+  city,
+  Department,
+  workingDays,
+  waitingTime,
+}) => {
+  //====================================================//Return
   return (
     <div className="card">
       <div>
-      <h1>{id}</h1>
-        <Link to={"/DoctorProfile/"+id}>
-          {" "}
-          <img className="card-image" src={profileImage} alt={fullName} />
-        </Link>
+        <img
+          className="card-image"
+          src={profileImage}
+          alt={fullName}
+          onClick={(id) => {
+            dispatch(setDoctor(id));
+            history("/DoctorProfile");
+          }}
+        />
       </div>
       <div className="card-information">
-        <Link to={"/DoctorProfile/"+id}>
+        <Link to={"/DoctorProfile/" + id}>
           <h3>{fullName}</h3>
         </Link>
         <h5>{Department}</h5>
@@ -36,7 +46,9 @@ export default function CardDoctor({
         </div>
         <div className="card-row">
           <ImLocation />
-          <h6>{city},{address}</h6>
+          <h6>
+            {city},{address}
+          </h6>
         </div>
         <div className="card-row">
           <FaRegMoneyBillAlt />
@@ -53,4 +65,6 @@ export default function CardDoctor({
       </div>
     </div>
   );
-}
+};
+
+export default CardDoctor;
