@@ -25,6 +25,7 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/Register" element={<Register />} />
+        <Route path='/DoctorProfile' element={<DoctorProfile/>} />
       </Routes>
     </div>
   );
