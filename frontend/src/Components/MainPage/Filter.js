@@ -1,3 +1,4 @@
+
 //====================================================//Require
 import axios from "axios";
 import React, { useState } from "react";
@@ -29,6 +30,7 @@ const Filter = ({ setSearch }) => {
       setSearch("");
     }
   };
+
   //====================================================//Submit City Function
   const submitCity = async (e) => {
     setCity(e.target.value);
@@ -76,6 +78,8 @@ const Filter = ({ setSearch }) => {
         <option value={15}>NEUROLOGY</option>
         <option value={16}>GENERAL DOCTOR</option>
       </select>
+
+      {/* ================================== */}
 
       <select
         className="cityDoctorRegister"
