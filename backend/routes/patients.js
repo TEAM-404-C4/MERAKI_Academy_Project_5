@@ -1,6 +1,7 @@
+//====================================================//Require
 const express = require("express");
 
-// Import Paitient controllers
+//====================================================//Import Paitient Controllers
 const {
   createNewPatient,
   getAllPatients,
@@ -10,16 +11,13 @@ const {
 } = require("../controllers/Patients");
 const { authentication } = require("../middleware/authentication");
 
-// Create Paitient router
+//====================================================//Create Paitient Router
 const PaitientRouter = express.Router();
 
 PaitientRouter.get("/all", authentication, getAllPatients);
-
 PaitientRouter.post("/create", createNewPatient);
 PaitientRouter.put("/:id", updatePatientByid);
-
 PaitientRouter.get("/phone", getPatientByPhone);
-
 PaitientRouter.delete("/:id", deletePatientById);
 
 module.exports = PaitientRouter;
