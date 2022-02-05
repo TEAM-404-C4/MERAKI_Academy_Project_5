@@ -9,7 +9,7 @@ export default function MainPage() {
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState("");
   // Status For Pagination
-  const [itemsPerPage, setitemsPerPage] = useState(3);
+  const [itemsPerPage, setitemsPerPage] = useState(5);
 const [currentPage, setcurrentPage] = useState(1);
 
   const [pageNumberLimit, setpageNumberLimit] = useState(5);
