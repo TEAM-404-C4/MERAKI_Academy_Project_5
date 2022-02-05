@@ -1,0 +1,58 @@
+.mainPage1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+.Page1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background-color: white;
+  border: 0.5px solid rgb(223, 220, 220);
+  width: 480px;
+  margin-left: 100px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.fullName,
+.doctorEmail,
+.doctorPassword {
+  width: 400px;
+  padding: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid grey;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.nextBtn {
+  border: none;
+  background: none;
+  font-size: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  color: rgb(42, 196, 42);
+  width: 40px;
+  margin-left: 350px;
+}
+.nextBtn:hover {
+  cursor: pointer;
+  color: rgb(5, 151, 5);
+}
+
+.levelLabel1 {
+  color: grey;
+  background-color: rgb(219, 248, 239);
+  padding: 15px;
+  font-weight: bold;
+  word-spacing: 2px;
+  width: 479px;
+  margin-left: -40px;
+}

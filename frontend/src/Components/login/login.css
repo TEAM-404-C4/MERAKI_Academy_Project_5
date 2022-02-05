@@ -79,10 +79,11 @@
 .DoctorsImage {
   position: absolute;
   margin-top: 10px;
-  background-color: red;
-  /* background-image: url("../../../../../images/MERAKI_Academy_Project_5/47-478963_medical-team-vector.png"); */
+  background-image: url("https://i.ibb.co/YfGYcTX/47-478963-medical-team-vector.jpg");
   width: 800px;
   height: 400px;
+  left: 100px;
+  margin-top: 90px;
   background-repeat: no-repeat;
   z-index: -1;
 }
