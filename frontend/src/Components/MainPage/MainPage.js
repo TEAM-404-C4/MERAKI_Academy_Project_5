@@ -111,13 +111,12 @@ const MainPage = () => {
             profileImage={card.profileImage}
             consultationFee={card.consultationFee}
             department={card.departmentId}
-            ScientificCertificate={card.scientificCertificate}
+            ScientificCertificate={card.ScientificCertificate}
             city={card.city}
             Department={card.Department}
             workingDays={card.workingDays}
             waitingTime={card.waitingTime}
           />
-         
         </>
       );
     });
@@ -136,21 +135,13 @@ const MainPage = () => {
               profileImage={card.profileImage}
               consultationFee={card.consultationFee}
               department={card.departmentId}
-              ScientificCertificate={card.scientificCertificate}
+              ScientificCertificate={card.ScientificCertificate}
               city={card.city}
               Department={card.Department}
               workingDays={card.workingDays}
               waitingTime={card.waitingTime}
             />
-            <button
-              value={card.id}
-              onClick={(e) => {
-                dispatch(setDoctor(e.target.value));
-                history("/DoctorProfile");
-              }}
-            >
-              profile
-            </button>
+      
           </>
         );
       })
