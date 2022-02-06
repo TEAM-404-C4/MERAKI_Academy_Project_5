@@ -1,9 +1,10 @@
+//====================================================//Require
 const express = require("express");
 
-// Import doctors controllers
+//====================================================//Import doctors Controllers
 const { login, doctorLogin } = require("../controllers/Login");
 
-// Create login router .
+//====================================================//Create login Router
 const loginRouter = express.Router();
 
 loginRouter.post("/", login, doctorLogin);

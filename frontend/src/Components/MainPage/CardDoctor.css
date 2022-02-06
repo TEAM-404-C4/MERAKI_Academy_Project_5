@@ -2,17 +2,20 @@
   margin: 0%;
   padding: 0%;
 }
+
+.mainPageDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
 .card-image {
   width: 7vw;
   border-radius: 50%;
+  background-color: grey;
 }
-/* display: grid;
-grid-template-columns: repeat(2, auto);
-justify-content: flex-start;
-align-items: center;
-background-color: aqua;
-margin: 1%;
-gap: 1%; */
+
 .card {
   display: flex;
   flex-direction: row;

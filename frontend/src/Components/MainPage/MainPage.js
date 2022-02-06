@@ -1,3 +1,4 @@
+//====================================================//Require
 import React, { useState, useEffect } from "react";
 import CardDoctor from "./CardDoctor";
 import axios from "axios";
@@ -8,7 +9,8 @@ import { setDoctor } from "../Reducer/Doctor/";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-export default function MainPage() {
+//====================================================//Create Main Page Funtion
+const MainPage = () => {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState("");
@@ -21,18 +23,16 @@ export default function MainPage() {
   const [pageNumberLimit, setpageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
-  // =====================================
+  // Use Effect
   useEffect(() => {
     getAllDoctors();
   }, []);
 
-  // =================================
-
+  //====================================================//Create Get All Doctors
   const getAllDoctors = async () => {
     try {
       const res = await axios.get("http://localhost:5000/doctors");
       if (res.data.success) {
-        console.log(res.data.results);
         setDoctors(res.data.results);
         setMessage("");
       } else throw Error;
@@ -43,7 +43,6 @@ export default function MainPage() {
       setMessage("Error happened while Get Data, please try again");
     }
   };
-  // =======================
   const pages = [];
   for (let i = 1; i <= Math.ceil(doctors.length / itemsPerPage); i++) {
     pages.push(i);
@@ -122,7 +121,7 @@ export default function MainPage() {
             value={card.id}
             onClick={(e) => {
               dispatch(setDoctor(e.target.value));
-              console.log(e.target.value);
+
               history("/DoctorProfile");
             }}
           >
@@ -134,7 +133,7 @@ export default function MainPage() {
     return doctorCard;
   };
 
-  // ===========================
+
   let seachDoctorCard = search
     ? search.map((card) => {
         return (
@@ -153,6 +152,15 @@ export default function MainPage() {
               workingDays={card.workingDays}
               waitingTime={card.waitingTime}
             />
+            <button
+              value={card.id}
+              onClick={(e) => {
+                dispatch(setDoctor(e.target.value));
+                history("/DoctorProfile");
+              }}
+            >
+              profile
+            </button>
           </>
         );
       })
@@ -188,4 +196,6 @@ export default function MainPage() {
       </ul>
     </div>
   );
-}
+};
+
+export default MainPage;
