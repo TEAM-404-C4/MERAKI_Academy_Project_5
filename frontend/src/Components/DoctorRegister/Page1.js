@@ -31,7 +31,7 @@ const Page1 = () => {
       <div className="mainPage1">
         <div className="Page1">
           <label className="levelLabel1">
-            Name , Email and Password - Step 1 of 5
+            Name , Email and Password - Step 1 of 4
           </label>
           <input
             placeholder="Full Name"

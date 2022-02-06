@@ -1,6 +1,6 @@
 .mainFilterDiv {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 200px;
   background-color: red;
 }
