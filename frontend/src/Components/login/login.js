@@ -70,6 +70,7 @@ const Login = (e) => {
             }}
           />
           <input
+            type="password"
             className="password"
             placeholder="Password"
             onChange={(e) => {

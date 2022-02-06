@@ -19,9 +19,9 @@ const Page2 = () => {
 
   // ====================================================
   const [gender, setGender] = useState("MALE");
-  const [Nationality, setNationality] = useState(state);
-  const [specialization, setSpecialization] = useState("");
-  const [phone, setPhone] = useState("");
+  const [Nationality, setNationality] = useState(state.Nationality);
+  const [specialization, setSpecialization] = useState(state.specialization);
+  const [phone, setPhone] = useState(state.phone);
 
   //====================================================//Dispatch & Navigate
   const history = useNavigate();
@@ -76,7 +76,7 @@ const Page2 = () => {
             type="text"
             className="doctorPhone"
             onChange={(e) => {
-              setPhone("+962" + e.target.value);
+              setPhone(e.target.value);
             }}
           />{" "}
           <br />

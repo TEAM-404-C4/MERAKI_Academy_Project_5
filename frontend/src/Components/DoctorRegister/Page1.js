@@ -18,7 +18,7 @@ const Page1 = () => {
   const [fullName, setFullName] = useState(state.fullName);
   const [email, setEmail] = useState(state.email);
   const [password, setPassword] = useState("");
-  const [image, setImage] = useState(state.image);
+  const [image, setImage] = useState("");
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
@@ -66,7 +66,6 @@ const Page1 = () => {
             }}
           />
           <input
-            value={image}
             type="file"
             className="doctorProfileImage"
             id="image"

@@ -11,7 +11,15 @@ import "./Page4.css";
 
 //====================================================//Page 4 Function
 const Page4 = () => {
-  const [consultationFee, setConsultationFee] = useState("");
+  //Selector
+  const state = useSelector((state) => {
+    return state.doctorRegReducer;
+  });
+
+  // =================================
+  const [consultationFee, setConsultationFee] = useState(
+    state.doctorInfo.consultationFee
+  );
   const [departmentDoctorRegister, setDepartmentDoctorRegister] = useState(5);
   const [cityDoctorRegister, setCityDoctorRegister] = useState(1);
   const [
@@ -19,11 +27,6 @@ const Page4 = () => {
     setScientificCertificateDoctorRegister,
   ] = useState("");
   const [message, setMessage] = useState("");
-
-  //Selector
-  const state = useSelector((state) => {
-    return state.doctorRegReducer;
-  });
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();

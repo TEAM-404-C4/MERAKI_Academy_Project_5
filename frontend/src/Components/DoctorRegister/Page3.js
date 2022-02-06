@@ -13,10 +13,15 @@ import "./Page3.css";
 
 //====================================================//Page 3 Function
 const Page3 = () => {
-  const [workingDays, setWorkingDays] = useState("");
-  const [address, setAddress] = useState("");
-  const [careersLicense, setCareersLicense] = useState("");
-  const [waitingTime, setWaitingTime] = useState("");
+  const state = useSelector((state) => {
+    return state.doctorRegReducer.doctorInfo;
+  });
+
+  // ======================================================
+  const [workingDays, setWorkingDays] = useState(state.workingDays);
+  const [address, setAddress] = useState(state.address);
+  const [careersLicense, setCareersLicense] = useState(state.careersLicense);
+  const [waitingTime, setWaitingTime] = useState(state.waitingTime);
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
