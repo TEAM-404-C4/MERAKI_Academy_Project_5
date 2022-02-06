@@ -8,7 +8,7 @@ import Filter from "./Filter";
 import { setDoctor } from "../Reducer/Doctor/";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import "./MainPage.css";
 //====================================================//Create Main Page Funtion
 const MainPage = () => {
   const [doctors, setDoctors] = useState([]);
@@ -133,7 +133,6 @@ const MainPage = () => {
     return doctorCard;
   };
 
-
   let seachDoctorCard = search
     ? search.map((card) => {
         return (
@@ -168,9 +167,10 @@ const MainPage = () => {
 
   return (
     <div>
-      <Filter setSearch={setSearch} />
-      <Search setSearch={setSearch} />
-
+      <div className="filterDiv">
+        <Filter setSearch={setSearch} />
+        <Search setSearch={setSearch} />
+      </div>
       {search ? seachDoctorCard : renderData(currentItems)}
       <ul className="pageNumbers">
         <li>

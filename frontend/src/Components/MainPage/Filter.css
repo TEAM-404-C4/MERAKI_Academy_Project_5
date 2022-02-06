@@ -1,6 +1,18 @@
 .mainFilterDiv {
   display: flex;
   flex-direction: row;
-  width: 200px;
-  background-color: red;
+  width: 560px;
+  gap: 20px;
+}
+
+.departmentDoctorFolter {
+  width: 280px;
+  height: 35px;
+  color: rgb(77, 77, 77);
+}
+
+.cityDoctorRegister {
+  color: rgb(77, 77, 77);
+  width: 280px;
+  height: 35px;
 }
