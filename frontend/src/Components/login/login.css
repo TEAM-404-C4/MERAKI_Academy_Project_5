@@ -59,6 +59,7 @@
   letter-spacing: 1px;
   word-spacing: 2px;
 }
+
 .loginButton:hover {
   background-color: rgb(145, 209, 189);
   color: black;
