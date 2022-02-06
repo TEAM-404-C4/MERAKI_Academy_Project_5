@@ -12,7 +12,10 @@ const Filter = ({ setSearch }) => {
   const submitDep = async (e) => {
     setDepartment(e.target.value);
 
-    if (e.target.value != 0) {
+
+// ========== new update
+
+    // if (e.target.value != 0 ) {
       try {
         const res = await axios.post(
           "http://localhost:5000/doctors/department",
@@ -26,15 +29,18 @@ const Filter = ({ setSearch }) => {
       } catch (err) {
         console.log(err.response);
       }
-    } else {
-      setSearch("");
-    }
+    // } else {
+    //   setSearch("");
+    // }
   };
 
   //====================================================//Submit City Function
   const submitCity = async (e) => {
     setCity(e.target.value);
-    if (e.target.value != 0) {
+
+    // =========== new update
+
+    // if (e.target.value != 0) {
       try {
         const res = await axios.post(
           "http://localhost:5000/doctors/department",
@@ -48,9 +54,9 @@ const Filter = ({ setSearch }) => {
       } catch (err) {
         console.log(err.response);
       }
-    } else {
-      setSearch("");
-    }
+    // } else {
+    //   setSearch("");
+    // }
   };
   //======================================================//Return
   return (

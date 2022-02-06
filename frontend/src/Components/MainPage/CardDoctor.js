@@ -7,6 +7,10 @@ import { ImLocation } from "react-icons/im";
 //CSS File
 import "./CardDoctor.css";
 
+import { useDispatch, useSelector } from "react-redux";
+
+import { useNavigate } from "react-router-dom";
+
 //====================================================//Create Card Doctor Function
 const CardDoctor = ({
   id,
