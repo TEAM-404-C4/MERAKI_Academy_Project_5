@@ -30,6 +30,7 @@ const CardDoctor = ({
 
   //====================================================//Return
   return (
+
     <div className="mainPageDiv">
       <div className="card">
         <div className="CardImage">
@@ -42,6 +43,7 @@ const CardDoctor = ({
               history("/DoctorProfile");
             }}
           />
+
         </div>
         <div className="card-information">
           <div>Dr.{fullName}</div>

@@ -121,6 +121,7 @@ const MainPage = () => {
             value={card.id}
             onClick={(e) => {
               dispatch(setDoctor(e.target.value));
+
               history("/DoctorProfile");
             }}
           >
@@ -131,6 +132,7 @@ const MainPage = () => {
     });
     return doctorCard;
   };
+
 
   let seachDoctorCard = search
     ? search.map((card) => {
