@@ -35,7 +35,7 @@ const Page2 = () => {
         <div className="Page2">
           <label className="levelLabel2">
             {" "}
-            Gender , Nationality ,Specialization and Phone- Step 2 of 5
+            Gender , Nationality ,Specialization and Phone- Step 2 of 4
           </label>
           <select
             placeholder="Gender"

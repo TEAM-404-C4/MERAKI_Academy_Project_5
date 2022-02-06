@@ -6,9 +6,7 @@ import Search from "./Search";
 import "./style.css";
 import Filter from "./Filter";
 import { setDoctor } from "../Reducer/Doctor/";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import { useNavigate } from "react-router-dom";
 
 //====================================================//Create Main Page Funtion
@@ -123,6 +121,7 @@ const MainPage = () => {
             value={card.id}
             onClick={(e) => {
               dispatch(setDoctor(e.target.value));
+
               history("/DoctorProfile");
             }}
           >
@@ -133,6 +132,7 @@ const MainPage = () => {
     });
     return doctorCard;
   };
+
 
   let seachDoctorCard = search
     ? search.map((card) => {
@@ -152,6 +152,15 @@ const MainPage = () => {
               workingDays={card.workingDays}
               waitingTime={card.waitingTime}
             />
+            <button
+              value={card.id}
+              onClick={(e) => {
+                dispatch(setDoctor(e.target.value));
+                history("/DoctorProfile");
+              }}
+            >
+              profile
+            </button>
           </>
         );
       })

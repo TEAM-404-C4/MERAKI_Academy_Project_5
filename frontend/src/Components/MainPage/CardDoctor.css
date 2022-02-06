@@ -2,22 +2,42 @@
   margin: 0%;
   padding: 0%;
 }
+
+.mainPageDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
 .card-image {
   width: 40%;
   border-radius: 50%;
+  background-color: grey;
 }
+
 .card {
   display: grid;
   grid-template-columns: repeat(2, auto);
+  background-color: white;
   justify-content: flex-start;
   align-items: center;
-  background-color: aqua;
+  background-color: rgb(251, 255, 255);
   margin: 1%;
   gap: 1%;
+  width: 150vh;
+  height: 55vh;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-information {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  margin-top: 50px;
+  gap: 20px;
+  width: auto;
 }
 .card-row {
   display: flex;
