@@ -39,6 +39,7 @@ const Page3 = () => {
             Working Days , Address , Licenes and Wating - Step 3 of 4
           </label>
           <input
+            value={workingDays}
             placeholder="Working Days"
             type="text"
             className="doctorWorkingDays"
@@ -47,6 +48,7 @@ const Page3 = () => {
             }}
           />
           <input
+            value={address}
             placeholder="Address"
             type="text"
             className="doctorAddress"
@@ -55,6 +57,7 @@ const Page3 = () => {
             }}
           />
           <input
+            value={careersLicense}
             placeholder="Careers Licenes"
             type="text"
             className="doctorCareersLicense"
@@ -63,6 +66,7 @@ const Page3 = () => {
             }}
           />
           <input
+            value={waitingTime}
             placeholder="Wating Time"
             type="text"
             className="doctorWaitingTime"

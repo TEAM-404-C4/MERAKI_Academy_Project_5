@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   BsHouseFill,
   BsLockFill,
@@ -12,6 +12,9 @@ import { logoutRedux } from "../Reducer/login/index";
 import "./navigation.css";
 const Navigation = () => {
   const dispatch = useDispatch();
+  const state = useSelector((state) => {
+    return state.loginReducer.isLoggedIn;
+  });
 
   return (
     <>
@@ -23,12 +26,17 @@ const Navigation = () => {
           </Link>
           <p className="nav_label">Home</p>
         </div>
-        <div>
-          <Link to="/login">
-            <BsLockFill />
-          </Link>
-          <p className="nav_label">Login</p>
-        </div>
+
+        {!state ? (
+          <div>
+            <Link to="/login">
+              <BsLockFill />
+            </Link>
+            <p className="nav_label">Login</p>
+          </div>
+        ) : (
+          <></>
+        )}
         <div>
           <Link to="/Register">
             <BsNewspaper />
@@ -46,7 +54,7 @@ const Navigation = () => {
             dispatch(logoutRedux());
           }}
         >
-          <Link to="/mainpage">
+          <Link to="/">
             <BsBoxArrowInRight />
           </Link>
           <p className="nav_label">logout</p>

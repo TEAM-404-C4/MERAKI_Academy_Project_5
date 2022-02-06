@@ -10,10 +10,15 @@ import "./Page1.css";
 
 //====================================================//Page 1 Function
 const Page1 = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
+  const state = useSelector((state) => {
+    return state.doctorRegReducer.doctorInfo;
+  });
+
+  // =======================================================
+  const [fullName, setFullName] = useState(state.fullName);
+  const [email, setEmail] = useState(state.email);
   const [password, setPassword] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(state.image);
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
@@ -34,6 +39,7 @@ const Page1 = () => {
             Name , Email and Password - Step 1 of 4
           </label>
           <input
+            value={fullName}
             placeholder="Full Name"
             type="text"
             className="fullName"
@@ -42,6 +48,7 @@ const Page1 = () => {
             }}
           />
           <input
+            value={email}
             placeholder="E-Mail"
             type="email"
             className="doctorEmail"
@@ -50,6 +57,7 @@ const Page1 = () => {
             }}
           />
           <input
+            value={password}
             placeholder="Password"
             type="password"
             className="doctorPassword"
@@ -58,6 +66,7 @@ const Page1 = () => {
             }}
           />
           <input
+            value={image}
             type="file"
             className="doctorProfileImage"
             id="image"

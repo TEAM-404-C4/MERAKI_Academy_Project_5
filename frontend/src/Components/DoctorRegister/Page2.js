@@ -13,8 +13,13 @@ import "./Page2.css";
 
 //====================================================//Page 2 Function
 const Page2 = () => {
+  const state = useSelector((state) => {
+    return state.doctorRegReducer.doctorInfo;
+  });
+
+  // ====================================================
   const [gender, setGender] = useState("MALE");
-  const [Nationality, setNationality] = useState("");
+  const [Nationality, setNationality] = useState(state);
   const [specialization, setSpecialization] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -48,6 +53,7 @@ const Page2 = () => {
             <option value="FEMALE">FEMALE</option>
           </select>
           <input
+            value={Nationality}
             placeholder="NATIONALITY"
             type="text"
             className="doctorNationality"
@@ -56,6 +62,7 @@ const Page2 = () => {
             }}
           />
           <input
+            value={specialization}
             placeholder="SPECIALIZATION"
             type="text"
             className="doctorSpecialization"
@@ -64,6 +71,7 @@ const Page2 = () => {
             }}
           />
           <input
+            value={phone}
             placeholder="PHONE"
             type="text"
             className="doctorPhone"
