@@ -13,10 +13,15 @@ import "./Page3.css";
 
 //====================================================//Page 3 Function
 const Page3 = () => {
-  const [workingDays, setWorkingDays] = useState("");
-  const [address, setAddress] = useState("");
-  const [careersLicense, setCareersLicense] = useState("");
-  const [waitingTime, setWaitingTime] = useState("");
+  const state = useSelector((state) => {
+    return state.doctorRegReducer.doctorInfo;
+  });
+
+  // ======================================================
+  const [workingDays, setWorkingDays] = useState(state.workingDays);
+  const [address, setAddress] = useState(state.address);
+  const [careersLicense, setCareersLicense] = useState(state.careersLicense);
+  const [waitingTime, setWaitingTime] = useState(state.waitingTime);
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
@@ -39,6 +44,7 @@ const Page3 = () => {
             Working Days , Address , Licenes and Wating - Step 3 of 4
           </label>
           <input
+            value={workingDays}
             placeholder="Working Days"
             type="text"
             className="doctorWorkingDays"
@@ -47,6 +53,7 @@ const Page3 = () => {
             }}
           />
           <input
+            value={address}
             placeholder="Address"
             type="text"
             className="doctorAddress"
@@ -55,6 +62,7 @@ const Page3 = () => {
             }}
           />
           <input
+            value={careersLicense}
             placeholder="Careers Licenes"
             type="text"
             className="doctorCareersLicense"
@@ -63,6 +71,7 @@ const Page3 = () => {
             }}
           />
           <input
+            value={waitingTime}
             placeholder="Wating Time"
             type="text"
             className="doctorWaitingTime"

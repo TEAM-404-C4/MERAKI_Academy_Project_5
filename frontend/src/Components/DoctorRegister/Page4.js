@@ -11,7 +11,15 @@ import "./Page4.css";
 
 //====================================================//Page 4 Function
 const Page4 = () => {
-  const [consultationFee, setConsultationFee] = useState("");
+  //Selector
+  const state = useSelector((state) => {
+    return state.doctorRegReducer;
+  });
+
+  // =================================
+  const [consultationFee, setConsultationFee] = useState(
+    state.doctorInfo.consultationFee
+  );
   const [departmentDoctorRegister, setDepartmentDoctorRegister] = useState(5);
   const [cityDoctorRegister, setCityDoctorRegister] = useState(1);
   const [
@@ -19,11 +27,6 @@ const Page4 = () => {
     setScientificCertificateDoctorRegister,
   ] = useState("");
   const [message, setMessage] = useState("");
-
-  //Selector
-  const state = useSelector((state) => {
-    return state.doctorRegReducer;
-  });
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
@@ -61,9 +64,10 @@ const Page4 = () => {
         roleId: 2,
         ScientificCertificate: res.payload.ScientificCertificateDoctorRegister,
       });
+      history("/login");
     } catch (err) {
-      console.log(err);
-      setMessage("ther is something wrong ");
+      console.log(err.response.data.err.sqlMessage);
+      setMessage(err.response.data.err.sqlMessage);
     }
   };
 
@@ -77,6 +81,7 @@ const Page4 = () => {
             Consultation , Department , City and Certificate - Step 4 of 4
           </label>{" "}
           <input
+            value={consultationFee}
             placeholder="Consultation"
             type="text"
             className="doctorConsultationFee"
@@ -128,6 +133,7 @@ const Page4 = () => {
             <option value={12}>AQABA</option>
           </select>
           <input
+            value={ScientificCertificateDoctorRegister}
             placeholder="Cientific Certificate"
             type="text"
             className="doctorScientificCertificate"

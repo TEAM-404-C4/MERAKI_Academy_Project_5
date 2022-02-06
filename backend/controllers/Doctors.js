@@ -49,14 +49,14 @@ const createNewDoctor = async (req, res) => {
     ];
     connection.query(query, data, (err, result) => {
       if (err) {
-        res.status(500).json({
+        return res.status(500).json({
           success: false,
           massage: "server error",
           err: err,
         });
       }
       // result are the data returned by mysql server
-      res.status(201).json({
+      return res.status(201).json({
         success: true,
         massage: "Create New Doctor",
         results: result,
@@ -97,7 +97,6 @@ const getAllDoctors = (req, res) => {
 const getDoctorById = (req, res) => {
   const doctorId = req.params.id;
 
-
   const query = `SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.password,healthcare.doctor.profileImage,healthcare.doctor.gender,healthcare.doctor.status,healthcare.doctor.Nationality,healthcare.doctor.specialization,healthcare.doctor.phone,healthcare.doctor.workingDays,healthcare.doctor.address,healthcare.doctor.careersLicense,healthcare.doctor.waitingTime,healthcare.doctor.consultationFee,healthcare.doctor.ScientificCertificate,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department' FROM healthcare.doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId 
   WHERE healthcare.doctor.id = ? and healthcare.doctor.is_deleted = 0`;
 
@@ -122,7 +121,6 @@ const getDoctorById = (req, res) => {
 const getDoctorByDepartment = (req, res) => {
   const { city, department } = req.body;
   let subQuery;
-  console.log(city, department);
   let data = [department, city];
   if (city != 0 && department != 0) {
     subQuery = `departmentId = ? AND cityId = ?`;
@@ -142,7 +140,6 @@ const getDoctorByDepartment = (req, res) => {
   // const query = `SELECT * FROM healthcare.doctor  ${subQuery} Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId`;
   const query = `SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.password,healthcare.doctor.profileImage,healthcare.doctor.gender,healthcare.doctor.status,healthcare.doctor.Nationality,healthcare.doctor.specialization,healthcare.doctor.phone,healthcare.doctor.workingDays,healthcare.doctor.address,healthcare.doctor.careersLicense,healthcare.doctor.waitingTime,healthcare.doctor.consultationFee,healthcare.doctor.ScientificCertificate,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department' FROM healthcare.doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId  where doctor.is_deleted = 0 and (${subQuery})`;
   connection.query(query, data, (err, result) => {
-    console.log(result);
     if (err) {
       return res.json(err);
     }
