@@ -1,7 +1,7 @@
 //=======================================================//Require
 import axios from "axios";
 import React from "react";
-
+import "./Search.css";
 const Search = ({ setSearch }) => {
   const search = async (e) => {
     try {
@@ -15,10 +15,10 @@ const Search = ({ setSearch }) => {
   };
   //=======================================================//Return
   return (
-    <div>
+    <div className="SearchDiv">
       <input
-        placeholder="search..."
-        className="searchDoctr"
+        className="searchInput"
+        placeholder="Search by doctor name..."
         type="text"
         onChange={search}
       />
