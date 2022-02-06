@@ -32,21 +32,20 @@ const CardDoctor = ({
   //====================================================//Return
   return (
 
-
     <div className="mainPageDiv">
       <div className="card">
-        <div className="CardImage">
+        <div className="CardImageDiv">
           <img
             className="card-image"
             src={profileImage}
             alt={fullName}
-            onClick={(id) => {
+            onClick={() => {
               dispatch(setDoctor(id));
               history("/DoctorProfile");
             }}
           />
-
         </div>
+        {/*  */}{" "}
         <div className="card-information">
           <div>Dr.{fullName}</div>
           <div>Doctor in {Department}</div>
@@ -64,6 +63,18 @@ const CardDoctor = ({
           <div className="card-row">
             <div>Fees : {consultationFee} </div>
           </div>
+        </div>
+        {/*  */}{" "}
+        <div className="bookingBtn">
+          <button
+            value={id}
+            onClick={(e) => {
+              dispatch(setDoctor(e.target.value));
+              history("/DoctorProfile");
+            }}
+          >
+            profile
+          </button>
         </div>
       </div>
       <div className="card-Booking">

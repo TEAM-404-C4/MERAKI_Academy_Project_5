@@ -10,9 +10,17 @@
   text-align: center;
   width: 300px;
   text-align: left;
+  height: 35px;
+  padding: 15px;
 }
 
-.searchInput::placeholder {
-  color: grey;
-  font-size: 15px;
+::placeholder {
+  position: absolute;
+  bottom: 10px;
+  top: 7px;
+  left: 10px;
+  word-spacing: 1px;
+  color: rgb(77, 77, 77);
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
