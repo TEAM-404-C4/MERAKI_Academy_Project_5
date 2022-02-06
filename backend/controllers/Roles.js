@@ -1,6 +1,7 @@
+//====================================================//Require
 const connection = require("../database/db");
 
-// This function creates new role
+//====================================================//Create New Role Function
 const createNewRole = (req, res) => {
   const role = req.body.role;
   const query = `INSERT INTO role (name) VALUE (?)`;

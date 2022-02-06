@@ -1,6 +1,7 @@
+//====================================================//Require
 const express = require("express");
 
-// Import doctors controllers
+//====================================================//Require doctors Controllers
 const {
   createNewDoctor,
   getDoctorById,
@@ -10,9 +11,8 @@ const {
   getDoctorByName,
   getDoctorByDepartment,
 } = require("../controllers/Doctors");
-const { authentication } = require("../middleware/authentication");
 
-// Create doctor router
+//====================================================//Create doctor Router
 const doctorRouter = express.Router();
 
 doctorRouter.post("/", createNewDoctor);

@@ -1,3 +1,4 @@
+//====================================================//Require
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,31 +8,34 @@ import {
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 
+//CSS File
 import "./Page2.css";
 
+//====================================================//Page 2 Function
 const Page2 = () => {
   const [gender, setGender] = useState("MALE");
   const [Nationality, setNationality] = useState("");
   const [specialization, setSpecialization] = useState("");
   const [phone, setPhone] = useState("");
 
-  // =========================================
+  //====================================================//Dispatch & Navigate
   const history = useNavigate();
-
   const dispatch = useDispatch();
 
+  //====================================================//Next Button Function
   const nextButton = async () => {
     await dispatch(addInfoPage({ gender, Nationality, specialization, phone }));
     history("/doctorsignup3");
   };
 
+  //====================================================//Return
   return (
     <>
       <div className="mainPage2">
         <div className="Page2">
           <label className="levelLabel2">
             {" "}
-            Gender , Nationality ,Specialization and Phone- Step 2 of 5
+            Gender , Nationality ,Specialization and Phone- Step 2 of 4
           </label>
           <select
             placeholder="Gender"

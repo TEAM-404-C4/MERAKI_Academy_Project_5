@@ -1,0 +1,18 @@
+.SearchDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 200px;
+}
+
+.searchInput {
+  padding: 10px;
+  text-align: center;
+  width: 300px;
+  text-align: left;
+}
+
+.searchInput::placeholder {
+  color: grey;
+  font-size: 15px;
+}

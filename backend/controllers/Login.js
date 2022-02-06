@@ -1,10 +1,9 @@
+//====================================================//Require
 const connection = require("../database/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-// =================================================
-
-//  doctor login
+//====================================================//Doctor Login Function
 const doctorLogin = (req, res) => {
   const password = req.body.password;
   const phone = req.body.phone;
@@ -48,7 +47,7 @@ const doctorLogin = (req, res) => {
   });
 };
 
-// This function checks user login credentials
+//====================================================//Patient Login Function
 const login = (req, res, next) => {
   const password = req.body.password;
   const phone = req.body.phone;
