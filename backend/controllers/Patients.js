@@ -1,7 +1,8 @@
+//====================================================//Require
 const connection = require("../database/db");
 const bcrypt = require("bcrypt");
 
-//This function creates a new Patient (new user)
+//====================================================//Create New Patient Function
 const createNewPatient = async (req, res) => {
   let { firstName, lastName, password, phone, roleId } = req.body;
   const query = `INSERT INTO patient (firstName,lastName, password,phone,roleId) VALUES (?,?,?,?,?)`;
@@ -23,8 +24,7 @@ const createNewPatient = async (req, res) => {
   });
 };
 
-//This function get All  Patients
-
+//====================================================//Get All Patients Function
 const getAllPatients = (req, res) => {
   const query = `SELECT* FROM patient`;
   connection.query(query, (err, result) => {
@@ -51,7 +51,7 @@ const getAllPatients = (req, res) => {
   });
 };
 
-//get Patient by id
+//====================================================//Get Patient By Phone Function
 const getPatientByPhone = (req, res) => {
   let phone = req.body.phone;
   const query = `SELECT firstName,lastName,phone FROM patient WHERE phone like ?`;
@@ -80,8 +80,7 @@ const getPatientByPhone = (req, res) => {
   });
 };
 
-// update patient
-
+//====================================================//Update Patient By Id
 const updatePatientByid = async (req, res) => {
   userId = req.params.id;
   const { firstName, lastName, password, phone } = req.body;

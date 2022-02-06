@@ -1,37 +1,29 @@
-import axios from 'axios';
-import React,{useState} from 'react';
-
-const Search = ({setSearch}) => {
-
-
-// ========================
-
-
-const search = async (e)=>{
-console.log(e.target.value);
-    try{
-
-       const res= await axios.post("http://localhost:5000/doctors/search",{
-    
-        fullName:e.target.value,
-        })
-
-        console.log(res);
-        setSearch(res.data.result)
+//=======================================================//Require
+import axios from "axios";
+import React from "react";
+import "./Search.css";
+const Search = ({ setSearch }) => {
+  const search = async (e) => {
+    try {
+      const res = await axios.post("http://localhost:5000/doctors/search", {
+        fullName: e.target.value,
+      });
+      setSearch(res.data.result);
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-        console.log(err);
-    }
-
-}
-
-  return <div>
-
-
-     <input placeholder='search...' className='searchDoctr' type="text" onChange={search}/>
-
-    
-  </div>;
+  };
+  //=======================================================//Return
+  return (
+    <div className="SearchDiv">
+      <input
+        className="searchInput"
+        placeholder="Search by doctor name..."
+        type="text"
+        onChange={search}
+      />
+    </div>
+  );
 };
 
 export default Search;

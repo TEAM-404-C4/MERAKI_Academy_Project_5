@@ -1,15 +1,20 @@
+-- ====================================================//Drop DataBase
 Drop Database if exists HealthCare;
 
+-- ====================================================//Create DataBase
 CREATE Database HealthCare;
 
+-- ====================================================//Use DataBase
 Use HealthCare;
 
+-- ====================================================//Create Role Table
 Create Table Role(
     id int not null auto_increment primary key,
     Name varchar(255),
     is_deleted TINYINT Default 0
 );
 
+-- ====================================================//Create Admin Table
 Create Table Admin(
     id int not null auto_increment primary key,
     email varchar(255) unique,
@@ -21,6 +26,8 @@ Create Table Admin(
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
+-- ====================================================//Create Patient Table
 Create Table Patient(
     id int not null auto_increment primary key,
     firstName varchar(255),
@@ -32,12 +39,14 @@ Create Table Patient(
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-- ====================================================//Create Medical Department Table
 Create Table MedicalDepartment(
     id int not null auto_increment primary key,
     Name varchar(255),
     is_deleted TINYINT Default 0
 );
 
+-- ====================================================//Create City Table
 Create Table City(
     id int not null auto_increment primary key,
     Name varchar(255),
@@ -70,6 +79,7 @@ Create Table Doctor(
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-- ====================================================//Create Comment Table
 Create table Comment(
     id int not null auto_increment primary key,
     comment varchar(255),
@@ -79,12 +89,9 @@ Create table Comment(
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
--- =============================================================
 
 
--- CITY DATA
-
-
+-- ====================================================//CITY DATA
 Insert INTO City (Name) VALUES ('Amman');
 Insert INTO City (Name) VALUES ('IRBID');
 Insert INTO City (Name) VALUES ('ZARQA');
@@ -100,20 +107,17 @@ Insert INTO City (Name) VALUES ('AQABA');
 
 
 
---  ROLE DATA
 
+-- =====================================================//Role DATA
 Insert INTO Role (Name) VALUES ('ADMIN');
 Insert INTO Role (Name) VALUES ('DOCTOR');
 Insert INTO Role (Name) VALUES ('PATIENT');
 
 
--- ====================================
-
--- MedicalDepartment DATA
 
 
 
-
+-- ====================================================//MedicalDepartment DATA
 Insert INTO MedicalDepartment (Name) VALUES ('RADIOLOGY');
 Insert INTO MedicalDepartment (Name) VALUES ('LABORATORY');
 Insert INTO MedicalDepartment (Name) VALUES ('PHARMACY');
@@ -131,7 +135,9 @@ Insert INTO MedicalDepartment (Name) VALUES ('PHYCHIATRIC');
 Insert INTO MedicalDepartment (Name) VALUES ('NEUROLOGY');
 Insert INTO MedicalDepartment (Name) VALUES ('GENERAL DOCTOR');
 
--- Doctors DATA
+
+
+-- ====================================================//Doctors DATA
 
 INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("HAITHAM NAWWAF","haitham@yahoo.com","1234vcbvcb56","https://doctorsstorageprod.blob.core.windows.net/117663/Profile/passport_cdb392e6-287f-4e1a-8a84-2fd00109fcd0.jpg?sv=2017-04-17&sr=b&si=PrivatePolicy&sig=kxTS5xwpaePJp0vegOBXPb%2F0gX%2FkIBwgio8MRg6IpFg%3D","Male","Single","Jordanian",3,1111111111,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
 INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("OMAR Kataa","omark@yahoo.com","1234vcbvcb56","https://doctorsstorageprod.blob.core.windows.net/117663/Profile/passport_cdb392e6-287f-4e1a-8a84-2fd00109fcd0.jpg?sv=2017-04-17&sr=b&si=PrivatePolicy&sig=kxTS5xwpaePJp0vegOBXPb%2F0gX%2FkIBwgio8MRg6IpFg%3D","Male","Single","Jordanian",3,2222222222,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
@@ -142,3 +148,5 @@ INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationali
 INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("HAITHAM NAWWAF","haitham@yahoo.com","1234vcbvcb56","https://doctorsstorageprod.blob.core.windows.net/117663/Profile/passport_cdb392e6-287f-4e1a-8a84-2fd00109fcd0.jpg?sv=2017-04-17&sr=b&si=PrivatePolicy&sig=kxTS5xwpaePJp0vegOBXPb%2F0gX%2FkIBwgio8MRg6IpFg%3D","Male","Single","Jordanian",3,7777777777,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
 INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("OMAR Kataa","omark@yahoo.com","1234vcbvcb56","https://doctorsstorageprod.blob.core.windows.net/117663/Profile/passport_cdb392e6-287f-4e1a-8a84-2fd00109fcd0.jpg?sv=2017-04-17&sr=b&si=PrivatePolicy&sig=kxTS5xwpaePJp0vegOBXPb%2F0gX%2FkIBwgio8MRg6IpFg%3D","Male","Single","Jordanian",3,8888888888,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
 INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES ("Iyad Saadeh","iyad@yahoo.com","1234vcbvcb56","https://doctorsstorageprod.blob.core.windows.net/117663/Profile/passport_cdb392e6-287f-4e1a-8a84-2fd00109fcd0.jpg?sv=2017-04-17&sr=b&si=PrivatePolicy&sig=kxTS5xwpaePJp0vegOBXPb%2F0gX%2FkIBwgio8MRg6IpFg%3D","Male","Single","Jordanian",3,9999999999,"sunday,monday,tuesday","JORDAN,AMMAN","none","30 min","10$",1,1,1,"none");
+
+
