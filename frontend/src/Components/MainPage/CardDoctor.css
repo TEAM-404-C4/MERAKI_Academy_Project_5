@@ -5,6 +5,11 @@
 .card-image {
   width: 7vw;
   border-radius: 50%;
+  cursor: pointer;
+}
+h3{
+  cursor: pointer;
+
 }
 /* display: grid;
 grid-template-columns: repeat(2, auto);
@@ -33,3 +38,4 @@ gap: 1%; */
   align-items: center;
   gap: 1%;
 }
+

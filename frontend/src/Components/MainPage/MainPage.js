@@ -112,22 +112,14 @@ export default function MainPage() {
             profileImage={card.profileImage}
             consultationFee={card.consultationFee}
             department={card.departmentId}
-            ScientificCertificate={card.scientificCertificate}
+            ScientificCertificate={card.ScientificCertificate}
             city={card.city}
+            specialization={card.specialization}
             Department={card.Department}
             workingDays={card.workingDays}
             waitingTime={card.waitingTime}
           />
-          <button
-            value={card.id}
-            onClick={(e) => {
-              dispatch(setDoctor(e.target.value));
-              console.log(e.target.value);
-              history("/DoctorProfile");
-            }}
-          >
-            profile
-          </button>
+          
         </>
       );
     });
