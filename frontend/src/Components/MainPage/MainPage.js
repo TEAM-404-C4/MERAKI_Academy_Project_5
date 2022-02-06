@@ -117,16 +117,7 @@ const MainPage = () => {
             workingDays={card.workingDays}
             waitingTime={card.waitingTime}
           />
-          <button
-            value={card.id}
-            onClick={(e) => {
-              dispatch(setDoctor(e.target.value));
-
-              history("/DoctorProfile");
-            }}
-          >
-            profile
-          </button>
+         
         </>
       );
     });
