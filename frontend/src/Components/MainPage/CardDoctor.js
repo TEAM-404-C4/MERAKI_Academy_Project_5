@@ -18,17 +18,15 @@ export default function CardDoctor({
 
   return (
     <div className="card">
-      <div>
-      <h1>{id}</h1>
-        <Link to={"/DoctorProfile/"+id}>
-          {" "}
+      <div className="card-information">
+        
           <img className="card-image" src={profileImage} alt={fullName} />
-        </Link>
+        
       </div>
       <div className="card-information">
-        <Link to={"/DoctorProfile/"+id}>
+        
           <h3>{fullName}</h3>
-        </Link>
+        
         <h5>{Department}</h5>
         <div className="card-row">
           <FaHandHoldingMedical />
