@@ -18,8 +18,9 @@ const CardDoctor = ({
   address,
   profileImage,
   consultationFee,
-  department,
+  specialization,
   ScientificCertificate,
+
   city,
   Department,
   workingDays,
@@ -30,6 +31,7 @@ const CardDoctor = ({
 
   //====================================================//Return
   return (
+
     <div className="mainPageDiv">
       <div className="card">
         <div className="CardImageDiv">
@@ -74,6 +76,18 @@ const CardDoctor = ({
             profile
           </button>
         </div>
+      </div>
+      <div className="card-Booking">
+      <button
+            value={id}
+            onClick={(e) => {
+              dispatch(setDoctor(e.target.value));
+              console.log(e.target.value);
+              history("/DoctorProfile");
+            }}
+          >
+            Book
+          </button>
       </div>
     </div>
   );
