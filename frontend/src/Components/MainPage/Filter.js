@@ -1,7 +1,7 @@
-
 //====================================================//Require
 import axios from "axios";
 import React, { useState } from "react";
+import "./Filter.css";
 
 //====================================================//Create Filter Function
 const Filter = ({ setSearch }) => {
@@ -54,7 +54,7 @@ const Filter = ({ setSearch }) => {
   };
   //======================================================//Return
   return (
-    <div>
+    <div className="mainFilterDiv">
       <select
         className="departmentDoctorFolter"
         defaultValue={0}
