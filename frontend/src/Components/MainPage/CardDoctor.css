@@ -45,11 +45,9 @@
   gap: 1%;
 }
 
-
 .bookingBtn {
   background-color: red;
   width: 50vh;
   height: 100%;
-  width: 120px;
+  width: 50vh;
 }
-

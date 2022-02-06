@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 //CSS File
 import "./CardDoctor.css";
 
-
 //====================================================//Create Card Doctor Function
 const CardDoctor = ({
   id,
@@ -31,7 +30,6 @@ const CardDoctor = ({
 
   //====================================================//Return
   return (
-
     <div className="mainPageDiv">
       <div className="card">
         <div className="CardImageDiv">
@@ -50,7 +48,7 @@ const CardDoctor = ({
           <div>Dr.{fullName}</div>
           <div>Doctor in {Department}</div>
           <div className="card-row">
-            <div>{ScientificCertificate}</div>
+            <div> Scientific Certificate : {ScientificCertificate}</div>
           </div>
           <div className="card-row">
             <div>
@@ -73,21 +71,21 @@ const CardDoctor = ({
               history("/DoctorProfile");
             }}
           >
-            profile
+            Book Now !
           </button>
         </div>
       </div>
       <div className="card-Booking">
-      <button
-            value={id}
-            onClick={(e) => {
-              dispatch(setDoctor(e.target.value));
-              console.log(e.target.value);
-              history("/DoctorProfile");
-            }}
-          >
-            Book
-          </button>
+        {/* <button
+          value={id}
+          onClick={(e) => {
+            dispatch(setDoctor(e.target.value));
+            console.log(e.target.value);
+            history("/DoctorProfile");
+          }}
+        >
+          Book
+        </button> */}
       </div>
     </div>
   );
