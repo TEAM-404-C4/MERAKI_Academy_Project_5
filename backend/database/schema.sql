@@ -91,7 +91,7 @@ Create table Comment(
 
 create table Appointment(
     id int not null auto_increment primary key,
-    title varchar(255),
+    time varchar(255),
 );
 create table Doctor_Appointment(
     id int not null auto_increment primary key,
@@ -128,6 +128,24 @@ Insert INTO Role (Name) VALUES ('DOCTOR');
 Insert INTO Role (Name) VALUES ('PATIENT');
 
 
+-- =================================================// Appointment Data
+Insert INTO Appointment (time) VALUES ('9:00');
+Insert INTO Appointment (time) VALUES ('9:30');
+Insert INTO Appointment (time) VALUES ('10:00');
+Insert INTO Appointment (time) VALUES ('10:30');
+Insert INTO Appointment (time) VALUES ('11:00');
+Insert INTO Appointment (time) VALUES ('11:30');
+Insert INTO Appointment (time) VALUES ('12:00');
+Insert INTO Appointment (time) VALUES ('12:30');
+Insert INTO Appointment (time) VALUES ('1:00');
+Insert INTO Appointment (time) VALUES ('1:30');
+Insert INTO Appointment (time) VALUES ('2:00');
+Insert INTO Appointment (time) VALUES ('2:30');
+Insert INTO Appointment (time) VALUES ('3:00');
+Insert INTO Appointment (time) VALUES ('3:30');
+Insert INTO Appointment (time) VALUES ('4:00');
+Insert INTO Appointment (time) VALUES ('4:30');
+Insert INTO Appointment (time) VALUES ('5:00');
 
 
 
