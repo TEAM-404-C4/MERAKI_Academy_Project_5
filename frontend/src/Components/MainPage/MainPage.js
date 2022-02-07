@@ -14,6 +14,8 @@ const MainPage = () => {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState("");
+  const [lat, setLat] = useState("");
+  const [long, setLong] = useState("");
   const history = useNavigate();
 
   // Status For Pagination
@@ -26,6 +28,7 @@ const MainPage = () => {
   // Use Effect
   useEffect(() => {
     getAllDoctors();
+
   }, []);
 
   //====================================================//Create Get All Doctors
@@ -117,6 +120,8 @@ const MainPage = () => {
             workingDays={card.workingDays}
             waitingTime={card.waitingTime}
             specialization={card.specialization}
+            latitude={card.latitude}
+            longitude={card.longitude}
           />
         </>
       );

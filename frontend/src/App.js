@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Navigation from "./Components/navigation/navigation";
 import Login from "./Components/login/login";
@@ -11,6 +11,8 @@ import Page2 from "./Components/DoctorRegister/Page2";
 import Page3 from "./Components/DoctorRegister/Page3";
 import Page4 from "./Components/DoctorRegister/Page4";
 import Booking from "./Components/Booking/Booking";
+import Setting from "./Components/Setting/Setting";
+
 
 //App Function
 function App() {
@@ -27,7 +29,8 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/Register" element={<Register />} />
-        <Route path='/DoctorProfile' element={<DoctorProfile/>} />
+        <Route path="/DoctorProfile" element={<DoctorProfile />} />
+        <Route path="/setting" element={<Setting />} />
       </Routes>
     </div>
   );
