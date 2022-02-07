@@ -93,7 +93,7 @@ Create table Comment(
 
 create table Appointment(
     id int not null auto_increment primary key,
-    time varchar(255),
+    time varchar(255)
 );
 create table Doctor_Appointment(
     id int not null auto_increment primary key,
@@ -103,7 +103,7 @@ create table Doctor_Appointment(
     patientId int null,
 FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 
