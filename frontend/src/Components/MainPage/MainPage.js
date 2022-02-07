@@ -116,6 +116,7 @@ const MainPage = () => {
             Department={card.Department}
             workingDays={card.workingDays}
             waitingTime={card.waitingTime}
+            specialization={card.specialization}
           />
         </>
       );
@@ -141,7 +142,6 @@ const MainPage = () => {
               workingDays={card.workingDays}
               waitingTime={card.waitingTime}
             />
-      
           </>
         );
       })
