@@ -28,12 +28,6 @@ const MainPage = () => {
   // Use Effect
   useEffect(() => {
     getAllDoctors();
-
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords);
-      setLat(position.coords.latitude);
-      setLong(position.coords.longitude);
-    });
   }, []);
 
   //====================================================//Create Get All Doctors
@@ -41,7 +35,6 @@ const MainPage = () => {
     try {
       const res = await axios.get("http://localhost:5000/doctors");
       if (res.data.success) {
-        console.log(res.data.results);
         setDoctors(res.data.results);
         setMessage("");
       } else throw Error;
@@ -112,12 +105,6 @@ const MainPage = () => {
     let doctorCard = data.map((card, index) => {
       return (
         <>
-          <a
-            href={`https://www.google.com/maps?q=${lat},${long}`}
-            target="_blank"
-          >
-            set my location
-          </a>
           <CardDoctor
             key={card.id}
             id={card.id}
