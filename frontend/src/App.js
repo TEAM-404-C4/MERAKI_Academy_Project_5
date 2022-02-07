@@ -10,6 +10,7 @@ import Page1 from "./Components/DoctorRegister/Page1";
 import Page2 from "./Components/DoctorRegister/Page2";
 import Page3 from "./Components/DoctorRegister/Page3";
 import Page4 from "./Components/DoctorRegister/Page4";
+import Setting from "./Components/Setting/Setting";
 
 //App Function
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/DoctorProfile" element={<DoctorProfile />} />
+        <Route path="/setting" element={<Setting />} />
       </Routes>
     </div>
   );

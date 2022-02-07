@@ -7,6 +7,8 @@ import {
   BsBoxArrowInRight,
   BsWindow,
 } from "react-icons/bs";
+import { MdSettings } from "react-icons/md";
+
 import { logoutRedux } from "../Reducer/login/index";
 
 import "./navigation.css";
@@ -53,6 +55,13 @@ const Navigation = () => {
             <BsWindow />
           </Link>
           <p className="nav_label">Dashbord</p>
+        </div>
+
+        <div>
+          <Link to="/setting">
+            <MdSettings />
+          </Link>
+          <p className="nav_label">Setting</p>
         </div>
         <div
           onClick={() => {
