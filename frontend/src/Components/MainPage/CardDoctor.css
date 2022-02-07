@@ -4,6 +4,17 @@
   margin-right: 50px;
   margin-top: 50px;
 }
+.card-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  gap: 12px;
+  width: 70vh;
+  background-color: white;
+  padding: 15px;
+}
 
 .card {
   display: flex;
@@ -23,31 +34,55 @@
 .CardImageDiv {
   width: 50vh;
   background-color: grey;
-  background-color: green;
+  background-color: rgb(242, 242, 242);
   height: 100%;
 }
 
-.card-information {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 100%;
-  gap: 20px;
-  width: 50vh;
-  background-color: blue;
-}
 .card-row {
+  font-size: 15px;
+}
+
+.doctorNameDiv {
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  align-items: center;
-  gap: 1%;
+  gap: 5px;
+  color: #4397cf;
+  font-weight: bold;
 }
 
-.bookingBtn {
-  background-color: red;
-  width: 50vh;
+.DoctorName {
+  color: #4397cf;
+}
+
+.Rating {
+  background-color: green;
+  height: 70px;
+}
+
+/* /////////////////////////////////////////// */
+
+.bookingBtnDiv {
+  background-color: rgb(242, 242, 242);
   height: 100%;
   width: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 15px;
+}
+.bookingBtn {
+  color: white;
+  height: 40px;
+  width: 170px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: #4397cf;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bookingBtn:hover {
+  cursor: pointer;
+  background-color: #51b0f0;
 }
