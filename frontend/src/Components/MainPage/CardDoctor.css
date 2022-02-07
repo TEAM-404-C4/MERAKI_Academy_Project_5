@@ -4,7 +4,9 @@
   margin-right: 50px;
   margin-top: 50px;
 }
-
+.DoctorName{
+  cursor: pointer;
+}
 .card {
   display: flex;
   flex-direction: row;
@@ -52,4 +54,7 @@
   height: 100%;
   width: 120px;
 }
+.card-image{
+  cursor: pointer;
 
+}

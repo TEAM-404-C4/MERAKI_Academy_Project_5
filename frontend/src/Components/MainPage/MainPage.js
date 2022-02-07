@@ -136,7 +136,7 @@ const MainPage = () => {
               profileImage={card.profileImage}
               consultationFee={card.consultationFee}
               department={card.departmentId}
-              ScientificCertificate={card.scientificCertificate}
+              ScientificCertificate={card.ScientificCertificate}
               city={card.city}
               Department={card.Department}
               workingDays={card.workingDays}

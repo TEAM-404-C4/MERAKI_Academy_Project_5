@@ -47,7 +47,10 @@ const CardDoctor = ({
         </div>
         {/*  */}{" "}
         <div className="card-information">
-          <div>Dr.{fullName}</div>
+          <div className="DoctorName" onClick={() => {
+              dispatch(setDoctor(id));
+              history("/DoctorProfile");
+            }}>Dr.{fullName}</div>
           <div>Doctor in {Department}</div>
           <div className="card-row">
             <div>{ScientificCertificate}</div>
