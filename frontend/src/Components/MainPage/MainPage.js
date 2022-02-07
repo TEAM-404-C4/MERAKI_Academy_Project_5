@@ -15,7 +15,7 @@ const MainPage = () => {
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState("");
   const history = useNavigate();
-
+ 
   // Status For Pagination
   const [itemsPerPage, setitemsPerPage] = useState(10);
   const [currentPage, setcurrentPage] = useState(1);
@@ -26,6 +26,9 @@ const MainPage = () => {
   // Use Effect
   useEffect(() => {
     getAllDoctors();
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position);
+    });
   }, []);
 
   //====================================================//Create Get All Doctors

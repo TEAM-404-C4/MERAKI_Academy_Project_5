@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addInfoPage } from "../Reducer/DoctorRegister/index";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import {storage} from '../Firebase/firebase'
+import { storage } from "../Firebase/firebase";
 //CSS File
 import "./Page1.css";
 
@@ -33,17 +33,28 @@ const Page1 = () => {
   //====================================================//Return
 
   // =================================================//Uploud image to firebase
-const UploudImage=()=>{
+  const UploudImage = () => {
     const upload = storage.ref(`images/${image.name}`).put(image);
-    upload.on('state_changed',snapshot=>{},error=>{console.log(error);},
-    ()=>{
-        storage.ref('images').child(image.name).getDownloadURL().then((url)=>{
+    upload.on(
+      "state_changed",
+      (snapshot) => {},
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
             console.log(url);
-        }).catch((err)=>{
+          })
+          .catch((err) => {
             throw err;
-        })
-    })
-  }
+          });
+      }
+    );
+  };
   // =================================================//Uploud image to firebase
   return (
     <>
@@ -83,8 +94,9 @@ const UploudImage=()=>{
             type="file"
             className="doctorProfileImage"
             id="image"
-            onChange={(e)=>{
-              if (e.target.files[0]) setImage(e.target.files[0])}} 
+            onChange={(e) => {
+              if (e.target.files[0]) setImage(e.target.files[0]);
+            }}
           />
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
