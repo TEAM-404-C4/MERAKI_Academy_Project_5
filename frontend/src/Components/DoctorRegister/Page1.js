@@ -33,27 +33,33 @@ const Page1 = () => {
   //====================================================//Return
 
   // =================================================//Uploud image to firebase
+  const ImageChange=(e)=>{
+if (e.target.files[0]) {
+  setImage(e.target.files[0])
+}
+  };
+  console.log(image);
   const UploudImage = () => {
-    const upload = storage.ref(`images/${image.name}`).put(image);
-    upload.on(
-      "state_changed",
-      (snapshot) => {},
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            console.log(url);
-          })
-          .catch((err) => {
-            throw err;
-          });
-      }
-    );
+    // const upload = storage.ref(`images/${image.name}`).put(image);
+    // upload.on(
+    //   "state_changed",
+    //   (snapshot) => {},
+    //   (error) => {
+    //     console.log(error);
+    //   },
+    //   () => {
+    //     storage
+    //       .ref("images")
+    //       .child(image.name)
+    //       .getDownloadURL()
+    //       .then((url) => {
+    //         console.log(url);
+    //       })
+    //       .catch((err) => {
+    //         throw err;
+    //       });
+    //   }
+    // );
   };
   // =================================================//Uploud image to firebase
   return (
@@ -94,9 +100,7 @@ const Page1 = () => {
             type="file"
             className="doctorProfileImage"
             id="image"
-            onChange={(e) => {
-              if (e.target.files[0]) setImage(e.target.files[0]);
-            }}
+            onChange={ImageChange}
           />
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
