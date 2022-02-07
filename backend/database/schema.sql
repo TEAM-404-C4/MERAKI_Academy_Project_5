@@ -69,6 +69,8 @@ Create Table Doctor(
     careersLicense varchar(255),
     waitingTime varchar(255),
     consultationFee varchar(255),
+    latitude varchar(255),
+    longitude varchar(255),
     departmentId int not null,
     cityId int not null,
     roleId int not null,

@@ -28,11 +28,7 @@ const MainPage = () => {
   // Use Effect
   useEffect(() => {
     getAllDoctors();
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords);
-      setLat(position.coords.latitude);
-      setLong(position.coords.longitude);
-    });
+
   }, []);
 
   //====================================================//Create Get All Doctors
@@ -110,12 +106,6 @@ const MainPage = () => {
     let doctorCard = data.map((card, index) => {
       return (
         <>
-          <a
-            href={`https://www.google.com/maps?q=${lat},${long}`}
-            target="_blank"
-          >
-            set my location
-          </a>
           <CardDoctor
             key={card.id}
             id={card.id}
@@ -130,6 +120,8 @@ const MainPage = () => {
             workingDays={card.workingDays}
             waitingTime={card.waitingTime}
             specialization={card.specialization}
+            latitude={card.latitude}
+            longitude={card.longitude}
           />
         </>
       );
