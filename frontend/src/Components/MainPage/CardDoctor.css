@@ -87,6 +87,8 @@
 }
 .card-image {
   cursor: pointer;
+  width: 13vw;
+    height: 53vh;
 }
 .bookingBtn:hover {
   cursor: pointer;
