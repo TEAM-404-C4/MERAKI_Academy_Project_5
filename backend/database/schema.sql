@@ -91,7 +91,21 @@ Create table Comment(
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+create table Appointment(
+    id int not null auto_increment primary key,
+    time varchar(255),
+);
+create table Doctor_Appointment(
+    id int not null auto_increment primary key,
+    is_Booking TINYINT default 0,
+    doctorId int not null,
+    appointmentId int not null,
+    patientId int null,
+FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE,
 
+);
 
 -- ====================================================//CITY DATA
 Insert INTO City (Name) VALUES ('Amman');
@@ -116,6 +130,24 @@ Insert INTO Role (Name) VALUES ('DOCTOR');
 Insert INTO Role (Name) VALUES ('PATIENT');
 
 
+-- =================================================// Appointment Data
+Insert INTO Appointment (time) VALUES ('9:00');
+Insert INTO Appointment (time) VALUES ('9:30');
+Insert INTO Appointment (time) VALUES ('10:00');
+Insert INTO Appointment (time) VALUES ('10:30');
+Insert INTO Appointment (time) VALUES ('11:00');
+Insert INTO Appointment (time) VALUES ('11:30');
+Insert INTO Appointment (time) VALUES ('12:00');
+Insert INTO Appointment (time) VALUES ('12:30');
+Insert INTO Appointment (time) VALUES ('1:00');
+Insert INTO Appointment (time) VALUES ('1:30');
+Insert INTO Appointment (time) VALUES ('2:00');
+Insert INTO Appointment (time) VALUES ('2:30');
+Insert INTO Appointment (time) VALUES ('3:00');
+Insert INTO Appointment (time) VALUES ('3:30');
+Insert INTO Appointment (time) VALUES ('4:00');
+Insert INTO Appointment (time) VALUES ('4:30');
+Insert INTO Appointment (time) VALUES ('5:00');
 
 
 

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addInfoPage } from "../Reducer/DoctorRegister/index";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { storage } from "../Firebase/firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 //CSS File
 import "./Page1.css";
 
@@ -19,13 +20,26 @@ const Page1 = () => {
   const [email, setEmail] = useState(state.email);
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("");
-
+  const [URL, setURL] = useState();
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
   const history = useNavigate();
 
   //====================================================//Next Button Function
   const nextButton = async () => {
+    const imageRef = ref(storage, 'image');
+    uploadBytes(imageRef, image).then(() => {
+      getDownloadURL(imageRef).then((url) => {
+        setImage(url);
+        console.log(url);
+      }).catch((error) => {
+        // I think make alert for Error 
+        console.log(error.message);
+      });
+    }).catch((error) => {
+      // I think make alert for Error 
+      console.log(error.message);
+    })
     await dispatch(addInfoPage({ fullName, email, password, image }));
     history("/doctorsignup2");
   };
@@ -33,28 +47,12 @@ const Page1 = () => {
   //====================================================//Return
 
   // =================================================//Uploud image to firebase
-  const UploudImage = () => {
-    const upload = storage.ref(`images/${image.name}`).put(image);
-    upload.on(
-      "state_changed",
-      (snapshot) => {},
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        storage
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            console.log(url);
-          })
-          .catch((err) => {
-            throw err;
-          });
-      }
-    );
+  const ImageChange = (e) => {
+    if (e.target.files[0]) {
+      setImage(e.target.files[0])
+    }
   };
+
   // =================================================//Uploud image to firebase
   return (
     <>
@@ -93,15 +91,14 @@ const Page1 = () => {
           <input
             type="file"
             className="doctorProfileImage"
-            id="image"
-            onChange={(e) => {
-              if (e.target.files[0]) setImage(e.target.files[0]);
-            }}
+            id="image" accept="image/*"
+            onChange={ImageChange}
           />
+          <img src={image} alt="photo" />
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
           </button>
-          <button onClick={UploudImage}>uploud</button>
+          
         </div>
       </div>
     </>
