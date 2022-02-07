@@ -22,14 +22,36 @@ const Page2 = () => {
   const [Nationality, setNationality] = useState(state.Nationality);
   const [specialization, setSpecialization] = useState(state.specialization);
   const [phone, setPhone] = useState(state.phone);
+  const [latitude, setLatitude] = useState(state.latitude);
+  const [longitude, setLongitude] = useState(state.longitude);
+
+  // =========================================================================
 
   //====================================================//Dispatch & Navigate
   const history = useNavigate();
   const dispatch = useDispatch();
 
+  // ====================================
+  const setLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position.coords);
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
+  };
+
   //====================================================//Next Button Function
   const nextButton = async () => {
-    await dispatch(addInfoPage({ gender, Nationality, specialization, phone }));
+    await dispatch(
+      addInfoPage({
+        gender,
+        Nationality,
+        specialization,
+        phone,
+        latitude,
+        longitude,
+      })
+    );
     history("/doctorsignup3");
   };
 
@@ -79,6 +101,18 @@ const Page2 = () => {
               setPhone(e.target.value);
             }}
           />{" "}
+          <br />
+          <button className="locationButton" onClick={setLocation}>
+            Upload location
+          </button>
+          {latitude && (
+            <a
+              href={`https://www.google.com/maps?q=${latitude},${longitude}`}
+              target="_blank"
+            >
+              See my location
+            </a>
+          )}
           <br />
           <div className="nextAndBackBtn">
             <button

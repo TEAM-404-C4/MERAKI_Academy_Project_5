@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 //====================================================//Create New Doctor
 const createNewDoctor = async (req, res) => {
   const query =
-    "insert into doctor (fullName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    "insert into doctor (fullName,email,password,profileImage,gender,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   const {
     fullName,
     email,
@@ -20,6 +20,8 @@ const createNewDoctor = async (req, res) => {
     careersLicense,
     waitingTime,
     consultationFee,
+    latitude,
+    longitude,
     departmentId,
     cityId,
     roleId,
@@ -42,6 +44,8 @@ const createNewDoctor = async (req, res) => {
       careersLicense,
       waitingTime,
       consultationFee,
+      latitude,
+      longitude,
       departmentId,
       cityId,
       roleId,

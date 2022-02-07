@@ -28,6 +28,7 @@ const MainPage = () => {
   // Use Effect
   useEffect(() => {
     getAllDoctors();
+  
     navigator.geolocation.getCurrentPosition((position) => {
       console.log(position.coords);
       setLat(position.coords.latitude)
