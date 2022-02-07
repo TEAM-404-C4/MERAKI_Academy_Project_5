@@ -37,12 +37,17 @@ const Navigation = () => {
         ) : (
           <></>
         )}
-        <div>
-          <Link to="/Register">
-            <BsNewspaper />
-          </Link>
-          <p className="nav_label">Register</p>
-        </div>
+        {!state ? (
+          <div>
+            <Link to="/Register">
+              <BsNewspaper />
+            </Link>
+            <p className="nav_label">Register</p>
+          </div>
+        ) : (
+          <></>
+        )}
+
         <div>
           <Link to="/dashBoard">
             <BsWindow />
