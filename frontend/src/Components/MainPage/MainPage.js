@@ -112,7 +112,7 @@ const MainPage = () => {
       return (
         <>
 
-        <a href={`https://www.google.com/maps?q=${lat},${long}`} >set my location</a>
+        <a href={`https://www.google.com/maps?q=${lat},${long}`} target="_blank" >set my location</a>
           <CardDoctor
             key={card.id}
             id={card.id}
