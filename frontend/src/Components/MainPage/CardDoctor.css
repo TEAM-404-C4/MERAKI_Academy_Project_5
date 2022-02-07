@@ -88,9 +88,9 @@
 }
 .card-image{
   cursor: pointer;
+}
 
-
-=======
+/* ======= */
 .bookingBtn:hover {
   cursor: pointer;
   background-color: #51b0f0;
