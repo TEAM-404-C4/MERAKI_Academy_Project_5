@@ -14,8 +14,10 @@ const MainPage = () => {
   const [doctors, setDoctors] = useState([]);
   const [message, setMessage] = useState("");
   const [search, setSearch] = useState("");
+  const [lat, setLat] = useState("");
+  const [long, setLong] = useState("");
   const history = useNavigate();
-
+ 
   // Status For Pagination
   const [itemsPerPage, setitemsPerPage] = useState(10);
   const [currentPage, setcurrentPage] = useState(1);
@@ -26,6 +28,12 @@ const MainPage = () => {
   // Use Effect
   useEffect(() => {
     getAllDoctors();
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position.coords);
+      setLat(position.coords.latitude)
+      setLong(position.coords.longitude)
+      
+    });
   }, []);
 
   //====================================================//Create Get All Doctors
@@ -103,6 +111,8 @@ const MainPage = () => {
     let doctorCard = data.map((card, index) => {
       return (
         <>
+
+        <a href={`https://www.google.com/maps?q=${lat},${long}`} target="_blank" >set my location</a>
           <CardDoctor
             key={card.id}
             id={card.id}

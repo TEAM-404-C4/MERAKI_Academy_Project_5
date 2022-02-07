@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Navigation from "./Components/navigation/navigation";
 import Login from "./Components/login/login";
@@ -25,7 +25,7 @@ function App() {
         <Route path="/signup" element={<Register />} />
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/Register" element={<Register />} />
-        <Route path='/DoctorProfile' element={<DoctorProfile/>} />
+        <Route path="/DoctorProfile" element={<DoctorProfile />} />
       </Routes>
     </div>
   );
