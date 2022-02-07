@@ -89,7 +89,21 @@ Create table Comment(
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+create table Appointment(
+    id int not null auto_increment primary key,
+    title varchar(255),
+);
+create table Doctor_Appointment(
+    id int not null auto_increment primary key,
+    is_Booking TINYINT default 0,
+    doctorId int not null,
+    appointmentId int not null,
+    patientId int null,
+FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE,
 
+);
 
 -- ====================================================//CITY DATA
 Insert INTO City (Name) VALUES ('Amman');

@@ -91,7 +91,7 @@ const Page1 = () => {
           <input
             type="file"
             className="doctorProfileImage"
-            id="image"
+            id="image" accept="image/*"
             onChange={ImageChange}
           />
           <img src={image} alt="photo" />
