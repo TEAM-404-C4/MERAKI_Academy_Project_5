@@ -59,6 +59,8 @@ const Page4 = () => {
         careersLicense: state.doctorInfo.careersLicense,
         waitingTime: state.doctorInfo.waitingTime,
         consultationFee: res.payload.consultationFee,
+        latitude: state.doctorInfo.latitude,
+        longitude: state.doctorInfo.longitude,
         departmentId: res.payload.departmentDoctorRegister,
         cityId: res.payload.cityDoctorRegister,
         roleId: 2,

@@ -10,12 +10,16 @@ import Page1 from "./Components/DoctorRegister/Page1";
 import Page2 from "./Components/DoctorRegister/Page2";
 import Page3 from "./Components/DoctorRegister/Page3";
 import Page4 from "./Components/DoctorRegister/Page4";
+import Booking from "./Components/Booking/Booking";
+import Setting from "./Components/Setting/Setting";
+
 
 //App Function
 function App() {
   return (
     <div className="App">
       <Navigation />
+      <Booking/>
       <Routes>
         <Route path="/doctorsignup1" element={<Page1 />} />
         <Route path="/doctorsignup2" element={<Page2 />} />
@@ -26,6 +30,7 @@ function App() {
         <Route path="/MainPage" element={<MainPage />} />
         <Route path="/Register" element={<Register />} />
         <Route path="/DoctorProfile" element={<DoctorProfile />} />
+        <Route path="/setting" element={<Setting />} />
       </Routes>
     </div>
   );

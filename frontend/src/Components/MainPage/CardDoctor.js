@@ -29,6 +29,8 @@ const CardDoctor = ({
   Department,
   workingDays,
   waitingTime,
+  latitude,
+  longitude,
 }) => {
   const history = useNavigate();
   const dispatch = useDispatch();
@@ -50,13 +52,14 @@ const CardDoctor = ({
         </div>
         {/*  */}
         <div className="card-information">
-
-          
-          <div className="doctorNameDiv" onClick={() => {
+          <div
+            className="doctorNameDiv"
+            onClick={() => {
               dispatch(setDoctor(id));
               history("/DoctorProfile");
-            }}>
-            <div className="DoctorName" >Doctor</div> {fullName}
+            }}
+          >
+            <div className="DoctorName">Doctor</div> {fullName}
           </div>
           <div className="Rating"></div>
 
@@ -86,6 +89,12 @@ const CardDoctor = ({
               <GiMoneyStack style={{ color: "#0EB800" }} />
               Fees : {consultationFee}{" "}
             </div>
+            <a
+              href={`https://www.google.com/maps?q=${latitude},${longitude}`}
+              target="_blank"
+            >
+              set my location
+            </a>
           </div>
         </div>
         {/*  */}{" "}
