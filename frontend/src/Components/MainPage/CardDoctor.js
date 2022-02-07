@@ -50,10 +50,16 @@ const CardDoctor = ({
         </div>
         {/*  */}
         <div className="card-information">
-          <div className="doctorNameDiv">
-            <div className="DoctorName">Doctor</div> {fullName}
+
+          
+          <div className="doctorNameDiv" onClick={() => {
+              dispatch(setDoctor(id));
+              history("/DoctorProfile");
+            }}>
+            <div className="DoctorName" >Doctor</div> {fullName}
           </div>
           <div className="Rating"></div>
+
           <div className="card-row">
             <FaUserMd style={{ color: "#91D1BD" }} />
             {Department} specialized in {specialization}
