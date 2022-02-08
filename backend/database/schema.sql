@@ -95,6 +95,7 @@ create table Appointment(
     id int not null auto_increment primary key,
     time varchar(255),
     is_deleted TINYINT Default 0
+
 );
 create table Doctor_Appointment(
     id int not null auto_increment primary key,
