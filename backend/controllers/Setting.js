@@ -16,7 +16,6 @@ const ChangePatientPasswordById = (req, res) => {
         result[0].password
       );
 
-      console.log("CheckPassword", CheckPassword);
       if (CheckPassword) {
         const query = `UPDATE patient SET password=? WHERE id= ?;`;
         newPassword = await bcrypt.hash(newPassword, 5);
@@ -45,9 +44,11 @@ const ChangePatientPasswordById = (req, res) => {
 };
 
 const ChangePatientPhoneById = (req, res) => {
+  const id = req.token.userId;
   const oldPhone = req.body.oldPhone;
   const newPhone = req.body.newPhone;
   const password = req.body.password;
+
   const query = `SELECT phone ,password FROM patient WHERE id=?`;
   const data = [id];
   connection.query(query, data, async (err, result) => {

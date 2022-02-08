@@ -1,13 +1,13 @@
 .changeDiv {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: flex-start;
-  gap: 50px;
+  gap: 170px;
+  margin-top: 70px;
   padding: 10px;
   margin-left: 10%;
 }
-.changepasswordDiv {
+.changePasswordDiv {
   display: flex;
   flex-direction: row;
   gap: 5%;
@@ -25,7 +25,7 @@
 .cPasswordFrom {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .showPasswordbtn {
@@ -33,6 +33,11 @@
   outline: none;
   border: none;
   font-size: 35px;
+  padding: 50xp;
+}
+.showPasswordbtn:hover {
+  cursor: pointer;
+  color: blue;
 }
 
 .oldPassword {
@@ -87,23 +92,83 @@
   color: white;
 }
 
-.saveAndMessage {
+/* ============================ */
+
+.changePhoneDiv {
   display: flex;
   flex-direction: row;
+  gap: 5%;
+  width: 30%;
+  border-radius: 10px;
 }
-
-.messageChangePassword {
-  background-color: red;
-  height: 40px;
-}
-.svg:hover {
-  background-color: red;
-}
-/* ============================ */
-.changephone {
+.changePhoneForm {
   display: flex;
   flex-direction: column;
   background-color: white;
-  width: 30%;
-  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.showPhonebtn {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 35px;
+  padding: 50xp;
+}
+
+.showPhonebtn:hover {
+  cursor: pointer;
+  color: blue;
+}
+.cPhoneFrom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.oldPhone {
+  width: 400px;
+  font-size: 25px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  color: black;
+}
+.oldPhone::placeholder {
+  color: GREY;
+  font-weight: bold;
+  position: absolute;
+  top: 25px;
+}
+
+.newPhone {
+  width: 400px;
+  font-size: 25px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+.newPhone::placeholder {
+  position: absolute;
+  top: 25px;
+  color: GREY;
+  font-weight: bold;
+}
+
+.changePhonePassword {
+  width: 400px;
+  font-size: 25px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.changePhonePassword::placeholder {
+  position: absolute;
+  top: 25px;
+  color: GREY;
+  font-weight: bold;
 }

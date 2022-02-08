@@ -29,6 +29,6 @@ PaitientRouter.put(
   authentication,
   ChangePatientPasswordById
 );
-PaitientRouter.put("/changephone/:id", ChangePatientPhoneById);
+PaitientRouter.put("/changephone/", authentication, ChangePatientPhoneById);
 
 module.exports = PaitientRouter;
