@@ -27,8 +27,11 @@ const Page1 = () => {
 
   //====================================================//Next Button Function
   const nextButton = async () => {
+    const metadata = {
+      contentType: 'image/jpeg',
+    };
     const imageRef = ref(storage, 'image');
-    uploadBytes(imageRef, image).then(() => {
+    uploadBytes(imageRef, image,metadata).then(() => {
       getDownloadURL(imageRef).then((url) => {
         setURL(url);
         console.log(url);
@@ -40,7 +43,6 @@ const Page1 = () => {
       // I think make alert for Error 
       console.log(error.message);
     })
-    console.log('imGE',URL);
     await dispatch(addInfoPage({ fullName, email, password, URL }));
     history("/doctorsignup2");
   };
@@ -96,7 +98,7 @@ const Page1 = () => {
             id="image" accept="image/*"
             onChange={ImageChange}
           />
-          <img src={URL} alt="photo" />
+          <img src={URL} alt={fullName} />
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
           </button>
