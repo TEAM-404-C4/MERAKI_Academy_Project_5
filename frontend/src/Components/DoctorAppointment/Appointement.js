@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import DoctorAppointement from "./DoctorAppointement";
 
 const Appointement = () => {
   const [schedual, setSchedual] = useState({});
@@ -128,11 +129,13 @@ const Appointement = () => {
             4:30-5
           </button>
         </ul>
-      </div>
-      <br />
-      {showResult()}
+        <br />
+        {showResult()}
 
-      <button onClick={saveAppointement}>click</button>
+        <button onClick={saveAppointement}>click</button>
+      </div>
+
+      <DoctorAppointement />
     </div>
   );
 };
