@@ -20,7 +20,7 @@ const Page1 = () => {
   const [email, setEmail] = useState(state.email);
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("");
-  const [URL, setURL] = useState();
+  const [URL, setURL] = useState("https://firebasestorage.googleapis.com/v0/b/healthycare-5ffd5.appspot.com/o/imagesDoctor%2Fprofile.png?alt=media&token=da1d82da-8ab5-481e-9613-211ca4059300");
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -30,7 +30,7 @@ const Page1 = () => {
     const imageRef = ref(storage, 'image');
     uploadBytes(imageRef, image).then(() => {
       getDownloadURL(imageRef).then((url) => {
-        setImage(url);
+        setURL(url);
         console.log(url);
       }).catch((error) => {
         // I think make alert for Error 
@@ -40,7 +40,8 @@ const Page1 = () => {
       // I think make alert for Error 
       console.log(error.message);
     })
-    await dispatch(addInfoPage({ fullName, email, password, image }));
+    console.log('imGE',URL);
+    await dispatch(addInfoPage({ fullName, email, password, URL }));
     history("/doctorsignup2");
   };
 
@@ -50,6 +51,7 @@ const Page1 = () => {
   const ImageChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0])
+    e.target.src={URL}
     }
   };
 
@@ -94,7 +96,7 @@ const Page1 = () => {
             id="image" accept="image/*"
             onChange={ImageChange}
           />
-          <img src={image} alt="photo" />
+          <img src={URL} alt="photo" />
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
           </button>

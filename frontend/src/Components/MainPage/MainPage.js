@@ -103,6 +103,7 @@ const MainPage = () => {
     setitemsPerPage(itemsPerPage + 5);
   };
   const renderData = (data) => {
+    console.log(data);
     let doctorCard = data.map((card, index) => {
       return (
         <>
