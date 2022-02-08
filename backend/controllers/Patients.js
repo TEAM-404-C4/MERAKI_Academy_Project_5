@@ -83,44 +83,45 @@ const getPatientByPhone = (req, res) => {
 //====================================================//Update Patient By Id
 const updatePatientByid = async (req, res) => {
   userId = req.params.id;
-  const { firstName, lastName, password, phone } = req.body;
+  res.json(userId);
+  // const { firstName, lastName, password, phone } = req.body;
 
-  const query = `UPDATE patient SET firstName=?, lastName=?,password=?,phone=?`;
+  // const query = `UPDATE patient SET firstName=?, lastName=?,password=?,phone=?`;
 
-  try {
-    const hashPass = await bcrypt.hash(password, 2);
-    const data = [firstName, lastName, hashPass, phone];
+  // try {
+  //   const hashPass = await bcrypt.hash(password, 2);
+  //   const data = [firstName, lastName, hashPass, phone];
 
-    connection.query(query, data, (err, result) => {
-      if (err) {
-        return res.status(500).json({
-          success: false,
-          massage: "server error",
-          err: err,
-        });
-      }
+  //   connection.query(query, data, (err, result) => {
+  //     if (err) {
+  //       return res.status(500).json({
+  //         success: false,
+  //         massage: "server error",
+  //         err: err,
+  //       });
+  //     }
 
-      if (result.changedRows == 0) {
-        return res.status(404).json({
-          success: false,
-          massage: `The Doctor: ${userId} is not found`,
-          // err: err,
-        });
-      }
+  //     if (result.changedRows == 0) {
+  //       return res.status(404).json({
+  //         success: false,
+  //         massage: `The Doctor: ${userId} is not found`,
+  //         // err: err,
+  //       });
+  //     }
 
-      return res.status(201).json({
-        success: true,
-        massage: `Patient updated`,
-        results: result,
-      });
-    });
-  } catch (err) {
-    return res.status(500).json({
-      success: false,
-      massage: "hash password error",
-      err: err,
-    });
-  }
+  //     return res.status(201).json({
+  //       success: true,
+  //       massage: `Patient updated`,
+  //       results: result,
+  //     });
+  //   });
+  // } catch (err) {
+  //   return res.status(500).json({
+  //     success: false,
+  //     massage: "hash password error6666666",
+  //     err: err,
+  //   });
+  // }
 };
 
 //delete patient by id

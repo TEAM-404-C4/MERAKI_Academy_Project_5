@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 
 //====================================================//Setting Function
 const ChangePatientPasswordById = (req, res) => {
-  const id = req.params.id;
+  const id = req.token.userId;
   const oldPassword = req.body.oldpassword;
   let newPassword = req.body.newPassword;
   const query = `SELECT password FROM patient WHERE id =?`;
@@ -44,7 +44,6 @@ const ChangePatientPasswordById = (req, res) => {
 };
 
 const ChangePatientPhoneById = (req, res) => {
-  const id = req.params.id;
   const oldPhone = req.body.oldPhone;
   const newPhone = req.body.newPhone;
   const password = req.body.password;

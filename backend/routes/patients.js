@@ -21,10 +21,14 @@ const PaitientRouter = express.Router();
 
 PaitientRouter.get("/all", authentication, getAllPatients);
 PaitientRouter.post("/create", createNewPatient);
-PaitientRouter.put("/:id", updatePatientByid);
+PaitientRouter.put("/update/:id", updatePatientByid);
 PaitientRouter.get("/phone", getPatientByPhone);
 PaitientRouter.delete("/:id", deletePatientById);
-PaitientRouter.put("/changepassword/:id", ChangePatientPasswordById);
+PaitientRouter.put(
+  "/changepassword",
+  authentication,
+  ChangePatientPasswordById
+);
 PaitientRouter.put("/changephone/:id", ChangePatientPhoneById);
 
 module.exports = PaitientRouter;
