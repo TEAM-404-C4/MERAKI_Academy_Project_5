@@ -45,14 +45,19 @@ const ChangePatientPasswordById = (req, res) => {
 };
 
 const ChangePatientPhoneById = (req, res) => {
+  console.log("change from inside phone ");
+  const id = req.token.userId;
   const oldPhone = req.body.oldPhone;
   const newPhone = req.body.newPhone;
   const password = req.body.password;
+
+  console.log(oldPhone, newPhone, password);
   const query = `SELECT phone ,password FROM patient WHERE id=?`;
   const data = [id];
   connection.query(query, data, async (err, result) => {
     if (!err) {
       if (result[0].phone === oldPhone) {
+        console.log("/////////////", result[0].phone, oldPhone);
         const CheckPassword = await bcrypt.compare(
           password,
           result[0].password
