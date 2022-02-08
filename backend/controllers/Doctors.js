@@ -27,7 +27,6 @@ const createNewDoctor = async (req, res) => {
     roleId,
     ScientificCertificate,
   } = req.body;
-  console.log(latitude, longitude);
   try {
     const hashPass = await bcrypt.hash(password, 2);
     const data = [
@@ -51,7 +50,6 @@ const createNewDoctor = async (req, res) => {
       roleId,
       ScientificCertificate,
     ];
-    console.log(data);
     connection.query(query, data, (err, result) => {
       if (err) {
         return res.status(500).json({
