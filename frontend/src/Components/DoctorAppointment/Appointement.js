@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const Appointement = () => {
-  const [schedual, setSchedual] = useState([]);
-  const [appointementId, setAppointementId] = useState([]);
+  const [schedual, setSchedual] = useState({});
+  const [schedual22, setSchedual22] = useState([]);
+  const [appointementId, setAppointementId] = useState({});
   // ==========================================================
 
   const state = useSelector((state) => {
@@ -12,9 +13,7 @@ const Appointement = () => {
   });
 
   useEffect(() => {
-    console.log(state);
     showResult();
-    console.log(showResult());
   }, [schedual]);
   // =============================================================
   const saveAppointement = async () => {
@@ -22,7 +21,7 @@ const Appointement = () => {
       const res = await axios.post(
         "http://localhost:5000/doctors/setappointement",
         {
-          doctor_appointment: appointementId,
+          doctor_appointment: Object.values(schedual),
 
           doctorId: state,
         }
@@ -35,7 +34,7 @@ const Appointement = () => {
   };
 
   const showResult = () => {
-    return schedual.map((element) => {
+    return Object.keys(schedual).map((element) => {
       return (
         <ul>
           <li>{element}</li>
@@ -45,14 +44,21 @@ const Appointement = () => {
   };
 
   const showSchedual = (e) => {
-    console.log(state);
+    let inner_Text = e.target.innerText;
+    let id = e.target.id;
+    let newObj = { [inner_Text]: id };
     if (e.target.className == "0") {
-      setSchedual([...schedual, e.target.innerText]);
-      setAppointementId([...appointementId, e.target.id]);
+      setSchedual(Object.assign({}, schedual, newObj));
+      setSchedual22(Object.values(schedual));
       e.target.className = "1";
     } else {
-      setSchedual(schedual.splice(e.target.id, 0));
-      setAppointementId(appointementId.splice(e.target.id, 0));
+      const deleteValue = () => {
+        let obj = schedual;
+        delete obj[inner_Text];
+        setSchedual(obj);
+      };
+      deleteValue();
+      setSchedual22(Object.values(schedual));
       e.target.className = "0";
     }
   };
