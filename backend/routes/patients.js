@@ -11,7 +11,10 @@ const {
 } = require("../controllers/Patients");
 const { authentication } = require("../middleware/authentication");
 
-const { ChangePatientPasswordById } = require("../controllers/Setting");
+const {
+  ChangePatientPasswordById,
+  ChangePatientPhoneById,
+} = require("../controllers/Setting");
 
 //====================================================//Create Paitient Router
 const PaitientRouter = express.Router();
@@ -21,6 +24,7 @@ PaitientRouter.post("/create", createNewPatient);
 PaitientRouter.put("/:id", updatePatientByid);
 PaitientRouter.get("/phone", getPatientByPhone);
 PaitientRouter.delete("/:id", deletePatientById);
-PaitientRouter.put("/change/:id", ChangePatientPasswordById);
+PaitientRouter.put("/changepassword/:id", ChangePatientPasswordById);
+PaitientRouter.put("/changephone/:id", ChangePatientPhoneById);
 
 module.exports = PaitientRouter;
