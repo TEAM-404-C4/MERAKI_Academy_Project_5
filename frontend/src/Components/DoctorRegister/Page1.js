@@ -27,8 +27,11 @@ const Page1 = () => {
 
   //====================================================//Next Button Function
   const nextButton = async () => {
+    const metadata = {
+      contentType: 'image/jpeg',
+    };
     const imageRef = ref(storage, 'image');
-    uploadBytes(imageRef, image).then(() => {
+    uploadBytes(imageRef, image,metadata).then(() => {
       getDownloadURL(imageRef).then((url) => {
         setURL(url);
       }).catch((error) => {
@@ -94,7 +97,7 @@ const Page1 = () => {
             id="image" accept="image/*"
             onChange={ImageChange}
           />
-          <img src={URL} alt="photo" />
+          <img src={URL} alt={fullName} />
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
           </button>
