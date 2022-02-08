@@ -43,6 +43,52 @@ const ChangePatientPasswordById = (req, res) => {
   });
 };
 
+const ChangePatientPhoneById = (req, res) => {
+  const id = req.params.id;
+  const oldPhone = req.body.oldPhone;
+  const newPhone = req.body.newPhone;
+  const password = req.body.password;
+  const query = `SELECT phone ,password FROM patient WHERE id=?`;
+  const data = [id];
+  connection.query(query, data, async (err, result) => {
+    if (!err) {
+      if (result[0].phone === oldPhone) {
+        const CheckPassword = await bcrypt.compare(
+          password,
+          result[0].password
+        );
+
+        if (CheckPassword) {
+          const query = `UPDATE patient SET phone=? WHERE id= ?;`;
+          const data = [newPhone, id];
+          connection.query(query, data, (err, result) => {
+            res.status(200).json({
+              success: true,
+              message: "Phone Number has changed successfully",
+            });
+          });
+        } else {
+          res.status(404).json({
+            success: false,
+            message: "Your Password is Wrong",
+          });
+        }
+      } else {
+        res.status(404).json({
+          success: false,
+          message: " Old Phone Number is Wrong",
+        });
+      }
+    } else {
+      res.status(500).json({
+        success: false,
+        message: "SERVER ERROR",
+      });
+    }
+  });
+};
+
 module.exports = {
   ChangePatientPasswordById,
+  ChangePatientPhoneById,
 };
