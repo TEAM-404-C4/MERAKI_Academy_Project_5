@@ -28,7 +28,6 @@ const MainPage = () => {
   // Use Effect
   useEffect(() => {
     getAllDoctors();
-
   }, []);
 
   //====================================================//Create Get All Doctors
