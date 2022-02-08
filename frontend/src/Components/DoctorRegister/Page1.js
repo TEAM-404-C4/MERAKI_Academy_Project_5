@@ -34,7 +34,6 @@ const Page1 = () => {
     uploadBytes(imageRef, image,metadata).then(() => {
       getDownloadURL(imageRef).then((url) => {
         setURL(url);
-        console.log(url);
       }).catch((error) => {
         // I think make alert for Error 
         console.log(error.message);
