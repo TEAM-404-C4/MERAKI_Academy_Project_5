@@ -49,7 +49,7 @@ const Page4 = () => {
         fullName: state.doctorInfo.fullName,
         email: state.doctorInfo.email,
         password: state.doctorInfo.password,
-        profileImage: state.doctorInfo.image,
+        profileImage: state.doctorInfo.URL,
         gender: state.doctorInfo.gender,
         Nationality: state.doctorInfo.Nationality,
         specialization: state.doctorInfo.specialization,

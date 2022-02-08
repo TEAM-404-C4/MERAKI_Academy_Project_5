@@ -30,7 +30,7 @@ const Page1 = () => {
     const metadata = {
       contentType: 'image/jpeg',
     };
-    const imageRef = ref(storage, 'image');
+    const imageRef = ref(storage, `imagesDoctor/${fullName}`);
     uploadBytes(imageRef, image,metadata).then(() => {
       getDownloadURL(imageRef).then((url) => {
         setURL(url);
@@ -42,6 +42,7 @@ const Page1 = () => {
       // I think make alert for Error 
       console.log(error.message);
     })
+    console.log(URL);
     await dispatch(addInfoPage({ fullName, email, password, URL }));
     history("/doctorsignup2");
   };
@@ -52,7 +53,7 @@ const Page1 = () => {
   const ImageChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0])
-    e.target.src={URL}
+    
     }
   };
 

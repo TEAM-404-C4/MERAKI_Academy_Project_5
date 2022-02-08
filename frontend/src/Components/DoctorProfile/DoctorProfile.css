@@ -29,7 +29,10 @@
   gap: 20px;
   background-color:#dbf8ef
   }
-  
+  .pictureAndTitle img{
+    width: 13vw;
+    height: 53vh;
+  }
   .profile-row {
     display: flex;
     flex-direction: row;
