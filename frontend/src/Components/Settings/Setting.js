@@ -182,9 +182,7 @@ const Setting = () => {
                 onClick={() => {
                   if (showChangePhone) {
                     setShowChangePhone(false);
-                    console.log(false);
                   } else {
-                    console.log(true);
                     setShowChangePhone(true);
                   }
                 }}
