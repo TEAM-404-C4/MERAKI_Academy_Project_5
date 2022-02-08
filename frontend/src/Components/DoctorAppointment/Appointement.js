@@ -1,21 +1,46 @@
 import React, { useState } from "react";
 
 const Appointement = () => {
-  const [first, setfirst] = useState(false);
+  const [schedual, setSchedual] = useState([]);
 
-  const dis = (e) => {};
+  const showSchedual = (e) => {
+    console.log(e.target.innerText);
+  };
 
   return (
     <div>
-      <select onChange={dis}>
-        <option disabled={false} value="1">
-          1
-        </option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
+      <div>
+        <ul>
+          <li onClick={showSchedual}>9-9:30</li>
+          <li onClick={showSchedual}>9-9:30</li>
+          <li onClick={showSchedual}>9-9:30</li>
+          <li onClick={showSchedual}>9-9:30</li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
     </div>
   );
 };
