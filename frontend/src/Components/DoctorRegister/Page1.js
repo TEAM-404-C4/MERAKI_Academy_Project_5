@@ -31,7 +31,6 @@ const Page1 = () => {
     uploadBytes(imageRef, image).then(() => {
       getDownloadURL(imageRef).then((url) => {
         setURL(url);
-        console.log(url);
       }).catch((error) => {
         // I think make alert for Error 
         console.log(error.message);
@@ -40,7 +39,6 @@ const Page1 = () => {
       // I think make alert for Error 
       console.log(error.message);
     })
-    console.log('imGE',URL);
     await dispatch(addInfoPage({ fullName, email, password, URL }));
     history("/doctorsignup2");
   };
