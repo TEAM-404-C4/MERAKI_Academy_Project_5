@@ -35,6 +35,7 @@ const Login = (e) => {
       if (res.data.success) {
         setMessage("");
         history("/mainpage");
+
         dispatch(
           loginRedux({
             token: res.data.token,

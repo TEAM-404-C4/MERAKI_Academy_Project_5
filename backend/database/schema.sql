@@ -114,7 +114,6 @@ create table DoctorShowAppointment(
     is_deleted TINYINT Default 0,
     FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
-    
 
 );
 

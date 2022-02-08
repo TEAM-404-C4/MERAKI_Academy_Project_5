@@ -12,13 +12,12 @@ const initialState = {
 const loginReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "LOG_IN":
-
       localStorage.setItem("token", payload.token);
       return {
         token: payload.token,
         isLoggedIn: true,
         userId: payload.userId,
-        roleId: payload.role,
+        roleId: payload.roleId,
       };
 
     case "LOG_OUT":
