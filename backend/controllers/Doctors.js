@@ -27,7 +27,6 @@ const createNewDoctor = async (req, res) => {
     roleId,
     ScientificCertificate,
   } = req.body;
-  console.log(latitude, longitude);
   try {
     const hashPass = await bcrypt.hash(password, 2);
     const data = [
