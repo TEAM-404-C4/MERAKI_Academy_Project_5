@@ -94,6 +94,7 @@ Create table Comment(
 create table Appointment(
     id int not null auto_increment primary key,
     time varchar(255),
+    is_deleted TINYINT Default 0
 );
 create table Doctor_Appointment(
     id int not null auto_increment primary key,
@@ -101,9 +102,10 @@ create table Doctor_Appointment(
     doctorId int not null,
     appointmentId int not null,
     patientId int null,
+    status varchar(255),
 FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
-FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
 
