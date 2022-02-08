@@ -11,15 +11,14 @@ import Page2 from "./Components/DoctorRegister/Page2";
 import Page3 from "./Components/DoctorRegister/Page3";
 import Page4 from "./Components/DoctorRegister/Page4";
 import Booking from "./Components/Booking/Booking";
-import Setting from "./Components/Setting/Setting";
-
+import Setting from "./Components/Settings/Setting";
 
 //App Function
 function App() {
   return (
     <div className="App">
       <Navigation />
-      <Booking/>
+      <Booking />
       <Routes>
         <Route path="/doctorsignup1" element={<Page1 />} />
         <Route path="/doctorsignup2" element={<Page2 />} />

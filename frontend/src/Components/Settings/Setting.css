@@ -1,13 +1,109 @@
-.changePasswordDiv {
+.changeDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-top: 20vh;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 10px;
+  margin-left: 10%;
 }
-.changePassword {
+.changepasswordDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.changePasswordForm {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 20vw;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cPasswordFrom {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.showPasswordbtn {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 35px;
+}
+
+.oldPassword {
+  width: 400px;
+  font-size: 25px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  color: black;
+}
+
+.oldPassword::placeholder {
+  color: GREY;
+  font-weight: bold;
+  position: absolute;
+  top: 25px;
+}
+
+.newPassword {
+  width: 400px;
+  font-size: 25px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+.newPassword::placeholder {
+  position: absolute;
+  top: 25px;
+  color: GREY;
+  font-weight: bold;
+}
+
+.savebtn {
+  margin-top: 30px;
+  margin-left: 250px;
+  color: white;
+  width: 170px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 15px;
+  border: none;
+  background-color: rgb(59, 133, 44);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+
+.savebtn:hover {
+  cursor: pointer;
+  background-color: rgb(187, 64, 64);
+  color: white;
+}
+
+.saveAndMessage {
+  display: flex;
+  flex-direction: row;
+}
+
+.messageChangePassword {
+  background-color: red;
+  height: 40px;
+}
+.svg:hover {
+  background-color: red;
+}
+/* ============================ */
+.changephone {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 30%;
+  border-radius: 10px;
 }

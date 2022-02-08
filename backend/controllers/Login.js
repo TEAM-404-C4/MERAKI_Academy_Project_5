@@ -29,7 +29,7 @@ const doctorLogin = (req, res) => {
           role: result[0].roleId,
         };
         const options = {
-          expiresIn: "60m",
+          expiresIn: "120m",
         };
         const token = await jwt.sign(payload, process.env.SECRET, options);
 
