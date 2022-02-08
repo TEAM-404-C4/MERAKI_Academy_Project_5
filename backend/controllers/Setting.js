@@ -5,17 +5,18 @@ const bcrypt = require("bcrypt");
 //====================================================//Setting Function
 const ChangePatientPasswordById = (req, res) => {
   const id = req.token.userId;
-  const oldPassword = req.body.oldpassword;
+  const oldPassword = req.body.oldPassword;
   let newPassword = req.body.newPassword;
   const query = `SELECT password FROM patient WHERE id =?`;
   const data = [id];
-  console.log("////////////////////////////", newPassword);
   connection.query(query, data, async (err, result) => {
     if (!err) {
       const CheckPassword = await bcrypt.compare(
         oldPassword,
         result[0].password
       );
+
+      console.log("CheckPassword", CheckPassword);
       if (CheckPassword) {
         const query = `UPDATE patient SET password=? WHERE id= ?;`;
         newPassword = await bcrypt.hash(newPassword, 5);
