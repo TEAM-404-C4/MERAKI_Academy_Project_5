@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import DoctorAppointement from "./DoctorAppointement";
+import "./Appointement.css";
 
 const Appointement = () => {
   const [schedual, setSchedual] = useState({});
@@ -65,9 +66,9 @@ const Appointement = () => {
   };
 
   return (
-    <div>
-      <div>
-        <ul>
+    <div className="AppointementDoctor">
+      <div className="list">
+        <ul className="list1">
           <button className="0" id={1} onClick={showSchedual}>
             9-9:30
           </button>
@@ -80,10 +81,7 @@ const Appointement = () => {
           <button className="0" id={4} onClick={showSchedual}>
             10:30-11
           </button>
-        </ul>
-      </div>
-      <div>
-        <ul>
+
           <button className="0" id={5} onClick={showSchedual}>
             11-11:30
           </button>
@@ -96,10 +94,7 @@ const Appointement = () => {
           <button className="0" id={8} onClick={showSchedual}>
             12:30-1
           </button>
-        </ul>
-      </div>
-      <div>
-        <ul>
+
           <button className="0" id={9} onClick={showSchedual}>
             1-1:30
           </button>
@@ -112,10 +107,7 @@ const Appointement = () => {
           <button className="0" id={12} onClick={showSchedual}>
             2:30-3
           </button>
-        </ul>
-      </div>
-      <div>
-        <ul>
+
           <button className="0" id={13} onClick={showSchedual}>
             3-3:30
           </button>
@@ -129,10 +121,9 @@ const Appointement = () => {
             4:30-5
           </button>
         </ul>
-        <br />
-        {showResult()}
 
-        <button onClick={saveAppointement}>click</button>
+        {/* <button onClick={saveAppointement}>click</button> */}
+        {/* {showResult()} */}
       </div>
 
       <DoctorAppointement />
