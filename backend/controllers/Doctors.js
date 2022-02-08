@@ -51,6 +51,7 @@ const createNewDoctor = async (req, res) => {
       roleId,
       ScientificCertificate,
     ];
+    console.log(data);
     connection.query(query, data, (err, result) => {
       if (err) {
         return res.status(500).json({
