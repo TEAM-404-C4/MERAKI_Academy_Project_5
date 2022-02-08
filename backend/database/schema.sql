@@ -91,21 +91,45 @@ Create table Comment(
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+create table DayAppointment(
+    id int not null auto_increment primary key,
+    day varchar(255),
+    is_deleted TINYINT Default 0
+
+);
+
+
+
 create table Appointment(
     id int not null auto_increment primary key,
     time varchar(255),
     is_deleted TINYINT Default 0
 
 );
+
+create table DoctorShowAppointment(
+    id int not null auto_increment primary key,
+    appointmentId int,
+    doctorId int,
+    is_deleted TINYINT Default 0,
+    FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
+    
+
+);
+
+
 create table Doctor_Appointment(
     id int not null auto_increment primary key,
     is_Booking TINYINT default 0,
     doctorId int not null,
     appointmentId int not null,
     patientId int ,
+    day int,
     status varchar(255),
 FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(day) REFERENCES DayAppointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
@@ -131,25 +155,34 @@ Insert INTO Role (Name) VALUES ('ADMIN');
 Insert INTO Role (Name) VALUES ('DOCTOR');
 Insert INTO Role (Name) VALUES ('PATIENT');
 
+-- =================================================// Day Appointment
+
+Insert INTO DayAppointment (day) VALUES ('sat');
+Insert INTO DayAppointment (day) VALUES ('sun');
+Insert INTO DayAppointment (day) VALUES ('mon');
+Insert INTO DayAppointment (day) VALUES ('tue');
+Insert INTO DayAppointment (day) VALUES ('wed');
+Insert INTO DayAppointment (day) VALUES ('thu');
 
 -- =================================================// Appointment Data
-Insert INTO Appointment (time) VALUES ('9:00');
-Insert INTO Appointment (time) VALUES ('9:30');
-Insert INTO Appointment (time) VALUES ('10:00');
-Insert INTO Appointment (time) VALUES ('10:30');
-Insert INTO Appointment (time) VALUES ('11:00');
-Insert INTO Appointment (time) VALUES ('11:30');
-Insert INTO Appointment (time) VALUES ('12:00');
-Insert INTO Appointment (time) VALUES ('12:30');
-Insert INTO Appointment (time) VALUES ('1:00');
-Insert INTO Appointment (time) VALUES ('1:30');
-Insert INTO Appointment (time) VALUES ('2:00');
-Insert INTO Appointment (time) VALUES ('2:30');
-Insert INTO Appointment (time) VALUES ('3:00');
-Insert INTO Appointment (time) VALUES ('3:30');
-Insert INTO Appointment (time) VALUES ('4:00');
-Insert INTO Appointment (time) VALUES ('4:30');
-Insert INTO Appointment (time) VALUES ('5:00');
+Insert INTO Appointment (time) VALUES ('9-9:30');
+Insert INTO Appointment (time) VALUES ('9:30-10');
+Insert INTO Appointment (time) VALUES ('10-10:30');
+Insert INTO Appointment (time) VALUES ('10:30-11');
+Insert INTO Appointment (time) VALUES ('11-11:30');
+Insert INTO Appointment (time) VALUES ('11:30-12');
+Insert INTO Appointment (time) VALUES ('12-12:30');
+Insert INTO Appointment (time) VALUES ('12:30-1');
+Insert INTO Appointment (time) VALUES ('1-1:30');
+Insert INTO Appointment (time) VALUES ('1:30-2');
+Insert INTO Appointment (time) VALUES ('2-2:30');
+Insert INTO Appointment (time) VALUES ('2:30-3');
+Insert INTO Appointment (time) VALUES ('3-3:30');
+Insert INTO Appointment (time) VALUES ('3:30-4');
+Insert INTO Appointment (time) VALUES ('4-4:30');
+Insert INTO Appointment (time) VALUES ('4:30-5');
+
+
 
 
 
