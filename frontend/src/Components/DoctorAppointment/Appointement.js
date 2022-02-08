@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const Appointement = () => {
   const [schedual, setSchedual] = useState([]);
   const [appointementId, setAppointementId] = useState([]);
-  // ================================
+  // ==========================================================
 
   const state = useSelector((state) => {
     return state.loginReducer.userId;
@@ -16,7 +16,7 @@ const Appointement = () => {
     showResult();
     console.log(showResult());
   }, [schedual]);
-
+  // =============================================================
   const saveAppointement = async () => {
     try {
       const res = await axios.post(

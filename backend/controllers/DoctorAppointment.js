@@ -1,7 +1,7 @@
 //====================================================//Require
 const connection = require("../database/db");
 
-// =========================================================
+// =========================================================setDoctorAppointement
 
 const setDoctorAppointement = (req, res) => {
   const doctor_appointment = req.body.doctor_appointment;
