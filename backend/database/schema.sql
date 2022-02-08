@@ -91,6 +91,12 @@ Create table Comment(
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+create table DayAppointment(
+    id int not null auto_increment primary key,
+    day varchar(255),
+    is_deleted TINYINT Default 0
+
+);
 create table Appointment(
     id int not null auto_increment primary key,
     time varchar(255),
@@ -103,9 +109,11 @@ create table Doctor_Appointment(
     doctorId int not null,
     appointmentId int not null,
     patientId int ,
+    day int,
     status varchar(255),
 FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
+FOREIGN Key(day) REFERENCES DayAppointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
 FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE
 
 );
@@ -131,6 +139,14 @@ Insert INTO Role (Name) VALUES ('ADMIN');
 Insert INTO Role (Name) VALUES ('DOCTOR');
 Insert INTO Role (Name) VALUES ('PATIENT');
 
+-- =================================================// Day Appointment
+
+Insert INTO DayAppointment (day) VALUES ('sat');
+Insert INTO DayAppointment (day) VALUES ('sun');
+Insert INTO DayAppointment (day) VALUES ('mon');
+Insert INTO DayAppointment (day) VALUES ('tue');
+Insert INTO DayAppointment (day) VALUES ('wed');
+Insert INTO DayAppointment (day) VALUES ('thu');
 
 -- =================================================// Appointment Data
 Insert INTO Appointment (time) VALUES ('9:00');
