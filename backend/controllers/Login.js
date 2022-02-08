@@ -73,12 +73,12 @@ const login = (req, res, next) => {
           expiresIn: "60m",
         };
         const token = await jwt.sign(payload, process.env.SECRET, options);
-
+        console.log(result);
         res.status(200).json({
           success: true,
           message: `Valid login credentials`,
           token: token,
-          userId: result[0].id,
+          userId: result,
           role: result[0].roleId,
         });
       } catch (error) {

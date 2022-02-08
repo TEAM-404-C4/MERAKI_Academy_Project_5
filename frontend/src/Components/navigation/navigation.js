@@ -28,6 +28,12 @@ const Navigation = () => {
           </Link>
           <p className="nav_label">Home</p>
         </div>
+        <div>
+          <Link to="/appointement">
+            <BsHouseFill />
+          </Link>
+          <p className="nav_label">appointement</p>
+        </div>
 
         {!state ? (
           <div>
