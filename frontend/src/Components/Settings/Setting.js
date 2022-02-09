@@ -16,10 +16,12 @@ const Setting = () => {
   const [oldPhone, setOldPhone] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setlastName] = useState("");
 
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
+  const dispatch1 = useDispatch();
 
   const state = useSelector((state) => {
     return {
@@ -51,6 +53,8 @@ const Setting = () => {
       }
     });
   };
+
+  // ======================================================= Change Password Function
 
   const changePassword = async (e) => {
     e.preventDefault();
@@ -87,7 +91,7 @@ const Setting = () => {
     }
   };
 
-  // ====================================
+  // ======================================================= Change phone Function
   const changePhone = async (e) => {
     e.preventDefault();
     try {
@@ -126,6 +130,9 @@ const Setting = () => {
       }
     }
   };
+
+  // ======================================================= Change userinfo Function
+  const changeInfo = () => {};
 
   return (
     <>

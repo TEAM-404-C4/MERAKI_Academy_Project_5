@@ -50,12 +50,12 @@
   color: black;
 }
 
-.oldPassword::placeholder {
+/* .oldPassword::placeholder {
   color: GREY;
   font-weight: bold;
   position: absolute;
   top: 25px;
-}
+} */
 
 .newPassword {
   width: 400px;
@@ -65,12 +65,12 @@
   border-bottom: 1px solid black;
   outline: none;
 }
-.newPassword::placeholder {
+/* .newPassword::placeholder {
   position: absolute;
   top: 25px;
   color: GREY;
   font-weight: bold;
-}
+} */
 
 .savebtn {
   margin-top: 30px;
@@ -135,12 +135,12 @@
   border-bottom: 1px solid black;
   color: black;
 }
-.oldPhone::placeholder {
+/* .oldPhone::placeholder {
   color: GREY;
   font-weight: bold;
   position: absolute;
   top: 25px;
-}
+} */
 
 .newPhone {
   width: 400px;
@@ -150,12 +150,12 @@
   border-bottom: 1px solid black;
   outline: none;
 }
-.newPhone::placeholder {
+/* .newPhone::placeholder {
   position: absolute;
   top: 25px;
   color: GREY;
   font-weight: bold;
-}
+} */
 
 .changePhonePassword {
   width: 400px;
@@ -166,9 +166,9 @@
   outline: none;
 }
 
-.changePhonePassword::placeholder {
+/* .changePhonePassword::placeholder {
   position: absolute;
   top: 25px;
   color: GREY;
   font-weight: bold;
-}
+} */
