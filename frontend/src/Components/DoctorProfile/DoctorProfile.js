@@ -19,6 +19,8 @@ const DoctorProfile = () => {
   const [doctor, setDoctor] = useState("");
   const [appointement, setAppointement] = useState([]);
   const [resultBooking, setResultBooking] = useState("");
+  const [today, setToday] = useState("");
+  const [date, setDate] = useState("");
 
   const state = useSelector((state) => {
     return {
@@ -31,6 +33,9 @@ const DoctorProfile = () => {
   // ========================================
 
   useEffect(async () => {
+    setToday(() => {
+      return new Date().toISOString().substring(0, 10);
+    });
     console.log(state.userId, state.roleId, state.userIdDoctor);
     console.log("state.doctorId", state.doctorId);
     try {
@@ -46,6 +51,7 @@ const DoctorProfile = () => {
         `http://localhost:5000/doctors/appointement`,
         {
           doctorId: state.doctorId,
+          dateAppointment: date || today,
         }
       );
 
@@ -68,6 +74,7 @@ const DoctorProfile = () => {
         appointmentId: e.target.value,
         patientId: state.userId.id,
         doctorId: state.doctorId,
+        dateAppointment: date || today,
       });
 
       console.log(res);
@@ -75,6 +82,11 @@ const DoctorProfile = () => {
     } catch (err) {
       console.log(err);
     }
+  };
+  // ===================================== set date appointement
+
+  const setDateAppointement = (e) => {
+    setDate(e.target.value);
   };
 
   // ====================================
@@ -156,6 +168,12 @@ const DoctorProfile = () => {
         </div>
       </div>
       <div className="appointement">
+        <input
+          type="date"
+          onChange={setDateAppointement}
+          defaultValue={new Date().toISOString().substring(0, 10)}
+        />
+
         {appointement.map((element) => {
           return (
             <>
