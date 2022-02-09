@@ -12,23 +12,19 @@ const Filter = ({ setSearch }) => {
   const submitDep = async (e) => {
     setDepartment(e.target.value);
 
-
-// ========== new update
+    // ========== new update
 
     // if (e.target.value != 0 ) {
-      try {
-        const res = await axios.post(
-          "http://localhost:5000/doctors/department",
-          {
-            department: e.target.value,
-            city,
-          }
-        );
-        console.log(res.data.result);
-        setSearch(res.data.result);
-      } catch (err) {
-        console.log(err.response);
-      }
+    try {
+      const res = await axios.post("http://localhost:5000/doctors/department", {
+        department: e.target.value,
+        city,
+      });
+      console.log(res.data.result);
+      setSearch(res.data.result);
+    } catch (err) {
+      console.log(err.response);
+    }
     // } else {
     //   setSearch("");
     // }
@@ -41,19 +37,16 @@ const Filter = ({ setSearch }) => {
     // =========== new update
 
     // if (e.target.value != 0) {
-      try {
-        const res = await axios.post(
-          "http://localhost:5000/doctors/department",
-          {
-            department: department1,
-            city: e.target.value,
-          }
-        );
-        console.log(res.data.result);
-        setSearch(res.data.result);
-      } catch (err) {
-        console.log(err.response);
-      }
+    try {
+      const res = await axios.post("http://localhost:5000/doctors/department", {
+        department: department1,
+        city: e.target.value,
+      });
+      console.log(res.data.result);
+      setSearch(res.data.result);
+    } catch (err) {
+      console.log(err.response);
+    }
     // } else {
     //   setSearch("");
     // }
@@ -62,10 +55,13 @@ const Filter = ({ setSearch }) => {
   return (
     <div className="mainFilterDiv">
       <select
-        className="departmentDoctorFolter"
+        className="departmentDoctorFilter"
         defaultValue={0}
         onChange={submitDep}
       >
+        <option value={0} disabled selected hidden>
+          Search by Specialty ...
+        </option>
         <option value={0}>ALL</option>
         <option value={1}>RADIOLOGY</option>
         <option value={2}>LABORATORY</option>
@@ -94,8 +90,11 @@ const Filter = ({ setSearch }) => {
           submitCity(e);
         }}
       >
-        <option value={0}>ALL</option>
-        <option value={1}>Amman</option>
+        <option value={0} disabled selected hidden>
+          Search by Location ...
+        </option>
+        <option value={0}>All </option>
+        <option value={1}>AMMAN</option>
         <option value={2}>IRBID</option>
         <option value={3}>ZARQA</option>
         <option value={4}>MAFRAQ</option>
