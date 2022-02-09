@@ -7,6 +7,7 @@ import { BsPhone } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import "./Setting.css";
 import { logoutRedux } from "../Reducer/login/index";
+import { GrContactInfo } from "react-icons/gr";
 
 const Setting = () => {
   const [oldPassword, setOldPassword] = useState("");
@@ -21,7 +22,7 @@ const Setting = () => {
 
   const navigate = useNavigate();
 
-  const dispatch1 = useDispatch();
+  const dispatch = useDispatch();
 
   const state = useSelector((state) => {
     return {
@@ -136,56 +137,12 @@ const Setting = () => {
 
   return (
     <>
-      <div className="changeDiv">
-        <div className="changePasswordDiv">
-          <div>
-            <button
-              className="showPasswordbtn"
-              onClick={() => {
-                if (showchangePassowrd) {
-                  setShowchangePassowrd(false);
-                } else {
-                  setShowchangePassowrd(true);
-                }
-              }}
-            >
-              <MdOutlinePassword />
-            </button>
-          </div>
-          {showchangePassowrd ? (
-            <div className="changePasswordForm">
-              <form onSubmit={changePassword} className="cPasswordFrom">
-                <input
-                  type="password"
-                  className="oldPassword"
-                  placeholder="old Password"
-                  onChange={(e) => {
-                    setOldPassword(e.target.value);
-                  }}
-                />
-                <input
-                  type="password"
-                  className="newPassword"
-                  placeholder="new Password"
-                  onChange={(e) => {
-                    setNewPassword(e.target.value);
-                  }}
-                />
-                <button className="savebtn" type="submit">
-                  Save Changes
-                </button>
-              </form>
-            </div>
-          ) : (
-            <></>
-          )}
-        </div>
-
-        <div>
-          <div className="changePhoneDiv">
+      <div className="mainChangeDiv">
+        <div className="changeDiv">
+          <div className="changeInfoDiv">
             <div>
               <button
-                className="showPhonebtn"
+                className="showInfobtn"
                 onClick={() => {
                   if (showChangePhone) {
                     setShowChangePhone(false);
@@ -194,31 +151,31 @@ const Setting = () => {
                   }
                 }}
               >
-                <BsPhone />
+                <GrContactInfo />
               </button>
             </div>
-            {showChangePhone ? (
-              <div className="changePhoneForm">
-                <form onSubmit={changePhone} className="cPhoneFrom">
+            {true ? (
+              <div className="changeInfoForm">
+                <form onSubmit={changePhone} className="cInfoFrom">
                   <input
                     type="number"
-                    className="oldPhone"
-                    placeholder="old Phone Number"
+                    className="oldInfo"
+                    placeholder="First Name"
                     onChange={(e) => {
                       setOldPhone(e.target.value);
                     }}
                   />
                   <input
                     type="number"
-                    className="newPhone"
-                    placeholder="new Phone Number"
+                    className="newInfo"
+                    placeholder="Last Name"
                     onChange={(e) => {
                       setNewPhone(e.target.value);
                     }}
                   />
                   <input
                     type="password"
-                    className="changePhonePassword"
+                    className="changeInfopassword"
                     placeholder="Password"
                     onChange={(e) => {
                       setPassword(e.target.value);
@@ -233,6 +190,109 @@ const Setting = () => {
             ) : (
               <></>
             )}
+          </div>
+        </div>
+
+        {/* ---------------------------------------------------change password  */}
+
+        <div className="changeDiv">
+          <div className="changePasswordDiv">
+            <div>
+              <button
+                className="showPasswordbtn"
+                onClick={() => {
+                  if (showchangePassowrd) {
+                    setShowchangePassowrd(false);
+                  } else {
+                    setShowchangePassowrd(true);
+                  }
+                }}
+              >
+                <MdOutlinePassword />
+              </button>
+            </div>
+            {true ? (
+              <div className="changePasswordForm">
+                <form onSubmit={changePassword} className="cPasswordFrom">
+                  <input
+                    type="password"
+                    className="oldPassword"
+                    placeholder="old Password"
+                    onChange={(e) => {
+                      setOldPassword(e.target.value);
+                    }}
+                  />
+                  <input
+                    type="password"
+                    className="newPassword"
+                    placeholder="new Password"
+                    onChange={(e) => {
+                      setNewPassword(e.target.value);
+                    }}
+                  />
+                  <button className="savebtn" type="submit">
+                    Save Changes
+                  </button>
+                </form>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+          {/* ---------------------------------------------------change phone  */}
+          <div>
+            <div className="changePhoneDiv">
+              <div>
+                <button
+                  className="showPhonebtn"
+                  onClick={() => {
+                    if (showChangePhone) {
+                      setShowChangePhone(false);
+                    } else {
+                      setShowChangePhone(true);
+                    }
+                  }}
+                >
+                  <BsPhone />
+                </button>
+              </div>
+              {true ? (
+                <div className="changePhoneForm">
+                  <form onSubmit={changePhone} className="cPhoneFrom">
+                    <input
+                      type="number"
+                      className="oldPhone"
+                      placeholder="old Phone Number"
+                      onChange={(e) => {
+                        setOldPhone(e.target.value);
+                      }}
+                    />
+                    <input
+                      type="number"
+                      className="newPhone"
+                      placeholder="new Phone Number"
+                      onChange={(e) => {
+                        setNewPhone(e.target.value);
+                      }}
+                    />
+                    <input
+                      type="password"
+                      className="changePhonePassword"
+                      placeholder="Password"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                    />
+
+                    <button className="savebtn" type="submit">
+                      Save Changes
+                    </button>
+                  </form>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
         </div>
       </div>

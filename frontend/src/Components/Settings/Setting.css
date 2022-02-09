@@ -1,3 +1,8 @@
+.mainChangeDiv {
+  display: flex;
+  flex-direction: column;
+}
+
 .changeDiv {
   display: flex;
   flex-direction: row;
@@ -50,12 +55,12 @@
   color: black;
 }
 
-/* .oldPassword::placeholder {
+.oldPassword::placeholder {
   color: GREY;
   font-weight: bold;
   position: absolute;
   top: 25px;
-} */
+}
 
 .newPassword {
   width: 400px;
@@ -65,12 +70,12 @@
   border-bottom: 1px solid black;
   outline: none;
 }
-/* .newPassword::placeholder {
+.newPassword::placeholder {
   position: absolute;
   top: 25px;
   color: GREY;
   font-weight: bold;
-} */
+}
 
 .savebtn {
   margin-top: 30px;
@@ -135,12 +140,12 @@
   border-bottom: 1px solid black;
   color: black;
 }
-/* .oldPhone::placeholder {
+.oldPhone::placeholder {
   color: GREY;
   font-weight: bold;
   position: absolute;
   top: 25px;
-} */
+}
 
 .newPhone {
   width: 400px;
@@ -150,12 +155,12 @@
   border-bottom: 1px solid black;
   outline: none;
 }
-/* .newPhone::placeholder {
+.newPhone::placeholder {
   position: absolute;
   top: 25px;
   color: GREY;
   font-weight: bold;
-} */
+}
 
 .changePhonePassword {
   width: 400px;
@@ -166,9 +171,90 @@
   outline: none;
 }
 
-/* .changePhonePassword::placeholder {
+.changePhonePassword::placeholder {
   position: absolute;
   top: 25px;
   color: GREY;
   font-weight: bold;
-} */
+}
+
+/* ------------------------------------------------------ */
+
+.changeInfoDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  width: 30%;
+  border-radius: 10px;
+}
+.changeInfoForm {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.showInfobtn {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 35px;
+  padding: 50xp;
+}
+
+.showInfobtn:hover {
+  cursor: pointer;
+  color: blue;
+}
+.cInfoFrom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.oldInfo {
+  width: 400px;
+  font-size: 25px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  color: black;
+}
+.oldInfo::placeholder {
+  color: GREY;
+  font-weight: bold;
+  position: absolute;
+  top: 25px;
+}
+
+.newInfo {
+  width: 400px;
+  font-size: 25px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+.newPhone::placeholder {
+  position: absolute;
+  top: 25px;
+  color: GREY;
+  font-weight: bold;
+}
+
+.changeInfopassword {
+  width: 400px;
+  font-size: 25px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+}
+
+.changeInfopassword::placeholder {
+  position: absolute;
+  top: 25px;
+  color: GREY;
+  font-weight: bold;
+}
