@@ -3,10 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const DoctorAppointement = () => {
-  const [appointementTime, setAppointementTime] = useState([]);
-  const [patientPhone, setPatientPhone] = useState([]);
-  const [patientFirstName, setPatientFirstName] = useState([]);
-  const [patientLastName, setPatientLastName] = useState([]);
+  const [appointement, setAppointement] = useState([]);
   //   ===================================================================
 
   const state = useSelector((state) => {
@@ -30,6 +27,7 @@ const DoctorAppointement = () => {
         }
       );
       console.log(res.data.result);
+      setAppointement(res.data.result);
     } catch (err) {
       console.log(err);
     }
@@ -37,12 +35,12 @@ const DoctorAppointement = () => {
 
   return (
     <div>
-      {appointementTime.map((element, index) => {
+      {appointement.map((element, index) => {
         return (
           <div>
-            <p> {element} </p>
-            <p>{patientPhone[index]}</p>
-            <p>{`${patientFirstName[index]}  ${patientLastName[index]} `}</p>
+            <p> {element.time} </p>
+            <p>{element.phone}</p>
+            <p>{`${element.firstName}  ${element.lastName} `}</p>
           </div>
         );
       })}
