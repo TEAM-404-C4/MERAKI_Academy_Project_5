@@ -147,7 +147,19 @@ Insert INTO City (Name) VALUES ('MAAN');
 Insert INTO City (Name) VALUES ('AQABA');
 
 
+-- ================================================// DoctorShowAppointment Data
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(1,1);
 
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(2,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(3,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(4,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(5,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(6,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(7,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(8,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(9,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(10,1);
+-- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(11,1);
 
 -- =====================================================//Role DATA
 Insert INTO Role (Name) VALUES ('ADMIN');
