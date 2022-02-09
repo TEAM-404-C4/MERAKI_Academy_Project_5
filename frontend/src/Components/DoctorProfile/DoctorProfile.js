@@ -39,7 +39,7 @@ const DoctorProfile = () => {
       console.log("dd", res.data.result[0]);
       // ===================================================appointement
 
-      const res2 = await axios.get(
+      const res2 = await axios.post(
         `http://localhost:5000/doctors/appointement`,
         {
           doctorId: state.doctorId,
