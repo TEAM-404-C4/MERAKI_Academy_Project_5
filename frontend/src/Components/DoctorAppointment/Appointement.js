@@ -121,9 +121,11 @@ const Appointement = () => {
             4:30-5
           </button>
         </ul>
+      </div>
 
-        {/* <button onClick={saveAppointement}>click</button> */}
-        {/* {showResult()} */}
+      <div>
+        <button onClick={saveAppointement}>click</button>
+        {showResult()}
       </div>
 
       <DoctorAppointement />
