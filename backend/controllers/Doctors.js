@@ -161,78 +161,63 @@ const getDoctorByDepartment = (req, res) => {
 
 //===================================================//Update Doctor By Id
 const updateDoctorById = async (req, res) => {
-  const query = `UPDATE Doctor SET fullName=?,email=?,password=?,profileImage=?,gender=?,Nationality=?,specialization=?,phone=?,workingDays=?,address=?,careersLicense=?,waitingTime=?,consultationFee=?,departmentId=?,cityId=?,ScientificCertificate=? WHERE id= ?;`;
-  const {
-    fullName,
-    email,
-    password,
-    profileImage,
-    gender,
-    Nationality,
-    specialization,
-    phone,
-    workingDays,
-    address,
-    careersLicense,
-    waitingTime,
-    consultationFee,
-    departmentId,
-    cityId,
-    ScientificCertificate,
-  } = req.body;
-
   const id = req.params.id;
+  const password = req.body.password;
+  const query = `SELECT password FROM doctor WHERE id =?`;
+  const data = [id];
+  connection.query(query, data, async (err, result) => {
+    if (!err) {
+      const CheckPassword = await bcrypt.compare(password, result[0].password);
+      if (CheckPassword) {
+        const query = `UPDATE Doctor SET fullName=?,email=? ,profileImage=?,specialization=?,phone=?,address=?,waitingTime=?,consultationFee=?,departmentId=?,cityId=? WHERE id= ?;`;
+        const {
+          fullName,
+          email,
+          profileImage,
+          specialization,
+          phone,
+          address,
+          waitingTime,
+          consultationFee,
+          departmentId,
+          cityId,
+        } = req.body;
+        const data = [
+          fullName,
+          email,
+          profileImage,
+          specialization,
+          phone,
+          address,
+          waitingTime,
+          consultationFee,
+          departmentId,
+          cityId,
+          id,
+        ];
 
-  try {
-    const hashPass = await bcrypt.hash(password, 2);
-    const data = [
-      fullName,
-      email,
-      hashPass,
-      profileImage,
-      gender,
-      Nationality,
-      specialization,
-      phone,
-      workingDays,
-      address,
-      careersLicense,
-      waitingTime,
-      consultationFee,
-      departmentId,
-      cityId,
-      ScientificCertificate,
-      id,
-    ];
-    connection.query(query, data, (err, result) => {
-      if (err) {
+        connection.query(query, data, (err, result) => {
+          if (!err) {
+            return res.status(201).json({
+              success: true,
+              massage: `Doctor Information updated`,
+              results: result,
+            });
+          } else {
+            return res.status(500).json({
+              success: false,
+              massage: "This phone number is already used by another account",
+            });
+          }
+        });
+      } else {
         return res.status(404).json({
           success: false,
-          massage: `Server error`,
-          err: err,
+          message: "Your Password is Wrong",
         });
       }
-      if (result.changedRows == 0) {
-        res.status(404).json({
-          success: false,
-          massage: `The Doctor: ${id} is not found`,
-          // err: err,
-        });
-      }
-      // result are the data returned by mysql server
-      res.status(201).json({
-        success: true,
-        massage: `Doctor updated`,
-        results: result.data,
-      });
-    });
-  } catch (err) {
-    res.status(500).json({
-      success: false,
-      message: "hash pass error",
-      err,
-    });
-  }
+    }
+  });
 };
 
 //===================================================//Delete Doctor By Department

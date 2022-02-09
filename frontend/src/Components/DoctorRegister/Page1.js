@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addInfoPage } from "../Reducer/DoctorRegister/index";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { storage } from "../Firebase/firebase";
-import {Image} from 'cloudinary-react';
+import { Image } from "cloudinary-react";
 import axios from "axios";
 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
@@ -25,22 +25,25 @@ const Page1 = () => {
   const [image, setImage] = useState("");
   const [profileImage, setprofileImage] = useState();
   const [imageSelected, setImageSelected] = useState();
-  const uploudImage =  ()=>{
+  const uploudImage = () => {
     const formData = new FormData();
-    formData.append("file",imageSelected);
-    formData.append("upload_preset","yoficjpc");
-axios.post("https://api.cloudinary.com/v1_1/dbnsxsigi/image/upload",formData).then( (response)=>{
-   setprofileImage(response.data.url);
-   console.log(response.data.url,profileImage)
-  setTimeout(() => {
-       dispatch(addInfoPage({ fullName, email, password, profileImage }));
-      console.log(profileImage)
-    history("/doctorsignup2");
-    }, 7000);
-}).catch((error)=>{
-  console.log(error);
-});
-}
+    formData.append("file", imageSelected);
+    formData.append("upload_preset", "yoficjpc");
+    axios
+      .post("https://api.cloudinary.com/v1_1/dbnsxsigi/image/upload", formData)
+      .then((response) => {
+        setprofileImage(response.data.url);
+        console.log(response.data.url, profileImage);
+        setTimeout(() => {
+          dispatch(addInfoPage({ fullName, email, password, profileImage }));
+          console.log(profileImage);
+          history("/doctorsignup2");
+        }, 7000);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -55,16 +58,14 @@ axios.post("https://api.cloudinary.com/v1_1/dbnsxsigi/image/upload",formData).th
     //   getDownloadURL(imageRef).then((url) => {
     //     setURL(url);
     //   }).catch((error) => {
-    //     // I think make alert for Error 
+    //     // I think make alert for Error
     //     console.log(error.message);
     //   });
     // }).catch((error) => {
-    //   // I think make alert for Error 
+    //   // I think make alert for Error
     //   console.log(error.message);
     // })
-     uploudImage();
-   
-    
+    uploudImage();
   };
 
   //====================================================//Return
@@ -72,14 +73,12 @@ axios.post("https://api.cloudinary.com/v1_1/dbnsxsigi/image/upload",formData).th
   // =================================================//Uploud image to firebase
   const ImageChange = (e) => {
     if (e.target.files[0]) {
-      setImage(e.target.files[0])
-    
+      setImage(e.target.files[0]);
     }
   };
 
   // =================================================//Uploud image to firebase
   return (
-    
     <>
       <div className="mainPage1">
         <div className="Page1">
@@ -116,9 +115,10 @@ axios.post("https://api.cloudinary.com/v1_1/dbnsxsigi/image/upload",formData).th
           <input
             type="file"
             className="doctorProfileImage"
-            id="image" accept="image/*"
-            onChange={(e)=>{
-              setImageSelected(e.target.files[0])
+            id="image"
+            accept="image/*"
+            onChange={(e) => {
+              setImageSelected(e.target.files[0]);
             }}
           />
           {/* <Image publicID={URL}/> */}
@@ -126,11 +126,10 @@ axios.post("https://api.cloudinary.com/v1_1/dbnsxsigi/image/upload",formData).th
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
           </button>
-          
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Page1;

@@ -20,12 +20,14 @@ const {
   getAvalibleAppointment,
 } = require("../controllers/DoctorAppointment");
 
+const { authentication } = require("../middleware/authentication");
+
 //====================================================//Create doctor Router
 const doctorRouter = express.Router();
 
 doctorRouter.post("/", createNewDoctor);
 doctorRouter.get("/", getAllDoctors);
-doctorRouter.put("/:id", updateDoctorById);
+doctorRouter.put("/update/:id", authentication, updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.post("/Search", getDoctorByName);
 doctorRouter.get("/:id", getDoctorById);

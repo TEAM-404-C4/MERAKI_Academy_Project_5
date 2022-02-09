@@ -83,7 +83,6 @@ const getPatientByPhone = (req, res) => {
 //====================================================//Update Patient By Id
 const updatePatientByid = (req, res) => {
   userId = req.token.userId;
-  console.log(userId, "-----------------");
   const { firstName, lastName, password } = req.body;
   const query = `SELECT password FROM patient WHERE id= ?`;
   const data = [userId];

@@ -19,7 +19,6 @@ const Navigation = () => {
       isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
-  console.log(state.isLoggedIn);
 
   return (
     <>

@@ -39,9 +39,11 @@
   background: none;
   outline: none;
   border: none;
-  font-size: 35px;
+  border-bottom: 3px solid #f6cd50;
+  padding: 5px;
+  font-size: 30px;
   padding: 50xp;
-  color: #f6cd50;
+  color: #4397cf;
 }
 .showPasswordbtn:hover {
   cursor: pointer;
@@ -121,9 +123,11 @@
   background: none;
   outline: none;
   border: none;
-  font-size: 35px;
+  border-bottom: 3px solid #f6cd50;
+  padding: 5px;
+  font-size: 30px;
   padding: 50xp;
-  color: #f6cd50;
+  color: #4397cf;
 }
 
 .showPhonebtn:hover {
@@ -203,9 +207,11 @@
   background: none;
   outline: none;
   border: none;
-  font-size: 30px;
+  border-bottom: 3px solid #f6cd50;
+  padding: 5px;
+  font-size: 25px;
   padding: 50xp;
-  color: #f6cd50;
+  color: #4397cf;
 }
 
 .showInfobtn:hover {
