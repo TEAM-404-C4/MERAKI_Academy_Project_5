@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import {
   BsHouseFill,
   BsLockFill,
@@ -8,15 +7,19 @@ import {
   BsWindow,
 } from "react-icons/bs";
 import { MdSettings } from "react-icons/md";
-
 import { logoutRedux } from "../Reducer/login/index";
-
 import "./navigation.css";
+import { useDispatch, useSelector } from "react-redux";
+
 const Navigation = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => {
-    return state.loginReducer.isLoggedIn;
+    return {
+      token: state.loginReducer.token,
+      isLoggedIn: state.loginReducer.isLoggedIn,
+    };
   });
+  console.log(state.isLoggedIn);
 
   return (
     <>
@@ -35,7 +38,7 @@ const Navigation = () => {
           <p className="nav_label">appointement</p>
         </div>
 
-        {!state ? (
+        {!state.isLoggedIn ? (
           <div>
             <Link to="/login">
               <BsLockFill />
@@ -45,7 +48,7 @@ const Navigation = () => {
         ) : (
           <></>
         )}
-        {!state ? (
+        {!state.isLoggedIn ? (
           <div>
             <Link to="/Register">
               <BsNewspaper />
@@ -56,29 +59,41 @@ const Navigation = () => {
           <></>
         )}
 
-        <div>
-          <Link to="/dashBoard">
-            <BsWindow />
-          </Link>
-          <p className="nav_label">Dashbord</p>
-        </div>
+        {state.isLoggedIn ? (
+          <div>
+            <Link to="/dashBoard">
+              <BsWindow />
+            </Link>
+            <p className="nav_label">Dashbord</p>
+          </div>
+        ) : (
+          <></>
+        )}
 
-        <div>
-          <Link to="/setting">
-            <MdSettings />
-          </Link>
-          <p className="nav_label">Setting</p>
-        </div>
-        <div
-          onClick={() => {
-            dispatch(logoutRedux());
-          }}
-        >
-          <Link to="/">
-            <BsBoxArrowInRight />
-          </Link>
-          <p className="nav_label">logout</p>
-        </div>
+        {state.isLoggedIn ? (
+          <div>
+            <Link to="/setting">
+              <MdSettings />
+            </Link>
+            <p className="nav_label">Setting</p>
+          </div>
+        ) : (
+          <></>
+        )}
+        {state.isLoggedIn ? (
+          <div
+            onClick={() => {
+              dispatch(logoutRedux());
+            }}
+          >
+            <Link to="/">
+              <BsBoxArrowInRight />
+            </Link>
+            <p className="nav_label">logout</p>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </>
   );

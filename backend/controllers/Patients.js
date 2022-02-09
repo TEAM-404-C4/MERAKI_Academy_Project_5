@@ -81,26 +81,39 @@ const getPatientByPhone = (req, res) => {
 };
 
 //====================================================//Update Patient By Id
-const updatePatientByid = async (req, res) => {
-  userId = req.params.id;
-  const { firstName, lastName } = req.body;
-
-  const query = `UPDATE patient SET firstName=?, lastName=?`;
-
-  const data = [firstName, lastName];
-  connection.query(query, data, (err, result) => {
+const updatePatientByid = (req, res) => {
+  userId = req.token.userId;
+  console.log(userId, "-----------------");
+  const { firstName, lastName, password } = req.body;
+  const query = `SELECT password FROM patient WHERE id= ?`;
+  const data = [userId];
+  connection.query(query, data, async (err, result) => {
     if (!err) {
-      return res.status(201).json({
-        success: true,
-        massage: `Patient updated`,
-        results: result,
-      });
-    } else {
-      return res.status(500).json({
-        success: false,
-        massage: "server error",
-        err: err,
-      });
+      const CheckPassword = await bcrypt.compare(password, result[0].password);
+      if (CheckPassword) {
+        const query = `UPDATE patient SET firstName=?, lastName=? WHERE id= ?`;
+        const data = [firstName, lastName, userId];
+        connection.query(query, data, (err, result) => {
+          if (!err) {
+            return res.status(201).json({
+              success: true,
+              massage: `Patient updated`,
+              results: result,
+            });
+          } else {
+            return res.status(500).json({
+              success: false,
+              massage: "server error",
+              err: err,
+            });
+          }
+        });
+      } else {
+        return res.status(404).json({
+          success: false,
+          message: "Your Password is Wrong",
+        });
+      }
     }
   });
 };

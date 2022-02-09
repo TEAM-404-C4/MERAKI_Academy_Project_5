@@ -7,13 +7,14 @@ import { BsPhone } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import "./Setting.css";
 import { logoutRedux } from "../Reducer/login/index";
-import { GrContactInfo } from "react-icons/gr";
+import { RiContactsFill } from "react-icons/ri";
 
 const Setting = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [showchangePassowrd, setShowchangePassowrd] = useState(false);
-  const [showChangePhone, setShowChangePhone] = useState(false);
+  const [showchangePassowrd, setShowchangePassowrd] = useState(true);
+  const [showChangePhone, setShowChangePhone] = useState(true);
+  const [showChangeInfo, setShowChangeInfo] = useState(true);
   const [oldPhone, setOldPhone] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -133,7 +134,45 @@ const Setting = () => {
   };
 
   // ======================================================= Change userinfo Function
-  const changeInfo = () => {};
+  const changeInfo = async (e) => {
+    e.preventDefault();
+    try {
+      const result = await axios.put(
+        "http://localhost:5000/patients/update",
+        {
+          firstName,
+          lastName,
+          password,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${state.token}`,
+          },
+        }
+      );
+      if (result.data.success) {
+        console.log(result);
+        const myTimeout = setTimeout(logout, 2000);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: result.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      } else throw Error;
+    } catch (error) {
+      if (error.response && error.response.data) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: error.response.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    }
+  };
 
   return (
     <>
@@ -144,33 +183,33 @@ const Setting = () => {
               <button
                 className="showInfobtn"
                 onClick={() => {
-                  if (showChangePhone) {
-                    setShowChangePhone(false);
+                  if (showChangeInfo) {
+                    setShowChangeInfo(false);
                   } else {
-                    setShowChangePhone(true);
+                    setShowChangeInfo(true);
                   }
                 }}
               >
-                <GrContactInfo />
+                <RiContactsFill />
               </button>
             </div>
-            {true ? (
+            {showChangeInfo ? (
               <div className="changeInfoForm">
-                <form onSubmit={changePhone} className="cInfoFrom">
+                <form onSubmit={changeInfo} className="cInfoFrom">
                   <input
-                    type="number"
+                    type="text"
                     className="oldInfo"
                     placeholder="First Name"
                     onChange={(e) => {
-                      setOldPhone(e.target.value);
+                      setFirstName(e.target.value);
                     }}
                   />
                   <input
-                    type="number"
+                    type="text"
                     className="newInfo"
                     placeholder="Last Name"
                     onChange={(e) => {
-                      setNewPhone(e.target.value);
+                      setlastName(e.target.value);
                     }}
                   />
                   <input
@@ -211,7 +250,7 @@ const Setting = () => {
                 <MdOutlinePassword />
               </button>
             </div>
-            {true ? (
+            {showchangePassowrd ? (
               <div className="changePasswordForm">
                 <form onSubmit={changePassword} className="cPasswordFrom">
                   <input
@@ -256,7 +295,7 @@ const Setting = () => {
                   <BsPhone />
                 </button>
               </div>
-              {true ? (
+              {showChangePhone ? (
                 <div className="changePhoneForm">
                   <form onSubmit={changePhone} className="cPhoneFrom">
                     <input

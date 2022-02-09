@@ -21,7 +21,7 @@ const PaitientRouter = express.Router();
 
 PaitientRouter.get("/all", authentication, getAllPatients);
 PaitientRouter.post("/create", createNewPatient);
-PaitientRouter.put("/update/:id", updatePatientByid);
+PaitientRouter.put("/update", authentication, updatePatientByid);
 PaitientRouter.get("/phone", getPatientByPhone);
 PaitientRouter.delete("/:id", deletePatientById);
 PaitientRouter.put(
