@@ -6,7 +6,6 @@ const connection = require("../database/db");
 const setDoctorAppointement = (req, res) => {
   const doctor_appointment = req.body.doctor_appointment;
   const doctorId = req.body.doctorId;
-  console.log(req.body);
   const query = `INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES (?,?)`;
   let data = [];
   doctor_appointment.forEach((element) => {
