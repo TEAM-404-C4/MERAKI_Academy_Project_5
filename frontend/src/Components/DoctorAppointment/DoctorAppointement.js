@@ -23,7 +23,7 @@ const DoctorAppointement = () => {
       const res = await axios.post(
         "http://localhost:5000/doctors/getappointement",
         {
-          doctorId: state.doctorId,
+          doctorId: state.userId,
         }
       );
       console.log(res.data.result);
