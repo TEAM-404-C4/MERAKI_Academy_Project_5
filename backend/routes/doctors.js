@@ -38,7 +38,7 @@ doctorRouter.post(
   setAppointmentIsBooking,
   setIsDeletedInAppointmentAvailable
 );
-doctorRouter.post("/appointment", getAvalibleAppointment);
-doctorRouter.post("/getAppointment", getAppointmentByDoctorId);
+doctorRouter.post("/appointement", getAvalibleAppointment);
+doctorRouter.post("/getappointement", getAppointmentByDoctorId);
 
 module.exports = doctorRouter;

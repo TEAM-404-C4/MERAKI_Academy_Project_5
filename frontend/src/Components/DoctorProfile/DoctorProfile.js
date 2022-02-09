@@ -23,7 +23,7 @@ const DoctorProfile = () => {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
-      userId: state.loginReducer.userId,
+      userId: state.loginReducer.userId[0].id,
       roleId: state.loginReducer.roleId,
     };
   });
@@ -46,7 +46,8 @@ const DoctorProfile = () => {
         }
       );
 
-      setAppointement(res2);
+      console.log(res2.data.result);
+      setAppointement(res2.data.result);
     } catch (err) {
       console.log(err);
     }
@@ -61,8 +62,8 @@ const DoctorProfile = () => {
 
     try {
       const res = await axios.post(`http://localhost:5000/doctors/booking`, {
-        appointementId: e.target.value,
-        userId: state.userId,
+        appointmentId: e.target.value,
+        patientId: state.userId,
         doctorId: state.doctorId,
       });
 
