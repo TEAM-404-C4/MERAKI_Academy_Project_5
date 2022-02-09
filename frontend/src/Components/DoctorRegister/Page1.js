@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addInfoPage } from "../Reducer/DoctorRegister/index";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { storage } from "../Firebase/firebase";
+import {Image} from 'cloudinary-react';
+import axios from "axios";
+
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 //CSS File
 import "./Page1.css";
@@ -20,31 +23,48 @@ const Page1 = () => {
   const [email, setEmail] = useState(state.email);
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("");
-  const [URL, setURL] = useState("https://firebasestorage.googleapis.com/v0/b/healthycare-5ffd5.appspot.com/o/imagesDoctor%2Fprofile.png?alt=media&token=da1d82da-8ab5-481e-9613-211ca4059300");
+  const [profileImage, setprofileImage] = useState();
+  const [imageSelected, setImageSelected] = useState();
+  const uploudImage =  ()=>{
+    const formData = new FormData();
+    formData.append("file",imageSelected);
+    formData.append("upload_preset","yoficjpc");
+axios.post("https://api.cloudinary.com/v1_1/dbnsxsigi/image/upload",formData).then( (response)=>{
+   setprofileImage(response.data.url);
+   console.log(response.data.url,profileImage)
+  setTimeout(() => {
+       dispatch(addInfoPage({ fullName, email, password, profileImage }));
+      console.log(profileImage)
+    history("/doctorsignup2");
+    }, 7000);
+}).catch((error)=>{
+  console.log(error);
+});
+}
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
   const history = useNavigate();
 
   //====================================================//Next Button Function
   const nextButton = async () => {
-    const metadata = {
-      contentType: 'image/jpeg',
-    };
-    const imageRef = ref(storage, `imagesDoctor/${fullName}`);
-    uploadBytes(imageRef, image,metadata).then(() => {
-      getDownloadURL(imageRef).then((url) => {
-        setURL(url);
-      }).catch((error) => {
-        // I think make alert for Error 
-        console.log(error.message);
-      });
-    }).catch((error) => {
-      // I think make alert for Error 
-      console.log(error.message);
-    })
-    console.log(URL);
-    await dispatch(addInfoPage({ fullName, email, password, URL }));
-    history("/doctorsignup2");
+    // const metadata = {
+    //   contentType: 'image/jpeg',
+    // };
+    // const imageRef = ref(storage, `imagesDoctor/${fullName}`);
+    // uploadBytes(imageRef, image,metadata).then(() => {
+    //   getDownloadURL(imageRef).then((url) => {
+    //     setURL(url);
+    //   }).catch((error) => {
+    //     // I think make alert for Error 
+    //     console.log(error.message);
+    //   });
+    // }).catch((error) => {
+    //   // I think make alert for Error 
+    //   console.log(error.message);
+    // })
+     uploudImage();
+   
+    
   };
 
   //====================================================//Return
@@ -59,6 +79,7 @@ const Page1 = () => {
 
   // =================================================//Uploud image to firebase
   return (
+    
     <>
       <div className="mainPage1">
         <div className="Page1">
@@ -96,9 +117,12 @@ const Page1 = () => {
             type="file"
             className="doctorProfileImage"
             id="image" accept="image/*"
-            onChange={ImageChange}
+            onChange={(e)=>{
+              setImageSelected(e.target.files[0])
+            }}
           />
-          <img src={URL} alt={fullName} />
+          {/* <Image publicID={URL}/> */}
+          <Image cloudName="dbnsxsigi" publicId={profileImage} />
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
           </button>
