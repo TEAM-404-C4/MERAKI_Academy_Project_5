@@ -81,47 +81,41 @@ const getPatientByPhone = (req, res) => {
 };
 
 //====================================================//Update Patient By Id
-const updatePatientByid = async (req, res) => {
-  userId = req.params.id;
-  res.json(userId);
-  // const { firstName, lastName, password, phone } = req.body;
-
-  // const query = `UPDATE patient SET firstName=?, lastName=?,password=?,phone=?`;
-
-  // try {
-  //   const hashPass = await bcrypt.hash(password, 2);
-  //   const data = [firstName, lastName, hashPass, phone];
-
-  //   connection.query(query, data, (err, result) => {
-  //     if (err) {
-  //       return res.status(500).json({
-  //         success: false,
-  //         massage: "server error",
-  //         err: err,
-  //       });
-  //     }
-
-  //     if (result.changedRows == 0) {
-  //       return res.status(404).json({
-  //         success: false,
-  //         massage: `The Doctor: ${userId} is not found`,
-  //         // err: err,
-  //       });
-  //     }
-
-  //     return res.status(201).json({
-  //       success: true,
-  //       massage: `Patient updated`,
-  //       results: result,
-  //     });
-  //   });
-  // } catch (err) {
-  //   return res.status(500).json({
-  //     success: false,
-  //     massage: "hash password error6666666",
-  //     err: err,
-  //   });
-  // }
+const updatePatientByid = (req, res) => {
+  userId = req.token.userId;
+  console.log(userId, "-----------------");
+  const { firstName, lastName, password } = req.body;
+  const query = `SELECT password FROM patient WHERE id= ?`;
+  const data = [userId];
+  connection.query(query, data, async (err, result) => {
+    if (!err) {
+      const CheckPassword = await bcrypt.compare(password, result[0].password);
+      if (CheckPassword) {
+        const query = `UPDATE patient SET firstName=?, lastName=? WHERE id= ?`;
+        const data = [firstName, lastName, userId];
+        connection.query(query, data, (err, result) => {
+          if (!err) {
+            return res.status(201).json({
+              success: true,
+              massage: `Patient updated`,
+              results: result,
+            });
+          } else {
+            return res.status(500).json({
+              success: false,
+              massage: "server error",
+              err: err,
+            });
+          }
+        });
+      } else {
+        return res.status(404).json({
+          success: false,
+          message: "Your Password is Wrong",
+        });
+      }
+    }
+  });
 };
 
 //delete patient by id
