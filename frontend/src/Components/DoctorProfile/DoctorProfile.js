@@ -23,13 +23,16 @@ const DoctorProfile = () => {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
-      userId: state.loginReducer.userId[0].id,
+      userId: state.loginReducer.userId[0],
+      userIdDoctor: state.loginReducer.userId,
       roleId: state.loginReducer.roleId,
     };
   });
   // ========================================
 
   useEffect(async () => {
+    console.log(state.userId, state.roleId, state.userIdDoctor);
+    console.log("state.doctorId", state.doctorId);
     try {
       const res = await axios.get(
         `http://localhost:5000/doctors/${state.doctorId}`
@@ -63,7 +66,7 @@ const DoctorProfile = () => {
     try {
       const res = await axios.post(`http://localhost:5000/doctors/booking`, {
         appointmentId: e.target.value,
-        patientId: state.userId,
+        patientId: state.userId.id,
         doctorId: state.doctorId,
       });
 
