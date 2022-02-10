@@ -31,6 +31,12 @@ const Navigation = () => {
           <p className="nav_label">Home</p>
         </div>
         <div>
+          <Link to="/chart">
+            <BsHouseFill />
+          </Link>
+          <p className="nav_label">Chart</p>
+        </div>
+        <div>
           <Link to="/appointement">
             <BsHouseFill />
           </Link>
