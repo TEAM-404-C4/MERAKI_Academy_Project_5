@@ -50,6 +50,30 @@ const getAllPatients = (req, res) => {
     }
   });
 };
+//====================================================//Get  Patients by id Function
+const getPatientById = (req, res) => {
+  const query = `SELECT * FROM patient WHERE id=?`;
+  const id = req.params.id;
+  console.log(id);
+  const data = [id];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+
+    if (result.length) {
+      res.status(200).json({
+        success: true,
+        message: `GET patients`,
+        result,
+      });
+    }
+  });
+};
 
 //====================================================//Get Patient By Phone Function
 const getPatientByPhone = (req, res) => {
@@ -141,6 +165,7 @@ const deletePatientById = (req, res) => {
 module.exports = {
   createNewPatient,
   getAllPatients,
+  getPatientById,
   getPatientByPhone,
   updatePatientByid,
   deletePatientById,

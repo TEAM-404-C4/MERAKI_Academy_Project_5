@@ -44,7 +44,7 @@ const getAppointmentByDoctorId = (req, res) => {
 // المريض بشوف معلومات الدكتور
 const getDoctorAppointmentByPatientId = (req, res) => {
   const query = `SELECT d.fullName as 'Doctor Name ',d.email as 'Doctor Email  ',d.phone as 'Doctor Phone Number ',d.address as 'Doctor Address ', a.time as 'Appointment Time  ' , da.dateAppointment as 'Date Appointment  ' FROM healthcare.doctor_appointment da JOIN healthcare.doctor d on da.doctorId=d.id JOIN healthcare.appointment a on a.id=da.appointmentId where da.patientId = ?`;
-  const data = [req.params.patientId];
+  const data = [req.body.patientId];
   connection.query(query, data, (err, result) => {
     if (err) {
       res
@@ -54,13 +54,12 @@ const getDoctorAppointmentByPatientId = (req, res) => {
     res.status(200).json({
       success: true,
       message: `Retrieve All Appointment for Patient =>${data[0]}`,
+      result,
     });
   });
 };
 // Doctor Available Patient Can Booking
 const getAvalibleAppointment = (req, res) => {
-
-
   const query = `select a.id,a.time FROM doctorshowappointment d join appointment a on a.id=d.appointmentId
   where doctorId= ? and appointmentId not in 
  (select dd.appointmentId FROM doctor_appointment dd  where dd.dateAppointment = ? and  dd.doctorId = ? );
@@ -68,9 +67,9 @@ const getAvalibleAppointment = (req, res) => {
  
  `;
 
- const { doctorId,dateAppointment} = req.body;
+  const { doctorId, dateAppointment } = req.body;
 
-  const data = [doctorId,dateAppointment,doctorId];
+  const data = [doctorId, dateAppointment, doctorId];
 
   connection.query(query, data, (err, result) => {
     console.log(err, result);
