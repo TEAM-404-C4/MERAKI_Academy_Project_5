@@ -73,11 +73,8 @@ const getAvalibleAppointment = (req, res) => {
   const data = [doctorId,dateAppointment,doctorId];
 
   connection.query(query, data, (err, result) => {
-<<<<<<< HEAD
-    console.log(err);
-=======
-    console.log(err, result);
->>>>>>> 5214bc8d58eb75ca1909e2c9ff59fcf1ca6b3f0f
+
+
     if (err) {
       res
         .status(500)

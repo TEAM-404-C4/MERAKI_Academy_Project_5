@@ -37,10 +37,10 @@ const DoctorProfile = () => {
       return new Date().toISOString().substring(0, 10);
     });
     console.log(state.userId, state.roleId, state.userIdDoctor);
-    console.log("state.doctorId", state.doctorId);
+    console.log("state.doctorId", state.doctorId,state.doctorId.doctorId);
     try {
       const res = await axios.get(
-        `http://localhost:5000/doctors/${state.doctorId}`
+        `http://localhost:5000/doctors/${window.localStorage.getItem('doctorId')}`
       );
       console.log("Doctor id", state.doctorId, res);
       setDoctor(res.data.result[0]);
