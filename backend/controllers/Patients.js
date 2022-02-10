@@ -23,9 +23,9 @@ const checkPatientExist = (req, res, next) => {
 
     if (result.length == 0) {
       const data1 = [firstName, lastName, phone, 3];
-      const query1 = `INSERT INTO patient (firstName,lastName,phone,roleId) VALUES (?,?,?,?,?)`;
+      const query1 = `INSERT INTO patient (firstName,lastName,phone,roleId) VALUES (?,?,?,?)`;
       connection.query(query1, data1, (err1, result1) => {
-        if (err) {
+        if (err1) {
           return res.status(409).json({
             success: false,
             message: " server error",
@@ -45,11 +45,22 @@ const checkPatientExist = (req, res, next) => {
 
 const loginGoogle = (req, res) => {
   const { firstName, lastName, phone } = req.body;
+  const data = [phone];
+  const query = `SELECT * from patient WHERE phone=?`;
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(409).json({
+        success: false,
+        message: " server error",
+        err,
+      });
+    }
 
-  return res.status(201).json({
-    success: true,
-    message: " login patient with google",
-    result: { firstName, lastName, email: phone },
+    return res.status(201).json({
+      success: true,
+      message: " login patient with google",
+      result,
+    });
   });
 };
 

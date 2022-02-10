@@ -1,14 +1,43 @@
+import axios from "axios";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import GoogleLogin from "react-google-login";
+import { useDispatch, useSelector } from "react-redux";
+import { loginRedux } from "../Reducer/login/index";
 
 const GoogleSignIn = () => {
-  console.log("omar");
+  const dispatch = useDispatch();
+  const history = useNavigate();
+
+  // ===============================================
   const handleFailure = (result) => {
     console.log(result);
   };
 
-  const handleLogin = (googleData) => {
+  const handleLogin = async (googleData) => {
     console.log(googleData);
+
+    axios
+      .post("http://localhost:5000/patients/googlelogin", {
+        firstName: googleData.profileObj.name,
+        lastName: googleData.profileObj.familyName,
+        phone: googleData.profileObj.email,
+      })
+      .then((res) => {
+        console.log(res);
+        dispatch(
+          loginRedux({
+            token: googleData.tokenId,
+            isLoggedIn: true,
+            userId: res.data.result[0].id,
+            roleId: 3,
+          })
+        );
+        history("/mainpage");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div>
