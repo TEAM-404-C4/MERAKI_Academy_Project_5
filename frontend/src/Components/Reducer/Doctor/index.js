@@ -1,7 +1,7 @@
 // Reducer File
 // initialState
 const initialState = {
-  doctorId: 2,
+  doctorId: window.localStorage.getItem('doctorId'),
 };
 // Reducer
 const doctorsReducer = (state = initialState, { type, payload }) => {

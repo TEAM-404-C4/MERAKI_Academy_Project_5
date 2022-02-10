@@ -105,6 +105,7 @@ const CardDoctor = ({
             onClick={(e) => {
               dispatch(setDoctor(e.target.value));
               history("/DoctorProfile");
+              window.localStorage.setItem('doctorId',id);
             }}
           >
             Book Now !

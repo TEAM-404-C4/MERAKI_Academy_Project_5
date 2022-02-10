@@ -73,12 +73,14 @@ const getAvalibleAppointment = (req, res) => {
   const data = [doctorId,dateAppointment,doctorId];
 
   connection.query(query, data, (err, result) => {
-    console.log(err, result);
+
+
     if (err) {
       res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
+    
     res.status(200).json({
       success: true,
       message: `All Appointment Available From Doctor =>${req.body.doctorId} `,
