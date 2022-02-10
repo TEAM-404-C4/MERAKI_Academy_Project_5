@@ -18,6 +18,7 @@ const {
   setIsDeletedInAppointmentAvailable,
   getAppointmentByDoctorId,
   getAvalibleAppointment,
+  getDoctorAppointmentByPatientId,
 } = require("../controllers/DoctorAppointment");
 
 const { authentication } = require("../middleware/authentication");
@@ -42,5 +43,6 @@ doctorRouter.post(
 );
 doctorRouter.post("/appointement", getAvalibleAppointment);
 doctorRouter.post("/getappointement", getAppointmentByDoctorId);
+doctorRouter.post("/getappointementpatient", getDoctorAppointmentByPatientId);
 
 module.exports = doctorRouter;

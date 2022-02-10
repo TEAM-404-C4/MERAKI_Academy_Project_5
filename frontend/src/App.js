@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Navigation from "./Components/navigation/navigation";
 import Login from "./Components/login/login";
 import Register from "./Components/Register/Register";
@@ -14,15 +14,18 @@ import Booking from "./Components/Booking/Booking";
 import Setting from "./Components/Settings/Setting";
 import Appointement from "./Components/DoctorAppointment/Appointement";
 import DoctorMyProfile from "./Components/DoctorProfile/DoctorMyProfile";
+import UserProfile from "./Components/User/UserProfile";
 import Dashboard from "./Components/Dashboard/Dashboard";
+
 
 //App Function
 function App() {
+  const history = useNavigate();
   return (
     <div className="App">
       <Navigation />
-
       <Routes>
+        <Route path="/patientprofile" element={<UserProfile />} />
         <Route path="/doctormyprfile" element={<DoctorMyProfile />} />
         <Route path="/appointement" element={<Appointement />} />
         <Route path="/doctorsignup1" element={<Page1 />} />

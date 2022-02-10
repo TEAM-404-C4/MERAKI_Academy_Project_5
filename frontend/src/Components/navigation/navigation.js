@@ -40,6 +40,16 @@ const Navigation = () => {
           />
         )}
 
+        {state.roleId == 3 && (
+          <button
+            onClick={() => {
+              history("/patientprofile");
+            }}
+          >
+            user profile
+          </button>
+        )}
+
         <div>
           <Link to="/mainpage">
             <BsHouseFill />

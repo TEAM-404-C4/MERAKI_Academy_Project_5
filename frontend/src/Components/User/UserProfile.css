@@ -1,0 +1,10 @@
+.patientAppointement {
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  flex-wrap: wrap;
+}
+
+.patientAppointementMini {
+  background-color: aqua;
+}
