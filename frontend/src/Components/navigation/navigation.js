@@ -1,4 +1,6 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   BsHouseFill,
   BsLockFill,
@@ -10,13 +12,18 @@ import { MdSettings } from "react-icons/md";
 import { logoutRedux } from "../Reducer/login/index";
 import "./navigation.css";
 import { useDispatch, useSelector } from "react-redux";
+import { ImGift } from "react-icons/im";
+// ==========================================
 
 const Navigation = () => {
+  const history = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
       isLoggedIn: state.loginReducer.isLoggedIn,
+      roleId: state.loginReducer.roleId,
+      profileImage: state.loginReducer.profileImage,
     };
   });
 
@@ -24,18 +31,30 @@ const Navigation = () => {
     <>
       <div className="navigation">
         <div className="logo"></div>
+        {state.roleId == 2 && (
+          <img
+            onClick={() => {
+              history("/doctormyprfile");
+            }}
+            src={state.profileImage}
+            alt="myProfile"
+          />
+        )}
+
         <div>
           <Link to="/mainpage">
             <BsHouseFill />
           </Link>
           <p className="nav_label">Home</p>
         </div>
-        <div>
-          <Link to="/appointement">
-            <BsHouseFill />
-          </Link>
-          <p className="nav_label">appointement</p>
-        </div>
+        {state.roleId == 2 && (
+          <div>
+            <Link to="/appointement">
+              <BsHouseFill />
+            </Link>
+            <p className="nav_label">appointement</p>
+          </div>
+        )}
 
         {!state.isLoggedIn ? (
           <div>

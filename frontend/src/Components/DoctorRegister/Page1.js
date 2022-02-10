@@ -50,8 +50,8 @@ const Page1 = () => {
 
   //====================================================//Next Button Function
   const nextButton = async () => {
+    await dispatch(addInfoPage({ fullName, email, password, profileImage }));
     history("/doctorsignup2");
-    dispatch(addInfoPage({ fullName, email, password, profileImage }));
     // const metadata = {
     //   contentType: 'image/jpeg',
     // };
@@ -67,15 +67,34 @@ const Page1 = () => {
     //   // I think make alert for Error
     //   console.log(error.message);
     // })
-    uploudImage();
+    // uploudImage();
   };
 
   //====================================================//Return
 
   // =================================================//Uploud image to firebase
-  const ImageChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
+  const ImageChange = async (e) => {
+    try {
+      if (e.target.files[0]) {
+        const files = e.target.files;
+        const data = new FormData();
+        data.append("file", files[0]);
+        data.append("upload_preset", "project4");
+
+        const res = await fetch(
+          "https://api.cloudinary.com/v1_1/omarkataa/image/upload",
+          {
+            method: "POST",
+            body: data,
+          }
+        );
+
+        const file = await res.json();
+        setprofileImage(file.secure_url);
+        console.log(file.secure_url, profileImage);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -120,7 +139,7 @@ const Page1 = () => {
             id="image"
             accept="image/*"
             onChange={(e) => {
-              setImageSelected(e.target.files[0]);
+              ImageChange(e);
             }}
           />
           {/* <Image publicID={URL}/> */}
