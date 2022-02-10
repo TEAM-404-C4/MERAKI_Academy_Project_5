@@ -13,13 +13,12 @@ import Page4 from "./Components/DoctorRegister/Page4";
 import Booking from "./Components/Booking/Booking";
 import Setting from "./Components/Settings/Setting";
 import Appointement from "./Components/DoctorAppointment/Appointement";
-
+import Chart from "./Components/Chart/Chart";
 //App Function
 function App() {
   return (
     <div className="App">
       <Navigation />
-
       <Routes>
         <Route path="/appointement" element={<Appointement />} />
         <Route path="/doctorsignup1" element={<Page1 />} />
@@ -32,6 +31,8 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/DoctorProfile" element={<DoctorProfile />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="/chart" element={<Chart />} />
+
       </Routes>
     </div>
   );
