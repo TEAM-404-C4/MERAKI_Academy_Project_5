@@ -59,7 +59,6 @@ const getDoctorAppointmentByPatientId = (req, res) => {
 };
 // Doctor Available Patient Can Booking
 const getAvalibleAppointment = (req, res) => {
- const { doctorId,dateAppointment};
 
   const query = `select a.id,a.time FROM doctorshowappointment d join appointment a on a.id=d.appointmentId
   where doctorId= ? and appointmentId not in 
@@ -67,6 +66,8 @@ const getAvalibleAppointment = (req, res) => {
  
  
  `;
+ const { doctorId,dateAppointment} = req.body;
+
   const data = [doctorId,dateAppointment,doctorId];
   connection.query(query, data, (err, result) => {
     if (err) {
