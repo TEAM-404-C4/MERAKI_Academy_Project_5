@@ -197,7 +197,7 @@
 }
 .changeInfoForm {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: white;
   padding: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -220,11 +220,11 @@
 }
 .cInfoFrom {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 20px;
 }
 .oldInfo {
-  width: 400px;
+  width: 300px;
   font-size: 25px;
   padding: 10px;
   border: none;
@@ -240,7 +240,7 @@
 }
 
 .newInfo {
-  width: 400px;
+  width: 300px;
   font-size: 25px;
   padding: 10px;
   border: none;
