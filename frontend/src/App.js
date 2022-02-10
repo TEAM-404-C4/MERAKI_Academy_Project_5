@@ -14,6 +14,7 @@ import Booking from "./Components/Booking/Booking";
 import Setting from "./Components/Settings/Setting";
 import Appointement from "./Components/DoctorAppointment/Appointement";
 import DoctorMyProfile from "./Components/DoctorProfile/DoctorMyProfile";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 //App Function
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/DoctorProfile" element={<DoctorProfile />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );

@@ -27,7 +27,6 @@
   background-color: white;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgb(251, 255, 255);
   margin: 1%;
   gap: 1%;
   width: 150vh;
@@ -88,7 +87,7 @@
 .card-image {
   cursor: pointer;
   width: 13vw;
-    height: 53vh;
+  height: 53vh;
 }
 .bookingBtn:hover {
   cursor: pointer;
