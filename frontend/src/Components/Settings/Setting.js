@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "./Setting.css";
 import { logoutRedux } from "../Reducer/login/index";
 import { RiContactsFill } from "react-icons/ri";
+import { useEffect } from "react";
 
 //
 
@@ -16,17 +17,28 @@ const Setting = () => {
   const [newPassword, setNewPassword] = useState("");
   const [showchangePassowrd, setShowchangePassowrd] = useState(false);
   const [showChangePhone, setShowChangePhone] = useState(false);
-  const [showChangeInfo, setShowChangeInfo] = useState(false);
+  const [showChangeInfo, setShowChangeInfo] = useState(true);
   const [oldPhone, setOldPhone] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setlastName] = useState("");
 
+  //Doctor Setting (useState
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  const [specialization, setSpecialization] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [waitingTime, setWaitingTime] = useState("");
+  const [consultationFee, setConsultationFee] = useState("");
+  const [departmentId, setDepartmentId] = useState("");
+  const [cityId, setcityId] = useState("");
+
+  //
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -179,10 +191,230 @@ const Setting = () => {
     }
   };
 
+  // ======================================================= Change Doctor Information
+  const changeDoctorInfo = async (e) => {
+    console.log("From inside");
+    e.preventDefault();
+    try {
+      const result = await axios.put(
+        "http://localhost:5000/doctors/update/",
+        {
+          fullName,
+          email,
+          password,
+          profileImage,
+          specialization,
+          phone,
+          address,
+          waitingTime,
+          consultationFee,
+          departmentId,
+          cityId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${state.token}`,
+          },
+        }
+      );
+      if (result.data.success) {
+        const myTimeout = setTimeout(logout, 2000);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: result.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      } else throw Error;
+    } catch (error) {
+      if (error.response && error.response.data) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: error.response.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    }
+  };
+
+  // ======================================================= get Doctor by name
+  const getDoctoById = async () => {
+    try {
+      const result = await axios.get(
+        `http://localhost:5000/doctors/${localStorage.getItem("userId")}`
+      );
+      console.log(result.data.result[0]);
+      if (result.data.success) {
+        setFullName(result.data.result[0].fullName);
+        setEmail(result.data.result[0].email);
+        setProfileImage(result.data.result[0].profileImage);
+        setSpecialization(result.data.result[0].specialization);
+        setPhone(result.data.result[0].phone);
+        setAddress(result.data.result[0].address);
+        setWaitingTime(result.data.result[0].waitingTime);
+        setConsultationFee(result.data.result[0].consultationFee);
+        setDepartmentId(result.data.result[0].Department);
+        setcityId(result.data.result[0].city);
+      } else throw Error;
+    } catch (error) {
+      if (error.response && error.response.data) {
+      }
+    }
+  };
+
+  useEffect(() => {
+    getDoctoById();
+  }, []);
+
   return (
     <>
-      {state.doctorId === 2 ? (
-        <></>
+      {state.doctorId === 2 || localStorage.getItem("roleId") === 2 ? (
+        <div className="mainChangeDiv">
+          <div className="changeDiv">
+            <div className="changeInfoDiv">
+              <div>
+                <button
+                  className="showInfobtn"
+                  onClick={() => {
+                    if (showChangeInfo) {
+                      setShowChangeInfo(false);
+                    } else {
+                      setShowChangeInfo(true);
+                    }
+                  }}
+                >
+                  <RiContactsFill />
+                </button>
+              </div>
+              {showChangeInfo ? (
+                <div className="changeInfoForm2">
+                  <form onSubmit={changeInfo} className="cInfoFrom2">
+                    <div>
+                      <input
+                        type="text"
+                        defaultValue={fullName}
+                        className="oldInfo"
+                        placeholder="Full Name"
+                        onChange={(e) => {
+                          setFullName(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        defaultValue={email}
+                        placeholder="email"
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        defaultValue={profileImage}
+                        placeholder="Profile Image"
+                        onChange={(e) => {
+                          setProfileImage(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        defaultValue={specialization}
+                        placeholder="Specialization"
+                        onChange={(e) => {
+                          setSpecialization(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Phone number"
+                        defaultValue={phone}
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Address "
+                        defaultValue={address}
+                        onChange={(e) => {
+                          setAddress(e.target.value);
+                        }}
+                      />
+
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Waiting Time "
+                        defaultValue={waitingTime}
+                        onChange={(e) => {
+                          setWaitingTime(e.target.value);
+                        }}
+                      />
+
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Consultation Fee"
+                        defaultValue={consultationFee}
+                        onChange={(e) => {
+                          setConsultationFee(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Department Id"
+                        defaultValue={departmentId}
+                        onChange={(e) => {
+                          setDepartmentId(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="City Id"
+                        defaultValue={cityId}
+                        onChange={(e) => {
+                          setcityId(e.target.value);
+                        }}
+                      />
+                      <button
+                        className="savebtn"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          Swal.fire({
+                            title: "Enter Your Password Here",
+                            text: "",
+                            input: "password",
+                            inputValue: "",
+                            showCancelButton: true,
+                          }).then((result) => {
+                            setPassword(result.value);
+                            changeDoctorInfo(e);
+                          });
+                        }}
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="mainChangeDiv">
           <div className="changeDiv">
