@@ -18,6 +18,7 @@ const {
   setIsDeletedInAppointmentAvailable,
   getAppointmentByDoctorId,
   getAvalibleAppointment,
+  getDoctorAppointmentByPatientId,
 } = require("../controllers/DoctorAppointment");
 
 const { authentication } = require("../middleware/authentication");
@@ -27,7 +28,7 @@ const doctorRouter = express.Router();
 
 doctorRouter.post("/", createNewDoctor);
 doctorRouter.get("/", getAllDoctors);
-doctorRouter.put("/update/:id", authentication, updateDoctorById);
+doctorRouter.put("/update", authentication, updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.post("/Search", getDoctorByName);
 doctorRouter.get("/:id", getDoctorById);
@@ -42,5 +43,6 @@ doctorRouter.post(
 );
 doctorRouter.post("/appointement", getAvalibleAppointment);
 doctorRouter.post("/getappointement", getAppointmentByDoctorId);
+doctorRouter.post("/getappointementpatient", getDoctorAppointmentByPatientId);
 
 module.exports = doctorRouter;

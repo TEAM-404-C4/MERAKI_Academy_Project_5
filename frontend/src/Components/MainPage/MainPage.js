@@ -9,6 +9,7 @@ import { setDoctor } from "../Reducer/Doctor/";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./MainPage.css";
+
 //====================================================//Create Main Page Funtion
 const MainPage = () => {
   const [doctors, setDoctors] = useState([]);
@@ -104,7 +105,7 @@ const MainPage = () => {
   };
   const renderData = (data) => {
     console.log(data);
-    let doctorCard = doctors.map((card, index) => {
+    let doctorCard = currentItems.map((card, index) => {
       return (
         <>
           <CardDoctor

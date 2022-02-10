@@ -99,7 +99,6 @@ const getAllDoctors = (req, res) => {
 //===================================================//Get Doctor By Id
 const getDoctorById = (req, res) => {
   const doctorId = req.params.id;
-
   const query = `SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.password,healthcare.doctor.profileImage,healthcare.doctor.gender,healthcare.doctor.status,healthcare.doctor.Nationality,healthcare.doctor.specialization,healthcare.doctor.phone,healthcare.doctor.workingDays,healthcare.doctor.address,healthcare.doctor.careersLicense,healthcare.doctor.waitingTime,healthcare.doctor.consultationFee,healthcare.doctor.ScientificCertificate,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department' FROM healthcare.doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId 
   WHERE healthcare.doctor.id = ? and healthcare.doctor.is_deleted = 0`;
 
@@ -161,7 +160,7 @@ const getDoctorByDepartment = (req, res) => {
 
 //===================================================//Update Doctor By Id
 const updateDoctorById = async (req, res) => {
-  const id = req.params.id;
+  const id = req.token.userId;
   const password = req.body.password;
   const query = `SELECT password FROM doctor WHERE id =?`;
   const data = [id];
@@ -206,7 +205,7 @@ const updateDoctorById = async (req, res) => {
           } else {
             return res.status(500).json({
               success: false,
-              massage: "This phone number is already used by another account",
+              message: "This phone number is already used by another account",
             });
           }
         });

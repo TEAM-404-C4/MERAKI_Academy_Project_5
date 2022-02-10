@@ -5,9 +5,12 @@ const express = require("express");
 const {
   createNewPatient,
   getAllPatients,
+  getPatientById,
   getPatientByPhone,
   deletePatientById,
   updatePatientByid,
+  checkPatientExist,
+  loginGoogle,
 } = require("../controllers/Patients");
 const { authentication } = require("../middleware/authentication");
 
@@ -20,6 +23,7 @@ const {
 const PaitientRouter = express.Router();
 
 PaitientRouter.get("/all", authentication, getAllPatients);
+PaitientRouter.get("/:id", getPatientById);
 PaitientRouter.post("/create", createNewPatient);
 PaitientRouter.put("/update", authentication, updatePatientByid);
 PaitientRouter.get("/phone", getPatientByPhone);
@@ -30,5 +34,6 @@ PaitientRouter.put(
   ChangePatientPasswordById
 );
 PaitientRouter.put("/changephone/", authentication, ChangePatientPhoneById);
+PaitientRouter.post("/googlelogin", checkPatientExist, loginGoogle);
 
 module.exports = PaitientRouter;

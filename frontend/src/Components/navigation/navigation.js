@@ -1,4 +1,6 @@
+import React from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   BsHouseFill,
   BsLockFill,
@@ -10,13 +12,17 @@ import { MdSettings } from "react-icons/md";
 import { logoutRedux } from "../Reducer/login/index";
 import "./navigation.css";
 import { useDispatch, useSelector } from "react-redux";
+// ==========================================
 
 const Navigation = () => {
+  const history = useNavigate();
   const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
       isLoggedIn: state.loginReducer.isLoggedIn,
+      roleId: state.loginReducer.roleId,
+      profileImage: state.loginReducer.profileImage,
     };
   });
 
@@ -24,6 +30,26 @@ const Navigation = () => {
     <>
       <div className="navigation">
         <div className="logo"></div>
+        {state.roleId == 2 && (
+          <img
+            onClick={() => {
+              history("/doctormyprfile");
+            }}
+            src={state.profileImage}
+            alt="myProfile"
+          />
+        )}
+
+        {state.roleId == 3 && (
+          <button
+            onClick={() => {
+              history("/patientprofile");
+            }}
+          >
+            user profile
+          </button>
+        )}
+
         <div>
           <Link to="/mainpage">
             <BsHouseFill />
@@ -36,12 +62,15 @@ const Navigation = () => {
           </Link>
           <p className="nav_label">Chart</p>
         </div>
-        <div>
-          <Link to="/appointement">
-            <BsHouseFill />
-          </Link>
-          <p className="nav_label">appointement</p>
-        </div>
+
+        {state.roleId == 2 && (
+          <div>
+            <Link to="/appointement">
+              <BsHouseFill />
+            </Link>
+            <p className="nav_label">appointement</p>
+          </div>
+        )}
 
         {!state.isLoggedIn ? (
           <div>
@@ -66,7 +95,7 @@ const Navigation = () => {
 
         {state.isLoggedIn ? (
           <div>
-            <Link to="/dashBoard">
+            <Link to="/dashboard">
               <BsWindow />
             </Link>
             <p className="nav_label">Dashbord</p>

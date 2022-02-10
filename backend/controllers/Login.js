@@ -39,6 +39,7 @@ const doctorLogin = (req, res) => {
           token: token,
           userId: result[0].id,
           role: result[0].roleId,
+          profileImage: result[0].profileImage,
         });
       } catch (error) {
         throw new Error(error.message);

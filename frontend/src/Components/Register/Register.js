@@ -3,6 +3,7 @@ import axios, { Axios } from "axios";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { BsCheckSquareFill } from "react-icons/bs";
+// import Googlelogin from "react-goo"
 
 const Register = () => {
   const [firstNamePatient, setFirstNamePatient] = useState("");
