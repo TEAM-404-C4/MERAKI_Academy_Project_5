@@ -12,7 +12,6 @@ import { MdSettings } from "react-icons/md";
 import { logoutRedux } from "../Reducer/login/index";
 import "./navigation.css";
 import { useDispatch, useSelector } from "react-redux";
-import { ImGift } from "react-icons/im";
 // ==========================================
 
 const Navigation = () => {
@@ -79,7 +78,7 @@ const Navigation = () => {
 
         {state.isLoggedIn ? (
           <div>
-            <Link to="/dashBoard">
+            <Link to="/dashboard">
               <BsWindow />
             </Link>
             <p className="nav_label">Dashbord</p>
