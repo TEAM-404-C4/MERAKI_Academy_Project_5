@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import "./Setting.css";
 import { logoutRedux } from "../Reducer/login/index";
 import { RiContactsFill } from "react-icons/ri";
+import { useEffect } from "react";
 
 //
 
@@ -23,10 +24,21 @@ const Setting = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setlastName] = useState("");
 
+  //Doctor Setting (useState
+  const [fullName, setFullName] = useState("");
+  const [email, setemail] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  const [specialization, setSpecialization] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [waitingTime, setWaitingTime] = useState("");
+  const [consultationFee, setConsultationFee] = useState("");
+  const [departmentId, setDepartmentId] = useState("");
+  const [cityId, setcityId] = useState("");
+
+  //
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-
   const state = useSelector((state) => {
     return {
       token: state.loginReducer.token,
@@ -179,10 +191,226 @@ const Setting = () => {
     }
   };
 
+  // ======================================================= Change Doctor Information
+  const changeDoctorInfo = async (e) => {
+    console.log("From inside");
+    e.preventDefault();
+    try {
+      const result = await axios.put(
+        "http://localhost:5000/doctors/update/",
+        {
+          fullName,
+          email,
+          password,
+          profileImage,
+          specialization,
+          phone,
+          address,
+          waitingTime,
+          consultationFee,
+          departmentId,
+          cityId,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${state.token}`,
+          },
+        }
+      );
+      if (result.data.success) {
+        const myTimeout = setTimeout(logout, 2000);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: result.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      } else throw Error;
+    } catch (error) {
+      if (error.response && error.response.data) {
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: error.response.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      }
+    }
+  };
+
+  // ======================================================= get Doctor by name
+  // const getDoctoById = async () => {
+  //   console.log(localStorage.getItem("userId"));
+  //   try {
+  //     const result = await axios.get(
+  //       `http://localhost:5000/doctors/${localStorage.getItem("userId")}`
+  //     );
+  //     console.log(result);
+  //     if (result.data.success) {
+  //       const myTimeout = setTimeout(logout, 2000);
+  //       Swal.fire({
+  //         position: "center",
+  //         icon: "success",
+  //         title: result.data.message,
+  //         showConfirmButton: false,
+  //         timer: 2000,
+  //       });
+  //     } else throw Error;
+  //   } catch (error) {
+  //     if (error.response && error.response.data) {
+  //       Swal.fire({
+  //         position: "center",
+  //         icon: "warning",
+  //         title: error.response.data.message,
+  //         showConfirmButton: false,
+  //         timer: 2000,
+  //       });
+  //     }
+  //   }
+  // };
+
+  useEffect(() => {
+    // getDoctoById();
+  }, []);
+
   return (
     <>
-      {state.doctorId === 2 ? (
-        <></>
+      {console.log("---------------------", state.doctorId)}
+      {state.doctorId === 2 || localStorage.getItem("roleId") ? (
+        <div className="mainChangeDiv">
+          <div className="changeDiv">
+            <div className="changeInfoDiv">
+              <div>
+                <button
+                  className="showInfobtn"
+                  onClick={() => {
+                    if (showChangeInfo) {
+                      setShowChangeInfo(false);
+                    } else {
+                      setShowChangeInfo(true);
+                    }
+                  }}
+                >
+                  <RiContactsFill />
+                </button>
+              </div>
+              {showChangeInfo ? (
+                <div className="changeInfoForm">
+                  <form onSubmit={changeInfo} className="cInfoFrom">
+                    <div>
+                      <input
+                        type="text"
+                        className="oldInfo"
+                        placeholder="Full Name"
+                        onChange={(e) => {
+                          setFullName(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="email"
+                        onChange={(e) => {
+                          setemail(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Profile Image"
+                        onChange={(e) => {
+                          setProfileImage(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Specialization"
+                        onChange={(e) => {
+                          setSpecialization(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Phone number"
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Address "
+                        onChange={(e) => {
+                          setAddress(e.target.value);
+                        }}
+                      />
+
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Waiting Time "
+                        onChange={(e) => {
+                          setWaitingTime(e.target.value);
+                        }}
+                      />
+
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Consultation Fee"
+                        onChange={(e) => {
+                          setConsultationFee(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="Department Id"
+                        onChange={(e) => {
+                          setDepartmentId(e.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        className="newInfo"
+                        placeholder="City Id"
+                        onChange={(e) => {
+                          setcityId(e.target.value);
+                        }}
+                      />
+                      <button
+                        className="savebtn"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          Swal.fire({
+                            title: "Enter Your Password Here",
+                            text: "",
+                            input: "password",
+                            inputValue: "",
+                            showCancelButton: true,
+                          }).then((result) => {
+                            setPassword(result.value);
+                            changeDoctorInfo(e);
+                          });
+                        }}
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
+        </div>
       ) : (
         <div className="mainChangeDiv">
           <div className="changeDiv">
