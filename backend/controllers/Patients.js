@@ -2,6 +2,68 @@
 const connection = require("../database/db");
 const bcrypt = require("bcrypt");
 
+// ==========================================// check accout google
+
+const checkPatientExist = (req, res, next) => {
+  //  تم استخدام الايميل بدل التلفون ولكن بنفس الخانة
+
+  const { firstName, lastName, phone } = req.body;
+
+  const query = `SELECT * from patient WHERE phone=?`;
+  const data = [phone];
+
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(409).json({
+        success: false,
+        message: " server error",
+        err,
+      });
+    }
+
+    if (result.length == 0) {
+      const data1 = [firstName, lastName, phone, 3];
+      const query1 = `INSERT INTO patient (firstName,lastName,phone,roleId) VALUES (?,?,?,?)`;
+      connection.query(query1, data1, (err1, result1) => {
+        if (err1) {
+          return res.status(409).json({
+            success: false,
+            message: " server error",
+            err1,
+          });
+        }
+
+        next();
+      });
+    } else {
+      next();
+    }
+  });
+};
+
+// ==============================================login google
+
+const loginGoogle = (req, res) => {
+  const { firstName, lastName, phone } = req.body;
+  const data = [phone];
+  const query = `SELECT * from patient WHERE phone=?`;
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(409).json({
+        success: false,
+        message: " server error",
+        err,
+      });
+    }
+
+    return res.status(201).json({
+      success: true,
+      message: " login patient with google",
+      result,
+    });
+  });
+};
+
 //====================================================//Create New Patient Function
 const createNewPatient = async (req, res) => {
   let { firstName, lastName, password, phone, roleId } = req.body;
@@ -169,4 +231,6 @@ module.exports = {
   getPatientByPhone,
   updatePatientByid,
   deletePatientById,
+  checkPatientExist,
+  loginGoogle,
 };

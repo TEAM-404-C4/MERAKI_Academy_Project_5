@@ -9,6 +9,8 @@ const {
   getPatientByPhone,
   deletePatientById,
   updatePatientByid,
+  checkPatientExist,
+  loginGoogle,
 } = require("../controllers/Patients");
 const { authentication } = require("../middleware/authentication");
 
@@ -32,5 +34,6 @@ PaitientRouter.put(
   ChangePatientPasswordById
 );
 PaitientRouter.put("/changephone/", authentication, ChangePatientPhoneById);
+PaitientRouter.post("/googlelogin", checkPatientExist, loginGoogle);
 
 module.exports = PaitientRouter;
