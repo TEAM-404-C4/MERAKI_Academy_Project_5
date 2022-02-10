@@ -29,7 +29,7 @@ const GoogleSignIn = () => {
           loginRedux({
             token: googleData.tokenId,
             isLoggedIn: true,
-            userId: res.data.result[0].id,
+            userId: res.data.result,
             roleId: 3,
           })
         );

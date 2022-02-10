@@ -16,6 +16,7 @@ const UserProfile = () => {
     // console.log(state[0].id);
     try {
       console.log(state);
+
       const res = await axios.get(
         `http://localhost:5000/patients/${state[0].id}`
       );
