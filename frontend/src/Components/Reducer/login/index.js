@@ -15,6 +15,7 @@ const loginReducer = (state = initialState, { type, payload }) => {
       localStorage.setItem("token", payload.token);
       localStorage.setItem("roleId", payload.roleId);
       localStorage.setItem("userId", payload.userId);
+
       return {
         token: payload.token,
         isLoggedIn: true,
