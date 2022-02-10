@@ -21,6 +21,7 @@ function App() {
       <Navigation />
 
       <Routes>
+        <Route path="/doctormyprfile" element={<DoctorProfile />} />
         <Route path="/appointement" element={<Appointement />} />
         <Route path="/doctorsignup1" element={<Page1 />} />
         <Route path="/doctorsignup2" element={<Page2 />} />

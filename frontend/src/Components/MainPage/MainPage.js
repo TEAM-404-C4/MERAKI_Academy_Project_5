@@ -104,7 +104,7 @@ const MainPage = () => {
   };
   const renderData = (data) => {
     console.log(data);
-    let doctorCard = doctors.map((card, index) => {
+    let doctorCard = currentItems.map((card, index) => {
       return (
         <>
           <CardDoctor

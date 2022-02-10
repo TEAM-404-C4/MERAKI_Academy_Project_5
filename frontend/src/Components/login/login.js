@@ -33,6 +33,7 @@ const Login = (e) => {
         password,
       });
       if (res.data.success) {
+        console.log(res.data);
         setMessage("");
         history("/mainpage");
 
@@ -42,6 +43,7 @@ const Login = (e) => {
             isLoggedIn: true,
             userId: res.data.userId,
             roleId: res.data.role,
+            profileImage: res.data.profileImage,
           })
         );
       } else throw Error;

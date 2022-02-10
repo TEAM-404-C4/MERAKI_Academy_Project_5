@@ -3,6 +3,7 @@ const initialState = {
   isLoggedIn: localStorage.getItem("token") ? true : false,
   userId: "",
   roleId: "",
+  profileImage: "",
 };
 
 //======================
@@ -18,6 +19,7 @@ const loginReducer = (state = initialState, { type, payload }) => {
         isLoggedIn: true,
         userId: payload.userId,
         roleId: payload.roleId,
+        profileImage: payload.profileImage,
       };
 
     case "LOG_OUT":
