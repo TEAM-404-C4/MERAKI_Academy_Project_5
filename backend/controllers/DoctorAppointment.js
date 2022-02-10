@@ -60,17 +60,24 @@ const getDoctorAppointmentByPatientId = (req, res) => {
 // Doctor Available Patient Can Booking
 const getAvalibleAppointment = (req, res) => {
 
+
   const query = `select a.id,a.time FROM doctorshowappointment d join appointment a on a.id=d.appointmentId
   where doctorId= ? and appointmentId not in 
  (select dd.appointmentId FROM doctor_appointment dd  where dd.dateAppointment = ? and  dd.doctorId = ? );
  
  
  `;
+
  const { doctorId,dateAppointment} = req.body;
 
   const data = [doctorId,dateAppointment,doctorId];
+
   connection.query(query, data, (err, result) => {
+<<<<<<< HEAD
     console.log(err);
+=======
+    console.log(err, result);
+>>>>>>> 5214bc8d58eb75ca1909e2c9ff59fcf1ca6b3f0f
     if (err) {
       res
         .status(500)
@@ -88,8 +95,8 @@ const setAppointmentIsBooking = (req, res, next) => {
   const query = `INSERT INTO doctor_appointment (doctorId,appointmentId,patientId,is_Booking,dateAppointment) VALUES(?,?,?,?,?)`;
 
   console.log(req.body);
-  const { doctorId, appointmentId, patientId,dateAppointment } = req.body;
-  const data = [doctorId, appointmentId, patientId, 1,dateAppointment];
+  const { doctorId, appointmentId, patientId, dateAppointment } = req.body;
+  const data = [doctorId, appointmentId, patientId, 1, dateAppointment];
   connection.query(query, data, (err, result) => {
     if (err) {
       res
@@ -122,5 +129,5 @@ module.exports = {
   setIsDeletedInAppointmentAvailable,
   getAppointmentByDoctorId,
   getAvalibleAppointment,
-  getDoctorAppointmentByPatientId
+  getDoctorAppointmentByPatientId,
 };

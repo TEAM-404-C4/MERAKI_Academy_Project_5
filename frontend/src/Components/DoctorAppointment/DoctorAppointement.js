@@ -38,7 +38,10 @@ const DoctorAppointement = () => {
       {appointement.map((element, index) => {
         return (
           <div>
-            <p> {element.time} </p>
+            <p>
+              {" "}
+              {element.time} Date: {element.dateAppointment}{" "}
+            </p>
             <p>{element.phone}</p>
             <p>{`${element.firstName}  ${element.lastName} `}</p>
           </div>

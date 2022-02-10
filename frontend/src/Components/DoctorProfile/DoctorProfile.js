@@ -46,12 +46,12 @@ const DoctorProfile = () => {
       setDoctor(res.data.result[0]);
       console.log("dd", res.data.result[0]);
       // ===================================================appointement
-
+      console.log(today);
       const res2 = await axios.post(
         `http://localhost:5000/doctors/appointement`,
         {
           doctorId: state.doctorId,
-          dateAppointment: date || today,
+          dateAppointment: date || new Date().toISOString().substring(0, 10),
         }
       );
 
@@ -60,7 +60,7 @@ const DoctorProfile = () => {
     } catch (err) {
       console.log(err);
     }
-  }, [resultBooking]);
+  }, [resultBooking, date]);
 
   // ================================================== booking
 

@@ -35,6 +35,7 @@ const MainPage = () => {
     try {
       const res = await axios.get("http://localhost:5000/doctors");
       if (res.data.success) {
+        console.log(res.data.results);
         setDoctors(res.data.results);
         setMessage("");
       } else throw Error;
@@ -103,7 +104,7 @@ const MainPage = () => {
   };
   const renderData = (data) => {
     console.log(data);
-    let doctorCard = data.map((card, index) => {
+    let doctorCard = doctors.map((card, index) => {
       return (
         <>
           <CardDoctor
