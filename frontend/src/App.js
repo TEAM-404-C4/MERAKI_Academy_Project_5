@@ -13,6 +13,7 @@ import Page4 from "./Components/DoctorRegister/Page4";
 import Booking from "./Components/Booking/Booking";
 import Setting from "./Components/Settings/Setting";
 import Appointement from "./Components/DoctorAppointment/Appointement";
+import Chart from "./Components/Chart/Chart";
 import DoctorMyProfile from "./Components/DoctorProfile/DoctorMyProfile";
 import UserProfile from "./Components/User/UserProfile";
 import Dashboard from "./Components/Dashboard/Dashboard";
@@ -20,11 +21,9 @@ import Dashboard from "./Components/Dashboard/Dashboard";
 
 //App Function
 function App() {
-  const history = useNavigate();
   return (
     <div className="App">
       <Navigation />
-
       <Routes>
         <Route path="/patientprofile" element={<UserProfile />} />
         <Route path="/doctormyprfile" element={<DoctorMyProfile />} />
@@ -39,6 +38,9 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/DoctorProfile" element={<DoctorProfile />} />
         <Route path="/setting" element={<Setting />} />
+
+        <Route path="/chart" element={<Chart />} />
+
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>

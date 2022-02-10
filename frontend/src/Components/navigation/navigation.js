@@ -56,6 +56,13 @@ const Navigation = () => {
           </Link>
           <p className="nav_label">Home</p>
         </div>
+        <div>
+          <Link to="/chart">
+            <BsHouseFill />
+          </Link>
+          <p className="nav_label">Chart</p>
+        </div>
+
         {state.roleId == 2 && (
           <div>
             <Link to="/appointement">
