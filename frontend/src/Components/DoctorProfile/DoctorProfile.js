@@ -86,7 +86,8 @@ const DoctorProfile = () => {
   // ===================================== set date appointement
 
   const setDateAppointement = (e) => {
-    setDate(e.target.value);
+    setDate(e.target.value.toString());
+    // console.log(e.target.value.toString());
   };
 
   // ====================================

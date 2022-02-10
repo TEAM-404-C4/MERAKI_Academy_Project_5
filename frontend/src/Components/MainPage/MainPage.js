@@ -158,7 +158,7 @@ const MainPage = () => {
         <Filter setSearch={setSearch} />
         <Search setSearch={setSearch} />
       </div>
-      {search ? seachDoctorCard : renderData(currentItems)}
+      {search ? seachDoctorCard : renderData(doctors)}
       <ul className="pageNumbers">
         <li>
           <button
