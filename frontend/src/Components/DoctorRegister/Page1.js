@@ -50,6 +50,8 @@ const Page1 = () => {
 
   //====================================================//Next Button Function
   const nextButton = async () => {
+    history("/doctorsignup2");
+    dispatch(addInfoPage({ fullName, email, password, profileImage }));
     // const metadata = {
     //   contentType: 'image/jpeg',
     // };
