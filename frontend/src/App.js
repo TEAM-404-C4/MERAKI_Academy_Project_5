@@ -22,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <Navigation />
+
       <Routes>
         <Route path="/patientprofile" element={<UserProfile />} />
         <Route path="/doctormyprfile" element={<DoctorMyProfile />} />

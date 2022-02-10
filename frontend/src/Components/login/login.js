@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../Reducer/login/index";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import GoogleSignIn from "../GoogleLogin/googleLogin";
 
 //CSS File
 import "./login.css";
@@ -85,6 +86,7 @@ const Login = (e) => {
         <div>
           {status ? message && <div className="Message">{message}</div> : <></>}
         </div>
+        <GoogleSignIn />
       </div>
     </>
   );
