@@ -28,7 +28,7 @@ const doctorRouter = express.Router();
 
 doctorRouter.post("/", createNewDoctor);
 doctorRouter.get("/", getAllDoctors);
-doctorRouter.put("/update/:id", authentication, updateDoctorById);
+doctorRouter.put("/update", authentication, updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.post("/Search", getDoctorByName);
 doctorRouter.get("/:id", getDoctorById);
