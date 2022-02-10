@@ -9,7 +9,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: #1c2e4c;
 }
 
 .leftSide {
@@ -17,7 +17,7 @@
   flex-direction: column;
   height: 100%;
   width: 300px;
-  background-color: #282b33;
+  background-color: #1c2e4c;
   gap: 50px;
 }
 
@@ -45,6 +45,24 @@
   color: #f6cd50;
 }
 
+.dashboardSelect2 {
+  color: grey;
+  background-color: #0c1a32;
+  letter-spacing: 0.5px;
+  padding: 20px;
+  border-radius: 7px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+}
+
+.dashboardSelect2:hover {
+  background-color: rgb(255, 255, 255, 0.2);
+  cursor: pointer;
+  color: #f6cd50;
+}
+
 .dashboardItem {
   display: flex;
   flex-direction: column;
@@ -59,7 +77,7 @@
   justify-content: center;
   align-items: center;
   gap: 100px;
-  background-color: #f4f4f4;
+  background-color: #1c2e4c;
   height: 400px;
 }
 
@@ -67,7 +85,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #0c1a32;
   width: 35%;
   height: 90%;
   border-radius: 7px;
@@ -78,7 +96,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #0c1a32;
   width: 35%;
   height: 90%;
   border-radius: 7px;
@@ -88,7 +106,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #0c1a32;
   width: 35%;
   height: 90%;
   border-radius: 7px;
@@ -98,7 +116,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #0c1a32;
   width: 35%;
   height: 90%;
   border-radius: 7px;
