@@ -1,10 +1,11 @@
 import React from "react";
 import "./Intro.css";
-
 import { useNavigate } from "react-router-dom";
-
 function Intro() {
   const history = useNavigate();
+
+
+function Intro() {
 
   return (
     <div className="introMainDiv">
