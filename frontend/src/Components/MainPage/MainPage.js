@@ -105,10 +105,9 @@ const MainPage = () => {
     setitemsPerPage(itemsPerPage + 5);
   };
   const renderData = (data) => {
-    console.log(data);
     let doctorCard = currentItems.map((card, index) => {
       return (
-        <>
+        <div>
           <CardDoctor
             key={card.id}
             id={card.id}
@@ -126,7 +125,7 @@ const MainPage = () => {
             latitude={card.latitude}
             longitude={card.longitude}
           />
-        </>
+        </div>
       );
     });
     return doctorCard;
@@ -135,7 +134,7 @@ const MainPage = () => {
   let seachDoctorCard = search
     ? search.map((card) => {
         return (
-          <>
+          <div>
             <CardDoctor
               key={card.id}
               id={card.id}
@@ -150,13 +149,13 @@ const MainPage = () => {
               workingDays={card.workingDays}
               waitingTime={card.waitingTime}
             />
-          </>
+          </div>
         );
       })
     : "";
 
   return (
-    <div>
+    <div className="mainPageMainDiv">
       <div className="filterDiv">
         <Filter setSearch={setSearch} />
         <Search setSearch={setSearch} />
