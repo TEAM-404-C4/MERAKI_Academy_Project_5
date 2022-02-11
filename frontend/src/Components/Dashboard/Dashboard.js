@@ -11,6 +11,7 @@ import "@fullcalendar/daygrid/main.css";
 import FullCalendar from "@fullcalendar/react";  
 import dayGridPlugin from "@fullcalendar/daygrid"; 
 import timeGridPlugin from "@fullcalendar/timegrid";  
+import Setting from "../Settings/Setting";
 const Dashboard = () => {
   const [dashboardPanel, setDashboardPanel] = useState(true);
   const [appointementPanel, setappointementPanel] = useState(false);
@@ -210,7 +211,6 @@ var options1 = {
                 setPatientsPanel(false);
                 setsettingPanel(true);
                 setratingPanel(false);
-
                 setSelectStyle4("dashboardSelect2");
                 setSelectStyle1("dashboardSelect");
                 setSelectStyle2("dashboardSelect");
@@ -301,7 +301,9 @@ var options1 = {
             {settingPanel ? (
               <>
                 <div className="dashBoardChart">
-                  <div className="chartOne">Setting</div>
+                  <div>
+                    <Setting />
+                  </div>
                 </div>
               </>
             ) : (
