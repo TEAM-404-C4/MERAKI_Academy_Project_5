@@ -128,6 +128,36 @@ create table Doctor_Appointment(
     FOREIGN Key(day) REFERENCES DayAppointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+-- =====================================================//Role DATA
+Insert INTO
+    Role (Name)
+VALUES
+    ('ADMIN');
+
+Insert INTO
+    Role (Name)
+VALUES
+    ('DOCTOR');
+
+Insert INTO
+    Role (Name)
+VALUES
+    ('PATIENT');
+-- ==============================// Patient Data =============================
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('iyad','saadeh','0000','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('omar','kataa','0001','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('mohmmad','Farhan','0002','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('bayan','Alsafdi','0003','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('huda','Not TA','0004','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('jozaa','CEO','0005','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('ghaidaa','TA','0006','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Farhan','Mohaamd','0007','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Issa','Alhls','0008','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Haitham','Nawwaf','0009','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Alaa','Marai','0010','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Sara','Ahmad','0011','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Rami','Nwaaf','0012','123456' , 3);
+INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Ammar','kataa','0013','123456' , 3);
 
 -- ====================================================//CITY DATA
 Insert INTO
@@ -202,21 +232,7 @@ VALUES
 -- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(9,1);
 -- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(10,1);
 -- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(11,1);
--- =====================================================//Role DATA
-Insert INTO
-    Role (Name)
-VALUES
-    ('ADMIN');
 
-Insert INTO
-    Role (Name)
-VALUES
-    ('DOCTOR');
-
-Insert INTO
-    Role (Name)
-VALUES
-    ('PATIENT');
 
 -- =================================================// Day Appointment
 Insert INTO
@@ -253,84 +269,86 @@ VALUES
 Insert INTO
     Appointment (time)
 VALUES
-    ('9-9:30');
+    ('9:00 am - 9:30 am');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('9:30-10');
+    ('9:30 am - 10:30 am');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('10-10:30');
+    ('10:00 am - 10:30 am');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('10:30-11');
+    ('10:30 am - 11:00 am');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('11-11:30');
+    ('11:00 am - 11:30 am');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('11:30-12');
+    ('11:30 am - 12:00 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('12-12:30');
+    ('12:00 pm -12:30 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('12:30-1');
+    ('12:30 pm - 1:00 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('1-1:30');
+    ('1:00 pm - 1:30 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('1:30-2');
+    ('1:30 pm - 2:00 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('2-2:30');
+    ('2:00 pm - 2:30 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('2:30-3');
+    ('2:30 pm - 3:00 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('3-3:30');
+    ('3:00 pm - 3:30 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('3:30-4');
+    ('3:30 pm - 4:00 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('4-4:30');
+    ('4:00 pm - 4:30 pm');
 
 Insert INTO
     Appointment (time)
 VALUES
-    ('4:30-5');
+    ('4:30 pm - 5:00 pm');
 
 -- ====================================================//MedicalDepartment DATA
+
+
 Insert INTO
     MedicalDepartment (Name)
 VALUES
@@ -437,13 +455,13 @@ VALUES
     (
         "HAITHAM NAWWAF",
         "haitham@yahoo.com",
-        "1234vcbvcb56",
+        "123456",
         "https://doctorsstorageprod.blob.core.windows.net/117663/Profile/passport_cdb392e6-287f-4e1a-8a84-2fd00109fcd0.jpg?sv=2017-04-17&sr=b&si=PrivatePolicy&sig=kxTS5xwpaePJp0vegOBXPb%2F0gX%2FkIBwgio8MRg6IpFg%3D",
         "Male",
         "Single",
         "Jordanian",
         3,
-        1111111111,
+        222,
         "sunday,monday,tuesday",
         "JORDAN,AMMAN",
         "none",
