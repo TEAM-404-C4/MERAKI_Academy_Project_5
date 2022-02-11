@@ -5,7 +5,12 @@ import { GoDashboard } from "react-icons/go";
 import { BsFillPeopleFill, BsFillCalendarCheckFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import ApexCharts from "apexcharts";
+import "@fullcalendar/timegrid/main.css";  
+import "@fullcalendar/daygrid/main.css";  
 
+import FullCalendar from "@fullcalendar/react";  
+import dayGridPlugin from "@fullcalendar/daygrid"; 
+import timeGridPlugin from "@fullcalendar/timegrid";  
 const Dashboard = () => {
   const [dashboardPanel, setDashboardPanel] = useState(true);
   const [appointementPanel, setappointementPanel] = useState(false);
@@ -17,6 +22,7 @@ const Dashboard = () => {
   const [selectStyle3, setSelectStyle3] = useState("dashboardSelect");
   const [selectStyle4, setSelectStyle4] = useState("dashboardSelect");
   const [selectStyle5, setSelectStyle5] = useState("dashboardSelect");
+  const events = [{ title: "Today", date: new Date() }]; 
 //================================================ Chart 1
  var options = {
     series: [50, 50],
@@ -260,7 +266,24 @@ var options1 = {
             {appointementPanel ? (
               <>
                 <div className="dashBoardChart">
-                  <div className="chartOne">appointement</div>
+                  <div className="container">  
+                  <div className="row title" style={{ marginTop: "20px" }} >  
+                    <div class="col-sm-12 btn btn-info">  
+                        FullCalendar In React Application  
+               </div>  
+                </div>  
+                 <FullCalendar  
+              defaultView="timeGridDay"  
+              on
+             header={{  
+            left: "prev,next",  
+            center: "title",  
+           right: "dayGridMonth,timeGridWeek,timeGridDay"  
+        }}  
+        plugins={[dayGridPlugin, timeGridPlugin]}  
+        events={events}  
+      />  
+            </div>
                 </div>
               </>
             ) : (
