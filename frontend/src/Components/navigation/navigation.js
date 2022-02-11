@@ -88,16 +88,6 @@ const Navigation = () => {
         )}
 
         {state.isLoggedIn ? (
-          <div>
-            <Link to="/setting">
-              <MdSettings />
-            </Link>
-            <p className="nav_label">Setting</p>
-          </div>
-        ) : (
-          <></>
-        )}
-        {state.isLoggedIn ? (
           <div
             onClick={() => {
               dispatch(logoutRedux());

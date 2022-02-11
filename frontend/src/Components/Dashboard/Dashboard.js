@@ -4,7 +4,7 @@ import { AiOutlineRight, AiFillSetting } from "react-icons/ai";
 import { GoDashboard } from "react-icons/go";
 import { BsFillPeopleFill, BsFillCalendarCheckFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-
+import Setting from "../Settings/Setting";
 const Dashboard = () => {
   const [dashboardPanel, setDashboardPanel] = useState(true);
   const [appointementPanel, setappointementPanel] = useState(false);
@@ -95,7 +95,6 @@ const Dashboard = () => {
                 setPatientsPanel(false);
                 setsettingPanel(true);
                 setratingPanel(false);
-
                 setSelectStyle4("dashboardSelect2");
                 setSelectStyle1("dashboardSelect");
                 setSelectStyle2("dashboardSelect");
@@ -169,7 +168,9 @@ const Dashboard = () => {
             {settingPanel ? (
               <>
                 <div className="dashBoardChart">
-                  <div className="chartOne">Setting</div>
+                  <div>
+                    <Setting />
+                  </div>
                 </div>
               </>
             ) : (
