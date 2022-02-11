@@ -3,9 +3,9 @@ const connection = require("../database/db");
 
 //====================================================//Create Comment Function
 const createComment = (req, res) => {
-  const { comment, reating, doctorId, patientId } = req.body;
-  const query = `INSERT INTO Comment (comment,rating,patientId,doctorId) VALUES (?,?,?,?)`;
-  const data = [comment, reating, patientId, doctorId];
+  const { comment, reating, doctorId, patientId, commentDate } = req.body;
+  const query = `INSERT INTO Comment (comment,rating,patientId,doctorId,commentDate) VALUES (?,?,?,?,?)`;
+  const data = [comment, reating, patientId, doctorId, commentDate];
   // connnection query
   connection.query(query, data, (err, result) => {
     if (err) {

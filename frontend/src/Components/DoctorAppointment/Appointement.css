@@ -31,7 +31,11 @@
   align-items: center;
   padding-left: 5vw;
 }
-
+table,
+th,
+td {
+  border: 1px solid black;
+}
 /* .list1 button {
   background-color: aqua;
   border-style: none;

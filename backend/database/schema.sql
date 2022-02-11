@@ -88,6 +88,7 @@ Create table Comment(
     patientId int,
     doctorId int,
     is_deleted TINYINT Default 0,
+    commentDate varchar(255),
     FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );

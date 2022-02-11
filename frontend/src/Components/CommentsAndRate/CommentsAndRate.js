@@ -49,6 +49,7 @@ export default function CommentsAndRate() {
         reating: rate,
         doctorId: state.doctorId,
         patientId: state.userId,
+        commentDate: new Date().toISOString().substring(0, 10),
       });
 
       console.log(res);
@@ -205,7 +206,9 @@ export default function CommentsAndRate() {
               return (
                 <div className="commentRatingElement">
                   <div className="nameAndRating">
-                    <div className="rating">{showRating(element.rating)}</div>
+                    <div className="rating">
+                      {showRating(element.rating)} <a>{element.commentDate}</a>{" "}
+                    </div>
                     <div className="name">{`${element.firstName} ${element.lastName}`}</div>
                   </div>
 
