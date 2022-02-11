@@ -1,12 +1,9 @@
 import React from "react";
 import "./Intro.css";
 import { useNavigate } from "react-router-dom";
+
 function Intro() {
   const history = useNavigate();
-
-
-function Intro() {
-
   return (
     <div className="introMainDiv">
       <div
@@ -39,7 +36,12 @@ function Intro() {
               <p className="chartTitleNumber">1,532</p>
             </div>
           </div>
-          <div className="introChart">
+          <div
+            className="introChart"
+            onClick={() => {
+              history("/mainpage");
+            }}
+          >
             <div className="backgrounChart">
               <img
                 className="chartImage"
@@ -55,7 +57,12 @@ function Intro() {
           </div>
         </div>
         <div className="introChartDiv">
-          <div className="introChart">
+          <div
+            className="introChart"
+            onClick={() => {
+              history("/mainpage");
+            }}
+          >
             <div className="backgrounChart">
               <img
                 className="chartImage"
@@ -69,7 +76,12 @@ function Intro() {
               <p className="chartTitleNumber">4</p>
             </div>
           </div>
-          <div className="introChart">
+          <div
+            className="introChart"
+            onClick={() => {
+              history("/mainpage");
+            }}
+          >
             <div className="backgrounChart">
               <img
                 className="chartImage"
