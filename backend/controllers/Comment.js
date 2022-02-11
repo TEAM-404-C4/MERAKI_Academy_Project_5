@@ -5,7 +5,7 @@ const connection = require("../database/db");
 const createComment = (req, res) => {
   const { comment, reating, doctorId, patientId } = req.body;
   const query = `INSERT INTO Comment (comment,rating,patientId,doctorId) VALUES (?,?,?,?)`;
-  const data = [comment, reating, doctorId, patientId];
+  const data = [comment, reating, patientId, doctorId];
   // connnection query
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -30,6 +30,7 @@ const getAllComments = (req, res) => {
   const data = [doctorId];
 
   connection.query(query, data, (err, result) => {
+    console.log(result);
     if (err) {
       return res.status(200).json({
         success: true,
