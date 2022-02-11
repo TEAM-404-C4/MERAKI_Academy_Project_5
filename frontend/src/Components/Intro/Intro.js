@@ -1,6 +1,6 @@
 import React from "react";
 import "./Intro.css";
-function intro() {
+function Intro() {
   return (
     <div className="introMainDiv">
       <div className="gifImageDiv">
@@ -10,4 +10,4 @@ function intro() {
   );
 }
 
-export default intro;
+export default Intro;
