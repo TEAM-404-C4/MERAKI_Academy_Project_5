@@ -1,3 +1,4 @@
+//====================================================//Require
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +9,13 @@ import {
   BsBoxArrowInRight,
   BsWindow,
 } from "react-icons/bs";
-import { MdSettings } from "react-icons/md";
 import { logoutRedux } from "../Reducer/login/index";
 import "./navigation.css";
 import { useDispatch, useSelector } from "react-redux";
-// ==========================================
+
+import { RiLogoutCircleRLine } from "react-icons/ri";
+
+//====================================================// Navigation function
 
 const Navigation = () => {
   const history = useNavigate();
@@ -25,99 +28,110 @@ const Navigation = () => {
       profileImage: state.loginReducer.profileImage,
     };
   });
+  //====================================================// return
 
   return (
     <>
       <div className="navigation">
-        <div className="logo"></div>
-        {state.roleId == 2 && (
-          <img
+        <div className="logoAndName">
+          <div
+            className="logo"
             onClick={() => {
-              history("/doctormyprfile");
+              history("/mainpage");
             }}
-            src={state.profileImage}
-            alt="myProfile"
-          />
-        )}
-
-        {state.roleId == 3 && (
-          <button
-            onClick={() => {
-              history("/patientprofile");
-            }}
-          >
-            user profile
-          </button>
-        )}
-
-        <div>
-          <Link to="/mainpage">
-            <BsHouseFill />
-          </Link>
-          <p className="nav_label">Home</p>
+          ></div>
+          <p className="shefaaName">SHEFAA</p>
         </div>
-        <div>
-          <Link to="/chart">
-            <BsHouseFill />
-          </Link>
-          <p className="nav_label">Chart</p>
-        </div>
+        <div className="controlsDiv">
+          {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (
+            <div className="option" title="Profile Page">
+              <img
+                onClick={() => {
+                  history("/doctormyprfile");
+                }}
+                src={state.profileImage}
+                alt="myProfile"
+              />
+            </div>
+          ) : (
+            <></>
+          )}
 
-        {state.roleId == 2 && (
-          <div>
-            <Link to="/appointement">
+          {state.roleId === 3 || localStorage.getItem("roleId") == 3 ? (
+            <div className="option" title="Profile Page">
+              <button
+                onClick={() => {
+                  history("/patientprofile");
+                }}
+              >
+                patient profile
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
+
+          <div className="option" title="Main">
+            <Link to="/mainpage" alt="test">
               <BsHouseFill />
             </Link>
-            <p className="nav_label">appointement</p>
           </div>
-        )}
 
-        {!state.isLoggedIn ? (
-          <div>
-            <Link to="/login">
-              <BsLockFill />
-            </Link>
-            <p className="nav_label">Login</p>
-          </div>
-        ) : (
-          <></>
-        )}
-        {!state.isLoggedIn ? (
-          <div>
-            <Link to="/Register">
-              <BsNewspaper />
-            </Link>
-            <p className="nav_label">Register</p>
-          </div>
-        ) : (
-          <></>
-        )}
+          {state.roleId == 2 && localStorage.getItem("roleId") == 2 ? (
+            <div className="option">
+              <Link to="/appointement">
+                <BsHouseFill />
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )}
 
-        {state.isLoggedIn ? (
-          <div>
-            <Link to="/dashboard">
-              <BsWindow />
-            </Link>
-            <p className="nav_label">Dashbord</p>
-          </div>
-        ) : (
-          <></>
-        )}
+          {!state.isLoggedIn ? (
+            <div className="option" title="Login">
+              <Link to="/login">
+                <BsLockFill />
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )}
 
-        {state.isLoggedIn ? (
-          <div
-            onClick={() => {
-              dispatch(logoutRedux());
-            }}
-          >
-            <Link to="/">
-              <BsBoxArrowInRight />
-            </Link>
-            <p className="nav_label">logout</p>
-          </div>
-        ) : (
-          <></>
-        )}
+          {!state.isLoggedIn ? (
+            <div className="option">
+              <Link to="/Register" title="Register">
+                <BsNewspaper />
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )}
+
+          {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (
+            <div className="option" title="Dashboard">
+              <Link to="/dashboard">
+                <BsWindow />
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )}
+
+          {state.isLoggedIn ? (
+            <div
+              className="option"
+              onClick={() => {
+                dispatch(logoutRedux());
+              }}
+            >
+              <Link to="/">
+                <RiLogoutCircleRLine />
+              </Link>
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </>
   );
