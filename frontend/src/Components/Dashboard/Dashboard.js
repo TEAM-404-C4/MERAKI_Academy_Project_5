@@ -6,6 +6,7 @@ import { BsFillPeopleFill, BsFillCalendarCheckFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import ApexCharts from "apexcharts";
 
+import Setting from "../Settings/Setting";
 const Dashboard = () => {
   const [dashboardPanel, setDashboardPanel] = useState(true);
   const [appointementPanel, setappointementPanel] = useState(false);
@@ -204,7 +205,6 @@ var options1 = {
                 setPatientsPanel(false);
                 setsettingPanel(true);
                 setratingPanel(false);
-
                 setSelectStyle4("dashboardSelect2");
                 setSelectStyle1("dashboardSelect");
                 setSelectStyle2("dashboardSelect");
@@ -278,7 +278,9 @@ var options1 = {
             {settingPanel ? (
               <>
                 <div className="dashBoardChart">
-                  <div className="chartOne">Setting</div>
+                  <div>
+                    <Setting />
+                  </div>
                 </div>
               </>
             ) : (
