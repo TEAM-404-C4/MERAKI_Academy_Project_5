@@ -122,6 +122,7 @@ const Setting = () => {
           },
         }
       );
+      console.log(result);
       if (result.data.success) {
         const myTimeout = setTimeout(logout, 2000);
         Swal.fire({
@@ -162,6 +163,7 @@ const Setting = () => {
           },
         }
       );
+      console.log(result);
       if (result.data.success) {
         console.log(result);
         const myTimeout = setTimeout(logout, 2000);
@@ -373,7 +375,7 @@ const Setting = () => {
                         }}
                       />
                       <button
-                        className="savebtnDoc"
+                        className="savebtn"
                         onClick={(e) => {
                           e.preventDefault();
                           Swal.fire({
