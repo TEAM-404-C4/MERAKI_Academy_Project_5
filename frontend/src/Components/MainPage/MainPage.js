@@ -9,6 +9,7 @@ import { setDoctor } from "../Reducer/Doctor/";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./MainPage.css";
+import CommentsAndRate from "../CommentsAndRate/CommentsAndRate";
 
 //====================================================//Create Main Page Funtion
 const MainPage = () => {

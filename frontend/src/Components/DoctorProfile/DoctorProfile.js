@@ -15,6 +15,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { BsClockHistory, BsCalendarDay } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
 import { HiOutlineIdentification } from "react-icons/hi";
+import CommentsAndRate from "../CommentsAndRate/CommentsAndRate";
 const DoctorProfile = () => {
   const [doctor, setDoctor] = useState("");
   const [appointement, setAppointement] = useState([]);
@@ -37,10 +38,12 @@ const DoctorProfile = () => {
       return new Date().toISOString().substring(0, 10);
     });
     console.log(state.userId, state.roleId, state.userIdDoctor);
-    console.log("state.doctorId", state.doctorId,state.doctorId.doctorId);
+    console.log("state.doctorId", state.doctorId, state.doctorId.doctorId);
     try {
       const res = await axios.get(
-        `http://localhost:5000/doctors/${window.localStorage.getItem('doctorId')}`
+        `http://localhost:5000/doctors/${window.localStorage.getItem(
+          "doctorId"
+        )}`
       );
       console.log("Doctor id", state.doctorId, res);
       setDoctor(res.data.result[0]);
@@ -93,99 +96,103 @@ const DoctorProfile = () => {
   // ====================================
 
   return (
-    <div className="profile">
-      <div className="pictureAndTitle">
-        <img src={doctor.profileImage} alt={doctor.fullName} />
-        <h3>Dr.{doctor.fullName}</h3>
-      </div>
-      <div className="profileInformation">
-        <h5>
-          Department : <span>{doctor.Department}</span>
-        </h5>
-        <div className="profile-row">
-          <FaHandHoldingMedical />
-          <h5>
-            specialization : <span>{doctor.specialization}</span>
-          </h5>
+    <>
+      <div className="profile">
+        <div className="pictureAndTitle">
+          <img src={doctor.profileImage} alt={doctor.fullName} />
+          <h3>Dr.{doctor.fullName}</h3>
         </div>
-        <div className="profile-row">
-          <GrCertificate />
+        <div className="profileInformation">
           <h5>
-            Scientific Certificate :<span>{doctor.ScientificCertificate}</span>{" "}
+            Department : <span>{doctor.Department}</span>
           </h5>
+          <div className="profile-row">
+            <FaHandHoldingMedical />
+            <h5>
+              specialization : <span>{doctor.specialization}</span>
+            </h5>
+          </div>
+          <div className="profile-row">
+            <GrCertificate />
+            <h5>
+              Scientific Certificate :
+              <span>{doctor.ScientificCertificate}</span>{" "}
+            </h5>
+          </div>
+          <div className="profile-row">
+            <AiFillFlag />
+            <h5>
+              Nationality :<span>{doctor.Nationality}</span>
+            </h5>
+          </div>
+          <div className="profile-row">
+            <MdAlternateEmail />
+            <h5>
+              Email :<span>{doctor.email}</span>
+            </h5>
+          </div>
+          <div className="profile-row">
+            <FaPhoneAlt />
+            <h5>
+              {" "}
+              Phone : <span>{doctor.phone}</span>
+            </h5>
+          </div>
+          <div className="profile-row">
+            <HiOutlineIdentification />
+            <h5>
+              careers License :<span>{doctor.careersLicense}</span>{" "}
+            </h5>
+          </div>
+          <div className="profile-row">
+            <ImLocation />
+            <h5>
+              Address:
+              <span>
+                {doctor.city},{doctor.address}
+              </span>
+            </h5>
+          </div>
+          <div className="profile-row">
+            <BsClockHistory />
+            <h5>
+              {" "}
+              waiting Time : <span>{doctor.waitingTime}</span>{" "}
+            </h5>
+          </div>
+          <div className="profile-row">
+            <BsCalendarDay />
+            <h5>
+              Days :<span>{doctor.workingDays}</span>{" "}
+            </h5>
+          </div>
+          <div className="profile-row">
+            <FaRegMoneyBillAlt />
+            <h5>
+              Consultation Fee : <span>{doctor.consultationFee}</span>{" "}
+            </h5>
+          </div>
         </div>
-        <div className="profile-row">
-          <AiFillFlag />
-          <h5>
-            Nationality :<span>{doctor.Nationality}</span>
-          </h5>
-        </div>
-        <div className="profile-row">
-          <MdAlternateEmail />
-          <h5>
-            Email :<span>{doctor.email}</span>
-          </h5>
-        </div>
-        <div className="profile-row">
-          <FaPhoneAlt />
-          <h5>
-            {" "}
-            Phone : <span>{doctor.phone}</span>
-          </h5>
-        </div>
-        <div className="profile-row">
-          <HiOutlineIdentification />
-          <h5>
-            careers License :<span>{doctor.careersLicense}</span>{" "}
-          </h5>
-        </div>
-        <div className="profile-row">
-          <ImLocation />
-          <h5>
-            Address:
-            <span>
-              {doctor.city},{doctor.address}
-            </span>
-          </h5>
-        </div>
-        <div className="profile-row">
-          <BsClockHistory />
-          <h5>
-            {" "}
-            waiting Time : <span>{doctor.waitingTime}</span>{" "}
-          </h5>
-        </div>
-        <div className="profile-row">
-          <BsCalendarDay />
-          <h5>
-            Days :<span>{doctor.workingDays}</span>{" "}
-          </h5>
-        </div>
-        <div className="profile-row">
-          <FaRegMoneyBillAlt />
-          <h5>
-            Consultation Fee : <span>{doctor.consultationFee}</span>{" "}
-          </h5>
-        </div>
-      </div>
-      <div className="appointement">
-        <input
-          type="date"
-          onChange={setDateAppointement}
-          defaultValue={new Date().toISOString().substring(0, 10)}
-        />
+        <div className="appointement">
+          <input
+            type="date"
+            onChange={setDateAppointement}
+            defaultValue={new Date().toISOString().substring(0, 10)}
+          />
 
-        {appointement.map((element) => {
-          return (
-            <>
-              <button onClick={booking} value={element.id}>
-                {element.time}
-              </button>
-            </>
-          );
-        })}
+          {appointement.map((element) => {
+            return (
+              <>
+                <button onClick={booking} value={element.id}>
+                  {element.time}
+                </button>
+              </>
+            );
+          })}
+        </div>
       </div>
-    </div>
+      <CommentsAndRate />
+    </>
   );
 };
 export default DoctorProfile;
