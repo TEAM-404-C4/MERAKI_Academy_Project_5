@@ -15,9 +15,6 @@ import { useEffect } from "react";
 const Setting = () => {
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const [showchangePassowrd, setShowchangePassowrd] = useState(false);
-  const [showChangePhone, setShowChangePhone] = useState(false);
-  const [showChangeInfo, setShowChangeInfo] = useState(true);
   const [oldPhone, setOldPhone] = useState("");
   const [newPhone, setNewPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -45,8 +42,6 @@ const Setting = () => {
       doctorId: state.loginReducer.roleId,
     };
   });
-
-  console.log(state.doctorId, "-----------------------------------------");
 
   const logout = () => {
     let timerInterval;
@@ -127,6 +122,7 @@ const Setting = () => {
           },
         }
       );
+      console.log(result);
       if (result.data.success) {
         const myTimeout = setTimeout(logout, 2000);
         Swal.fire({
@@ -167,6 +163,7 @@ const Setting = () => {
           },
         }
       );
+      console.log(result);
       if (result.data.success) {
         console.log(result);
         const myTimeout = setTimeout(logout, 2000);
@@ -271,68 +268,58 @@ const Setting = () => {
 
   return (
     <>
+      {/* --------------------------------------------------------------------------part1 Doctor Setting */}
       {state.doctorId === 2 || localStorage.getItem("roleId") === 2 ? (
-        <div className="mainChangeDiv">
+        <div className="mainChangeDoctorDiv">
           <div className="changeDiv">
             <div className="changeInfoDiv">
-              <div>
-                <button
-                  className="showInfobtn"
-                  onClick={() => {
-                    if (showChangeInfo) {
-                      setShowChangeInfo(false);
-                    } else {
-                      setShowChangeInfo(true);
-                    }
-                  }}
-                >
-                  <RiContactsFill />
-                </button>
-              </div>
-              {showChangeInfo ? (
-                <div className="changeInfoForm2">
-                  <form onSubmit={changeInfo} className="cInfoFrom2">
-                    <div>
+              {true ? (
+                <div className="changeInfoFormDoc">
+                  <form onSubmit={changeInfo} className="cInforomDoc">
+                    <div className="infoFormDocPart1">
+                      <label>FullName</label>
                       <input
                         type="text"
                         defaultValue={fullName}
-                        className="oldInfo"
-                        placeholder="Full Name"
+                        className="doctorInfo"
                         onChange={(e) => {
                           setFullName(e.target.value);
                         }}
                       />
+                      <label>e-mail</label>
                       <input
                         type="text"
-                        className="newInfo"
+                        className="doctorInfo"
                         defaultValue={email}
-                        placeholder="email"
                         onChange={(e) => {
                           setEmail(e.target.value);
                         }}
                       />
+                      <label>Profile image</label>
+
                       <input
                         type="text"
-                        className="newInfo"
+                        className="doctorInfo"
                         defaultValue={profileImage}
-                        placeholder="Profile Image"
                         onChange={(e) => {
                           setProfileImage(e.target.value);
                         }}
                       />
+                      <label>Specialization</label>
+
                       <input
                         type="text"
-                        className="newInfo"
+                        className="doctorInfo"
                         defaultValue={specialization}
-                        placeholder="Specialization"
                         onChange={(e) => {
                           setSpecialization(e.target.value);
                         }}
                       />
+                      <label>Phone </label>
+
                       <input
                         type="text"
-                        className="newInfo"
-                        placeholder="Phone number"
+                        className="doctorInfo"
                         defaultValue={phone}
                         onChange={(e) => {
                           setPhone(e.target.value);
@@ -340,49 +327,48 @@ const Setting = () => {
                       />
                     </div>
 
-                    <div>
+                    <div className="infoFormDocPart2">
+                      <label>Address </label>
                       <input
                         type="text"
-                        className="newInfo"
-                        placeholder="Address "
+                        className="doctorInfo"
                         defaultValue={address}
                         onChange={(e) => {
                           setAddress(e.target.value);
                         }}
                       />
-
+                      <label>Waiting time </label>
                       <input
                         type="text"
-                        className="newInfo"
-                        placeholder="Waiting Time "
+                        className="doctorInfo"
                         defaultValue={waitingTime}
                         onChange={(e) => {
                           setWaitingTime(e.target.value);
                         }}
                       />
-
+                      <label>Consultation fee </label>
                       <input
                         type="text"
-                        className="newInfo"
-                        placeholder="Consultation Fee"
+                        className="doctorInfo"
                         defaultValue={consultationFee}
                         onChange={(e) => {
                           setConsultationFee(e.target.value);
                         }}
                       />
+                      <label>Department</label>
                       <input
                         type="text"
-                        className="newInfo"
-                        placeholder="Department Id"
+                        className="doctorInfo"
                         defaultValue={departmentId}
                         onChange={(e) => {
                           setDepartmentId(e.target.value);
                         }}
                       />
+                      <label>City</label>
+
                       <input
                         type="text"
-                        className="newInfo"
-                        placeholder="City Id"
+                        className="doctorInfo"
                         defaultValue={cityId}
                         onChange={(e) => {
                           setcityId(e.target.value);
@@ -417,45 +403,33 @@ const Setting = () => {
         </div>
       ) : (
         <div className="mainChangeDiv">
+          {/* --------------------------------------------------------------------------part 2  patient S*/}
+
           <div className="changeDiv">
             <div className="changeInfoDiv">
-              <div>
-                <button
-                  className="showInfobtn"
-                  onClick={() => {
-                    if (showChangeInfo) {
-                      setShowChangeInfo(false);
-                    } else {
-                      setShowChangeInfo(true);
-                    }
-                  }}
-                >
-                  <RiContactsFill />
-                </button>
-              </div>
-              {showChangeInfo ? (
+              {true ? (
                 <div className="changeInfoForm">
                   <form onSubmit={changeInfo} className="cInfoFrom">
+                    <label className="patientLabel">First name</label>
                     <input
                       type="text"
-                      className="oldInfo"
-                      placeholder="First Name"
+                      className="patientInfo"
                       onChange={(e) => {
                         setFirstName(e.target.value);
                       }}
                     />
+                    <label className="patientLabel">Last name</label>
                     <input
                       type="text"
-                      className="newInfo"
-                      placeholder="Last Name"
+                      className="patientInfo"
                       onChange={(e) => {
                         setlastName(e.target.value);
                       }}
                     />
+                    <label className="patientLabel">Password</label>
                     <input
                       type="password"
-                      className="changeInfopassword"
-                      placeholder="Password"
+                      className="patientInfo"
                       onChange={(e) => {
                         setPassword(e.target.value);
                       }}
@@ -476,35 +450,23 @@ const Setting = () => {
 
           <div className="changeDiv">
             <div className="changePasswordDiv">
-              <div>
-                <button
-                  className="showPasswordbtn"
-                  onClick={() => {
-                    if (showchangePassowrd) {
-                      setShowchangePassowrd(false);
-                    } else {
-                      setShowchangePassowrd(true);
-                    }
-                  }}
-                >
-                  <MdOutlinePassword />
-                </button>
-              </div>
-              {showchangePassowrd ? (
-                <div className="changePasswordForm">
-                  <form onSubmit={changePassword} className="cPasswordFrom">
+              {true ? (
+                <div className="changeInfoForm">
+                  <form onSubmit={changePassword} className="cInfoFrom">
+                    <label className="patientLabel">Old password</label>
+
                     <input
                       type="password"
-                      className="oldPassword"
-                      placeholder="old Password"
+                      className="patientInfo"
                       onChange={(e) => {
                         setOldPassword(e.target.value);
                       }}
                     />
+                    <label className="patientLabel">New password</label>
+
                     <input
                       type="password"
-                      className="newPassword"
-                      placeholder="new Password"
+                      className="patientInfo"
                       onChange={(e) => {
                         setNewPassword(e.target.value);
                       }}
@@ -518,46 +480,35 @@ const Setting = () => {
                 <></>
               )}
             </div>
-            {/* ---------------------------------------------------change phone  */}
+            {/* --------------------------------------------------change phone  */}
             <div>
               <div className="changePhoneDiv">
-                <div>
-                  <button
-                    className="showPhonebtn"
-                    onClick={() => {
-                      if (showChangePhone) {
-                        setShowChangePhone(false);
-                      } else {
-                        setShowChangePhone(true);
-                      }
-                    }}
-                  >
-                    <BsPhone />
-                  </button>
-                </div>
-                {showChangePhone ? (
-                  <div className="changePhoneForm">
-                    <form onSubmit={changePhone} className="cPhoneFrom">
+                {true ? (
+                  <div className="changeInfoForm">
+                    <form onSubmit={changePhone} className="cInfoFrom">
+                      <label className="patientLabel">Old phone number</label>
+
                       <input
                         type="number"
-                        className="oldPhone"
-                        placeholder="old Phone Number"
+                        className="patientInfo"
                         onChange={(e) => {
                           setOldPhone(e.target.value);
                         }}
                       />
+                      <label className="patientLabel">New phone number</label>
+
                       <input
                         type="number"
-                        className="newPhone"
-                        placeholder="new Phone Number"
+                        className="patientInfo"
                         onChange={(e) => {
                           setNewPhone(e.target.value);
                         }}
                       />
+                      <label className="patientLabel">Password</label>
+
                       <input
                         type="password"
-                        className="changePhonePassword"
-                        placeholder="Password"
+                        className="patientInfo"
                         onChange={(e) => {
                           setPassword(e.target.value);
                         }}

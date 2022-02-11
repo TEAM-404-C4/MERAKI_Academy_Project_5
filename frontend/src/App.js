@@ -17,7 +17,7 @@ import Chart from "./Components/Chart/Chart";
 import DoctorMyProfile from "./Components/DoctorProfile/DoctorMyProfile";
 import UserProfile from "./Components/User/UserProfile";
 import Dashboard from "./Components/Dashboard/Dashboard";
-
+import Intro from "./Components/Intro/Intro";
 
 //App Function
 function App() {
@@ -25,6 +25,7 @@ function App() {
     <div className="App">
       <Navigation />
       <Routes>
+        <Route path="/" element={<Intro />} />
         <Route path="/patientprofile" element={<UserProfile />} />
         <Route path="/doctormyprfile" element={<DoctorMyProfile />} />
         <Route path="/appointement" element={<Appointement />} />
@@ -38,9 +39,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/DoctorProfile" element={<DoctorProfile />} />
         <Route path="/setting" element={<Setting />} />
-
         <Route path="/chart" element={<Chart />} />
-
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>

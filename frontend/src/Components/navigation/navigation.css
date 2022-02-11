@@ -1,47 +1,81 @@
 .navigation {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  gap: 3%;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #1c2e4c;
+  height: 100px;
+  width: 100%;
   padding: 0;
   margin: 0;
-  font-size: 25px;
-  height: 100px;
-  background-color: rgb(219, 248, 239);
-  padding-top: 27px;
-  padding-right: 40px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
-  border-bottom: 5px solid rgb(145, 209, 189);
+  font-size: 20px;
+  min-height: 100vh;
 }
+
+.logo {
+  background-image: url("https://rhythm-admin-template.multipurposethemes.com/images/logo-letter.png");
+  width: 60px;
+  height: 60px;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  display: flex;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.controlsDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: auto;
+  background-color: #1c2e4c;
+  gap: 40px;
+  padding: 20px;
+  margin-right: 50px;
+}
+
 a {
   text-decoration: none;
-  color: rgb(66, 66, 66);
-  padding: 20px;
-  padding-bottom: 30px;
-  padding-right: 20px;
-  padding-left: 20px;
+  color: #0d79e5;
+  padding: 10px;
 }
-a:hover {
-  background-color: rgb(145, 209, 189);
-  color: white;
-}
-.logo {
-  position: absolute;
-  height: 65px;
-  width: 120px;
-  left: 50px;
-  top: 20px;
-  background-image: url("https://i.ibb.co/TYVbRN9/XXX.jpg");
-  background-size: 120px;
-  background-position-y: -15px;
-  background-position-x: 0px;
-  background-repeat: no-repeat;
-}
+
 .logo:hover {
   cursor: pointer;
 }
 
-.nav_label {
-  font-size: 15px;
-  pointer-events: none;
+.option {
+  font-size: 25px;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(12, 26, 50);
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option:hover {
+  background-color: #0d79e5;
+}
+a:hover {
+  color: white;
+}
+
+.shefaaName {
+  color: white;
+  display: flex;
+  margin-top: 40px;
+  margin-left: -30px;
+  font-family: "Righteous", cursive;
+}
+
+.logoAndName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
