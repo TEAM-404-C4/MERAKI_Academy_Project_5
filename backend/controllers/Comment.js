@@ -1,11 +1,11 @@
-//====================================================//Require 
+//====================================================//Require
 const connection = require("../database/db");
 
 //====================================================//Create Comment Function
 const createComment = (req, res) => {
-  const { comment, reating, doctorId } = req.body;
-  const query = `INSERT INTO Comment (comment,rating,doctorId) VALUES (?,?,?)`;
-  const data = [comment, reating, doctorId];
+  const { comment, reating, doctorId, patientId } = req.body;
+  const query = `INSERT INTO Comment (comment,rating,patientId,doctorId) VALUES (?,?,?,?)`;
+  const data = [comment, reating, doctorId, patientId];
   // connnection query
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -24,7 +24,9 @@ const createComment = (req, res) => {
 //====================================================//Get All Comments Function
 const getAllComments = (req, res) => {
   const doctorId = req.body.doctorId;
-  const query = `SELECT comment,rating FROM Comment where doctorId=?`;
+  const query = `SELECT * FROM healthcare.comment as c
+  join healthcare.patient as p on 
+  c.patientId=p.id where c.doctorId=?`;
   const data = [doctorId];
 
   connection.query(query, data, (err, result) => {

@@ -85,8 +85,10 @@ Create table Comment(
     id int not null auto_increment primary key,
     comment varchar(255),
     rating int default 0,
+    patientId int,
     doctorId int not null,
     is_deleted TINYINT Default 0,
+    FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
