@@ -1,0 +1,10 @@
+.gifImage {
+  background-image: url("https://rhythm-admin-template.multipurposethemes.com/images/logo-letter.png");
+  width: 60px;
+  height: 60px;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  display: flex;
+  margin-left: 20px;
+  margin-top: 15px;
+}

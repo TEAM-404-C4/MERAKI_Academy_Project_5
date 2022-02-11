@@ -1,13 +1,13 @@
 import React from "react";
 import "./Intro.css";
-function intro() {
+function Intro() {
   return (
     <div className="introMainDiv">
       <div className="gifImageDiv">
-        <div className="CoverPage"></div>
+        <div className="gifImage">12xcvxvxcvxcvxc3</div>
       </div>
     </div>
   );
 }
 
-export default intro;
+export default Intro;
