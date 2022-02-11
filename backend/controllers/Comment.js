@@ -30,6 +30,7 @@ const getAllComments = (req, res) => {
   const data = [doctorId];
 
   connection.query(query, data, (err, result) => {
+    console.log(result);
     if (err) {
       return res.status(200).json({
         success: true,

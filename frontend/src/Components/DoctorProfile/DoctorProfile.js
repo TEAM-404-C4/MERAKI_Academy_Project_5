@@ -16,6 +16,7 @@ import { BsClockHistory, BsCalendarDay } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
 import { HiOutlineIdentification } from "react-icons/hi";
 import CommentsAndRate from "../CommentsAndRate/CommentsAndRate";
+import GetCommentRate from "../CommentsAndRate/GetCommentRate";
 const DoctorProfile = () => {
   const [doctor, setDoctor] = useState("");
   const [appointement, setAppointement] = useState([]);

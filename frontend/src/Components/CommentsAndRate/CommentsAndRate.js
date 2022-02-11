@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./styleRate.css";
 
@@ -13,6 +13,8 @@ export default function CommentsAndRate() {
   const [star4, setStar4] = useState(offStar);
   const [star5, setStar5] = useState(offStar);
   const [comment, setComment] = useState("");
+  const [comments, setComments] = useState([]);
+  const [showComments, setshowComments] = useState(false);
 
   // ====================================== state redux
 
@@ -22,9 +24,24 @@ export default function CommentsAndRate() {
       userId: state.loginReducer.userId[0].id,
     };
   });
+
+  // ======================================
+
+  useEffect(async () => {
+    try {
+      const res = await axios.post("http://localhost:5000/comment/", {
+        doctorId: state.doctorId,
+      });
+      console.log(res.data.result);
+      setComments(res.data.result);
+    } catch (err) {
+      console.log(err.response);
+    }
+  }, [showComments]);
+
   // ======================================== comment button toggle
 
-  const commentButtonToggle = async (e) => {
+  const commentButton = async (e) => {
     e.preventDefault();
     try {
       const res = await axios.post("http://localhost:5000/comment/create", {
@@ -46,12 +63,35 @@ export default function CommentsAndRate() {
       console.log(err.response);
     }
   };
+  // ==============================================
+
+  const showCommentButton = () => {
+    if (!showComments) {
+      setshowComments(true);
+    } else {
+      setshowComments(false);
+    }
+  };
+  //===============================
+
+  const showRating = (rating) => {
+    let stars = [];
+
+    for (let i = 0; i < 5; i++) {
+      if (rating > i) {
+        stars.push(<span className="fa fa-star checked"></span>);
+      } else {
+        stars.push(<span className="fa fa-star"></span>);
+      }
+    }
+    return stars;
+  };
 
   // =======================================
   return (
     <div className="rate">
       <>
-        <form onSubmit={commentButtonToggle}>
+        <form onSubmit={commentButton}>
           <span
             className={star1}
             id="1"
@@ -158,6 +198,22 @@ export default function CommentsAndRate() {
 
           <button type="submit">Comment</button>
         </form>
+        <button onClick={showCommentButton}>Show Comments</button>
+        <div className="commentRatingBlock">
+          {showComments &&
+            comments.map((element) => {
+              return (
+                <div className="commentRatingElement">
+                  <div className="nameAndRating">
+                    <div className="rating">{showRating(element.rating)}</div>
+                    <div className="name">{`${element.firstName} ${element.lastName}`}</div>
+                  </div>
+
+                  <div className="comment">{element.comment}</div>
+                </div>
+              );
+            })}
+        </div>
       </>
     </div>
   );
