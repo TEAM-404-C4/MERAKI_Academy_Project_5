@@ -1,0 +1,105 @@
+.introMainDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gifImageDiv {
+  background-color: rgb(12, 26, 50);
+  margin-top: 150px;
+  width: 40%;
+  height: 520px;
+  border-radius: 12px;
+  margin-left: 100px;
+}
+.gifImageDiv:hover {
+  background-color: #0d79e5;
+  cursor: pointer;
+}
+
+.gifImage {
+  background-image: url("https://s10.gifyu.com/images/Medical-care.gif");
+  width: 470px;
+  height: 470px;
+  background-size: 470px;
+  background-repeat: no-repeat;
+  display: flex;
+  margin-left: 35px;
+  margin-top: 25px;
+  border-radius: 12px;
+}
+
+.introPageChart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 165px;
+  width: 40%;
+  height: 520px;
+  margin-top: 150px;
+  gap: 10px;
+  animation: transitionIn 1.5s;
+}
+.introChartDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+}
+
+.introChart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 240px;
+  width: 200px;
+  background-color: rgb(12, 26, 50);
+  border-radius: 12px;
+  gap: 10px;
+  animation: transitionIn 0.1s;
+}
+.introChart:hover {
+  background-color: #0d79e5;
+  cursor: pointer;
+}
+
+.chartImage {
+  width: 80px;
+  height: 80px;
+}
+.backgrounChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: aquamarine;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+.chartTitle {
+  color: grey;
+  font-size: 15px;
+  animation: transitionIn 2s;
+}
+.chartTitleNumber {
+  color: white;
+  font-size: 30px;
+  font-family: "Anton", sans-serif;
+  letter-spacing: 2px;
+  animation: transitionIn 2s;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: translatey(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translatey(0px);
+  }
+}
