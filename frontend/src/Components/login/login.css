@@ -5,6 +5,7 @@
   align-items: flex-end;
   margin-top: 100px;
   margin-right: 100px;
+  min-height: 100vh;
 }
 
 .loginForm {
