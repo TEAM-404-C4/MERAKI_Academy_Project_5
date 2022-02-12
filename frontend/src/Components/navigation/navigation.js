@@ -43,6 +43,7 @@ const Navigation = () => {
       if (result.data.success) {
         setGetProfileImage(result.data.result[0].profileImage);
         setDoctorName(result.data.result[0].fullName);
+        console.log(result.data.result[0]);
         console.log("Success get profile page ");
       } else throw Error;
     } catch (error) {
@@ -83,8 +84,8 @@ const Navigation = () => {
                   src={state.profileImage || getProfileImage}
                   alt="myProfile"
                 />
-                <div className="drName">Dr.{doctorName}</div>
               </div>
+              <div className="drName">Dr.{doctorName}</div>
             </div>
           ) : (
             <></>
