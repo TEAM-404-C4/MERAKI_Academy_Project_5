@@ -25,7 +25,7 @@ const DoctorProfile = () => {
 
   const state = useSelector((state) => {
     return {
-      doctorId: state.doctorsReducer,
+      doctorId: state.doctorsReducer.doctorId,
       userId: state.loginReducer.userId[0],
       userIdDoctor: state.loginReducer.userId,
       roleId: state.loginReducer.roleId,

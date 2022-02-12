@@ -1,13 +1,16 @@
 // Reducer File
 // initialState
 const initialState = {
-  doctorId: window.localStorage.getItem('doctorId'),
+  doctorId: window.localStorage.getItem("doctorId"),
+  appointment: [],
 };
 // Reducer
 const doctorsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "SET_Doctor":
-      return payload;
+      return { doctorId: payload };
+    case "SET_Appointment":
+      return { appointment: payload };
 
     default:
       return state;
@@ -21,4 +24,6 @@ export default doctorsReducer;
 export const setDoctor = (id) => {
   return { type: "SET_Doctor", payload: id };
 };
-
+export const setAppointment = (appointment) => {
+  return { type: "SET_Appointment", payload: appointment };
+};
