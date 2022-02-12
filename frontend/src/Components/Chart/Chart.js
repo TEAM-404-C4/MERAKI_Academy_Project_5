@@ -35,10 +35,16 @@ export default function Chart() {
     }
   }, []);
 
-  // let malePatient= appointement.filter
+  let malePatient = appointement.filter((element) => {
+    return element.gender == "MALE";
+  });
+  let femalePatient = appointement.filter((element) => {
+    return element.gender == "FEMALE";
+  });
+  console.log("malePatient", malePatient, "femalePatient", femalePatient);
   //================================================ Chart 1
   var options = {
-    series: [20, 80],
+    series: [malePatient.length, femalePatient.length],
     chart: {
       height: 200,
       type: "polarArea",
