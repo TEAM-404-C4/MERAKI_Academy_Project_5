@@ -267,6 +267,27 @@ const getDoctorByName = (req, res) => {
     });
   });
 };
+//===================================================//Get DoctorProfileImageByID
+
+const DoctorProfileImageByID = (req, res) => {
+  const id = req.token.userId;
+  const query = `SELECT profileImage,fullName from doctor where id =?`;
+  const data = [id];
+  connection.query(query, data, (err, result) => {
+    if (!err) {
+      return res.status(200).json({
+        success: true,
+        result: result,
+      });
+    } else {
+      return res.status(500).json({
+        success: false,
+        massage: "Server Error",
+        err: err,
+      });
+    }
+  });
+};
 
 module.exports = {
   createNewDoctor,
@@ -276,4 +297,5 @@ module.exports = {
   deleteDoctorById,
   getDoctorByName,
   getDoctorByDepartment,
+  DoctorProfileImageByID,
 };
