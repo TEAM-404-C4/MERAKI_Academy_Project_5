@@ -92,7 +92,7 @@ function Intro() {
               <p className="chartTitle">Appointments</p>
             </div>
             <div>
-              <p className="chartTitleNumber">2702</p>
+              <p className="chartTitleNumber">2,702</p>
             </div>
           </div>
         </div>
