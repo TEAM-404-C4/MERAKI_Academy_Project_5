@@ -10,6 +10,7 @@ const Register = () => {
   const [lastNamePatient, setLastNamePatient] = useState("");
   const [phonePatient, setPhonePatient] = useState("");
   const [passwordPatient, setPasswordPatient] = useState("");
+  const [gender, setGender] = useState("MALE");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
 
@@ -28,6 +29,9 @@ const Register = () => {
   const passwordHandler = (e) => {
     setPasswordPatient(e.target.value);
   };
+  const genderHandler = (e) => {
+    setGender(e.target.value);
+  };
 
   const submitPatientRegister = async (e) => {
     e.preventDefault();
@@ -36,6 +40,7 @@ const Register = () => {
         firstName: firstNamePatient,
         lastName: lastNamePatient,
         phone: phonePatient,
+        gender: gender,
         password: passwordPatient,
         roleId: 3,
       });
@@ -45,6 +50,7 @@ const Register = () => {
         setFirstNamePatient("");
         setLastNamePatient("");
         setPhonePatient("");
+        setGender("MALE");
         setPasswordPatient("");
         setStatus(true);
         navigate("/login");
@@ -105,6 +111,11 @@ const Register = () => {
             onChange={lastNameHandler}
           />
         </div>
+
+        <select onChange={genderHandler}>
+          <option value="MALE">MALE</option>
+          <option value="FEMALE">FEMALE</option>
+        </select>
 
         <input
           placeholder="Phone Number"

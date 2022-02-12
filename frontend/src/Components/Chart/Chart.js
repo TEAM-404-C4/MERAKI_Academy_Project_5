@@ -1,11 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ApexCharts from "apexcharts";
-
+import { useSelector } from "react-redux";
 import "./styleChart.css";
+import axios from "axios";
+
+// =========================================================required
+
 export default function Chart() {
-   //================================================ Chart 1
-   var options = {
-    series: [50, 50],
+  const [appointement, setAppointement] = useState([]);
+
+  // ====================================================
+  const state = useSelector((state) => {
+    return {
+      doctorId: state.doctorsReducer,
+      userId: state.loginReducer.userId,
+      roleId: state.loginReducer.roleId,
+    };
+  });
+
+  // =======================================================
+  useEffect(async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/doctors/getappointement",
+        {
+          doctorId: state.userId | window.localStorage.getItem("userId"),
+        }
+      );
+      console.log(res);
+      console.log(res.data.result);
+      setAppointement(res.data.result);
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
+
+  // let malePatient= appointement.filter
+  //================================================ Chart 1
+  var options = {
+    series: [20, 80],
     chart: {
       height: 200,
       type: "polarArea",
@@ -114,16 +147,15 @@ export default function Chart() {
   var chart2 = new ApexCharts(document.querySelector("#chartThree"), options2);
   chart2.render();
   return (
-    <div >
+    <div>
       <div className="dashBoardChart">
-                  <div className="chart" id="chartOne"></div>
-                  <div className="chart" id="chartTwo"></div>
-                </div>
-                <div className="dashBoardChart">
-                  <div className="chart" id="chartThree"></div>
-                  <div className="chart" id="chartFour"></div>
-                </div>
-      
+        <div className="chart" id="chartOne"></div>
+        <div className="chart" id="chartTwo"></div>
+      </div>
+      <div className="dashBoardChart">
+        <div className="chart" id="chartThree"></div>
+        <div className="chart" id="chartFour"></div>
+      </div>
     </div>
   );
 }

@@ -33,6 +33,7 @@ Create Table Patient(
     lastName varchar(255),
     phone varchar(255) unique,
     password varchar(255),
+    gender varchar(255),
     roleId int not null,
     is_deleted TINYINT Default 0,
     FOREIGN Key(roleId) REFERENCES Role(id) ON DELETE CASCADE ON UPDATE CASCADE

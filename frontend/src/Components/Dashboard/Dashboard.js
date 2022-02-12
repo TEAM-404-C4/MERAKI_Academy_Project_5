@@ -144,6 +144,7 @@ const Dashboard = () => {
         <div className="rightSide">
           <div className="dashboardItem">
             {dashboardPanel ? <Charts /> : <></>}
+
             {appointementPanel ? (
               <div>
                 <div>
