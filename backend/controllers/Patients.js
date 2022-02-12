@@ -66,10 +66,11 @@ const loginGoogle = (req, res) => {
 
 //====================================================//Create New Patient Function
 const createNewPatient = async (req, res) => {
-  let { firstName, lastName, password, phone, roleId } = req.body;
-  const query = `INSERT INTO patient (firstName,lastName, password,phone,roleId) VALUES (?,?,?,?,?)`;
+  let { firstName, lastName, password, gender, phone, roleId } = req.body;
+  const query = `INSERT INTO patient (firstName,lastName,password,gender,phone,roleId) VALUES (?,?,?,?,?,?)`;
   password = await bcrypt.hash(password, 10);
-  const data = [firstName, lastName, password, phone, roleId];
+  const data = [firstName, lastName, password, gender, phone, roleId];
+  console.log(data);
   connection.query(query, data, (err, result) => {
     if (!err) {
       res.status(200).json({
