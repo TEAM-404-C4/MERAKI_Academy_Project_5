@@ -5,11 +5,13 @@ import { loginRedux } from "../Reducer/login/index";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import GoogleSignIn from "../GoogleLogin/googleLogin";
+import Swal from "sweetalert2";
 
 //CSS File
 import "./login.css";
 
 //====================================================//Create Login Function
+
 const Login = (e) => {
   const history = useNavigate();
   const [phone, setPhone] = useState("");
@@ -34,8 +36,13 @@ const Login = (e) => {
         password,
       });
       if (res.data.success) {
-        console.log(res.data);
-        setMessage("");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: res.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
         history("/mainpage");
 
         dispatch(
@@ -50,45 +57,71 @@ const Login = (e) => {
       } else throw Error;
     } catch (error) {
       if (error.response && error.response.data) {
-        setStatus(true);
-        return setMessage(error.response.data.message);
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: error.response.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+
+        return;
       }
-      setMessage("Error happened while Login, please try again");
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Error happened while Login, please try again",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
   };
   //======================================================//UseEffect
   useEffect(() => {}, [message]);
   //======================================================//Return
   return (
-    <>
-      <div className="DoctorsImage"></div>
+    <div className="mainLoginDev">
+      <div className="loginPageImage">
+        <img src="https://s10.gifyu.com/images/Health-professional-team4e6b844e89762775.gif" />
+      </div>
       <div className="loginDiv">
         <form onSubmit={checkUser} className="loginForm">
-          <input
-            type="number"
-            className="phone"
-            placeholder="Mobile Number"
-            required
-            onChange={(e) => {
-              setPhone(e.target.value);
-            }}
-          />
-          <input
-            type="password"
-            className="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <button className="loginButton"> Log in </button>
+          <div className="loginInputDiv">
+            <input
+              type="number"
+              className="loginInput"
+              placeholder="Mobile Number"
+              required
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
+            />
+            <div className="loginPageicon"></div>
+          </div>
+          <div>
+            <input
+              type="password"
+              className="loginInput"
+              placeholder="Password"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+          <div className="loginButtonDiv">
+            <button className="loginButton"> Log in </button>
+          </div>
+          <div>
+            <p className="or">
+              ----------------------------- OR ----------------------------
+            </p>
+          </div>
+          <div className="googleLogin">
+            <GoogleSignIn />
+          </div>
         </form>
-        <div>
-          {status ? message && <div className="Message">{message}</div> : <></>}
-        </div>
-        <GoogleSignIn />
       </div>
-    </>
+    </div>
   );
 };
 
