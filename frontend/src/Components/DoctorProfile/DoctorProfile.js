@@ -34,6 +34,7 @@ const DoctorProfile = () => {
   // ========================================
 
   useEffect(async () => {
+    console.log(state);
     setToday(() => {
       return new Date().toISOString().substring(0, 10);
     });

@@ -15,7 +15,7 @@ export default function CommentsAndRate() {
   const [comment, setComment] = useState("");
   const [comments, setComments] = useState([]);
   const [showComments, setshowComments] = useState(false);
-
+  const [response, setResponse] = useState("");
   // ====================================== state redux
 
   const state = useSelector((state) => {
@@ -28,6 +28,7 @@ export default function CommentsAndRate() {
   // ======================================
 
   useEffect(async () => {
+    console.log("state", state);
     try {
       const res = await axios.post("http://localhost:5000/comment/", {
         doctorId: state.doctorId,
@@ -37,7 +38,7 @@ export default function CommentsAndRate() {
     } catch (err) {
       console.log(err.response);
     }
-  }, [showComments]);
+  }, [showComments, response]);
 
   // ======================================== comment button toggle
 
@@ -51,7 +52,7 @@ export default function CommentsAndRate() {
         patientId: state.userId,
         commentDate: new Date().toISOString().substring(0, 10),
       });
-
+      setResponse(res);
       console.log(res);
       setComment("");
       setRate(0);
