@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+import axios from "axios";
+import { useSelector } from "react-redux";
 import "./Dashboard.css";
 import { AiOutlineRight, AiFillSetting } from "react-icons/ai";
 import { GoDashboard } from "react-icons/go";
 import { BsFillPeopleFill, BsFillCalendarCheckFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
-import ApexCharts from "apexcharts";
-import "@fullcalendar/timegrid/main.css";
-import "@fullcalendar/daygrid/main.css";
-import interactionPlugin from "@fullcalendar/interaction";
-import FullCalendar, { Interaction, intersectRects } from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid";
-import timeGridPlugin from "@fullcalendar/timegrid";
+import FullCalender from "../FullCalender/FullCalender";
 import Setting from "../Settings/Setting";
-import Appointement from "../DoctorAppointment/Appointement";
+import Charts from "../Chart/Chart";
+import PatientBooking from '../PatientBooking/PatientBooking';
 const Dashboard = () => {
   const [dashboardPanel, setDashboardPanel] = useState(true);
   const [appointementPanel, setappointementPanel] = useState(false);
@@ -24,123 +22,9 @@ const Dashboard = () => {
   const [selectStyle3, setSelectStyle3] = useState("dashboardSelect");
   const [selectStyle4, setSelectStyle4] = useState("dashboardSelect");
   const [selectStyle5, setSelectStyle5] = useState("dashboardSelect");
-  const events = [{ title: "Today", date: new Date() }];
-  //================================================ Chart 1
-  var options = {
-    series: [50, 50],
-    chart: {
-      height: 200,
-      type: "polarArea",
-    },
-    labels: ["Male", "Female"],
-    fill: {
-      opacity: 1,
-    },
-    stroke: {
-      width: 1,
-      colors: undefined,
-    },
-    yaxis: {
-      show: false,
-    },
-    legend: {
-      position: "right",
-    },
-    colors: ["#3246D3", "#00D0FF"],
-    plotOptions: {
-      polarArea: {
-        rings: {
-          strokeWidth: 0,
-        },
-        spokes: {
-          strokeWidth: 0,
-        },
-      },
-    },
-  };
-  // ===================================
-  const handleDateClick = (arg) => {
-    // bind with an arrow function
-    console.log(arg.dateStr);
-  };
-  //
+  const [appointement, setAppointement] = useState([]);
+  //   ===================================================================
 
-  var chart = new ApexCharts(document.querySelector("#chartOne"), options);
-  chart.render();
-  // =====================================chart2
-  var options1 = {
-    series: [
-      {
-        name: "Discharge Patient",
-        data: [12, 22, 14, 18, 22, 13, 17],
-      },
-      {
-        name: "Admit Patient",
-        data: [28, 39, 23, 36, 45, 32, 43],
-      },
-    ],
-    chart: {
-      height: 275,
-      type: "line",
-      dropShadow: {
-        enabled: true,
-        color: "#000",
-        top: 18,
-        left: 7,
-        blur: 10,
-        opacity: 0.2,
-      },
-      toolbar: {
-        show: false,
-      },
-    },
-    colors: ["#ee3158", "#1dbfc1"],
-    dataLabels: {
-      enabled: false,
-    },
-    stroke: {
-      curve: "smooth",
-    },
-    grid: {
-      borderColor: "#e7e7e7",
-    },
-    xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-    },
-    legend: {
-      show: false,
-    },
-  };
-
-  var chart1 = new ApexCharts(document.querySelector("#chartTwo"), options1);
-  chart1.render();
-  // ===================================chart3
-  var options2 = {
-    chart: {
-      type: "bar",
-    },
-    series: [
-      {
-        data: [
-          {
-            x: "category A",
-            y: 10,
-          },
-          {
-            x: "category B",
-            y: 18,
-          },
-          {
-            x: "category C",
-            y: 13,
-          },
-        ],
-      },
-    ],
-  };
-
-  var chart2 = new ApexCharts(document.querySelector("#chartThree"), options2);
-  chart2.render();
   // =====================================
   return (
     <>
@@ -259,47 +143,15 @@ const Dashboard = () => {
         <div className="rightSide">
           <div className="dashboardItem">
             {dashboardPanel ? (
-              <>
-                <div className="dashBoardChart">
-                  <div className="chartOne" id="chartOne"></div>
-                  <div className="chartTwo" id="chartTwo"></div>
-                </div>
-                <div className="dashBoardChart">
-                  <div className="chartThree" id="chartThree"></div>
-                  <div className="chartFour" id="chartFour"></div>
-                </div>
-              </>
+              <Charts/>
             ) : (
               <></>
             )}
             {appointementPanel ? (
               <>
-                <div className="dashBoardChart">
-                  <div className="container">
-                    <div className="row title" style={{ marginTop: "20px" }}>
-                      <div class="col-sm-12 btn btn-info">
-                        FullCalendar In React Application
-                      </div>
-                    </div>
-                    <FullCalendar
-                      defaultView="timeGridDay"
-                      on
-                      header={{
-                        left: "prev,next",
-                        center: "title",
-                        right: "dayGridMonth,timeGridWeek,timeGridDay",
-                      }}
-                      plugins={[
-                        dayGridPlugin,
-                        timeGridPlugin,
-                        interactionPlugin,
-                      ]}
-                      events={events}
-                      dateClick={handleDateClick}
-                    />
-                  </div>
+                <div >
+                  <FullCalender/>
                 </div>
-                <Appointement />
               </>
             ) : (
               <></>
@@ -307,7 +159,9 @@ const Dashboard = () => {
             {patientsPanel ? (
               <>
                 <div className="dashBoardChart">
-                  <div className="chartOne">patients</div>
+                  <div className="chartOne">
+                   <PatientBooking/>
+                  </div>
                 </div>
               </>
             ) : (

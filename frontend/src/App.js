@@ -18,6 +18,7 @@ import DoctorMyProfile from "./Components/DoctorProfile/DoctorMyProfile";
 import UserProfile from "./Components/User/UserProfile";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Intro from "./Components/Intro/Intro";
+import Footer from "./Components/Footer/Footer";
 
 //App Function
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route path="/chart" element={<Chart />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
