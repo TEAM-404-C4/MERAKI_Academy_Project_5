@@ -40,7 +40,7 @@ const UserProfile = () => {
   // =====================================
 
   return (
-    <div>
+    <div className="patientProfileMainDiv">
       <div>
         <h3>{`${patient.firstName}-${patient.lastName}`}</h3>
         <p>{patient.phone}</p>

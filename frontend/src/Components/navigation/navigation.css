@@ -18,6 +18,7 @@
   background-size: 60px;
   background-repeat: no-repeat;
   display: flex;
+  flex-direction: row;
   margin-left: 20px;
   margin-top: 15px;
 }
@@ -77,4 +78,8 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+}
+
+.logoAndName:hover {
+  cursor: pointer;
 }
