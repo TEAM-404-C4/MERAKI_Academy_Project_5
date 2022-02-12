@@ -41,6 +41,7 @@ export default function Chart() {
   let femalePatient = appointement.filter((element) => {
     return element.gender == "FEMALE";
   });
+
   console.log("malePatient", malePatient, "femalePatient", femalePatient);
   //================================================ Chart
 
@@ -185,6 +186,19 @@ export default function Chart() {
   var chart1 = new ApexCharts(document.querySelector("#chartTwo"), options1);
   chart1.render();
   // ===================================chart3
+
+  let PatientsMonthly = month.map((element, index) => {
+    let count = 0;
+    for (let i = 0; i < appointement.length; i++) {
+      if (appointement[i].dateAppointment.split("-")[1] == element) {
+        count++;
+      }
+    }
+
+    return count;
+  });
+
+  console.log("PatientsMonthly", PatientsMonthly);
   var options2 = {
     chart: {
       type: "bar",
@@ -193,23 +207,59 @@ export default function Chart() {
       {
         data: [
           {
-            x: "category A",
-            y: 10,
+            x: "Jan",
+            y: PatientsMonthly[0],
           },
           {
-            x: "category B",
-            y: 18,
+            x: "Feb",
+            y: PatientsMonthly[1],
           },
           {
-            x: "category C",
-            y: 13,
+            x: "Mar",
+            y: PatientsMonthly[2],
+          },
+          {
+            x: "Apr",
+            y: PatientsMonthly[3],
+          },
+          {
+            x: "May",
+            y: PatientsMonthly[4],
+          },
+          {
+            x: "Jun",
+            y: PatientsMonthly[5],
+          },
+          {
+            x: "Jul",
+            y: PatientsMonthly[6],
+          },
+          {
+            x: "Aug",
+            y: PatientsMonthly[7],
+          },
+          {
+            x: "Sep",
+            y: PatientsMonthly[8],
+          },
+          {
+            x: "Oct",
+            y: PatientsMonthly[9],
+          },
+          {
+            x: "Nov",
+            y: PatientsMonthly[10],
+          },
+          {
+            x: "Dec",
+            y: PatientsMonthly[11],
           },
         ],
       },
     ],
   };
 
-  var chart2 = new ApexCharts(document.querySelector("#chartThree"), options2);
+  var chart2 = new ApexCharts(document.querySelector(".chart3x"), options2);
   chart2.render();
   return (
     <div>
@@ -218,7 +268,7 @@ export default function Chart() {
         <div className="chart" id="chartTwo"></div>
       </div>
       <div className="dashBoardChart">
-        <div className="chart" id="chartThree"></div>
+        <div className="chart3x"></div>
         <div className="chart" id="chartFour"></div>
       </div>
     </div>
