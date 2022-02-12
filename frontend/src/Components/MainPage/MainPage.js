@@ -176,6 +176,7 @@ const MainPage = () => {
 
         <li>
           <button
+            className="nextButton"
             onClick={handleNextbtn}
             disabled={currentPage == pages[pages.length - 1] ? true : false}
           >
