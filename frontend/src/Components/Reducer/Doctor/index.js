@@ -24,6 +24,6 @@ export default doctorsReducer;
 export const setDoctor = (id) => {
   return { type: "SET_Doctor", payload: id };
 };
-export const setAppointment = (appointment) => {
+export const setAppointmentDoctor = (appointment) => {
   return { type: "SET_Appointment", payload: appointment };
 };
