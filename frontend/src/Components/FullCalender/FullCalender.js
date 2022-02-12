@@ -5,12 +5,18 @@ import { useSelector } from "react-redux";
 
 import "@fullcalendar/timegrid/main.css";
 import "@fullcalendar/daygrid/main.css";
+import Swal from "sweetalert2";
 
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 export default function FullCalender() {
+  
+  const [month,setMonth]=useState('dayGridMonth');
+  const [day,setDay]=useState("timeGridDay");
+  const [week,setWeek]=useState("timeGridWeek");
+  const [viewCalendar,setViewCalendar]=useState(month)
   const [appointement, setAppointement] = useState([]);
 
     const state = useSelector((state) => {
@@ -39,17 +45,34 @@ export default function FullCalender() {
         }
       };
 
-  const events = [{ title: "Today", date: new Date() }];
+  // const events = {appointement}
 const handleDateClick=(dateClickInfo)=>{
-  console.log(dateClickInfo);
+  // dateClickInfo.view.type="timeGridWeek";
+  let dateClicked = dateClickInfo.dateStr;
+  let a =appointement.filter(e=>e.dateAppointment===dateClicked)
+  // if (!a.length) {
+  //   return Swal.fire({
+  //     icon: 'error',
+  //     title: 'Oops...',
+  //     text: 'Something went wrong!',
+  //     footer: '<a href="">Why do I have this issue?</a>'
+  //   });
+  // }
+  // return Swal.fire({
+  //   title: 'Sweet!',
+  //   text: 'Modal with a custom image.',
+  //   imageUrl: 'https://unsplash.it/400/200',
+  //   imageWidth: 400,
+  //   imageHeight: 200,
+  //   imageAlt: 'Custom image',
+  // })
+  console.log(a)
+  dateClickInfo.style={ color:"red"}
+  // dateClickInfo.dayEl.id
+// console.log()
+dateClickInfo.dayEl.onClick=(e)=>{console.log(e)}
 }
-const retrieveData = async(from,to,callback)=>{
-callback()
 
-}
-const getData=(fetchInfo,callback)=>{
-retrieveData(fetchInfo.start,fetchInfo.end,callback);
-}
   return (
     <div>
       <div className="container">
@@ -59,7 +82,7 @@ retrieveData(fetchInfo.start,fetchInfo.end,callback);
           </div>
         </div>
         <FullCalendar
-          initialView= 'dayGridMonth'
+          initialView= {viewCalendar}
           on
           header={{
             left: "prev,next",
@@ -67,9 +90,20 @@ retrieveData(fetchInfo.start,fetchInfo.end,callback);
             right: "dayGridMonth,timeGridWeek,timeGridDay",
           }}
           plugins={[dayGridPlugin, timeGridPlugin,interactionPlugin]}
-          // events={events} onClick={(e) =>{console.log(e.target)}}
+          events={handleDateClick} 
           dateClick={handleDateClick}
         />
+      </div>
+      <div>
+        {/* ()
+    {  Swal.fire({
+  title: 'Sweet!',
+  text: 'Modal with a custom image.',
+  imageUrl: 'https://unsplash.it/400/200',
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: 'Custom image',
+})} */}
       </div>
     </div>
   );
