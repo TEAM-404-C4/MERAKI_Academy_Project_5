@@ -39,11 +39,11 @@ const Appointement = () => {
     let array = Object.keys(schedual);
     let miniArray = [];
     let newArray = [];
-    console.log(array);
+
     for (let i = 0; i < array.length; i++) {
       miniArray.push(<td>{array[i]}</td>);
     }
-    console.log("miniArray", miniArray);
+
     if (miniArray.length < 4) {
       newArray.push(
         <tr>
@@ -62,7 +62,7 @@ const Appointement = () => {
         </tr>
       );
     }
-    console.log("newArray", newArray);
+
     if (miniArray.length > 4 || miniArray.length <= 8) {
       newArray.push(
         <tr>
@@ -72,7 +72,6 @@ const Appointement = () => {
         </tr>
       );
     }
-    console.log("newArray", newArray);
 
     if (miniArray.length > 8 || miniArray.length <= 12) {
       newArray.push(
@@ -83,7 +82,6 @@ const Appointement = () => {
         </tr>
       );
     }
-    console.log("newArray", newArray);
 
     if (miniArray.length > 12 || miniArray.length < 16) {
       newArray.push(
@@ -94,9 +92,7 @@ const Appointement = () => {
         </tr>
       );
     }
-    console.log("newArray", newArray);
 
-    console.log(newArray.length);
     return newArray;
     // Object.keys(schedual)
   };

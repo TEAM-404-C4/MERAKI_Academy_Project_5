@@ -149,7 +149,7 @@ const Dashboard = () => {
             )}
             {appointementPanel ? (
               <>
-                <div className="dashBoardChart">
+                <div >
                   <FullCalender/>
                 </div>
               </>

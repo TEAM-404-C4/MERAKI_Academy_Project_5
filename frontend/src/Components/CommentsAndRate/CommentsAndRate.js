@@ -20,7 +20,7 @@ export default function CommentsAndRate() {
 
   const state = useSelector((state) => {
     return {
-      doctorId: state.doctorsReducer,
+      doctorId: state.doctorsReducer.doctorId,
       userId: state.loginReducer.userId[0].id,
     };
   });

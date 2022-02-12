@@ -6,7 +6,7 @@
 
 .AppointementDoctor {
   padding-top: 10vh;
-  background-color: red;
+  background-color: #1c2e4c;
   display: flex;
   flex-direction: column;
   height: 100vh;
