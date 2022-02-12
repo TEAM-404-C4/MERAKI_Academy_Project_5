@@ -50,7 +50,6 @@ const CardDoctor = ({
             }}
           />
         </div>
-        {/*  */}
         <div className="card-information">
           <div
             className="doctorNameDiv"
@@ -80,14 +79,14 @@ const CardDoctor = ({
           </div>
           <div className="card-row">
             <div>
-              <AiOutlineFieldTime style={{ color: "red" }} /> Waiting time :{" "}
-              {waitingTime}{" "}
+              <AiOutlineFieldTime style={{ color: "red" }} /> Waiting time :
+              {waitingTime}
             </div>
           </div>
           <div className="card-row">
             <div>
               <GiMoneyStack style={{ color: "#0EB800" }} />
-              Fees : {consultationFee}{" "}
+              Fees : {consultationFee}
             </div>
             <a
               href={`https://www.google.com/maps?q=${latitude},${longitude}`}
@@ -97,7 +96,6 @@ const CardDoctor = ({
             </a>
           </div>
         </div>
-        {/*  */}{" "}
         <div className="bookingBtnDiv">
           <button
             className="bookingBtn"
@@ -105,7 +103,7 @@ const CardDoctor = ({
             onClick={(e) => {
               dispatch(setDoctor(e.target.value));
               history("/DoctorProfile");
-              window.localStorage.setItem('doctorId',id);
+              window.localStorage.setItem("doctorId", id);
             }}
           >
             Book Now !
