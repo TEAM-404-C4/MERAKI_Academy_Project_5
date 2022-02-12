@@ -33,14 +33,16 @@ const Navigation = () => {
   return (
     <>
       <div className="navigation">
-        <div className="logoAndName">
-          <div
-            className="logo"
-            onClick={() => {
-              history("/mainpage");
-            }}
-          ></div>
-          <p className="shefaaName">SHEFAA</p>
+        <div
+          className="logoAndName"
+          onClick={() => {
+            history("/");
+          }}
+        >
+          <div className="logo"></div>
+          <div>
+            <p className="shefaaName">SHEFAA</p>
+          </div>
         </div>
         <div className="controlsDiv">
           {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (

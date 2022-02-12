@@ -11,3 +11,23 @@
   border-radius: 12px;
   gap: 30px;
 }
+
+.pageNumbers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.mainPageMainDiv {
+  min-height: 200vh;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.pageNumberUl {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
