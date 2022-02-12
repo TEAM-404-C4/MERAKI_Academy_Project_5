@@ -21,7 +21,8 @@ export default function CommentsAndRate() {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer.doctorId,
-      userId: state.loginReducer.userId[0].id,
+      userId: state.loginReducer.userId[0],
+      roleId: state.loginReducer.roleId,
     };
   });
 
@@ -49,7 +50,7 @@ export default function CommentsAndRate() {
         comment: comment,
         reating: rate,
         doctorId: state.doctorId,
-        patientId: state.userId,
+        patientId: state.userId.id,
         commentDate: new Date().toISOString().substring(0, 10),
       });
       setResponse(res);
@@ -93,113 +94,116 @@ export default function CommentsAndRate() {
   return (
     <div className="rate">
       <>
-        <form onSubmit={commentButton}>
-          <span
-            className={star1}
-            id="1"
-            onClick={(e) => {
-              if (star1 === onStar) {
-                setStar1(offStar);
-                setStar2(offStar);
-                setStar3(offStar);
-                setStar4(offStar);
-                setStar5(offStar);
-                setRate(0);
-              } else {
-                setStar1(onStar);
-                setRate(e.target.id);
-              }
-            }}
-          ></span>
-          <span
-            className={star2}
-            id="2"
-            onClick={(e) => {
-              if (star2 === onStar) {
-                setStar1(offStar);
-                setStar2(offStar);
-                setStar3(offStar);
-                setStar4(offStar);
-                setStar5(offStar);
-                setRate(0);
-              } else {
-                setStar1(onStar);
-                setStar2(onStar);
-                setRate(e.target.id);
-              }
-            }}
-          ></span>
-          <span
-            className={star3}
-            id="3"
-            onClick={(e) => {
-              if (star3 === onStar) {
-                setStar1(offStar);
-                setStar2(offStar);
-                setStar3(offStar);
-                setStar4(offStar);
-                setStar5(offStar);
-                setRate(0);
-              } else {
-                setStar1(onStar);
-                setStar2(onStar);
-                setStar3(onStar);
-                setRate(e.target.id);
-              }
-            }}
-          ></span>
-          <span
-            className={star4}
-            id="4"
-            onClick={(e) => {
-              if (star4 === onStar) {
-                setStar1(offStar);
-                setStar2(offStar);
-                setStar3(offStar);
-                setStar4(offStar);
-                setStar5(offStar);
-                setRate(0);
-              } else {
-                setStar1(onStar);
-                setStar2(onStar);
-                setStar3(onStar);
-                setStar4(onStar);
-                setRate(e.target.id);
-              }
-            }}
-          ></span>
-          <span
-            className={star5}
-            id="5"
-            onClick={(e) => {
-              if (star5 === onStar) {
-                setStar1(offStar);
-                setStar2(offStar);
-                setStar3(offStar);
-                setStar4(offStar);
-                setStar5(offStar);
-                setRate(0);
-              } else {
-                setStar1(onStar);
-                setStar2(onStar);
-                setStar3(onStar);
-                setStar4(onStar);
-                setStar5(onStar);
-                setRate(e.target.id);
-              }
-            }}
-          ></span>
-          <input
-            value={comment}
-            required
-            type="text"
-            onChange={(e) => {
-              setComment(e.target.value);
-            }}
-          />
+        {state.roleId != 2 && (
+          <form onSubmit={commentButton}>
+            <span
+              className={star1}
+              id="1"
+              onClick={(e) => {
+                if (star1 === onStar) {
+                  setStar1(offStar);
+                  setStar2(offStar);
+                  setStar3(offStar);
+                  setStar4(offStar);
+                  setStar5(offStar);
+                  setRate(0);
+                } else {
+                  setStar1(onStar);
+                  setRate(e.target.id);
+                }
+              }}
+            ></span>
+            <span
+              className={star2}
+              id="2"
+              onClick={(e) => {
+                if (star2 === onStar) {
+                  setStar1(offStar);
+                  setStar2(offStar);
+                  setStar3(offStar);
+                  setStar4(offStar);
+                  setStar5(offStar);
+                  setRate(0);
+                } else {
+                  setStar1(onStar);
+                  setStar2(onStar);
+                  setRate(e.target.id);
+                }
+              }}
+            ></span>
+            <span
+              className={star3}
+              id="3"
+              onClick={(e) => {
+                if (star3 === onStar) {
+                  setStar1(offStar);
+                  setStar2(offStar);
+                  setStar3(offStar);
+                  setStar4(offStar);
+                  setStar5(offStar);
+                  setRate(0);
+                } else {
+                  setStar1(onStar);
+                  setStar2(onStar);
+                  setStar3(onStar);
+                  setRate(e.target.id);
+                }
+              }}
+            ></span>
+            <span
+              className={star4}
+              id="4"
+              onClick={(e) => {
+                if (star4 === onStar) {
+                  setStar1(offStar);
+                  setStar2(offStar);
+                  setStar3(offStar);
+                  setStar4(offStar);
+                  setStar5(offStar);
+                  setRate(0);
+                } else {
+                  setStar1(onStar);
+                  setStar2(onStar);
+                  setStar3(onStar);
+                  setStar4(onStar);
+                  setRate(e.target.id);
+                }
+              }}
+            ></span>
+            <span
+              className={star5}
+              id="5"
+              onClick={(e) => {
+                if (star5 === onStar) {
+                  setStar1(offStar);
+                  setStar2(offStar);
+                  setStar3(offStar);
+                  setStar4(offStar);
+                  setStar5(offStar);
+                  setRate(0);
+                } else {
+                  setStar1(onStar);
+                  setStar2(onStar);
+                  setStar3(onStar);
+                  setStar4(onStar);
+                  setStar5(onStar);
+                  setRate(e.target.id);
+                }
+              }}
+            ></span>
+            <input
+              value={comment}
+              required
+              type="text"
+              onChange={(e) => {
+                setComment(e.target.value);
+              }}
+            />
 
-          <button type="submit">Comment</button>
-        </form>
+            <button type="submit">Comment</button>
+          </form>
+        )}
+
         <button onClick={showCommentButton}>Show Comments</button>
         <div className="commentRatingBlock">
           {showComments &&
