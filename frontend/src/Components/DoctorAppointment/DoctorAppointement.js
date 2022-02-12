@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setAppointmentDoctor } from "../Reducer/Doctor/index";
 
 const DoctorAppointement = () => {
   const [appointement, setAppointement] = useState([]);
   //   ===================================================================
 
+  const dispatch = useDispatch();
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
@@ -28,6 +30,7 @@ const DoctorAppointement = () => {
       );
       console.log(res.data.result);
       setAppointement(res.data.result);
+      dispatch(setAppointmentDoctor(res.data.result));
     } catch (err) {
       console.log(err);
     }
@@ -35,7 +38,7 @@ const DoctorAppointement = () => {
 
   return (
     <div>
-      {appointement.map((element, index) => {
+      {/* {appointement.map((element, index) => {
         return (
           <div>
             <p>
@@ -46,7 +49,7 @@ const DoctorAppointement = () => {
             <p>{`${element.firstName}  ${element.lastName} `}</p>
           </div>
         );
-      })}
+      })} */}
     </div>
   );
 };

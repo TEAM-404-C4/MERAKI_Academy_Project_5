@@ -13,7 +13,6 @@ const UserProfile = () => {
   });
   //   =====================================
   useEffect(async () => {
-    // console.log(state[0].id);
     try {
       console.log(state);
 
