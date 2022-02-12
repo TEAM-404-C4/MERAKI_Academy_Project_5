@@ -161,29 +161,31 @@ const MainPage = () => {
         <Search setSearch={setSearch} />
       </div>
       {search ? seachDoctorCard : renderData(doctors)}
-      <ul className="pageNumbers">
-        <li>
-          <button
-            onClick={handlePrevbtn}
-            disabled={currentPage == pages[0] ? true : false}
-          >
-            Prev
-          </button>
-        </li>
-        {pageDecrementBtn}
-        {renderPageNumbers}
-        {pageIncrementBtn}
+      <div className="pageNumbers">
+        <ul className="pageNumberUl">
+          <li>
+            <button
+              onClick={handlePrevbtn}
+              disabled={currentPage == pages[0] ? true : false}
+            >
+              Prev
+            </button>
+          </li>
+          {pageDecrementBtn}
+          {renderPageNumbers}
+          {pageIncrementBtn}
 
-        <li>
-          <button
-            className="nextButton"
-            onClick={handleNextbtn}
-            disabled={currentPage == pages[pages.length - 1] ? true : false}
-          >
-            Next
-          </button>
-        </li>
-      </ul>
+          <li>
+            <button
+              className="nextButton"
+              onClick={handleNextbtn}
+              disabled={currentPage == pages[pages.length - 1] ? true : false}
+            >
+              Next
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
