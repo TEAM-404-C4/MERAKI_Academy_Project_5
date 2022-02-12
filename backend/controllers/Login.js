@@ -35,7 +35,7 @@ const doctorLogin = (req, res) => {
 
         res.status(200).json({
           success: true,
-          message: `Valid login credentials`,
+          message: `Login Successfully`,
           token: token,
           userId: result[0].id,
           role: result[0].roleId,

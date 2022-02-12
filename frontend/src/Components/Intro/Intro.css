@@ -7,7 +7,6 @@
 }
 
 .gifImageDiv {
-  background-color: rgb(12, 26, 50);
   margin-top: 150px;
   width: 40%;
   height: 520px;
@@ -15,12 +14,11 @@
   margin-left: 100px;
 }
 .gifImageDiv:hover {
-  background-color: #0d79e5;
   cursor: pointer;
 }
 
 .gifImage {
-  background-image: url("https://s10.gifyu.com/images/Medical-care.gif");
+  background-image: url("https://s10.gifyu.com/images/Medical-care-1e7173687ddd36e0e.gif");
   width: 470px;
   height: 470px;
   background-size: 470px;
