@@ -14,7 +14,7 @@ import axios from "axios";
 
 const Navigation = () => {
   const [getProfileImage, setGetProfileImage] = useState(
-    "https://upload.wikimedia.org/wikipedia/commons/0/09/Asd-web.jpg"
+    "https://img.favpng.com/24/4/25/ico-avatar-scalable-vector-graphics-icon-png-favpng-69NiKBhePsU9cJJeFeZeTy6qw.jpg"
   );
   const [doctorName, setDoctorName] = useState("");
   const history = useNavigate();
