@@ -42,7 +42,8 @@ export default function Chart() {
     return element.gender == "FEMALE";
   });
   console.log("malePatient", malePatient, "femalePatient", femalePatient);
-  //================================================ Chart 1
+  //================================================ Chart
+
   var options = {
     series: [malePatient.length, femalePatient.length],
     chart: {
@@ -79,15 +80,60 @@ export default function Chart() {
   var chart = new ApexCharts(document.querySelector("#chartOne"), options);
   chart.render();
   // =====================================chart2
+
+  let month = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+
+  let malePatientMonthly = month.map((element, index) => {
+    let count = 0;
+    for (let i = 0; i < malePatient.length; i++) {
+      if (malePatient[i]) {
+        if (malePatient[i].dateAppointment.split("-")[1] == element) {
+          count++;
+        }
+      } else {
+        return 0;
+      }
+    }
+
+    return count;
+  });
+  let femalePatientMonthly = month.map((element, index) => {
+    let count = 0;
+    for (let i = 0; i < femalePatient.length; i++) {
+      if (femalePatient[i]) {
+        if (femalePatient[i].dateAppointment.split("-")[1] == element) {
+          count++;
+        }
+      } else {
+        return 0;
+      }
+    }
+
+    return count;
+  });
+
   var options1 = {
     series: [
       {
-        name: "Discharge Patient",
-        data: [12, 22, 14, 18, 22, 13, 17],
+        name: "Male Patient",
+        data: malePatientMonthly,
       },
       {
-        name: "Admit Patient",
-        data: [28, 39, 23, 36, 45, 32, 43],
+        name: "Female Patient",
+        data: femalePatientMonthly,
       },
     ],
     chart: {
@@ -116,7 +162,20 @@ export default function Chart() {
       borderColor: "#e7e7e7",
     },
     xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+      categories: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
     },
     legend: {
       show: false,
