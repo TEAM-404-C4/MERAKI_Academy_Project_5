@@ -55,6 +55,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .option:hover {
@@ -81,5 +82,46 @@ a:hover {
 }
 
 .logoAndName:hover {
+  cursor: pointer;
+}
+.option1 {
+  font-size: 25px;
+  padding: 5px;
+  width: 150px;
+  height: 40px;
+  background-color: rgb(12, 26, 50);
+  padding: 25px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ProfileImageDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 150%;
+  height: 50px;
+  margin-left: -15px;
+}
+
+.profileImg {
+  height: 40px;
+  width: 40px;
+  border-radius: 7px;
+}
+
+.drName {
+  color: white;
+  font-size: 15px;
+  font-family: "Righteous", cursive;
+}
+
+.option1:hover {
+  background-color: #0d79e5;
   cursor: pointer;
 }
