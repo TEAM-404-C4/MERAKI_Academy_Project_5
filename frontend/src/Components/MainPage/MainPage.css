@@ -6,7 +6,6 @@
   background-color: rgb(12, 26, 50);
   height: 80px;
   width: 1250px;
-  margin-left: 70px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 12px;
   gap: 30px;
@@ -19,15 +18,19 @@
   margin-top: auto;
 }
 
-.mainPageMainDiv {
-  min-height: 200vh;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-}
-
 .pageNumberUl {
   display: flex;
   flex-direction: row;
   text-decoration: none;
+}
+
+.newDiv {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  padding: 30px;
+  gap: 50px;
 }

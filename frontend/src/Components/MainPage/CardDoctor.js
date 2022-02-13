@@ -50,7 +50,8 @@ const CardDoctor = ({
             }}
           />
         </div>
-        <div className="card-information">
+
+        <div className="cardInformation">
           <div
             className="doctorNameDiv"
             onClick={() => {
@@ -58,35 +59,36 @@ const CardDoctor = ({
               history("/DoctorProfile");
             }}
           >
-            <div className="DoctorName">Doctor</div> {fullName}
+            <div className="DoctorName">Doctor</div>. {fullName}
           </div>
           <div className="Rating"></div>
 
           <div className="card-row">
             <FaUserMd style={{ color: "#91D1BD" }} />
-            {Department} specialized in {specialization}
+               {Department} specialized in {specialization}
           </div>
           <div className="card-row">
             <div>
-              <GrCertificate /> Scientific Certificate : {ScientificCertificate}
+              <GrCertificate />   Scientific Certificate :{" "}
+              {ScientificCertificate}
             </div>
           </div>
           <div className="card-row">
             <div>
-              <HiLocationMarker style={{ color: "#0EB800" }} />
-              Location : {city},{address}
+              <HiLocationMarker style={{ color: "#0d79e5" }} />
+                 Location : {city},{address}
             </div>
           </div>
           <div className="card-row">
             <div>
-              <AiOutlineFieldTime style={{ color: "red" }} /> Waiting time :
+              <AiOutlineFieldTime style={{ color: "red" }} />   Waiting time :
               {waitingTime}
             </div>
           </div>
-          <div className="card-row">
+          {/* <div className="card-row">
             <div>
               <GiMoneyStack style={{ color: "#0EB800" }} />
-              Fees : {consultationFee}
+                 Fees : {consultationFee}
             </div>
             <a
               href={`https://www.google.com/maps?q=${latitude},${longitude}`}
@@ -94,34 +96,23 @@ const CardDoctor = ({
             >
               set my location
             </a>
+          </div> */}
+          <div className="card-row">
+            <button
+              className="bookingBtn"
+              value={id}
+              onClick={(e) => {
+                dispatch(setDoctor(e.target.value));
+                history("/DoctorProfile");
+                window.localStorage.setItem("doctorId", id);
+              }}
+            >
+              Book!
+            </button>
           </div>
         </div>
-        <div className="bookingBtnDiv">
-          <button
-            className="bookingBtn"
-            value={id}
-            onClick={(e) => {
-              dispatch(setDoctor(e.target.value));
-              history("/DoctorProfile");
-              window.localStorage.setItem("doctorId", id);
-            }}
-          >
-            Book Now !
-          </button>
-        </div>
       </div>
-      <div className="card-Booking">
-        {/* <button
-          value={id}
-          onClick={(e) => {
-            dispatch(setDoctor(e.target.value));
-            console.log(e.target.value);
-            history("/DoctorProfile");
-          }}
-        >
-          Book
-        </button> */}
-      </div>
+      <div className="card-Booking"></div>
     </div>
   );
 };
