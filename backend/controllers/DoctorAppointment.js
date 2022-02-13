@@ -20,7 +20,7 @@ const setDoctorAppointement = (req, res) => {
     const find = result.filter((element) => {
       return doctor_appointment.includes(String(element.appointmentId));
     });
-    console.log(find);
+
     if (find.length == 0) {
       doctor_appointment.forEach((element) => {
         data = [Number(element), doctorId];
@@ -35,7 +35,6 @@ const setDoctorAppointement = (req, res) => {
         success: true,
       });
     } else {
-      console.log(find);
       return res.json({
         success: false,
         message: "check appointement is repeated",
