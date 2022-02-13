@@ -32,19 +32,20 @@ export default function PatientBooking() {
     }
   };
   return (
-    <div>
+    <div className="patientBookingMainDiv">
       <table className="patientTableDashboardMainDiv">
         <tr className="patientTableDashboardTitle">
+          <th className="titleNo">No.</th>
           <th className="title">FirstName</th>
           <th className="title">Last Name</th>
           <th className="title">Time</th>
           <th className="title">Date </th>
           <th className="title">Phone No </th>
         </tr>
-
         {appointement.map((element, index) => {
           return (
             <tr className="patientTableDashboard">
+              <td className="rowNo">{index + 1}</td>
               <td className="row">{element.firstName}</td>
               <td className="row">{element.lastName}</td>
               <td className="row">{element.time}</td>

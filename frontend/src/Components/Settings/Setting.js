@@ -269,7 +269,7 @@ const Setting = () => {
   return (
     <>
       {/* --------------------------------------------------------------------------part1 Doctor Setting */}
-      {state.doctorId === 2 || localStorage.getItem("roleId") === 2 ? (
+      {state.doctorId == 2 || localStorage.getItem("roleId") == 2 ? (
         <div className="mainChangeDoctorDiv">
           <div className="changeDiv">
             <div className="changeInfoDiv">

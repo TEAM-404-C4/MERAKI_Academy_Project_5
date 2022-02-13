@@ -1,14 +1,19 @@
+.patientBookingMainDiv {
+  max-height: 310px;
+  overflow-y: scroll;
+}
+
 .patientTableDashboardMainDiv {
   border: 1px solid #ffffff;
-  overflow-y: scroll;
-  height: 200px;
 }
+
+.patientTableDashboardTitle {
+  background-color: #5f5c5c;
+}
+
 .patientTableDashboard {
   color: white;
-  height: 5px;
-  overflow-y: auto;
-  overflow-x: auto;
-  width: 50px;
+  width: 100px;
 }
 
 .patientTableDashboard:hover {
@@ -16,17 +21,11 @@
 }
 
 .row {
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ffffff;
-  width: 160px;
+  width: 170px;
   font-size: 15px;
-}
-.row:hover {
-  color: rgb(240, 83, 83);
-}
-
-.patientTableDashboardTitle {
-  color: white;
+  transition: 0.2s;
 }
 
 .title {
@@ -36,5 +35,21 @@
   font-weight: bold;
 }
 
-/* .patientTableDashboardMainDiv {
-} */
+.titleNo {
+  color: white;
+  border: 1px solid #ffffff;
+  padding: 0px;
+  font-weight: bold;
+}
+
+.rowNo {
+  padding: 10px;
+  border: 1px solid #ffffff;
+  width: 50px;
+  font-size: 15px;
+}
+
+thead,
+tbody {
+  display: block;
+}
