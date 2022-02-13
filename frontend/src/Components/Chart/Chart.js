@@ -30,7 +30,7 @@ export default function Chart() {
         }
       );
       const res2 = await axios.post("http://localhost:5000/comment/", {
-        doctorId: state.doctorId,
+        doctorId: state.userId | window.localStorage.getItem("userId"),
       });
       setComments(res2.data.result);
       setAppointement(res.data.result);
