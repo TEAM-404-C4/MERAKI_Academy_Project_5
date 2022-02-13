@@ -156,11 +156,13 @@ const MainPage = () => {
 
   return (
     <div className="mainPageMainDiv">
-      <div className="filterDiv">
-        <Filter setSearch={setSearch} />
-        <Search setSearch={setSearch} />
+      <div className="newDiv">
+        <div className="filterDiv">
+          <Filter setSearch={setSearch} />
+          <Search setSearch={setSearch} />
+        </div>
+        {search ? seachDoctorCard : renderData(doctors)}
       </div>
-      {search ? seachDoctorCard : renderData(doctors)}
       <div className="pageNumbers">
         <ul className="pageNumberUl">
           <li>
