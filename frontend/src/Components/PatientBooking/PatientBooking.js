@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-
 import axios from "axios";
 import { useSelector } from "react-redux";
+import "./PatientBooking.css";
 
 export default function PatientBooking() {
   const [appointement, setAppointement] = useState([]);
@@ -33,24 +33,23 @@ export default function PatientBooking() {
   };
   return (
     <div>
-      {" "}
-      <table>
-        <tr>
-          <th>FirstName</th>
-          <th>Last Name</th>
-          <th>Time</th>
-          <th>Date </th>
-          <th>Phone </th>
+      <table className="patientTableDashboardMainDiv">
+        <tr className="patientTableDashboardTitle">
+          <th className="title">FirstName</th>
+          <th className="title">Last Name</th>
+          <th className="title">Time</th>
+          <th className="title">Date </th>
+          <th className="title">Phone No </th>
         </tr>
 
         {appointement.map((element, index) => {
           return (
-            <tr>
-              <td>{element.firstName}</td>
-              <td>{element.lastName}</td>
-              <td>{element.time}</td>
-              <td>{element.dateAppointment}</td>
-              <td>{element.phone}</td>
+            <tr className="patientTableDashboard">
+              <td className="row">{element.firstName}</td>
+              <td className="row">{element.lastName}</td>
+              <td className="row">{element.time}</td>
+              <td className="row">{element.dateAppointment}</td>
+              <td className="row">{element.phone}</td>
             </tr>
           );
         })}
