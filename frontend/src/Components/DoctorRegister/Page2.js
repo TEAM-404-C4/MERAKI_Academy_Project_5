@@ -65,14 +65,19 @@ const Page2 = () => {
             Gender , Nationality ,Specialization and Phone- Step 2 of 4
           </label>
           <select
+            name={gender}
             placeholder="Gender"
             className="doctorGender"
             onChange={(e) => {
               setGender(e.target.value);
             }}
           >
-            <option value="MALE">MALE</option>
-            <option value="FEMALE">FEMALE</option>
+            <option className="test" value="MALE">
+              MALE
+            </option>
+            <option className="test" value="FEMALE">
+              FEMALE
+            </option>
           </select>
           <input
             value={Nationality}

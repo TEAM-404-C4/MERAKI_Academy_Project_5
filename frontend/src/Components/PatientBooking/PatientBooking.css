@@ -1,0 +1,40 @@
+.patientTableDashboardMainDiv {
+  border: 1px solid #ffffff;
+  overflow-y: scroll;
+  height: 200px;
+}
+.patientTableDashboard {
+  color: white;
+  height: 5px;
+  overflow-y: auto;
+  overflow-x: auto;
+  width: 50px;
+}
+
+.patientTableDashboard:hover {
+  color: rgb(240, 83, 83);
+}
+
+.row {
+  padding: 10px;
+  border: 1px solid #ffffff;
+  width: 160px;
+  font-size: 15px;
+}
+.row:hover {
+  color: rgb(240, 83, 83);
+}
+
+.patientTableDashboardTitle {
+  color: white;
+}
+
+.title {
+  color: white;
+  border: 1px solid #ffffff;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* .patientTableDashboardMainDiv {
+} */

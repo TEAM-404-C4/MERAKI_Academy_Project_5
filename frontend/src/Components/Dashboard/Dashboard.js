@@ -158,7 +158,7 @@ const Dashboard = () => {
             {patientsPanel ? (
               <>
                 <div className="dashBoardChart">
-                  <div className="chartOne">
+                  <div className="chartOnePatients">
                     <PatientBooking />
                   </div>
                 </div>
