@@ -115,9 +115,9 @@ const CardDoctor = ({
           </div>
           <div className="Rating">
             {comments.length ? (
-              <p>{ratingCard()}</p>
+              <p className="filledStars">{ratingCard()}</p>
             ) : (
-              <p> There is no rating yet </p>
+              <p className="emptyStars"> ✰ ✰ ✰ ✰ ✰ </p>
             )}
           </div>
 
