@@ -15,7 +15,7 @@ export default function Chart() {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer.doctorId,
-      userId: state.loginReducer.userId,
+      userId: state.loginReducer.userId[0].id,
       roleId: state.loginReducer.roleId,
     };
   });
@@ -32,6 +32,7 @@ export default function Chart() {
       const res2 = await axios.post("http://localhost:5000/comment/", {
         doctorId: state.userId | window.localStorage.getItem("userId"),
       });
+      console.log("res", res, "res2", res2, "state", state);
       setComments(res2.data.result);
       setAppointement(res.data.result);
     } catch (err) {

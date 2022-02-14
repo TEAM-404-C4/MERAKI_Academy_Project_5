@@ -2,20 +2,23 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import "./PatientBooking.css";
+import { FcCancel } from "react-icons/fc";
 
 export default function PatientBooking() {
   const [appointement, setAppointement] = useState([]);
-
+  const [deleteBookingRes, setDeleteBookingRes] = useState("");
+  // ============================================
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
-      userId: state.loginReducer.userId,
+      userId: state.loginReducer.userId[0].id,
       roleId: state.loginReducer.roleId,
     };
   });
+  // ==============================================
   useEffect(() => {
     getAppointement();
-  }, []);
+  }, [deleteBookingRes]);
   const getAppointement = async () => {
     try {
       const res = await axios.post(
@@ -31,6 +34,30 @@ export default function PatientBooking() {
       console.log(err);
     }
   };
+
+  // =========================================
+
+  const deleteBooking = async (e) => {
+    try {
+      const data = await e.target.id.split(",");
+      const res = await axios.post(
+        "http://localhost:5000/doctors/deletebooking",
+        {
+          doctorId: state.userId | window.localStorage.getItem("userId"),
+          appointmentId: data[0],
+          patientId: data[2],
+          dateAppointment: data[1],
+        }
+      );
+      console.log(res);
+      console.log(res.data.result);
+      setDeleteBookingRes(res.data);
+    } catch (err) {
+      console.log(err.response);
+    }
+  };
+
+  // =======================================
   return (
     <div className="patientBookingMainDiv">
       <table className="patientTableDashboardMainDiv">
@@ -41,6 +68,7 @@ export default function PatientBooking() {
           <th className="title">Time</th>
           <th className="title">Date </th>
           <th className="title">Phone No </th>
+          <th className="title">Delete Booking </th>
         </tr>
         {appointement.map((element, index) => {
           return (
@@ -51,6 +79,16 @@ export default function PatientBooking() {
               <td className="row">{element.time}</td>
               <td className="row">{element.dateAppointment}</td>
               <td className="row">{element.phone}</td>
+              <td>
+                <FcCancel
+                  id={[
+                    element.appointmentId,
+                    element.dateAppointment,
+                    element.patientId,
+                  ]}
+                  onClick={deleteBooking}
+                />
+              </td>
             </tr>
           );
         })}

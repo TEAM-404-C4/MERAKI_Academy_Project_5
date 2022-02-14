@@ -13,6 +13,7 @@ import { HiLocationMarker } from "react-icons/hi";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { GiMoneyStack } from "react-icons/gi";
+import { FcCancel } from "react-icons/fc";
 
 //CSS File
 import "./CardDoctor.css";
@@ -36,6 +37,7 @@ const CardDoctor = ({
   // ===================================================
 
   const [comments, setComments] = useState([]);
+  const [realRating, setRealRating] = useState("");
 
   // ===================================================
 
@@ -75,6 +77,7 @@ const CardDoctor = ({
     ratingGroup.reduce((a, b) => a + b, 0) / comments.length;
 
   console.log(average(ratingGroup));
+  // setRealRating(average(ratingGroup));
 
   const ratingCard = () => {
     let stars = "";
@@ -85,7 +88,17 @@ const CardDoctor = ({
         stars = stars + "✰";
       }
     }
-    return stars;
+
+    return (
+      stars &&
+      stars.split("").map((element) => {
+        if (element == "✰") {
+          return <span className="fa fa-star"></span>;
+        } else {
+          return <span className="fa fa-star checked"></span>;
+        }
+      })
+    );
   };
   //====================================================//Return
   return (
@@ -115,9 +128,18 @@ const CardDoctor = ({
           </div>
           <div className="Rating">
             {comments.length ? (
-              <p className="filledStars">{ratingCard()}</p>
+              <div className="filledStars">
+                <span className="ratingNumber">{average(ratingGroup)}</span>
+                {ratingCard()}
+              </div>
             ) : (
-              <p className="emptyStars"> ✰ ✰ ✰ ✰ ✰ </p>
+              <div className="emptyString">
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+                <span className="fa fa-star"></span>
+              </div>
             )}
           </div>
 
@@ -126,10 +148,10 @@ const CardDoctor = ({
                {Department} specialized in {specialization}
           </div>
           <div className="card-row">
-            <div>
+            {/* <div>
               <GrCertificate />   Scientific Certificate :{" "}
               {ScientificCertificate}
-            </div>
+            </div> */}
           </div>
           <div className="card-row">
             <div>
@@ -138,16 +160,16 @@ const CardDoctor = ({
             </div>
           </div>
           <div className="card-row">
-            <div>
+            {/* <div>
               <AiOutlineFieldTime style={{ color: "red" }} />   Waiting time :
               {waitingTime}
-            </div>
+            </div> */}
           </div>
           <div className="card-row">
-            <div>
+            {/* <div>
               <GiMoneyStack style={{ color: "#0EB800" }} />
                  Fees : {consultationFee}
-            </div>
+            </div> */}
             <a
               href={`https://www.google.com/maps?q=${latitude},${longitude}`}
               target="_blank"
