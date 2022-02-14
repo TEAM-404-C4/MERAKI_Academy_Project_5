@@ -213,7 +213,6 @@ const DoctorProfile = () => {
         </div>
       </div>
       <div className="CommentsAndRate">
-        {console.log()}
         <CommentsAndRate doctorFullName={doctor.fullName} />
       </div>
     </div>

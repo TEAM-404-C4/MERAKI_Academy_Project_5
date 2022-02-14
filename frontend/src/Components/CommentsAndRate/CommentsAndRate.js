@@ -219,6 +219,13 @@ export default function CommentsAndRate({ doctorFullName }) {
         )}
 
         <div className="commentRatingBlock">
+          <button
+            className="showReviewsBtn"
+            type="button"
+            onClick={showCommentButton}
+          >
+            Show Reviews
+          </button>
           {showComments &&
             comments.map((element) => {
               return (

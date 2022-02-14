@@ -89,9 +89,8 @@ export default function FullCalender() {
             FullCalendar In React Application
           </div>
         </div>
-        <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />
 
-        {/* <FullCalendar
+        <FullCalendar
           initialView="dayGridMonth"
           on
           header={{
@@ -105,7 +104,7 @@ export default function FullCalender() {
             console.log(e.target);
           }}
           dateClick={handleDateClick}
-        /> */}
+        />
       </div>
       {dayAppointment && (
         <table>
