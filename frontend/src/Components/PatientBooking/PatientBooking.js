@@ -9,7 +9,7 @@ export default function PatientBooking() {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
-      userId: state.loginReducer.userId,
+      userId: state.loginReducer.userId[0].id,
       roleId: state.loginReducer.roleId,
     };
   });

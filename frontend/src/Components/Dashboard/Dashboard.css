@@ -151,7 +151,7 @@
 }
 
 /* Scrollbar Styling */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -165,4 +165,4 @@
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: rgb(253, 194, 85);
-}
+} */

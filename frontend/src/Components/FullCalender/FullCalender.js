@@ -18,7 +18,7 @@ export default function FullCalender() {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
-      userId: state.loginReducer.userId,
+      userId: state.loginReducer.userId[0].id,
       roleId: state.loginReducer.roleId,
       appointments: state.doctorsReducer.appointment,
     };
@@ -89,7 +89,9 @@ export default function FullCalender() {
             FullCalendar In React Application
           </div>
         </div>
-        <FullCalendar
+        <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />
+
+        {/* <FullCalendar
           initialView="dayGridMonth"
           on
           header={{
@@ -98,9 +100,12 @@ export default function FullCalender() {
             right: "dayGridMonth,timeGridWeek,timeGridDay",
           }}
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          // events={events} onClick={(e) =>{console.log(e.target)}}
+          events={events}
+          onClick={(e) => {
+            console.log(e.target);
+          }}
           dateClick={handleDateClick}
-        />
+        /> */}
       </div>
       {dayAppointment && (
         <table>
