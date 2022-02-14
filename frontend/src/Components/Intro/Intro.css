@@ -1,19 +1,160 @@
 .introMainDiv {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
-  margin-top: -100px;
-  gap: 100px;
+  margin-top: 0;
+}
+
+.aboutSection {
+  height: 400px;
+  width: 100%;
+}
+
+.coverImgIntro {
+  position: relative;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.2;
+
+  z-index: -1;
+}
+.introWords {
+  position: absolute;
+  top: 155px;
+  left: 0;
+  width: 100%;
+  margin-top: 50px;
+}
+.WelcomeWords {
+  color: white;
+  font-family: "Righteous", cursive;
+  font-size: 50px;
+  letter-spacing: 1px;
+}
+.detailsWebSite {
+  position: absolute;
+  top: 255px;
+  left: 150px;
+  color: white;
+  width: 78%;
+  margin-top: 50px;
+  font-size: 25px;
+  text-align: left;
+  word-spacing: 4px;
+  line-height: 40px;
+  font-family: "Cairo", sans-serif;
+}
+
+.aboutSection2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 500px;
+  width: 90%;
+}
+
+.learnMoreBtnDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.learnMoreBtn {
+  background-color: #1c2e4c;
+  color: grey;
+  outline: none;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  width: 300px;
+  height: 50px;
+  border-radius: 12px;
+}
+
+.learnMoreBtn:hover {
+  background-color: #0d79e5;
+  color: white;
+  cursor: pointer;
+}
+
+.groupCard1 {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  padding: 10px;
+}
+.groupCard2 {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  padding: 10px;
+}
+.card1 {
+  width: 40%;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background-color: rgb(206, 205, 205);
+  opacity: 0.8;
+  border-radius: 12px;
+}
+.card1:hover {
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0 15px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cardDetails {
+  padding: 10px;
+}
+.cardTilte {
+  font-size: 30px;
+  text-align: left;
+  margin-left: 10px;
+  font-family: "Righteous", cursive;
+}
+.cardIcons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.cardExplain {
+  display: flex;
+  flex-direction: column;
+  color: grey;
+  margin-top: 20px;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.gifAndCardDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  top: 50px;
+  margin-top: 150px;
 }
 
 .gifImageDiv {
-  margin-top: 150px;
-  width: 40%;
-  height: 520px;
   border-radius: 12px;
-  margin-left: 100px;
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .gifImageDiv:hover {
   cursor: pointer;
@@ -22,30 +163,30 @@
 
 .gifImage {
   background-image: url("https://s10.gifyu.com/images/Medical-care-1e7173687ddd36e0e.gif");
-  width: 470px;
-  height: 470px;
-  background-size: 470px;
+  width: 500px;
+  height: 500px;
+  background-size: 450px;
   background-repeat: no-repeat;
   display: flex;
-  margin-left: 35px;
-  margin-top: 25px;
   border-radius: 12px;
 }
 
+/* ////////////////////// */
+
 .introPageChart {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-right: 165px;
-  width: 40%;
-  height: 520px;
-  margin-top: 150px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  padding: 20px;
   gap: 40px;
   animation: transitionIn 1.5s;
 }
 .introChartDiv {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   gap: 40px;
 }
