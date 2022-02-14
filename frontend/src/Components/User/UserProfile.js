@@ -13,7 +13,6 @@ const UserProfile = () => {
   });
   //   =====================================
   useEffect(async () => {
-    // console.log(state[0].id);
     try {
       console.log(state);
 
@@ -40,7 +39,7 @@ const UserProfile = () => {
   // =====================================
 
   return (
-    <div>
+    <div className="patientProfileMainDiv">
       <div>
         <h3>{`${patient.firstName}-${patient.lastName}`}</h3>
         <p>{patient.phone}</p>

@@ -25,7 +25,7 @@ const setDoctorAppointement = (req, res) => {
 // الدكتور بشوف المرضى
 // Doctor Retrieve Information Patients  for All Appointments.
 const getAppointmentByDoctorId = (req, res) => {
-  const query = `SELECT p.firstName,p.lastName,p.phone,a.time ,da.dateAppointment FROM healthcare.doctor_appointment da JOIN healthcare.patient p  on da.patientId=p.id JOIN healthcare.appointment a ON da.appointmentId=a.id  where da.doctorId = ? and da.is_Booking=1 `;
+  const query = `SELECT p.firstName,p.lastName,p.phone,a.time,p.gender,da.dateAppointment FROM healthcare.doctor_appointment da JOIN healthcare.patient p  on da.patientId=p.id JOIN healthcare.appointment a ON da.appointmentId=a.id  where da.doctorId = ? and da.is_Booking=1 `;
   const data = [req.body.doctorId];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -72,14 +72,12 @@ const getAvalibleAppointment = (req, res) => {
   const data = [doctorId, dateAppointment, doctorId];
 
   connection.query(query, data, (err, result) => {
-
-
     if (err) {
       res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
-    
+
     res.status(200).json({
       success: true,
       message: `All Appointment Available From Doctor =>${req.body.doctorId} `,

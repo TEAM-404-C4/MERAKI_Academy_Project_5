@@ -10,7 +10,8 @@ import { FaStar } from "react-icons/fa";
 import FullCalender from "../FullCalender/FullCalender";
 import Setting from "../Settings/Setting";
 import Charts from "../Chart/Chart";
-import PatientBooking from '../PatientBooking/PatientBooking';
+import PatientBooking from "../PatientBooking/PatientBooking";
+import Appointement from "../DoctorAppointment/Appointement";
 const Dashboard = () => {
   const [dashboardPanel, setDashboardPanel] = useState(true);
   const [appointementPanel, setappointementPanel] = useState(false);
@@ -142,17 +143,15 @@ const Dashboard = () => {
         </div>
         <div className="rightSide">
           <div className="dashboardItem">
-            {dashboardPanel ? (
-              <Charts/>
-            ) : (
-              <></>
-            )}
+            {dashboardPanel ? <Charts /> : <></>}
+
             {appointementPanel ? (
-              <>
-                <div >
-                  <FullCalender/>
+              <div>
+                <div>
+                  <FullCalender />
                 </div>
-              </>
+                <Appointement />
+              </div>
             ) : (
               <></>
             )}
@@ -160,7 +159,7 @@ const Dashboard = () => {
               <>
                 <div className="dashBoardChart">
                   <div className="chartOne">
-                   <PatientBooking/>
+                    <PatientBooking />
                   </div>
                 </div>
               </>

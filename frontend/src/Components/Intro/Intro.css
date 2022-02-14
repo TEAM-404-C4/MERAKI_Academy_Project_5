@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
+  margin-top: -100px;
 }
 
 .gifImageDiv {
@@ -82,14 +83,12 @@
 .chartTitle {
   color: grey;
   font-size: 15px;
-  /* animation: transitionIn 2s; */
 }
 .chartTitleNumber {
   color: white;
   font-size: 30px;
   font-family: "Anton", sans-serif;
   letter-spacing: 2px;
-  /* animation: transitionIn 2s; */
 }
 
 @keyframes transitionIn {

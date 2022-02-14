@@ -10,6 +10,7 @@ const {
   deleteDoctorById,
   getDoctorByName,
   getDoctorByDepartment,
+  DoctorProfileImageByID,
 } = require("../controllers/Doctors");
 
 const {
@@ -44,5 +45,8 @@ doctorRouter.post(
 doctorRouter.post("/appointement", getAvalibleAppointment);
 doctorRouter.post("/getappointement", getAppointmentByDoctorId);
 doctorRouter.post("/getappointementpatient", getDoctorAppointmentByPatientId);
+// doctors Profile Image
+doctorRouter.post("/profileimage", authentication, DoctorProfileImageByID);
 
+DoctorProfileImageByID;
 module.exports = doctorRouter;
