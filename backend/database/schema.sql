@@ -114,6 +114,7 @@ create table DoctorShowAppointment(
     FOREIGN Key(appointmentId) REFERENCES Appointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(doctorId) REFERENCES Doctor(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 -- ALTER Table healthcare.doctor_appointment MODIFY  Column dateAppointment DATE;
 create table Doctor_Appointment(
     id int not null auto_increment primary key,
@@ -129,6 +130,17 @@ create table Doctor_Appointment(
     FOREIGN Key(day) REFERENCES DayAppointment(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN Key(patientId) REFERENCES Patient(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+CREATE TABLE Feedback(
+    id int not null auto_increment primary key,
+    fullname varchar(255),
+    email varchar(255),
+    subject varchar(255),
+    message varchar(255),
+    is_deleted TINYINT default 0
+
+);
+
 -- =====================================================//Role DATA
 Insert INTO
     Role (Name)
@@ -144,21 +156,77 @@ Insert INTO
     Role (Name)
 VALUES
     ('PATIENT');
+
 -- ==============================// Patient Data =============================
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('iyad','saadeh','0000','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('omar','kataa','0001','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('mohmmad','Farhan','0002','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('bayan','Alsafdi','0003','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('huda','Not TA','0004','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('jozaa','CEO','0005','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('ghaidaa','TA','0006','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Farhan','Mohaamd','0007','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Issa','Alhls','0008','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Haitham','Nawwaf','0009','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Alaa','Marai','0010','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Sara','Ahmad','0011','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Rami','Nwaaf','0012','123456' , 3);
-INSERT INTO Patient (firstName,lastName,phone,password,roleId) VALUES ('Ammar','kataa','0013','123456' , 3);
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('iyad', 'saadeh', '0000', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('omar', 'kataa', '0001', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('mohmmad', 'Farhan', '0002', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('bayan', 'Alsafdi', '0003', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('huda', 'Not TA', '0004', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('jozaa', 'CEO', '0005', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('ghaidaa', 'TA', '0006', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('Farhan', 'Mohaamd', '0007', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('Issa', 'Alhls', '0008', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('Haitham', 'Nawwaf', '0009', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('Alaa', 'Marai', '0010', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('Sara', 'Ahmad', '0011', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('Rami', 'Nwaaf', '0012', '123456', 3);
+
+INSERT INTO
+    Patient (firstName, lastName, phone, password, roleId)
+VALUES
+    ('Ammar', 'kataa', '0013', '123456', 3);
 
 -- ====================================================//CITY DATA
 Insert INTO
@@ -233,8 +301,6 @@ VALUES
 -- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(9,1);
 -- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(10,1);
 -- INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES(11,1);
-
-
 -- =================================================// Day Appointment
 Insert INTO
     DayAppointment (day)
@@ -348,8 +414,6 @@ VALUES
     ('4:30 pm - 5:00 pm');
 
 -- ====================================================//MedicalDepartment DATA
-
-
 Insert INTO
     MedicalDepartment (Name)
 VALUES
