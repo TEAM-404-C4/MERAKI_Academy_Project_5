@@ -114,7 +114,11 @@ const CardDoctor = ({
             <div className="DoctorName">Doctor</div>. {fullName}
           </div>
           <div className="Rating">
-            {comments.length ? <p>{ratingCard()}</p> : <p> ✰ ✰ ✰ ✰ ✰ </p>}
+            {comments.length ? (
+              <p>{ratingCard()}</p>
+            ) : (
+              <p className="emptyStars"> ✰ ✰ ✰ ✰ ✰ </p>
+            )}
           </div>
 
           <div className="card-row">

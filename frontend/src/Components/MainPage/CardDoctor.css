@@ -101,3 +101,6 @@
   cursor: pointer;
   background-color: #1560aa;
 }
+.emptyStars {
+  font-size: 4vw;
+}
