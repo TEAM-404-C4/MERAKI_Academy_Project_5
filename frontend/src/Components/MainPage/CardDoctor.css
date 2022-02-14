@@ -9,6 +9,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  /* background-color:red; */
   background-color: rgb(12, 26, 50);
   border-radius: 12px;
   padding: 10px;
@@ -37,7 +38,7 @@
   height: 60vh;
   gap: 12px;
   width: 100%;
-  background-color: rgb(12, 26, 50);
+  /* background-color: rgb(12, 26, 50); */
   padding: 10px;
   color: grey;
   font-family: "Righteous", cursive;
