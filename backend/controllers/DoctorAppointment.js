@@ -47,7 +47,7 @@ const setDoctorAppointement = (req, res) => {
 // الدكتور بشوف المرضى
 // Doctor Retrieve Information Patients  for All Appointments.
 const getAppointmentByDoctorId = (req, res) => {
-  const query = `SELECT p.firstName,p.lastName,p.phone,a.time,p.gender,da.dateAppointment FROM healthcare.doctor_appointment da JOIN healthcare.patient p  on da.patientId=p.id JOIN healthcare.appointment a ON da.appointmentId=a.id  where da.doctorId = ? and da.is_Booking=1 `;
+  const query = `SELECT p.firstName,p.lastName,p.phone,a.time,p.gender,da.dateAppointment, da.appointmentId,da.patientId  FROM healthcare.doctor_appointment da JOIN healthcare.patient p  on da.patientId=p.id JOIN healthcare.appointment a ON da.appointmentId=a.id  where da.doctorId = ? and da.is_Booking=1 `;
   const data = [req.body.doctorId];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -137,6 +137,40 @@ const setIsDeletedInAppointmentAvailable = (req, res) => {
       .status(200)
       .json({ success: true, message: `SuccessFully Appointment =>` });
   });
+
+  // =========================================================================== doctor delete appointment
+};
+const doctorDeleteAppointment = (req, res, next) => {
+  const query = `DELETE FROM doctor_appointment  WHERE  doctorId=? AND appointmentId=? AND patientId=? AND dateAppointment=?`;
+
+  console.log(req.body);
+  const { doctorId, appointmentId, patientId, dateAppointment } = req.body;
+  const data = [doctorId, appointmentId, patientId, dateAppointment];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ success: false, message: "Server Error", error: err });
+    }
+    next();
+  });
+};
+const doctorDeleteBooking = (req, res) => {
+  const query = `Update healthcare.doctorshowappointment SET is_deleted=0 where appointmentId = ? and doctorId = ?`;
+  const { doctorId, appointmentId } = req.body;
+
+  const data = [appointmentId, doctorId];
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      res
+        .status(500)
+        .json({ success: false, message: "Server Error", error: err });
+    }
+    res.status(200).json({
+      success: true,
+      message: `SuccessFully DELETE BOOKINF Appointment =>`,
+    });
+  });
 };
 
 module.exports = {
@@ -146,4 +180,6 @@ module.exports = {
   getAppointmentByDoctorId,
   getAvalibleAppointment,
   getDoctorAppointmentByPatientId,
+  doctorDeleteAppointment,
+  doctorDeleteBooking,
 };

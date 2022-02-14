@@ -13,6 +13,7 @@ import { HiLocationMarker } from "react-icons/hi";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { MdOutlineAttachMoney } from "react-icons/md";
 import { GiMoneyStack } from "react-icons/gi";
+import { FcCancel } from "react-icons/fc";
 
 //CSS File
 import "./CardDoctor.css";
