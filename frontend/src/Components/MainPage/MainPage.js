@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import CardDoctor from "./CardDoctor";
 import axios from "axios";
 import Search from "./Search";
-import "./style.css";
 import Filter from "./Filter";
 import { setDoctor } from "../Reducer/Doctor/";
 import { useDispatch, useSelector } from "react-redux";
