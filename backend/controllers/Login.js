@@ -41,6 +41,7 @@ const doctorLogin = (req, res) => {
           role: result[0].roleId,
           profileImage: result[0].profileImage,
         });
+        console.log(result)
       } catch (error) {
         throw new Error(error.message);
       }

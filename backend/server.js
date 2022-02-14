@@ -14,7 +14,7 @@ const doctorRouter = require("./routes/doctors");
 const loginRouter = require("./routes/login");
 const RoleRouter = require("./routes/Role");
 const commentRouter = require("./routes/Comment");
-
+const FeedBackRouter= require("./routes/FeedBack")
 app.use(express.json());
 
 //====================================================// Routes Middleware
@@ -23,6 +23,7 @@ app.use("/doctors", doctorRouter);
 app.use("/login", loginRouter);
 app.use("/role", RoleRouter);
 app.use("/comment", commentRouter);
+app.use("/feedback",FeedBackRouter);
 
 //====================================================// Handles any other endpoints [unassigned - endpoints]
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));

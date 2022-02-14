@@ -71,9 +71,7 @@ const Navigation = () => {
             <div className="option1" title="Profile Page">
               <div
                 className="ProfileImageDiv"
-                onClick={() => {
-                  history("/doctormyprfile");
-                }}
+                
               >
                 <img
                   className="profileImg"

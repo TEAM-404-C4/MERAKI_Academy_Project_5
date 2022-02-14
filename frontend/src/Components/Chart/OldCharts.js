@@ -8,13 +8,11 @@ import axios from "axios";
 
 export default function Chart() {
   const [appointement, setAppointement] = useState([]);
-  const [comments, setComments] = useState([]);
-  const [rating, setRating] = useState([]);
 
   // ====================================================
   const state = useSelector((state) => {
     return {
-      doctorId: state.doctorsReducer.doctorId,
+      doctorId: state.doctorsReducer,
       userId: state.loginReducer.userId,
       roleId: state.loginReducer.roleId,
     };
@@ -29,18 +27,13 @@ export default function Chart() {
           doctorId: state.userId | window.localStorage.getItem("userId"),
         }
       );
-      const res2 = await axios.post("http://localhost:5000/comment/", {
-        doctorId: state.userId | window.localStorage.getItem("userId"),
-      });
-      setComments(res2.data.result);
+      console.log(res);
+      console.log(res.data.result);
       setAppointement(res.data.result);
     } catch (err) {
-      console.log(err.response);
+      console.log(err);
     }
-    console.log("state", state);
   }, []);
-
-  // =========================================================
 
   let malePatient = appointement.filter((element) => {
     return element.gender == "MALE";
@@ -54,7 +47,6 @@ export default function Chart() {
 
   var options = {
     series: [malePatient.length, femalePatient.length],
-    
     chart: {
       height: 200,
       type: "polarArea",
@@ -160,7 +152,7 @@ export default function Chart() {
         show: false,
       },
     },
-    colors: ["#1dbfc1", "#ee3158"],
+    colors: ["#ee3158", "#1dbfc1"],
     dataLabels: {
       enabled: false,
     },
@@ -269,115 +261,6 @@ export default function Chart() {
 
   var chart2 = new ApexCharts(document.querySelector(".chart3x"), options2);
   chart2.render();
-
-  // ==================================================== chart4
-
-  let ratingConst = [0, 1, 2, 3, 4, 5];
-
-  let ratingGroup = ratingConst.map((element) => {
-    let group = 0;
-    comments.forEach((element1) => {
-      if (element1.rating == element) {
-        group++;
-      }
-    });
-    return group;
-  });
-  console.log("ratingGroup", ratingGroup);
-
-  // =========================================================
-  var options = {
-    series: [
-      {
-        data: ratingGroup.reverse(),
-      },
-    ],
-    chart: {
-      type: "bar",
-      height: 380,
-    },
-    plotOptions: {
-      bar: {
-        barHeight: "100%",
-        distributed: true,
-        horizontal: true,
-        dataLabels: {
-          position: "bottom",
-        },
-      },
-    },
-    colors: [
-      "#33b2df",
-      "#546E7A",
-      "#d4526e",
-      "#13d8aa",
-      "#A5978B",
-      "#2b908f",
-      "#f9a3a4",
-      "#90ee7e",
-      "#f48024",
-      "#69d2e7",
-    ],
-    dataLabels: {
-      enabled: true,
-      textAnchor: "start",
-      style: {
-        colors: ["#fff"],
-      },
-      formatter: function (val, opt) {
-        return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val;
-      },
-      offsetX: 0,
-      dropShadow: {
-        enabled: true,
-      },
-    },
-    stroke: {
-      width: 1,
-      colors: ["#fff"],
-    },
-    xaxis: {
-      categories: [
-        " ⭐⭐⭐⭐⭐",
-        " ⭐⭐⭐⭐✰ ",
-        "⭐⭐⭐ ✰ ✰ ",
-        " ⭐⭐ ✰ ✰ ✰ ",
-        "⭐ ✰ ✰ ✰ ✰ ",
-        " ✰ ✰ ✰ ✰ ✰ ",
-      ],
-    },
-    yaxis: {
-      labels: {
-        show: false,
-      },
-    },
-    title: {
-      text: "Custom DataLabels",
-      align: "center",
-      floating: true,
-    },
-    subtitle: {
-      text: "Category Names as DataLabels inside bars",
-      align: "center",
-    },
-    tooltip: {
-      theme: "dark",
-      x: {
-        show: false,
-      },
-      y: {
-        title: {
-          formatter: function () {
-            return "";
-          },
-        },
-      },
-    },
-  };
-
-  var chart = new ApexCharts(document.querySelector("#chartFour"), options);
-  chart.render();
-  // =====================================================
   return (
     <div>
       <div className="dashBoardChart">

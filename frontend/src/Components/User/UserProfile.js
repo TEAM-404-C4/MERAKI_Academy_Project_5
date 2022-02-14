@@ -39,27 +39,46 @@ const UserProfile = () => {
   // =====================================
 
   return (
-    <div className="patientProfileMainDiv">
-      <div>
-        <h3>{`${patient.firstName}-${patient.lastName}`}</h3>
-        <p>{patient.phone}</p>
-      </div>
+    // <div className="patientProfileMainDiv">
+    //   <div>
+    //     <h3>{`${patient.firstName}1-${patient.lastName}`}</h3>
+    //     <p>{patient.phone}</p>
+    //   </div>
+<div className="patientBookingMainDiv">
+<table className="patientTableDashboardMainDiv">
+<thead>
 
-      <div className="patientAppointement">
-        {patientAppointment.map((element) => {
+<tr className="patientTableDashboardTitle">
+          <th className="titleNo">No.</th>
+          <th className="title">Doctor Name</th>
+          <th className="title">Doctor Phone Number</th>
+          <th className="title">Doctor Email</th>
+          <th className="title">Doctor Address </th>
+          <th className="title">Date Appointment </th>
+          <th className="title">Date Appointment </th>
+
+        </tr>
+</thead>
+
+<tbody>
+
+        {patientAppointment.map((element,index) => {
           return (
-            <div className="patientAppointementMini">
-              <p>Doctor Name: {element["Doctor Name "]}</p>
-              <p>Doctor Phone Number: {element["Doctor Phone Number "]}</p>
-              <p>Doctor Email: {element["Doctor Email  "]}</p>
-              <p>Doctor Address: {element["Doctor Address "]}</p>
-              <p>Date Appointment: {element["Date Appointment  "]}</p>
-              <p>Appointment Time: {element["Appointment Time  "]}</p>
-            </div>
+            <tr className="patientTableDashboard">
+              <td className="rowNo">{index + 1}</td>
+
+              <td className="row">{element["Doctor Name "]}</td>
+              <td className="row">{element["Doctor Phone Number "]}</td>
+              <td className="row">{element["Doctor Email  "]}</td>
+              <td className="row">{element["Doctor Address "]}</td>
+              <td className="row">{element["Date Appointment  "]}</td>
+              <td className="row">{element["Appointment Time  "]}</td>
+            </tr>
           );
         })}
-      </div>
-    </div>
+        </tbody>
+</table>
+</div>
   );
 };
 
