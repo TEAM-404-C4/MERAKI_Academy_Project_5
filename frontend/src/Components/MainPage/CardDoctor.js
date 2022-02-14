@@ -165,7 +165,7 @@ const CardDoctor = ({
                 window.localStorage.setItem("doctorId", id);
               }}
             >
-              Book!
+              Details
             </button>
           </div>
         </div>
