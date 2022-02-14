@@ -92,6 +92,8 @@ h3 {
 
 .CommentsAndRate {
   width: 90%;
+  margin-left: 4vw;
+  margin-right:10vw;
   min-height: 50vh;
   border-radius: 12px;
 }

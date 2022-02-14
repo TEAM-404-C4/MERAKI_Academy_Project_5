@@ -22,8 +22,9 @@
   display: flex;
   flex-direction: row;
   text-decoration: none;
+  list-style-type: none;
 }
-
+ 
 .newDiv {
   min-height: 100vh;
   display: flex;
@@ -33,4 +34,51 @@
   text-decoration: none;
   padding: 30px;
   gap: 50px;
+}
+ 
+.pageNumbers {
+  list-style: none;
+  display: flex;
+  
+}
+
+.pageNumbers li {
+  padding: 10px;
+  border: 1px solid rgb(96, 102, 109);
+  cursor: pointer;
+}
+
+.pageNumbers li.active {
+  background-color: white;
+  color: black;
+}
+
+.pageNumbers li button {
+  color: white;
+  height: 5vh;
+  width: 3vw;
+  font-size: 15px;
+  background-color: #0d79e5;
+  border: none;
+  border-radius: 50%;
+  font-family: "Righteous", cursive;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.pageNumbers li button:hover {
+  background-color: white;
+  color: black;
+}
+.pageNumbers li button:focus {
+  outline: none;
+}
+
+.loadmore {
+  padding: 1rem;
+  background-color: transparent;
+
+  color: white;
+  font-size: 1.2rem;
+  border: 1px solid white;
+  cursor: pointer;
 }

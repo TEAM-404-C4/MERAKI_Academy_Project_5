@@ -7,7 +7,16 @@
   padding: 10px;
   border-radius: 12px;
 }
-
+.rateInsideComments{
+  display:flex;
+  flex-direction:row-reverse;
+  align-items:center;
+  justify-content:center;
+  background-color: rgb(12, 26, 50);
+  border-radius: 12px;
+  gap:3vw;
+padding-right:3vw;
+}
 .commentRatingElement {
   background-color: rgb(12, 26, 50);
   display: flex;
@@ -60,17 +69,17 @@
 .rateCommentForm {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0px;
 }
 
 .commentRateInput {
-  width: 500px;
-  background-color: rgb(12, 26, 50);
+  background-color: rgba(16 31 55 /0%);
+
   height: 50px;
   width: 100%;
-  border-radius: 12px;
   outline: none;
   border: none;
+  border-right : 0.2px red;
   color: white;
   font-family: "Bebas Neue", cursive;
   font-size: 17px;
@@ -116,6 +125,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 1vh;
 }
 
 .showReviewsBtn {
