@@ -21,6 +21,7 @@
 
 .CardImageDiv {
   height: 60vh;
+  padding-top: 20px;
 }
 
 .card-image {
@@ -41,6 +42,7 @@
   padding: 10px;
   color: grey;
   font-family: "Righteous", cursive;
+  padding-top: 30px;
 }
 
 .DoctorName {
@@ -101,9 +103,24 @@
   cursor: pointer;
   background-color: #1560aa;
 }
-.emptyStars {
-  font-size: 4vw;
+.emptyString {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  padding-top: 25px;
+  text-align: left;
 }
 .filledStars {
-  font-size: 4vw;
+  padding-top: 25px;
+}
+
+.Rating {
+  background-color: rgb(12, 26, 50);
+  height: 60px;
+}
+
+.ratingNumber {
+  color: gold;
+  font-size: 1.3vw;
+  padding-right: 8px;
 }
