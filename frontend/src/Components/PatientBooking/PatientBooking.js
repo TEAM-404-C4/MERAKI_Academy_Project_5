@@ -7,7 +7,7 @@ import { FcCancel } from "react-icons/fc";
 export default function PatientBooking() {
   const [appointement, setAppointement] = useState([]);
   const [deleteBookingRes, setDeleteBookingRes] = useState("");
-
+  // ============================================
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
@@ -15,6 +15,7 @@ export default function PatientBooking() {
       roleId: state.loginReducer.roleId,
     };
   });
+  // ==============================================
   useEffect(() => {
     getAppointement();
   }, [deleteBookingRes]);
