@@ -69,7 +69,7 @@
 }
 
 .Rating {
-  background-color: #0d79e5;
+  background-color: #ecf2f7;
   height: 70px;
 }
 
@@ -94,10 +94,17 @@
   border: none;
   border-radius: 12px;
   font-family: "Righteous", cursive;
+  letter-spacing: 1px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .bookingBtn:hover {
   cursor: pointer;
   background-color: #1560aa;
+}
+.emptyStars {
+  font-size: 4vw;
+}
+.filledStars {
+  font-size: 4vw;
 }

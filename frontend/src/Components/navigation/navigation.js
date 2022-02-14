@@ -43,16 +43,12 @@ const Navigation = () => {
       if (result.data.success) {
         setGetProfileImage(result.data.result[0].profileImage);
         setDoctorName(result.data.result[0].fullName);
-        console.log(result.data.result[0]);
-        console.log("Success get profile page ");
       } else throw Error;
-    } catch (error) {
-      console.log("Failed to get profile page ");
-    }
+    } catch (error) {}
   };
   useEffect(() => {
     profileImage();
-  }, []);
+  }, [doctorName, getProfileImage]);
 
   //====================================================// return
 

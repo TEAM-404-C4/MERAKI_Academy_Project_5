@@ -37,7 +37,7 @@ const doctorLogin = (req, res) => {
           success: true,
           message: `Login Successfully`,
           token: token,
-          userId: result[0].id,
+          userId: result,
           role: result[0].roleId,
           profileImage: result[0].profileImage,
         });

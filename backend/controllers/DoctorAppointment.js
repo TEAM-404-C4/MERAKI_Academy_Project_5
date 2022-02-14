@@ -7,18 +7,40 @@ const setDoctorAppointement = (req, res) => {
   const doctor_appointment = req.body.doctor_appointment;
   const doctorId = req.body.doctorId;
   const query = `INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES (?,?)`;
+  const query1 = `SELECT a.time ,d.appointmentId FROM healthcare.DoctorShowAppointment as d join healthcare.appointment as a on 
+  a.id=d.appointmentId where d.doctorId = ?`;
   let data = [];
-  doctor_appointment.forEach((element) => {
-    data = [Number(element), doctorId];
-    connection.query(query, data, (err, result) => {
-      if (err) {
-        return res.json(err);
-      }
-    });
-  });
+  let data1 = [req.body.doctorId];
 
-  return res.json({
-    success: true,
+  connection.query(query1, data1, (err, result) => {
+    if (err) {
+      return res.json(err);
+    }
+    // console.log(result, data1);
+    const find = result.filter((element) => {
+      return doctor_appointment.includes(String(element.appointmentId));
+    });
+
+    if (find.length == 0) {
+      doctor_appointment.forEach((element) => {
+        data = [Number(element), doctorId];
+        connection.query(query, data, (err, result) => {
+          if (err) {
+            return res.json(err);
+          }
+        });
+      });
+
+      return res.json({
+        success: true,
+      });
+    } else {
+      return res.json({
+        success: false,
+        message: "check appointement is repeated",
+        response: find,
+      });
+    }
   });
 };
 // in Doctor Panel

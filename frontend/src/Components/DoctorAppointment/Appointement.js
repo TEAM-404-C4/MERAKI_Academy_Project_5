@@ -8,6 +8,8 @@ const Appointement = () => {
   const [schedual, setSchedual] = useState({});
   const [schedual22, setSchedual22] = useState([]);
   const [appointementId, setAppointementId] = useState({});
+  const [repeatAppointment, setRepeatAppointment] = useState("");
+
   // ==========================================================
 
   const state = useSelector((state) => {
@@ -25,10 +27,14 @@ const Appointement = () => {
         {
           doctor_appointment: Object.values(schedual),
 
-          doctorId: state,
+          doctorId: state[0].id,
         }
       );
 
+      if (!res.data.success) {
+        setRepeatAppointment(res.data.response);
+      }
+      setSchedual({});
       console.log(res);
     } catch (err) {
       console.log(err.response);
@@ -96,7 +102,7 @@ const Appointement = () => {
     return newArray;
     // Object.keys(schedual)
   };
-
+  // =======================================================
   const showSchedual = (e) => {
     let inner_Text = e.target.innerText;
     let id = e.target.id;
@@ -116,7 +122,9 @@ const Appointement = () => {
       e.target.className = "0";
     }
   };
+  // ===================================================
 
+  // ==============================================
   return (
     <div className="AppointementDoctor">
       <div className="list">
@@ -226,14 +234,21 @@ const Appointement = () => {
       <div>
         <button onClick={saveAppointement}>click</button>
         <table>
-          {console.log("showResult", showResult().length)}
           {showResult().map((element) => {
             return element;
           })}
         </table>
       </div>
 
-      <DoctorAppointement />
+      <div>
+        {repeatAppointment && (
+          <p>You have conflicts at the following Appointments</p>
+        )}
+        {repeatAppointment &&
+          repeatAppointment.map((element) => {
+            return <p>{element.time}</p>;
+          })}
+      </div>
     </div>
   );
 };

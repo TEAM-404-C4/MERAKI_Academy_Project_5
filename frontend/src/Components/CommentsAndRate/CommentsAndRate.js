@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import "./styleRate.css";
+import "./CommentsAndRate.css";
 
-export default function CommentsAndRate() {
+export default function CommentsAndRate({ doctorFullName }) {
   const [rate, setRate] = useState(0);
   const [onStar, onSetStar] = useState("fa fa-star checked");
   const [offStar, offSetStar] = useState("fa fa-star");
@@ -92,106 +92,110 @@ export default function CommentsAndRate() {
 
   // =======================================
   return (
-    <div className="rate">
+    <div className="rateMainDiv">
       <>
         {state.roleId != 2 && (
-          <form onSubmit={commentButton}>
-            <span
-              className={star1}
-              id="1"
-              onClick={(e) => {
-                if (star1 === onStar) {
-                  setStar1(offStar);
-                  setStar2(offStar);
-                  setStar3(offStar);
-                  setStar4(offStar);
-                  setStar5(offStar);
-                  setRate(0);
-                } else {
-                  setStar1(onStar);
-                  setRate(e.target.id);
-                }
-              }}
-            ></span>
-            <span
-              className={star2}
-              id="2"
-              onClick={(e) => {
-                if (star2 === onStar) {
-                  setStar1(offStar);
-                  setStar2(offStar);
-                  setStar3(offStar);
-                  setStar4(offStar);
-                  setStar5(offStar);
-                  setRate(0);
-                } else {
-                  setStar1(onStar);
-                  setStar2(onStar);
-                  setRate(e.target.id);
-                }
-              }}
-            ></span>
-            <span
-              className={star3}
-              id="3"
-              onClick={(e) => {
-                if (star3 === onStar) {
-                  setStar1(offStar);
-                  setStar2(offStar);
-                  setStar3(offStar);
-                  setStar4(offStar);
-                  setStar5(offStar);
-                  setRate(0);
-                } else {
-                  setStar1(onStar);
-                  setStar2(onStar);
-                  setStar3(onStar);
-                  setRate(e.target.id);
-                }
-              }}
-            ></span>
-            <span
-              className={star4}
-              id="4"
-              onClick={(e) => {
-                if (star4 === onStar) {
-                  setStar1(offStar);
-                  setStar2(offStar);
-                  setStar3(offStar);
-                  setStar4(offStar);
-                  setStar5(offStar);
-                  setRate(0);
-                } else {
-                  setStar1(onStar);
-                  setStar2(onStar);
-                  setStar3(onStar);
-                  setStar4(onStar);
-                  setRate(e.target.id);
-                }
-              }}
-            ></span>
-            <span
-              className={star5}
-              id="5"
-              onClick={(e) => {
-                if (star5 === onStar) {
-                  setStar1(offStar);
-                  setStar2(offStar);
-                  setStar3(offStar);
-                  setStar4(offStar);
-                  setStar5(offStar);
-                  setRate(0);
-                } else {
-                  setStar1(onStar);
-                  setStar2(onStar);
-                  setStar3(onStar);
-                  setStar4(onStar);
-                  setStar5(onStar);
-                  setRate(e.target.id);
-                }
-              }}
-            ></span>
+          <form onSubmit={commentButton} className="rateCommentForm">
+            <div className="starsPickerRate">
+              <span
+                className={star1}
+                id="1"
+                onClick={(e) => {
+                  if (star1 === onStar) {
+                    setStar1(offStar);
+                    setStar2(offStar);
+                    setStar3(offStar);
+                    setStar4(offStar);
+                    setStar5(offStar);
+                    setRate(0);
+                  } else {
+                    setStar1(onStar);
+                    setRate(e.target.id);
+                  }
+                }}
+              ></span>
+              <span
+                className={star2}
+                id="2"
+                onClick={(e) => {
+                  if (star2 === onStar) {
+                    setStar1(offStar);
+                    setStar2(offStar);
+                    setStar3(offStar);
+                    setStar4(offStar);
+                    setStar5(offStar);
+                    setRate(0);
+                  } else {
+                    setStar1(onStar);
+                    setStar2(onStar);
+                    setRate(e.target.id);
+                  }
+                }}
+              ></span>
+              <span
+                className={star3}
+                id="3"
+                onClick={(e) => {
+                  if (star3 === onStar) {
+                    setStar1(offStar);
+                    setStar2(offStar);
+                    setStar3(offStar);
+                    setStar4(offStar);
+                    setStar5(offStar);
+                    setRate(0);
+                  } else {
+                    setStar1(onStar);
+                    setStar2(onStar);
+                    setStar3(onStar);
+                    setRate(e.target.id);
+                  }
+                }}
+              ></span>
+              <span
+                className={star4}
+                id="4"
+                onClick={(e) => {
+                  if (star4 === onStar) {
+                    setStar1(offStar);
+                    setStar2(offStar);
+                    setStar3(offStar);
+                    setStar4(offStar);
+                    setStar5(offStar);
+                    setRate(0);
+                  } else {
+                    setStar1(onStar);
+                    setStar2(onStar);
+                    setStar3(onStar);
+                    setStar4(onStar);
+                    setRate(e.target.id);
+                  }
+                }}
+              ></span>
+              <span
+                className={star5}
+                id="5"
+                onClick={(e) => {
+                  if (star5 === onStar) {
+                    setStar1(offStar);
+                    setStar2(offStar);
+                    setStar3(offStar);
+                    setStar4(offStar);
+                    setStar5(offStar);
+                    setRate(0);
+                  } else {
+                    setStar1(onStar);
+                    setStar2(onStar);
+                    setStar3(onStar);
+                    setStar4(onStar);
+                    setStar5(onStar);
+                    setRate(e.target.id);
+                  }
+                }}
+              ></span>
+            </div>
             <input
+              className="commentRateInput"
+              placeholder={`Feel Free to review Dr. ${doctorFullName}`}
               value={comment}
               required
               type="text"
@@ -199,12 +203,21 @@ export default function CommentsAndRate() {
                 setComment(e.target.value);
               }}
             />
-
-            <button type="submit">Comment</button>
+            <div className="buttonSubmitAndShowComment">
+              <button type="submit" className="rateCommentButton">
+                Submit
+              </button>
+              <button
+                className="showReviewsBtn"
+                type="button"
+                onClick={showCommentButton}
+              >
+                Show Reviews
+              </button>
+            </div>
           </form>
         )}
 
-        <button onClick={showCommentButton}>Show Comments</button>
         <div className="commentRatingBlock">
           {showComments &&
             comments.map((element) => {
@@ -212,9 +225,10 @@ export default function CommentsAndRate() {
                 <div className="commentRatingElement">
                   <div className="nameAndRating">
                     <div className="rating">
-                      {showRating(element.rating)} <a>{element.commentDate}</a>{" "}
+                      <div className="name">{`${element.firstName} ${element.lastName}`}</div>
+                      <div className="date">{element.commentDate}</div>
+                      <div className="starts">{showRating(element.rating)}</div>
                     </div>
-                    <div className="name">{`${element.firstName} ${element.lastName}`}</div>
                   </div>
 
                   <div className="comment">{element.comment}</div>
