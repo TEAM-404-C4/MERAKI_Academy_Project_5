@@ -35,8 +35,12 @@ const DoctorMyProfile = () => {
   return (
     <div>
       <div className="pictureAndTitle">
-        <img src={doctor.profileImage} alt={doctor.fullName} />
-        <h3>Dr.{doctor.fullName}</h3>
+        <div>
+          <img src={doctor.profileImage} alt={doctor.fullName} />
+        </div>
+        <div>
+          <h3>Dr.{doctor.fullName}</h3>
+        </div>
       </div>
       <div className="profileInformation">
         <h5>

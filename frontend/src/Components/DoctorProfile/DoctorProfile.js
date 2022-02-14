@@ -8,7 +8,11 @@ import {
   FaRegMoneyBillAlt,
   FaHandHoldingMedical,
   FaPhoneAlt,
+  FaBuilding,
 } from "react-icons/fa";
+
+import { IoLogoWhatsapp } from "react-icons/io";
+
 import { GrCertificate } from "react-icons/gr";
 import { AiFillFlag } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
@@ -34,7 +38,6 @@ const DoctorProfile = () => {
   // ========================================
 
   useEffect(async () => {
-    console.log(state);
     setToday(() => {
       return new Date().toISOString().substring(0, 10);
     });
@@ -97,103 +100,123 @@ const DoctorProfile = () => {
   // ====================================
 
   return (
-    <>
+    <div className="doctorProfileMainDiv">
       <div className="profile">
-        <div className="pictureAndTitle">
-          <img src={doctor.profileImage} alt={doctor.fullName} />
-          <h3>Dr.{doctor.fullName}</h3>
-        </div>
-        <div className="profileInformation">
-          <h5>
-            Department : <span>{doctor.Department}</span>
-          </h5>
-          <div className="profile-row">
-            <FaHandHoldingMedical />
-            <h5>
-              specialization : <span>{doctor.specialization}</span>
-            </h5>
+        <div className="pictureAndTitleMainDev">
+          <div className="pictureAndTitle">
+            <img src={doctor.profileImage} alt={doctor.fullName} />
+            <div className="DoctorNameProfilePage">Dr.{doctor.fullName}</div>
           </div>
-          <div className="profile-row">
-            <GrCertificate />
-            <h5>
-              Scientific Certificate :
-              <span>{doctor.ScientificCertificate}</span>{" "}
-            </h5>
-          </div>
-          <div className="profile-row">
-            <AiFillFlag />
-            <h5>
-              Nationality :<span>{doctor.Nationality}</span>
-            </h5>
-          </div>
-          <div className="profile-row">
-            <MdAlternateEmail />
-            <h5>
-              Email :<span>{doctor.email}</span>
-            </h5>
-          </div>
-          <div className="profile-row">
-            <FaPhoneAlt />
-            <h5>
-              {" "}
-              Phone : <span>{doctor.phone}</span>
-            </h5>
-          </div>
-          <div className="profile-row">
-            <HiOutlineIdentification />
-            <h5>
-              careers License :<span>{doctor.careersLicense}</span>{" "}
-            </h5>
-          </div>
-          <div className="profile-row">
-            <ImLocation />
-            <h5>
-              Address:
-              <span>
-                {doctor.city},{doctor.address}
-              </span>
-            </h5>
-          </div>
-          <div className="profile-row">
-            <BsClockHistory />
-            <h5>
-              {" "}
-              waiting Time : <span>{doctor.waitingTime}</span>{" "}
-            </h5>
-          </div>
-          <div className="profile-row">
-            <BsCalendarDay />
-            <h5>
-              Days :<span>{doctor.workingDays}</span>{" "}
-            </h5>
-          </div>
-          <div className="profile-row">
-            <FaRegMoneyBillAlt />
-            <h5>
-              Consultation Fee : <span>{doctor.consultationFee}</span>{" "}
-            </h5>
+          <div className="chatWhatsApp">
+            <div className="doctorWhatsApp">
+              <IoLogoWhatsapp style={{ color: "#25D366" }} />
+              <div className="doctorWhatsAppNumber">1231321</div>
+            </div>
+            <div className="doctorEmailAndWhatsApp">
+              <div>
+                <MdAlternateEmail style={{ color: " #F4E6F2 " }} />
+              </div>
+              <div className="doctorEmail2"> {doctor.email} </div>
+            </div>
           </div>
         </div>
-        <div className="appointement">
-          <input
-            type="date"
-            onChange={setDateAppointement}
-            defaultValue={new Date().toISOString().substring(0, 10)}
-          />
+        <div className="profileInformationDiv">
+          <div className="profileInformation">
+            <div className="profile-row">
+              <FaBuilding style={{ color: "#91D1BD" }} />
+              <h5>
+                  Department : <span>{doctor.Department}</span>
+              </h5>
+            </div>
+            <div className="profile-row">
+              <FaHandHoldingMedical style={{ color: "#B600F2" }} /> 
+              <h5>
+                Specialization : <span>{doctor.specialization}</span>
+              </h5>
+            </div>
+            <div className="profile-row">
+              <GrCertificate /> 
+              <h5>
+                Scientific Certificate : 
+                <span>{doctor.ScientificCertificate}</span>{" "}
+              </h5>
+            </div>
+            <div className="profile-row">
+              <AiFillFlag style={{ color: "#197500" }} /> 
+              <h5>
+                Nationality : <span>{doctor.Nationality}</span>
+              </h5>
+            </div>
+            <div className="profile-row">
+              <MdAlternateEmail style={{ color: " #F4E6F2 " }} /> 
+              <h5>
+                Email : <span></span>
+              </h5>
+            </div>
+            <div className="profile-row">
+              <FaPhoneAlt style={{ color: "#282727" }} /> 
+              <h5>
+                Phone : <span>{doctor.phone}</span>
+              </h5>
+            </div>
+            <div className="profile-row">
+              <HiOutlineIdentification style={{ color: " #F2C11D" }} /> 
+              <h5>
+                Careers License : <span>{doctor.careersLicense}</span>{" "}
+              </h5>
+            </div>
+            <div className="profile-row">
+              <ImLocation style={{ color: "#0d79e5" }} /> 
+              <h5>
+                Address: 
+                <span>
+                  {doctor.city},{doctor.address}
+                </span>
+              </h5>
+            </div>
+            <div className="profile-row">
+              <BsClockHistory style={{ color: "red" }} /> 
+              <h5>
+                Waiting Time : <span>{doctor.waitingTime}</span>{" "}
+              </h5>
+            </div>
+            <div className="profile-row">
+              <BsCalendarDay style={{ color: "#F06292" }} /> 
+              <h5>
+                Working Days : <span>{doctor.workingDays}</span>{" "}
+              </h5>
+            </div>
+            <div className="profile-row">
+              <FaRegMoneyBillAlt style={{ color: "#0EB800" }} /> 
+              <h5>
+                Consultation Fee : <span>{doctor.consultationFee}</span>{" "}
+              </h5>
+            </div>
+          </div>
+          <div className="appointement">
+            <input
+              type="date"
+              onChange={setDateAppointement}
+              defaultValue={new Date().toISOString().substring(0, 10)}
+            />
 
-          {appointement.map((element) => {
-            return (
-              <>
-                <button onClick={booking} value={element.id}>
-                  {element.time}
-                </button>
-              </>
-            );
-          })}
+            {appointement.map((element) => {
+              return (
+                <>
+                  <button onClick={booking} value={element.id}>
+                    {element.time}
+                  </button>
+                </>
+              );
+            })}
+          </div>
         </div>
       </div>
-      <CommentsAndRate />
-    </>
+      <div className="CommentsAndRate">
+        {console.log()}
+        <CommentsAndRate doctorFullName={doctor.fullName} />
+      </div>
+    </div>
   );
 };
 export default DoctorProfile;
