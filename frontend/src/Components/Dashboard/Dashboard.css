@@ -142,9 +142,9 @@
   align-items: center;
   justify-content: center;
   background-color: #0c1a32;
-  margin-top: 40px;
+  margin-top: 220px;
   width: 80%;
-  max-height: auto;
+  height: 580px;
   padding: 50px;
   border-radius: 12px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
