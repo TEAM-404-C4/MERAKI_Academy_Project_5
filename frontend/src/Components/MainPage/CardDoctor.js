@@ -1,5 +1,6 @@
 //====================================================//Require
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegMoneyBillAlt, FaHandHoldingMedical } from "react-icons/fa";
 import { ImLocation } from "react-icons/im";
@@ -32,9 +33,60 @@ const CardDoctor = ({
   latitude,
   longitude,
 }) => {
+  // ===================================================
+
+  const [comments, setComments] = useState([]);
+
+  // ===================================================
+
   const history = useNavigate();
   const dispatch = useDispatch();
 
+  // ===================================================
+
+  useEffect(async () => {
+    try {
+      const res = await axios.post("http://localhost:5000/comment/", {
+        doctorId: id,
+      });
+      console.log(res.data.result);
+      setComments(res.data.result);
+    } catch (err) {
+      console.log(err.response);
+    }
+  }, []);
+
+  // =====================================================
+
+  let ratingConst = [0, 1, 2, 3, 4, 5];
+
+  let ratingGroup = ratingConst.map((element) => {
+    let group = 0;
+    comments.forEach((element1) => {
+      if (element1.rating == element) {
+        group++;
+      }
+    });
+    return group * element;
+  });
+  console.log("ratingGroup", ratingGroup);
+
+  const average = (ratingGroup) =>
+    ratingGroup.reduce((a, b) => a + b, 0) / comments.length;
+
+  console.log(average(ratingGroup));
+
+  const ratingCard = () => {
+    let stars = "";
+    for (let i = 0; i < 5; i++) {
+      if (i < Math.round(average(ratingGroup))) {
+        stars = stars + "⭐";
+      } else {
+        stars = stars + "✰";
+      }
+    }
+    return stars;
+  };
   //====================================================//Return
   return (
     <div className="mainPageDiv">
@@ -50,8 +102,8 @@ const CardDoctor = ({
             }}
           />
         </div>
-        {/*  */}
-        <div className="card-information">
+
+        <div className="cardInformation">
           <div
             className="doctorNameDiv"
             onClick={() => {
@@ -59,35 +111,42 @@ const CardDoctor = ({
               history("/DoctorProfile");
             }}
           >
-            <div className="DoctorName">Doctor</div> {fullName}
+            <div className="DoctorName">Doctor</div>. {fullName}
           </div>
-          <div className="Rating"></div>
+          <div className="Rating">
+            {comments.length ? (
+              <p className="filledStars">{ratingCard()}</p>
+            ) : (
+              <p className="emptyStars"> ✰ ✰ ✰ ✰ ✰ </p>
+            )}
+          </div>
 
           <div className="card-row">
             <FaUserMd style={{ color: "#91D1BD" }} />
-            {Department} specialized in {specialization}
+               {Department} specialized in {specialization}
           </div>
           <div className="card-row">
             <div>
-              <GrCertificate /> Scientific Certificate : {ScientificCertificate}
+              <GrCertificate />   Scientific Certificate :{" "}
+              {ScientificCertificate}
             </div>
           </div>
           <div className="card-row">
             <div>
-              <HiLocationMarker style={{ color: "#0EB800" }} />
-              Location : {city},{address}
+              <HiLocationMarker style={{ color: "#0d79e5" }} />
+                 Location : {city},{address}
             </div>
           </div>
           <div className="card-row">
             <div>
-              <AiOutlineFieldTime style={{ color: "red" }} /> Waiting time :{" "}
-              {waitingTime}{" "}
+              <AiOutlineFieldTime style={{ color: "red" }} />   Waiting time :
+              {waitingTime}
             </div>
           </div>
           <div className="card-row">
             <div>
               <GiMoneyStack style={{ color: "#0EB800" }} />
-              Fees : {consultationFee}{" "}
+                 Fees : {consultationFee}
             </div>
             <a
               href={`https://www.google.com/maps?q=${latitude},${longitude}`}
@@ -96,34 +155,22 @@ const CardDoctor = ({
               set my location
             </a>
           </div>
-        </div>
-        {/*  */}{" "}
-        <div className="bookingBtnDiv">
-          <button
-            className="bookingBtn"
-            value={id}
-            onClick={(e) => {
-              dispatch(setDoctor(e.target.value));
-              history("/DoctorProfile");
-              window.localStorage.setItem('doctorId',id);
-            }}
-          >
-            Book Now !
-          </button>
+          <div className="card-row">
+            <button
+              className="bookingBtn"
+              value={id}
+              onClick={(e) => {
+                dispatch(setDoctor(e.target.value));
+                history("/DoctorProfile");
+                window.localStorage.setItem("doctorId", id);
+              }}
+            >
+              Details
+            </button>
+          </div>
         </div>
       </div>
-      <div className="card-Booking">
-        {/* <button
-          value={id}
-          onClick={(e) => {
-            dispatch(setDoctor(e.target.value));
-            console.log(e.target.value);
-            history("/DoctorProfile");
-          }}
-        >
-          Book
-        </button> */}
-      </div>
+      <div className="card-Booking"></div>
     </div>
   );
 };

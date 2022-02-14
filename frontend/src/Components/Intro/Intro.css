@@ -4,6 +4,8 @@
   justify-content: space-between;
   align-items: center;
   min-height: 100vh;
+  margin-top: -100px;
+  gap: 100px;
 }
 
 .gifImageDiv {
@@ -15,6 +17,7 @@
 }
 .gifImageDiv:hover {
   cursor: pointer;
+  color: white;
 }
 
 .gifImage {
@@ -37,14 +40,17 @@
   width: 40%;
   height: 520px;
   margin-top: 150px;
-  gap: 10px;
+  gap: 40px;
   animation: transitionIn 1.5s;
 }
 .introChartDiv {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
+}
+.introChartDiv:hover {
+  color: white;
 }
 
 .introChart {
@@ -58,10 +64,12 @@
   border-radius: 12px;
   gap: 10px;
   animation: transitionIn 0.1s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .introChart:hover {
   background-color: #0d79e5;
   cursor: pointer;
+  color: white;
 }
 
 .chartImage {
@@ -72,7 +80,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   background-color: aquamarine;
   padding: 15px;
   border-radius: 12px;
@@ -82,14 +89,12 @@
 .chartTitle {
   color: grey;
   font-size: 15px;
-  /* animation: transitionIn 2s; */
 }
 .chartTitleNumber {
   color: white;
   font-size: 30px;
   font-family: "Anton", sans-serif;
   letter-spacing: 2px;
-  /* animation: transitionIn 2s; */
 }
 
 @keyframes transitionIn {

@@ -2,8 +2,35 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 10px;
-  gap: 30px;
-  background-color: #f6cd50;
+  align-items: center;
+  background-color: rgb(12, 26, 50);
+  height: 80px;
+  width: 1250px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 12px;
+  gap: 30px;
+}
+
+.pageNumbers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.pageNumberUl {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+.newDiv {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  padding: 30px;
+  gap: 50px;
 }

@@ -7,25 +7,47 @@ const setDoctorAppointement = (req, res) => {
   const doctor_appointment = req.body.doctor_appointment;
   const doctorId = req.body.doctorId;
   const query = `INSERT INTO DoctorShowAppointment (appointmentId,doctorId) VALUES (?,?)`;
+  const query1 = `SELECT a.time ,d.appointmentId FROM healthcare.DoctorShowAppointment as d join healthcare.appointment as a on 
+  a.id=d.appointmentId where d.doctorId = ?`;
   let data = [];
-  doctor_appointment.forEach((element) => {
-    data = [Number(element), doctorId];
-    connection.query(query, data, (err, result) => {
-      if (err) {
-        return res.json(err);
-      }
-    });
-  });
+  let data1 = [req.body.doctorId];
 
-  return res.json({
-    success: true,
+  connection.query(query1, data1, (err, result) => {
+    if (err) {
+      return res.json(err);
+    }
+    // console.log(result, data1);
+    const find = result.filter((element) => {
+      return doctor_appointment.includes(String(element.appointmentId));
+    });
+
+    if (find.length == 0) {
+      doctor_appointment.forEach((element) => {
+        data = [Number(element), doctorId];
+        connection.query(query, data, (err, result) => {
+          if (err) {
+            return res.json(err);
+          }
+        });
+      });
+
+      return res.json({
+        success: true,
+      });
+    } else {
+      return res.json({
+        success: false,
+        message: "check appointement is repeated",
+        response: find,
+      });
+    }
   });
 };
 // in Doctor Panel
 // الدكتور بشوف المرضى
 // Doctor Retrieve Information Patients  for All Appointments.
 const getAppointmentByDoctorId = (req, res) => {
-  const query = `SELECT p.firstName,p.lastName,p.phone,a.time ,da.dateAppointment FROM healthcare.doctor_appointment da JOIN healthcare.patient p  on da.patientId=p.id JOIN healthcare.appointment a ON da.appointmentId=a.id  where da.doctorId = ? and da.is_Booking=1 `;
+  const query = `SELECT p.firstName,p.lastName,p.phone,a.time,p.gender,da.dateAppointment FROM healthcare.doctor_appointment da JOIN healthcare.patient p  on da.patientId=p.id JOIN healthcare.appointment a ON da.appointmentId=a.id  where da.doctorId = ? and da.is_Booking=1 `;
   const data = [req.body.doctorId];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -72,14 +94,12 @@ const getAvalibleAppointment = (req, res) => {
   const data = [doctorId, dateAppointment, doctorId];
 
   connection.query(query, data, (err, result) => {
-
-
     if (err) {
       res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
-    
+
     res.status(200).json({
       success: true,
       message: `All Appointment Available From Doctor =>${req.body.doctorId} `,

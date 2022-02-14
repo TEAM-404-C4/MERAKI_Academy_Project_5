@@ -47,9 +47,6 @@ const Filter = ({ setSearch }) => {
     } catch (err) {
       console.log(err.response);
     }
-    // } else {
-    //   setSearch("");
-    // }
   };
   //======================================================//Return
   return (
@@ -62,7 +59,7 @@ const Filter = ({ setSearch }) => {
         <option value={0} disabled selected hidden>
           Search by Specialty ...
         </option>
-        <option value={0}>ALL</option>
+        <option value={0}>All</option>
         <option value={1}>RADIOLOGY</option>
         <option value={2}>LABORATORY</option>
         <option value={3}>PHARMACY</option>

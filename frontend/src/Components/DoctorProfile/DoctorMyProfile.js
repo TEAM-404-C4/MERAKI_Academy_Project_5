@@ -23,11 +23,10 @@ const DoctorMyProfile = () => {
 
   // =================================
   useEffect(async () => {
+    const userId = state || localStorage.getItem("userId");
     try {
-      const res = await axios.get(`http://localhost:5000/doctors/${state}`);
-      console.log("Doctor id", state.doctorId, res);
+      const res = await axios.get(`http://localhost:5000/doctors/${userId}`);
       setDoctor(res.data.result[0]);
-      console.log("dd", res.data.result[0]);
     } catch (err) {
       console.log(err);
     }
@@ -36,8 +35,12 @@ const DoctorMyProfile = () => {
   return (
     <div>
       <div className="pictureAndTitle">
-        <img src={doctor.profileImage} alt={doctor.fullName} />
-        <h3>Dr.{doctor.fullName}</h3>
+        <div>
+          <img src={doctor.profileImage} alt={doctor.fullName} />
+        </div>
+        <div>
+          <h3>Dr.{doctor.fullName}</h3>
+        </div>
       </div>
       <div className="profileInformation">
         <h5>
@@ -92,20 +95,19 @@ const DoctorMyProfile = () => {
         <div className="profile-row">
           <BsClockHistory />
           <h5>
-            {" "}
-            waiting Time : <span>{doctor.waitingTime}</span>{" "}
+            waiting Time : <span>{doctor.waitingTime}</span>
           </h5>
         </div>
         <div className="profile-row">
           <BsCalendarDay />
           <h5>
-            Days :<span>{doctor.workingDays}</span>{" "}
+            Days :<span>{doctor.workingDays}</span>
           </h5>
         </div>
         <div className="profile-row">
           <FaRegMoneyBillAlt />
           <h5>
-            Consultation Fee : <span>{doctor.consultationFee}</span>{" "}
+            Consultation Fee : <span>{doctor.consultationFee}</span>
           </h5>
         </div>
       </div>

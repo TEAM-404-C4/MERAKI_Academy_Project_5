@@ -156,33 +156,38 @@ const MainPage = () => {
 
   return (
     <div className="mainPageMainDiv">
-      <div className="filterDiv">
-        <Filter setSearch={setSearch} />
-        <Search setSearch={setSearch} />
+      <div className="newDiv">
+        <div className="filterDiv">
+          <Filter setSearch={setSearch} />
+          <Search setSearch={setSearch} />
+        </div>
+        {search ? seachDoctorCard : renderData(doctors)}
       </div>
-      {search ? seachDoctorCard : renderData(doctors)}
-      <ul className="pageNumbers">
-        <li>
-          <button
-            onClick={handlePrevbtn}
-            disabled={currentPage == pages[0] ? true : false}
-          >
-            Prev
-          </button>
-        </li>
-        {pageDecrementBtn}
-        {renderPageNumbers}
-        {pageIncrementBtn}
+      <div className="pageNumbers">
+        <ul className="pageNumberUl">
+          <li>
+            <button
+              onClick={handlePrevbtn}
+              disabled={currentPage == pages[0] ? true : false}
+            >
+              Prev
+            </button>
+          </li>
+          {pageDecrementBtn}
+          {renderPageNumbers}
+          {pageIncrementBtn}
 
-        <li>
-          <button
-            onClick={handleNextbtn}
-            disabled={currentPage == pages[pages.length - 1] ? true : false}
-          >
-            Next
-          </button>
-        </li>
-      </ul>
+          <li>
+            <button
+              className="nextButton"
+              onClick={handleNextbtn}
+              disabled={currentPage == pages[pages.length - 1] ? true : false}
+            >
+              Next
+            </button>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
