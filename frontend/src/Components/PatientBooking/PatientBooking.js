@@ -6,7 +6,7 @@ import { FcCancel } from "react-icons/fc";
 
 export default function PatientBooking() {
   const [appointement, setAppointement] = useState([]);
-  const [deleteBooking, setDeleteBooking] = useState("");
+  const [deleteBookingRes, setDeleteBookingRes] = useState("");
 
   const state = useSelector((state) => {
     return {
@@ -17,7 +17,7 @@ export default function PatientBooking() {
   });
   useEffect(() => {
     getAppointement();
-  }, []);
+  }, [deleteBookingRes]);
   const getAppointement = async () => {
     try {
       const res = await axios.post(
@@ -50,6 +50,7 @@ export default function PatientBooking() {
       );
       console.log(res);
       console.log(res.data.result);
+      setDeleteBookingRes(res.data);
     } catch (err) {
       console.log(err.response);
     }
