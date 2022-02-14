@@ -143,7 +143,7 @@ const CardDoctor = ({
               {waitingTime}
             </div>
           </div>
-          {/* <div className="card-row">
+          <div className="card-row">
             <div>
               <GiMoneyStack style={{ color: "#0EB800" }} />
                  Fees : {consultationFee}
@@ -154,7 +154,7 @@ const CardDoctor = ({
             >
               set my location
             </a>
-          </div> */}
+          </div>
           <div className="card-row">
             <button
               className="bookingBtn"

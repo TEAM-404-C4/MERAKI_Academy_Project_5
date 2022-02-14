@@ -1,0 +1,139 @@
+.checked {
+  color: #ffd700;
+}
+
+.rateMainDiv {
+  height: 100%;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.commentRatingElement {
+  background-color: rgb(12, 26, 50);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nameAndRating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.commentRatingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+.name {
+  color: grey;
+  font-family: "Bebas Neue", cursive;
+}
+.date {
+  color: grey;
+  font-size: 15px;
+  font-family: "Bebas Neue", cursive;
+}
+
+.starts {
+  font-size: 20px;
+}
+
+.comment {
+  color: white;
+}
+.rateCommentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commentRateInput {
+  width: 500px;
+  background-color: rgb(12, 26, 50);
+  height: 50px;
+  width: 100%;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  font-size: 17px;
+  text-align: left;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.commentRateInput::placeholder {
+  color: grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 7px;
+}
+
+.rateCommentButton {
+  width: 150px;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background-color: rgb(12, 26, 50);
+  font-size: 15px;
+  color: grey;
+  font-weight: bold;
+  font-family: "Bebas Neue", cursive;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.rateCommentButton:hover {
+  background-color: #0d79e5;
+
+  cursor: pointer;
+  color: white;
+}
+.starsPickerRate {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.buttonSubmitAndShowComment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.showReviewsBtn {
+  width: 150px;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  background-color: rgb(12, 26, 50);
+  font-size: 15px;
+  color: grey;
+  font-weight: bold;
+  font-family: "Bebas Neue", cursive;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.showReviewsBtn:hover {
+  background-color: #0d79e5;
+  cursor: pointer;
+  color: white;
+}
