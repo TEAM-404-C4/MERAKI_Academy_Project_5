@@ -124,7 +124,7 @@ const CardDoctor = ({
               history("/DoctorProfile");
             }}
           >
-            <div className="DoctorName">Doctor</div>. {fullName}
+            <div className="DoctorName">DOCTOR</div>. {fullName.toUpperCase()}
           </div>
           <div className="card-row">
             <MdOutlineStarRate />
@@ -175,6 +175,7 @@ const CardDoctor = ({
           </div>
           <div className="card-row">
             <a
+              className="doctorLocation"
               href={`https://www.google.com/maps?q=${latitude},${longitude}`}
               target="_blank"
             >

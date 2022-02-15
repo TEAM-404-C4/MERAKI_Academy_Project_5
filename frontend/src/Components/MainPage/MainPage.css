@@ -1,3 +1,13 @@
+.newDiv {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+  padding: 30px;
+  gap: 25px;
+}
 .filterDiv {
   display: flex;
   flex-direction: row;
@@ -9,74 +19,66 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 12px;
   gap: 30px;
+  border: 1px solid #4397cf;
 }
 
 .pageNumbers {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: auto;
+  align-items: center;
+  margin-top: 50px;
 }
 
 .pageNumberUl {
   display: flex;
   flex-direction: row;
-  text-decoration: none;
-  list-style-type: none;
-}
- 
-.newDiv {
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
   justify-content: center;
-  text-decoration: none;
-  padding: 30px;
-  gap: 50px;
-}
- 
-.pageNumbers {
-  list-style: none;
-  display: flex;
-  
+  align-items: center;
+  border: none;
+  outline: none;
+  list-style-type: none;
 }
 
 .pageNumbers li {
   padding: 10px;
-  border: 1px solid rgb(96, 102, 109);
   cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 20px;
 }
 
 .pageNumbers li.active {
-  background-color: white;
-  color: black;
+  color: white;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 25px;
 }
 
 .pageNumbers li button {
-  color: white;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: none;
   height: 5vh;
   width: 3vw;
-  font-size: 15px;
-  background-color: #0d79e5;
+  font-size: 20px;
+  font-weight: bold;
   border: none;
-  border-radius: 50%;
-  font-family: "Righteous", cursive;
   letter-spacing: 1px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .pageNumbers li button:hover {
-  background-color: white;
   color: black;
-}
-.pageNumbers li button:focus {
-  outline: none;
+  background-color: #4397cf;
+  cursor: pointer;
 }
 
 .loadmore {
   padding: 1rem;
   background-color: transparent;
-
   color: white;
   font-size: 1.2rem;
   border: 1px solid white;

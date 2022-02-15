@@ -69,17 +69,14 @@ const Navigation = () => {
         <div className="controlsDiv">
           {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (
             <div className="option1" title="Profile Page">
-              <div
-                className="ProfileImageDiv"
-                
-              >
+              <div className="ProfileImageDiv">
                 <img
                   className="profileImg"
                   src={state.profileImage || getProfileImage}
                   alt="myProfile"
                 />
               </div>
-              <div className="drName">Dr.{doctorName}</div>
+              <div className="drName">Dr.{doctorName.toUpperCase()}</div>
             </div>
           ) : (
             <></>

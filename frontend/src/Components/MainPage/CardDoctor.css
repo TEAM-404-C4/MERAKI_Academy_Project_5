@@ -8,29 +8,28 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  /* background-color:red; */
   background-color: rgb(12, 26, 50);
   border-radius: 12px;
   padding: 10px;
   margin: 1%;
   gap: 1%;
-  width: 650px;
-  height: 60vh;
+  width: 500px;
+  height: 290px;
+  border: 1px solid #4397cf;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .CardImageDiv {
   height: 60vh;
-  padding-top: 20px;
+  padding: 20px;
 }
 
 .card-image {
   cursor: pointer;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 2px solid #4397cf;
 }
 
 .cardInformation {
@@ -39,7 +38,6 @@
   height: 60vh;
   gap: 12px;
   width: 100%;
-  /* background-color: rgb(12, 26, 50); */
   padding: 10px;
   color: grey;
   font-family: "Righteous", cursive;
@@ -76,19 +74,8 @@
   height: 70px;
 }
 
-/* /////////////////////////////////////////// */
-
-.bookingBtnDiv {
-  background-color: rgb(12, 26, 50);
-  height: 60vh;
-  width: 100px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 15px;
-}
-
 .bookingBtn {
+  margin-left: 140px;
   color: white;
   height: 40px;
   width: 150px;
@@ -103,7 +90,8 @@
 
 .bookingBtn:hover {
   cursor: pointer;
-  background-color: #1560aa;
+  background-color: #3581cc;
+  border: 1px solid white;
 }
 .emptyString {
   display: flex;
@@ -125,4 +113,9 @@
   color: gold;
   font-size: 1.3vw;
   padding-right: 8px;
+}
+
+.doctorLocation {
+  margin-left: -12px;
+  margin-top: -12px;
 }

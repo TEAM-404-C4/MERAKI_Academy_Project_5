@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./MainPage.css";
 import CommentsAndRate from "../CommentsAndRate/CommentsAndRate";
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
 //====================================================//Create Main Page Funtion
 const MainPage = () => {
@@ -169,7 +170,7 @@ const MainPage = () => {
               onClick={handlePrevbtn}
               disabled={currentPage == pages[0] ? true : false}
             >
-              Prev
+              <AiOutlineArrowLeft />
             </button>
           </li>
           {pageDecrementBtn}
@@ -182,7 +183,7 @@ const MainPage = () => {
               onClick={handleNextbtn}
               disabled={currentPage == pages[pages.length - 1] ? true : false}
             >
-              Next
+              <AiOutlineArrowRight />
             </button>
           </li>
         </ul>
