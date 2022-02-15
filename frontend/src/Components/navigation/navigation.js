@@ -14,7 +14,7 @@ import axios from "axios";
 
 const Navigation = () => {
   const [getProfileImage, setGetProfileImage] = useState(
-    "https://img.favpng.com/24/4/25/ico-avatar-scalable-vector-graphics-icon-png-favpng-69NiKBhePsU9cJJeFeZeTy6qw.jpg"
+    "https://i.ibb.co/5YV7j9Z/Male-doctor-with-stethoscope-avatar-Health-care-services-concept-Vector-illustration.jpg"
   );
   const [doctorName, setDoctorName] = useState("");
   const history = useNavigate();
@@ -41,7 +41,14 @@ const Navigation = () => {
         }
       );
       if (result.data.success) {
-        setGetProfileImage(result.data.result[0].profileImage);
+        console.log(
+          "*****************************",
+          result.data.result[0].profileImage
+        );
+        setGetProfileImage(
+          result.data.result[0].profileImage ||
+            "https://i.ibb.co/5YV7j9Z/Male-doctor-with-stethoscope-avatar-Health-care-services-concept-Vector-illustration.jpg"
+        );
         setDoctorName(result.data.result[0].fullName);
       } else throw Error;
     } catch (error) {}
@@ -70,9 +77,10 @@ const Navigation = () => {
           {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (
             <div className="option1" title="Profile Page">
               <div className="ProfileImageDiv">
+                {console.log("------------------", getProfileImage)}
                 <img
                   className="profileImg"
-                  src={state.profileImage || getProfileImage}
+                  src={getProfileImage || state.profileImage}
                   alt="myProfile"
                 />
               </div>
@@ -102,7 +110,7 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {state.roleId == 2 && localStorage.getItem("roleId") == 2 ? (
+          {/* {state.roleId == 2 && localStorage.getItem("roleId") == 2 ? (
             <div className="option">
               <Link to="/appointement">
                 <BsHouseFill />
@@ -110,7 +118,7 @@ const Navigation = () => {
             </div>
           ) : (
             <></>
-          )}
+          )} */}
 
           {!state.isLoggedIn ? (
             <div className="option" title="Login">

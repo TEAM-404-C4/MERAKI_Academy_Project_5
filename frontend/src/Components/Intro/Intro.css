@@ -17,7 +17,6 @@
   width: 100%;
   object-fit: cover;
   opacity: 0.2;
-
   z-index: -1;
 }
 .introWords {
@@ -53,6 +52,7 @@
   justify-content: space-between;
   height: 500px;
   width: 90%;
+  margin-top: -30px;
 }
 
 .learnMoreBtnDiv {
@@ -60,24 +60,24 @@
   justify-content: center;
   align-items: center;
 }
+
 .learnMoreBtn {
-  background-color: #1c2e4c;
-  color: grey;
-  outline: none;
-  border: none;
+  color: white;
+  height: 60px;
+  width: 350px;
   font-size: 15px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  word-spacing: 2px;
-  width: 300px;
-  height: 50px;
+  background-color: #0d79e5;
+  border: none;
   border-radius: 12px;
+  font-family: "Righteous", cursive;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .learnMoreBtn:hover {
-  background-color: #0d79e5;
-  color: white;
   cursor: pointer;
+  background-color: #3581cc;
+  border: 1px solid white;
 }
 
 .groupCard1 {
@@ -181,14 +181,14 @@
   width: 600px;
   height: 600px;
   padding: 20px;
-  gap: 40px;
+  gap: 50px;
   animation: transitionIn 1.5s;
 }
 .introChartDiv {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
 }
 .introChartDiv:hover {
   color: white;
@@ -203,19 +203,22 @@
   width: 200px;
   background-color: rgb(12, 26, 50);
   border-radius: 12px;
-  gap: 10px;
+  gap: 5px;
   animation: transitionIn 0.1s;
+  border: 1px solid #4397cf;
+
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .introChart:hover {
   background-color: #0d79e5;
   cursor: pointer;
   color: white;
+  top: 10px;
 }
 
 .chartImage {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 100px;
 }
 .backgrounChart {
   display: flex;
@@ -225,11 +228,12 @@
   padding: 15px;
   border-radius: 12px;
   margin-top: 15px;
+  border: 2px solid rgb(63, 63, 63);
 }
 
 .chartTitle {
-  color: grey;
-  font-size: 15px;
+  color: white;
+  font-size: 17px;
 }
 .chartTitleNumber {
   color: white;
