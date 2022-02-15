@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { BsHouseFill, BsLockFill, BsNewspaper, BsWindow } from "react-icons/bs";
 import { React, useEffect, useState } from "react";
-
 import { logoutRedux } from "../Reducer/login/index";
 import "./navigation.css";
 import { useDispatch, useSelector } from "react-redux";
-import { RiLogoutCircleRLine } from "react-icons/ri";
+import { RiContrastDropLine, RiLogoutCircleRLine } from "react-icons/ri";
 import { BsFillCalendarWeekFill } from "react-icons/bs";
-
 import axios from "axios";
 
 //====================================================// Navigation function
 
 const Navigation = () => {
+  console.log("from outside function ");
   const [getProfileImage, setGetProfileImage] = useState(
     "https://i.ibb.co/5YV7j9Z/Male-doctor-with-stethoscope-avatar-Health-care-services-concept-Vector-illustration.jpg"
   );
@@ -26,7 +25,7 @@ const Navigation = () => {
       token: state.loginReducer.token,
       isLoggedIn: state.loginReducer.isLoggedIn,
       roleId: state.loginReducer.roleId,
-      profileImage: state.loginReducer.profileImage,
+      profileImage: state.loginReducer.prsofileImage,
     };
   });
   //====================================================// Profile image
@@ -43,21 +42,14 @@ const Navigation = () => {
         }
       );
       if (result.data.success) {
-        console.log(
-          "*****************************",
-          result.data.result[0].profileImage
-        );
-        setGetProfileImage(
-          result.data.result[0].profileImage ||
-            "https://i.ibb.co/5YV7j9Z/Male-doctor-with-stethoscope-avatar-Health-care-services-concept-Vector-illustration.jpg"
-        );
+        setGetProfileImage(result.data.result[0].profileImage);
         setDoctorName(result.data.result[0].fullName);
       } else throw Error;
     } catch (error) {}
   };
   useEffect(() => {
     profileImage();
-  }, [doctorName, getProfileImage]);
+  }, [state.token]);
 
   //====================================================// return
 
@@ -79,7 +71,6 @@ const Navigation = () => {
           {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (
             <div className="option1" title="Profile Page">
               <div className="ProfileImageDiv">
-                {console.log("------------------", getProfileImage)}
                 <img
                   className="profileImg"
                   src={getProfileImage || state.profileImage}
