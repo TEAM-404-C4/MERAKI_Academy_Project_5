@@ -112,8 +112,8 @@
   padding-top: 25px;
   text-align: left;
 }
-.filledStars {
-  padding-top: 25px;
+.card-row {
+  color: white;
 }
 
 .Rating {
