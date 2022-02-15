@@ -11,3 +11,10 @@
 .patientAppointementMini {
   background-color: aqua;
 }
+.deleteButtons {
+  background-color: inherit;
+  border-style: none;
+}
+.delete {
+  pointer-events: none;
+}

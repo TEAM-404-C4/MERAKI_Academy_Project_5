@@ -65,7 +65,10 @@ const getAppointmentByDoctorId = (req, res) => {
 // Patient Retrieve Information Doctors for All Appointments.
 // المريض بشوف معلومات الدكتور
 const getDoctorAppointmentByPatientId = (req, res) => {
-  const query = `SELECT d.fullName as 'Doctor Name ',d.email as 'Doctor Email  ',d.phone as 'Doctor Phone Number ',d.address as 'Doctor Address ', a.time as 'Appointment Time  ' , da.dateAppointment as 'Date Appointment  ' FROM healthcare.doctor_appointment da JOIN healthcare.doctor d on da.doctorId=d.id JOIN healthcare.appointment a on a.id=da.appointmentId where da.patientId = ?`;
+  const query = `SELECT d.fullName as 'Doctor Name ',d.email as 'Doctor Email  ',d.phone as 'Doctor Phone Number ',d.address as
+  'Doctor Address ', a.time as 'Appointment Time  ' , da.dateAppointment as 'Date Appointment  ' ,da.doctorId,da.patientId,da.appointmentId
+  FROM healthcare.doctor_appointment da JOIN healthcare.doctor d on da.doctorId=d.id JOIN
+  healthcare.appointment a on a.id=da.appointmentId where da.patientId = ?`;
   const data = [req.body.patientId];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -143,7 +146,7 @@ const setIsDeletedInAppointmentAvailable = (req, res) => {
 const doctorDeleteAppointment = (req, res, next) => {
   const query = `DELETE FROM doctor_appointment  WHERE  doctorId=? AND appointmentId=? AND patientId=? AND dateAppointment=?`;
 
-  console.log(req.body);
+  console.log("omar", req.body);
   const { doctorId, appointmentId, patientId, dateAppointment } = req.body;
   const data = [doctorId, appointmentId, patientId, dateAppointment];
   connection.query(query, data, (err, result) => {
