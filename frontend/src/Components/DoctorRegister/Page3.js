@@ -29,10 +29,26 @@ const Page3 = () => {
 
   //====================================================//Next Button Function
   const nextButton = async () => {
-    await dispatch(
-      addInfoPage({ workingDays, address, careersLicense, waitingTime })
-    );
-    history("/doctorsignup4");
+    if (workingDays) {
+      if (address) {
+        if (careersLicense) {
+          if (waitingTime) {
+            await dispatch(
+              addInfoPage({ workingDays, address, careersLicense, waitingTime })
+            );
+            history("/doctorsignup4");
+          } else {
+            setMessage("PLEASE FILL THE WORKING DAYS INPUT ");
+          }
+        } else {
+          setMessage("PLEASE FILL THE ADDRESS INPUT ");
+        }
+      } else {
+        setMessage("PLEASE FILL THE CAREER LICENSE INPUT ");
+      }
+    } else {
+      setMessage("PLEASE FILL THE WATING TIME INPUT ");
+    }
   };
 
   //====================================================//Return

@@ -7,6 +7,7 @@ import { BsFillArrowRightCircleFill } from "react-icons/bs";
 import { storage } from "../Firebase/firebase";
 import { Image } from "cloudinary-react";
 import axios from "axios";
+import { FcCancel } from "react-icons/fc";
 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 //CSS File
@@ -25,6 +26,7 @@ const Page1 = () => {
   const [image, setImage] = useState("");
   const [profileImage, setprofileImage] = useState();
   const [imageSelected, setImageSelected] = useState();
+  const [message, setMessage] = useState("");
   const uploudImage = () => {
     const formData = new FormData();
     formData.append("file", imageSelected);
@@ -50,8 +52,22 @@ const Page1 = () => {
 
   //====================================================//Next Button Function
   const nextButton = async () => {
-    await dispatch(addInfoPage({ fullName, email, password, profileImage }));
-    history("/doctorsignup2");
+    if (fullName) {
+      if (email) {
+        if (password) {
+          await dispatch(
+            addInfoPage({ fullName, email, password, profileImage })
+          );
+          history("/doctorsignup2");
+        } else {
+          setMessage("PLEASE FILL THE PASWORD INPUT ");
+        }
+      } else {
+        setMessage("PLEASE FILL THE EMAIL INPUT ");
+      }
+    } else {
+      setMessage("PLEASE FILL THE FULL NAME INPUT ");
+    }
     // const metadata = {
     //   contentType: 'image/jpeg',
     // };
@@ -147,6 +163,13 @@ const Page1 = () => {
           <button onClick={nextButton} className="nextBtn">
             <BsFillArrowRightCircleFill />
           </button>
+          {message && (
+            <div className="messageDoctorRegister">
+              <FcCancel />
+              {message}
+              <FcCancel />
+            </div>
+          )}
         </div>
       </div>
     </>
