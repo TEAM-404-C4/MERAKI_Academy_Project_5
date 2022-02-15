@@ -75,7 +75,7 @@ const createNewPatient = async (req, res) => {
     if (!err) {
       res.status(200).json({
         success: true,
-        message: "Success patient Added",
+        message: "SignUp Successfully",
         result: result,
       });
     } else {

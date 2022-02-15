@@ -3,7 +3,8 @@ import axios, { Axios } from "axios";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { BsCheckSquareFill } from "react-icons/bs";
-// import Googlelogin from "react-goo"
+
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [firstNamePatient, setFirstNamePatient] = useState("");
@@ -45,7 +46,6 @@ const Register = () => {
         roleId: 3,
       });
 
-      console.log("result", res);
       if (res.data.success) {
         setFirstNamePatient("");
         setLastNamePatient("");
@@ -54,14 +54,34 @@ const Register = () => {
         setPasswordPatient("");
         setStatus(true);
         navigate("/login");
-        setMessage(res.data.message);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: res.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        // setMessage(res.data.message);
       } else throw Error;
     } catch (error) {
       if (error.response && error.response.data) {
         setStatus(true);
-        return setMessage(error.response.data.message);
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: error.response.data.message,
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        return;
       }
-      setMessage("Error happened while Login, please try again");
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Error happened while Login, please try again",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
   };
 
@@ -73,19 +93,19 @@ const Register = () => {
       <div className="signUpInstructions">
         <span className="register">Register Now It's Free.</span>
         <span className="inst">
-          <BsCheckSquareFill style={{ color: "green" }} />  Why to Register on
+          <BsCheckSquareFill style={{ color: "#3581cc" }} />  Why to Register on
           Shafaa Network?
         </span>
         <span className="inst">
-          <BsCheckSquareFill style={{ color: "green" }} />  Access a Large
+          <BsCheckSquareFill style={{ color: "#3581cc" }} />  Access a Large
           Network of Doctor.
         </span>
         <span className="inst">
-          <BsCheckSquareFill style={{ color: "green" }} />  Get Medical
+          <BsCheckSquareFill style={{ color: "#3581cc" }} />  Get Medical
           Consultations via Phone Call or Whats App.
         </span>
         <span className="inst">
-          <BsCheckSquareFill style={{ color: "green" }} />  Book Your Doctor
+          <BsCheckSquareFill style={{ color: "#3581cc" }} />  Book Your Doctor
           Visit Online.
         </span>
         <div>
