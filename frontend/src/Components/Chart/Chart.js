@@ -57,42 +57,69 @@ export default function Chart() {
     });
 
     console.log("malePatient", malePatient, "femalePatient", femalePatient);
+    // =============================
     var options = {
       series: [malePatient.length, femalePatient.length],
-
       chart: {
-        height: 200,
-        type: "polarArea",
+        width: 380,
+        type: "pie",
       },
       labels: ["Male", "Female"],
-      fill: {
-        opacity: 1,
-      },
-      stroke: {
-        width: 1,
-        colors: undefined,
-      },
-      yaxis: {
-        show: false,
-      },
-      legend: {
-        position: "right",
-      },
-      colors: ["#3246D3", "#00D0FF"],
-      plotOptions: {
-        polarArea: {
-          rings: {
-            strokeWidth: 0,
-          },
-          spokes: {
-            strokeWidth: 0,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            legend: {
+              position: "bottom",
+            },
+            colors: ["#1c2e4c", "#1c2e4c"],
           },
         },
-      },
+      ],
     };
 
     var chart = new ApexCharts(document.querySelector("#chartOne"), options);
     chart.render();
+    // =============================
+    // var options = {
+    //   series: [malePatient.length, femalePatient.length],
+
+    //   chart: {
+    //     height: 200,
+    //     type: "polarArea",
+    //   },
+    //   labels: ["Male", "Female"],
+    //   fill: {
+    //     opacity: 1,
+    //   },
+    //   stroke: {
+    //     width: 1,
+    //     colors: undefined,
+    //   },
+    //   yaxis: {
+    //     show: false,
+    //   },
+    //   legend: {
+    //     position: "right",
+    //   },
+    //   colors: ["#3246D3", "#00D0FF"],
+    //   plotOptions: {
+    //     polarArea: {
+    //       rings: {
+    //         strokeWidth: 0,
+    //       },
+    //       spokes: {
+    //         strokeWidth: 0,
+    //       },
+    //     },
+    //   },
+    // };
+
+    // var chart = new ApexCharts(document.querySelector("#chartOne"), options);
+    // chart.render();
     // =====================================chart2
 
     let month = [
@@ -167,7 +194,7 @@ export default function Chart() {
       },
       colors: ["#1dbfc1", "#ee3158"],
       dataLabels: {
-        enabled: false,
+        enabled: true,
       },
       stroke: {
         curve: "smooth",
@@ -192,7 +219,7 @@ export default function Chart() {
         ],
       },
       legend: {
-        show: false,
+        show: true,
       },
     };
 
@@ -270,6 +297,9 @@ export default function Chart() {
           ],
         },
       ],
+      dataLabels: {
+        enabled: true,
+      },
     };
 
     var chart2 = new ApexCharts(document.querySelector(".chart3x"), options2);
@@ -357,14 +387,14 @@ export default function Chart() {
         },
       },
       title: {
-        text: "Custom DataLabels",
+        text: "Rating",
         align: "center",
         floating: true,
       },
-      subtitle: {
-        text: "Category Names as DataLabels inside bars",
-        align: "center",
-      },
+      // subtitle: {
+      //   text: "Category Names as DataLabels inside bars",
+      //   align: "center",
+      // },
       tooltip: {
         theme: "dark",
         x: {
@@ -392,7 +422,7 @@ export default function Chart() {
         <div className="chart" id="chartTwo"></div>
       </div>
       <div className="dashBoardChart">
-        <div className="chart3x"></div>
+        <div className="chart3x">Monthy Number of Booking </div>
         <div className="chart" id="chartFour"></div>
       </div>
     </div>
