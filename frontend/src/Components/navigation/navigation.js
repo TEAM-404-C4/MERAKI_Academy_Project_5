@@ -8,6 +8,8 @@ import { logoutRedux } from "../Reducer/login/index";
 import "./navigation.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RiLogoutCircleRLine } from "react-icons/ri";
+import { BsFillCalendarWeekFill } from "react-icons/bs";
+
 import axios from "axios";
 
 //====================================================// Navigation function
@@ -92,13 +94,17 @@ const Navigation = () => {
 
           {state.roleId === 3 || localStorage.getItem("roleId") == 3 ? (
             <div className="option" title="Profile Page">
-              <button
+              <Link to="/patientprofile" alt="test">
+                <BsFillCalendarWeekFill />
+              </Link>
+              <div></div>
+              {/* <button
                 onClick={() => {
                   history("/patientprofile");
                 }}
               >
                 patient profile
-              </button>
+              </button> */}
             </div>
           ) : (
             <></>

@@ -23,6 +23,7 @@
 }
 
 .pictureAndTitle {
+  border: 1px solid #4397cf;
   background-color: rgb(12, 26, 50);
   padding: 25px;
   gap: 20px;
@@ -50,6 +51,7 @@
   justify-content: space-between;
   width: 70%;
   background-color: rgb(12, 26, 50);
+  border: 1px solid #4397cf;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -93,7 +95,7 @@ h3 {
 .CommentsAndRate {
   width: 90%;
   margin-left: 4vw;
-  margin-right:10vw;
+  margin-right: 10vw;
   min-height: 50vh;
   border-radius: 12px;
 }
@@ -109,6 +111,8 @@ h3 {
   justify-content: flex-start;
   align-items: flex-start;
   background-color: rgb(12, 26, 50);
+  border: 1px solid #4397cf;
+
   height: 120px;
   border-radius: 12px;
   font-size: 40px;

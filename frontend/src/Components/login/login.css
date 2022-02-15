@@ -23,6 +23,7 @@
   flex-direction: column;
   width: 400px;
   background-color: rgb(12, 26, 50);
+  border: 1px solid #4397cf;
   gap: 30px;
   height: 120%;
   padding: 30px;

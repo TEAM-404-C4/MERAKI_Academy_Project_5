@@ -72,7 +72,7 @@ a {
   border: 1px solid white;
 
   color: white;
-  margin-top: -10px;
+  margin-top: -5px;
 }
 a:hover {
   color: white;
@@ -142,4 +142,8 @@ a:hover {
 .option1:hover {
   background-color: #0d79e5;
   cursor: pointer;
+}
+
+.userProfile {
+  color: white;
 }

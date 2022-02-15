@@ -97,138 +97,156 @@ export default function CommentsAndRate({ doctorFullName }) {
         {state.roleId != 2 && (
           <form onSubmit={commentButton} className="rateCommentForm">
             <div className="rateInsideComments">
-              <div className="starsPickerRate">
-                <span
-                  className={star1}
-                  id="1"
-                  onClick={(e) => {
-                    if (star1 === onStar) {
-                      setStar1(offStar);
-                      setStar2(offStar);
-                      setStar3(offStar);
-                      setStar4(offStar);
-                      setStar5(offStar);
-                      setRate(0);
-                    } else {
-                      setStar1(onStar);
-                      setRate(e.target.id);
-                    }
-                  }}
-                ></span>
-                <span
-                  className={star2}
-                  id="2"
-                  onClick={(e) => {
-                    if (star2 === onStar) {
-                      setStar1(offStar);
-                      setStar2(offStar);
-                      setStar3(offStar);
-                      setStar4(offStar);
-                      setStar5(offStar);
-                      setRate(0);
-                    } else {
-                      setStar1(onStar);
-                      setStar2(onStar);
-                      setRate(e.target.id);
-                    }
-                  }}
-                ></span>
-                <span
-                  className={star3}
-                  id="3"
-                  onClick={(e) => {
-                    if (star3 === onStar) {
-                      setStar1(offStar);
-                      setStar2(offStar);
-                      setStar3(offStar);
-                      setStar4(offStar);
-                      setStar5(offStar);
-                      setRate(0);
-                    } else {
-                      setStar1(onStar);
-                      setStar2(onStar);
-                      setStar3(onStar);
-                      setRate(e.target.id);
-                    }
-                  }}
-                ></span>
-                <span
-                  className={star4}
-                  id="4"
-                  onClick={(e) => {
-                    if (star4 === onStar) {
-                      setStar1(offStar);
-                      setStar2(offStar);
-                      setStar3(offStar);
-                      setStar4(offStar);
-                      setStar5(offStar);
-                      setRate(0);
-                    } else {
-                      setStar1(onStar);
-                      setStar2(onStar);
-                      setStar3(onStar);
-                      setStar4(onStar);
-                      setRate(e.target.id);
-                    }
-                  }}
-                ></span>
-                <span
-                  className={star5}
-                  id="5"
-                  onClick={(e) => {
-                    if (star5 === onStar) {
-                      setStar1(offStar);
-                      setStar2(offStar);
-                      setStar3(offStar);
-                      setStar4(offStar);
-                      setStar5(offStar);
-                      setRate(0);
-                    } else {
-                      setStar1(onStar);
-                      setStar2(onStar);
-                      setStar3(onStar);
-                      setStar4(onStar);
-                      setStar5(onStar);
-                      setRate(e.target.id);
-                    }
-                  }}
-                ></span>
-              </div>
-              <input
-                className="commentRateInput"
-                placeholder={`Feel Free to review Dr. ${doctorFullName}`}
-                value={comment}
-                required
-                type="text"
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
-              />
+              {localStorage.getItem("roleId") == 3 ? (
+                <>
+                  <div className="starsPickerRate">
+                    <span
+                      className={star1}
+                      id="1"
+                      onClick={(e) => {
+                        if (star1 === onStar) {
+                          setStar1(offStar);
+                          setStar2(offStar);
+                          setStar3(offStar);
+                          setStar4(offStar);
+                          setStar5(offStar);
+                          setRate(0);
+                        } else {
+                          setStar1(onStar);
+                          setRate(e.target.id);
+                        }
+                      }}
+                    ></span>
+                    <span
+                      className={star2}
+                      id="2"
+                      onClick={(e) => {
+                        if (star2 === onStar) {
+                          setStar1(offStar);
+                          setStar2(offStar);
+                          setStar3(offStar);
+                          setStar4(offStar);
+                          setStar5(offStar);
+                          setRate(0);
+                        } else {
+                          setStar1(onStar);
+                          setStar2(onStar);
+                          setRate(e.target.id);
+                        }
+                      }}
+                    ></span>
+                    <span
+                      className={star3}
+                      id="3"
+                      onClick={(e) => {
+                        if (star3 === onStar) {
+                          setStar1(offStar);
+                          setStar2(offStar);
+                          setStar3(offStar);
+                          setStar4(offStar);
+                          setStar5(offStar);
+                          setRate(0);
+                        } else {
+                          setStar1(onStar);
+                          setStar2(onStar);
+                          setStar3(onStar);
+                          setRate(e.target.id);
+                        }
+                      }}
+                    ></span>
+                    <span
+                      className={star4}
+                      id="4"
+                      onClick={(e) => {
+                        if (star4 === onStar) {
+                          setStar1(offStar);
+                          setStar2(offStar);
+                          setStar3(offStar);
+                          setStar4(offStar);
+                          setStar5(offStar);
+                          setRate(0);
+                        } else {
+                          setStar1(onStar);
+                          setStar2(onStar);
+                          setStar3(onStar);
+                          setStar4(onStar);
+                          setRate(e.target.id);
+                        }
+                      }}
+                    ></span>
+                    <span
+                      className={star5}
+                      id="5"
+                      onClick={(e) => {
+                        if (star5 === onStar) {
+                          setStar1(offStar);
+                          setStar2(offStar);
+                          setStar3(offStar);
+                          setStar4(offStar);
+                          setStar5(offStar);
+                          setRate(0);
+                        } else {
+                          setStar1(onStar);
+                          setStar2(onStar);
+                          setStar3(onStar);
+                          setStar4(onStar);
+                          setStar5(onStar);
+                          setRate(e.target.id);
+                        }
+                      }}
+                    ></span>
+                  </div>
+
+                  <input
+                    className="commentRateInput"
+                    placeholder={`Feel Free to review Dr. ${doctorFullName}`}
+                    value={comment}
+                    required
+                    type="text"
+                    onChange={(e) => {
+                      setComment(e.target.value);
+                    }}
+                  />
+                </>
+              ) : (
+                <></>
+              )}
             </div>
 
             <div className="buttonSubmitAndShowComment">
-              <button type="submit" className="rateCommentButton">
-                Submit
-              </button>
-              <button
-                className="showReviewsBtn"
-                type="button"
-                onClick={showCommentButton}
-              >
-                Show Reviews
-              </button>
+              {localStorage.getItem("roleId") == 3 ? (
+                <>
+                  <button type="submit" className="rateCommentButton">
+                    Submit
+                  </button>
+                  <button
+                    className="showReviewsBtn"
+                    type="button"
+                    onClick={showCommentButton}
+                  >
+                    Show Reviews
+                  </button>
+                </>
+              ) : (
+                ""
+              )}
             </div>
           </form>
         )}
 
         <div className="commentRatingBlock">
-          <button
-            className="showReviewsBtn"
-            type="button"
-            onClick={showCommentButton}
-          >
-            Show Reviews
-          </button>
+          {localStorage.getItem("roleId") == 2 ? (
+            <button
+              className="showReviewsBtn"
+              type="button"
+              onClick={showCommentButton}
+            >
+              Show Reviews
+            </button>
+          ) : (
+            ""
+          )}
+
           {showComments &&
             comments.map((element) => {
               return (
@@ -241,9 +259,8 @@ export default function CommentsAndRate({ doctorFullName }) {
                     </div>
                   </div>
                   <div className="rating">
-                  <div className="comment">{element.comment}</div>
+                    <div className="comment">{element.comment}</div>
                     <div className="starts">{showRating(element.rating)}</div>
-                    
                   </div>
                 </div>
               );
