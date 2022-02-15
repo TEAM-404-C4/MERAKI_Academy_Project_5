@@ -56,3 +56,9 @@
   width: 479px;
   margin-left: -40px;
 }
+.messageDoctorRegister {
+  color: red;
+  font-weight: bolder;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+}

@@ -7,6 +7,7 @@ import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
+import { FcCancel } from "react-icons/fc";
 
 //CSS File
 import "./Page3.css";
@@ -22,6 +23,7 @@ const Page3 = () => {
   const [address, setAddress] = useState(state.address);
   const [careersLicense, setCareersLicense] = useState(state.careersLicense);
   const [waitingTime, setWaitingTime] = useState(state.waitingTime);
+  const [message, setMessage] = useState("");
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
@@ -29,10 +31,26 @@ const Page3 = () => {
 
   //====================================================//Next Button Function
   const nextButton = async () => {
-    await dispatch(
-      addInfoPage({ workingDays, address, careersLicense, waitingTime })
-    );
-    history("/doctorsignup4");
+    if (workingDays) {
+      if (address) {
+        if (careersLicense) {
+          if (waitingTime) {
+            await dispatch(
+              addInfoPage({ workingDays, address, careersLicense, waitingTime })
+            );
+            history("/doctorsignup4");
+          } else {
+            setMessage("PLEASE FILL THE WORKING DAYS INPUT ");
+          }
+        } else {
+          setMessage("PLEASE FILL THE ADDRESS INPUT ");
+        }
+      } else {
+        setMessage("PLEASE FILL THE CAREER LICENSE INPUT ");
+      }
+    } else {
+      setMessage("PLEASE FILL THE WATING TIME INPUT ");
+    }
   };
 
   //====================================================//Return
@@ -94,6 +112,13 @@ const Page3 = () => {
               <BsFillArrowRightCircleFill />
             </button>
           </div>
+          {message && (
+            <div className="messageDoctorRegister">
+              <FcCancel />
+              {message}
+              <FcCancel />
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -7,6 +7,7 @@ import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
+import { FcCancel } from "react-icons/fc";
 
 //CSS File
 import "./Page2.css";
@@ -24,6 +25,7 @@ const Page2 = () => {
   const [phone, setPhone] = useState(state.phone);
   const [latitude, setLatitude] = useState(state.latitude);
   const [longitude, setLongitude] = useState(state.longitude);
+  const [message, setMessage] = useState("");
 
   // =========================================================================
 
@@ -42,17 +44,33 @@ const Page2 = () => {
 
   //====================================================//Next Button Function
   const nextButton = async () => {
-    await dispatch(
-      addInfoPage({
-        gender,
-        Nationality,
-        specialization,
-        phone,
-        latitude,
-        longitude,
-      })
-    );
-    history("/doctorsignup3");
+    if (Nationality) {
+      if (specialization) {
+        if (phone) {
+          if (latitude && longitude) {
+            await dispatch(
+              addInfoPage({
+                gender,
+                Nationality,
+                specialization,
+                phone,
+                latitude,
+                longitude,
+              })
+            );
+            history("/doctorsignup3");
+          } else {
+            setMessage("PLEASE SELECT THE LOCATION INPUT ");
+          }
+        } else {
+          setMessage("PLEASE FILL THE PHONE INPUT ");
+        }
+      } else {
+        setMessage("PLEASE FILL THE SPECIALIZATION INPUT ");
+      }
+    } else {
+      setMessage("PLEASE FILL THE NATIONALITY INPUT ");
+    }
   };
 
   //====================================================//Return
@@ -133,6 +151,13 @@ const Page2 = () => {
               <BsFillArrowRightCircleFill />
             </button>
           </div>
+          {message && (
+            <div className="messageDoctorRegister">
+              <FcCancel />
+              {message}
+              <FcCancel />
+            </div>
+          )}
         </div>
       </div>
     </>

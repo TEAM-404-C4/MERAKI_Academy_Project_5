@@ -35,10 +35,16 @@
 .doctorCity,
 .doctorScientificCertificate {
   width: 400px;
-  padding: 20px;
+  padding: 15px;
   border-radius: 5px;
   border: 2px solid grey;
   text-align: left;
   padding-left: 10px;
-  height: 30px;
+  height: 50px;
+}
+.messageDoctorRegister {
+  color: red;
+  font-weight: bolder;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
 }
