@@ -11,7 +11,7 @@ import { FaUserMd } from "react-icons/fa";
 import { GrCertificate } from "react-icons/gr";
 import { HiLocationMarker } from "react-icons/hi";
 import { AiOutlineFieldTime } from "react-icons/ai";
-import { MdOutlineAttachMoney } from "react-icons/md";
+import { MdOutlineAttachMoney, MdOutlineStarRate } from "react-icons/md";
 import { GiMoneyStack } from "react-icons/gi";
 import { FcCancel } from "react-icons/fc";
 
@@ -124,22 +124,24 @@ const CardDoctor = ({
               history("/DoctorProfile");
             }}
           >
-            <div className="DoctorName">Doctor</div>. {fullName}
+            <div className="DoctorName">DOCTOR</div>. {fullName.toUpperCase()}
           </div>
-          <div className="Rating">
+          <div className="card-row">
+            <MdOutlineStarRate />
+               
             {comments.length ? (
               <div className="filledStars">
-                <span className="ratingNumber">{average(ratingGroup)}</span>
-                {ratingCard()}
+                {ratingCard()}  
+                {average(ratingGroup).toFixed(2)}
               </div>
             ) : (
-              <div className="emptyString">
+              <>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
                 <span className="fa fa-star"></span>
-              </div>
+              </>
             )}
           </div>
 
@@ -147,34 +149,38 @@ const CardDoctor = ({
             <FaUserMd style={{ color: "#91D1BD" }} />
                {Department} specialized in {specialization}
           </div>
-          <div className="card-row">
-            {/* <div>
+          {/* <div className="card-row">
+             <div>
               <GrCertificate />   Scientific Certificate :{" "}
               {ScientificCertificate}
-            </div> */}
-          </div>
-          <div className="card-row">
+            </div> 
+          </div> */}
+          {/* <div className="card-row">
             <div>
               <HiLocationMarker style={{ color: "#0d79e5" }} />
                  Location : {city},{address}
             </div>
-          </div>
-          <div className="card-row">
-            {/* <div>
+          </div> */}
+          {/* <div className="card-row">
+             <div>
               <AiOutlineFieldTime style={{ color: "red" }} />   Waiting time :
               {waitingTime}
-            </div> */}
-          </div>
+            </div>
+          </div> */}
           <div className="card-row">
-            {/* <div>
+            <div>
               <GiMoneyStack style={{ color: "#0EB800" }} />
                  Fees : {consultationFee}
-            </div> */}
+            </div>
+          </div>
+          <div className="card-row">
             <a
+              className="doctorLocation"
               href={`https://www.google.com/maps?q=${latitude},${longitude}`}
               target="_blank"
             >
-              set my location
+              <HiLocationMarker style={{ color: "#0d79e5" }} />
+                {city},{address}
             </a>
           </div>
           <div className="card-row">

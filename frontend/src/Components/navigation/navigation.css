@@ -13,6 +13,7 @@
   position: sticky;
   top: 0px;
   z-index: 5;
+  border-bottom: 1px solid #4397cf;
 }
 
 .logo {
@@ -34,14 +35,16 @@
   width: auto;
   background-color: #1c2e4c;
   gap: 40px;
-  padding: 20px;
+  padding: 12px;
+  margin-top: 10px;
   margin-right: 50px;
 }
 
 a {
   text-decoration: none;
   color: #0d79e5;
-  padding: 10px;
+  padding: 12px;
+  border-radius: 12px;
 }
 
 .logo:hover {
@@ -58,12 +61,18 @@ a {
   border-radius: 10px;
   display: flex;
   justify-content: center;
+  border: 1px solid #4397cf;
+
   align-items: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .option:hover {
   background-color: #0d79e5;
+  border: 1px solid white;
+
+  color: white;
+  margin-top: -10px;
 }
 a:hover {
   color: white;
@@ -98,7 +107,11 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid #4397cf;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.option1:hover {
+  border: 1px solid white;
 }
 
 .ProfileImageDiv {
@@ -110,13 +123,12 @@ a:hover {
   width: 50px;
   height: 50px;
 }
-.ProfileImageDiv:hover{
-  cursor:auto;
-}
+
 .profileImg {
   height: 40px;
-  width: 40px;
+  width: 40x;
   border-radius: 7px;
+  border-radius: 50%;
 }
 
 .drName {

@@ -1,10 +1,12 @@
- 
-.pageNumbers {
+/* .pageNumbers {
   list-style: none;
   display: flex;
-}
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+} */
 
-.pageNumbers li {
+/* .pageNumbers li {
   padding: 10px;
   border: 1px solid white;
   cursor: pointer;
@@ -16,7 +18,7 @@
 }
 
 .pageNumbers li button {
-  background-color:black;
+  background-color: black;
   border: none;
   color: white;
   font-size: 1.5rem;
@@ -38,4 +40,4 @@
   font-size: 1.2rem;
   border: 1px solid white;
   cursor: pointer;
-}
+} */
