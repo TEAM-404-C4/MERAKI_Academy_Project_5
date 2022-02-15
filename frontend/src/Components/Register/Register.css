@@ -38,12 +38,14 @@
 }
 
 .firstNamePatient,
+.lastNamePatient,
 .lastNamePatient {
   width: 260px;
   padding: 20px;
   height: 20px;
   border-radius: 5px;
   text-align: left;
+  padding-left: 10px;
 }
 
 .patientGender {
@@ -66,13 +68,16 @@
   height: 20px;
   border-radius: 5px;
   border: 2px solid grey;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .phonePatient,
 .passwordPatient,
-.firstNamePatient,
-.lastNamePatient::placeholder {
+.lastNamePatient,
+.firstNamePatient::placeholder {
   font-family: "Righteous", cursive;
+  text-align: left;
 }
 
 .phonePatient,
