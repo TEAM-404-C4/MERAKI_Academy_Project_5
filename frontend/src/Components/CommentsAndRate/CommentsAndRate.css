@@ -7,18 +7,20 @@
   padding: 10px;
   border-radius: 12px;
 }
-.rateInsideComments{
-  display:flex;
-  flex-direction:row-reverse;
-  align-items:center;
-  justify-content:center;
+.rateInsideComments {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
   background-color: rgb(12, 26, 50);
   border-radius: 12px;
-  gap:3vw;
-padding-right:3vw;
+  gap: 3vw;
+  padding-right: 3vw;
+  border: 1px solid #4397cf;
 }
 .commentRatingElement {
   background-color: rgb(12, 26, 50);
+  border: 1px solid #4397cf;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -73,13 +75,14 @@ padding-right:3vw;
 }
 
 .commentRateInput {
-  background-color: rgba(16 31 55 /0%);
-
+  background-color: rgb(12, 26, 50);
   height: 50px;
   width: 100%;
   outline: none;
   border: none;
-  border-right : 0.2px red;
+  border-right: 3px solid rgb(142, 142, 142);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
   color: white;
   font-family: "Bebas Neue", cursive;
   font-size: 17px;
@@ -103,6 +106,7 @@ padding-right:3vw;
   border: none;
   outline: none;
   background-color: rgb(12, 26, 50);
+  border: 1px solid #4397cf;
   font-size: 15px;
   color: grey;
   font-weight: bold;
@@ -111,7 +115,6 @@ padding-right:3vw;
 }
 .rateCommentButton:hover {
   background-color: #0d79e5;
-
   cursor: pointer;
   color: white;
 }
@@ -129,6 +132,7 @@ padding-right:3vw;
 }
 
 .showReviewsBtn {
+  border: 1px solid #4397cf;
   width: 150px;
   height: 50px;
   border-radius: 12px;
