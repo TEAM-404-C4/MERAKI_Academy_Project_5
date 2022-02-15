@@ -73,19 +73,19 @@ const Register = () => {
       <div className="signUpInstructions">
         <span className="register">Register Now It's Free.</span>
         <span className="inst">
-          <BsCheckSquareFill style={{ color: "green" }} />  Why to Register on
+          <BsCheckSquareFill style={{ color: "#3581cc" }} />  Why to Register on
           Shafaa Network?
         </span>
         <span className="inst">
-          <BsCheckSquareFill style={{ color: "green" }} />  Access a Large
+          <BsCheckSquareFill style={{ color: "#3581cc" }} />  Access a Large
           Network of Doctor.
         </span>
         <span className="inst">
-          <BsCheckSquareFill style={{ color: "green" }} />  Get Medical
+          <BsCheckSquareFill style={{ color: "#3581cc" }} />  Get Medical
           Consultations via Phone Call or Whats App.
         </span>
         <span className="inst">
-          <BsCheckSquareFill style={{ color: "green" }} />  Book Your Doctor
+          <BsCheckSquareFill style={{ color: "#3581cc" }} />  Book Your Doctor
           Visit Online.
         </span>
         <div>
