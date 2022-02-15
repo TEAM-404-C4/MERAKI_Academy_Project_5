@@ -41,7 +41,7 @@ const doctorLogin = (req, res) => {
           role: result[0].roleId,
           profileImage: result[0].profileImage,
         });
-        console.log(result)
+        console.log(result);
       } catch (error) {
         throw new Error(error.message);
       }
@@ -78,7 +78,7 @@ const login = (req, res, next) => {
         console.log(result);
         res.status(200).json({
           success: true,
-          message: `Valid login credentials`,
+          message: `Login Successfully`,
           token: token,
           userId: result,
           role: result[0].roleId,

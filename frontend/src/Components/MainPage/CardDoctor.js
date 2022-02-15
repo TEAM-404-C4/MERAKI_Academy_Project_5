@@ -183,7 +183,7 @@ const CardDoctor = ({
                 {city},{address}
             </a>
           </div>
-          <div className="card-row">
+          <div className="card-row-btn">
             <button
               className="bookingBtn"
               value={id}
