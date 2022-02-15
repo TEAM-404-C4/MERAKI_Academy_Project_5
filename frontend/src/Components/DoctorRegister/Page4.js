@@ -5,6 +5,7 @@ import { addInfoPage } from "../Reducer/DoctorRegister/index";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BsCheckSquareFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { FcCancel } from "react-icons/fc";
 
 //CSS File
 import "./Page4.css";
@@ -27,6 +28,7 @@ const Page4 = () => {
     setScientificCertificateDoctorRegister,
   ] = useState("");
   const [message, setMessage] = useState("");
+  const [messageRequired, setMessageRequired] = useState("");
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
@@ -35,38 +37,57 @@ const Page4 = () => {
   //====================================================//Next Button Function
   const nextButton = async () => {
     try {
-      const res = await dispatch(
-        addInfoPage({
-          consultationFee,
-          departmentDoctorRegister,
-          cityDoctorRegister,
-          roleId: 2,
-          ScientificCertificateDoctorRegister,
-        })
-      );
-
-      const result = await axios.post("http://localhost:5000/doctors/", {
-        fullName: state.doctorInfo.fullName,
-        email: state.doctorInfo.email,
-        password: state.doctorInfo.password,
-        profileImage: state.doctorInfo.profileImage,
-        gender: state.doctorInfo.gender,
-        Nationality: state.doctorInfo.Nationality,
-        specialization: state.doctorInfo.specialization,
-        phone: state.doctorInfo.phone,
-        workingDays: state.doctorInfo.workingDays,
-        address: state.doctorInfo.address,
-        careersLicense: state.doctorInfo.careersLicense,
-        waitingTime: state.doctorInfo.waitingTime,
-        consultationFee: res.payload.consultationFee,
-        latitude: state.doctorInfo.latitude,
-        longitude: state.doctorInfo.longitude,
-        departmentId: res.payload.departmentDoctorRegister,
-        cityId: res.payload.cityDoctorRegister,
-        roleId: 2,
-        ScientificCertificate: res.payload.ScientificCertificateDoctorRegister,
-      });
-      history("/login");
+      if (consultationFee) {
+        if (departmentDoctorRegister) {
+          if (cityDoctorRegister) {
+            if (ScientificCertificateDoctorRegister) {
+              const res = await dispatch(
+                addInfoPage({
+                  consultationFee,
+                  departmentDoctorRegister,
+                  cityDoctorRegister,
+                  roleId: 2,
+                  ScientificCertificateDoctorRegister,
+                })
+              );
+              const result = await axios.post(
+                "http://localhost:5000/doctors/",
+                {
+                  fullName: state.doctorInfo.fullName,
+                  email: state.doctorInfo.email,
+                  password: state.doctorInfo.password,
+                  profileImage: state.doctorInfo.profileImage,
+                  gender: state.doctorInfo.gender,
+                  Nationality: state.doctorInfo.Nationality,
+                  specialization: state.doctorInfo.specialization,
+                  phone: state.doctorInfo.phone,
+                  workingDays: state.doctorInfo.workingDays,
+                  address: state.doctorInfo.address,
+                  careersLicense: state.doctorInfo.careersLicense,
+                  waitingTime: state.doctorInfo.waitingTime,
+                  consultationFee: res.payload.consultationFee,
+                  latitude: state.doctorInfo.latitude,
+                  longitude: state.doctorInfo.longitude,
+                  departmentId: res.payload.departmentDoctorRegister,
+                  cityId: res.payload.cityDoctorRegister,
+                  roleId: 2,
+                  ScientificCertificate:
+                    res.payload.ScientificCertificateDoctorRegister,
+                }
+              );
+              history("/login");
+            } else {
+              setMessage("PLEASE FILL THE SCINTIFIC CERTIFICATE INPUT ");
+            }
+          } else {
+            setMessage("PLEASE FILL THE CITY INPUT ");
+          }
+        } else {
+          setMessage("PLEASE FILL THE DEPARTMENT INPUT ");
+        }
+      } else {
+        setMessage("PLEASE FILL THE CONSULTATION TIME INPUT ");
+      }
     } catch (err) {
       console.log(err.response.data.err.sqlMessage);
       setMessage(err.response.data.err.sqlMessage);

@@ -112,6 +112,13 @@ const Page3 = () => {
               <BsFillArrowRightCircleFill />
             </button>
           </div>
+          {message && (
+            <div className="messageDoctorRegister">
+              <FcCancel />
+              {message}
+              <FcCancel />
+            </div>
+          )}
         </div>
       </div>
     </>
