@@ -6,13 +6,13 @@ const getAllFeedBack=(req, res)=>{
         if (err) {
             res.status(500).json({
               success: false,
-              massage: "server error",
+              message: "server error",
               err: err,
             });
           }
           res.status(200).json({
             success: true,
-            massage: "All the Feed Back",
+            message: "All the Feed Back",
             results: result,
           });
     })
@@ -25,13 +25,13 @@ const createNewFeedBack=(req, res)=>{
         if (err) {
             res.status(500).json({
               success: false,
-              massage: "server error",
+              message: "server error",
               err: err,
             });
           }
           res.status(201).json({
             success: true,
-            massage: "Thank You For Send FeedBack"
+            message: "Thank You For Send FeedBack"
           });
     });
 };
@@ -42,13 +42,13 @@ connection.query(query,data,(err, result)=>{
     if (err) {
         res.status(500).json({
           success: false,
-          massage: "server error",
+          message: "server error",
           err: err,
         });
       }
       res.status(202).json({
         success: true,
-        massage: `SuccessFully Deleted feedback where id => ${req.params.id}`
+        message: `SuccessFully Deleted feedback where id => ${req.params.id}`
       });
 });
 };

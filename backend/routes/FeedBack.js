@@ -13,6 +13,6 @@ const FeedBackRouter = express.Router();
 
 FeedBackRouter.post("/", createNewFeedBack);
 FeedBackRouter.get('/',getAllFeedBack);
-FeedBackRouter.put('/',deleteFeedback);
+FeedBackRouter.put('/:id',deleteFeedback);
 
 module.exports = FeedBackRouter;
