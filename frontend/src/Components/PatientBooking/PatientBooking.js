@@ -19,6 +19,7 @@ export default function PatientBooking() {
   useEffect(() => {
     getAppointement();
   }, [deleteBookingRes]);
+  // =========================================
   const getAppointement = async () => {
     try {
       const res = await axios.post(

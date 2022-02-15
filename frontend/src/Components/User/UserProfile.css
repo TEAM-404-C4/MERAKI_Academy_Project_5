@@ -11,3 +11,6 @@
 .patientAppointementMini {
   background-color: aqua;
 }
+.delete {
+  pointer-events: none;
+}
