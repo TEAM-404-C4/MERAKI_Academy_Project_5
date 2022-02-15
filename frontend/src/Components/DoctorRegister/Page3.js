@@ -7,6 +7,7 @@ import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
+import { FcCancel } from "react-icons/fc";
 
 //CSS File
 import "./Page3.css";
@@ -22,6 +23,7 @@ const Page3 = () => {
   const [address, setAddress] = useState(state.address);
   const [careersLicense, setCareersLicense] = useState(state.careersLicense);
   const [waitingTime, setWaitingTime] = useState(state.waitingTime);
+  const [message, setMessage] = useState("");
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();
