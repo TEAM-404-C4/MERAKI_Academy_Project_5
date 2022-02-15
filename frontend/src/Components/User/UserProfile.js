@@ -42,23 +42,23 @@ const UserProfile = () => {
 
   const deleteBooking = async (e) => {
     console.log("e.target.id", e.target.id);
-    // try {
-    //   const data = await e.target.id.split(",");
-    //   const res = await axios.post(
-    //     "http://localhost:5000/doctors/deletebooking",
-    //     {
-    //       patientId: state[0].id | window.localStorage.getItem("userId"),
-    //       appointmentId: data[0],
-    //       doctorId: data[2],
-    //       dateAppointment: data[1],
-    //     }
-    //   );
-    //   // console.log(res);
-    //   // console.log(res.data.result);
-    //   setDeleteBookingRes(res.data);
-    // } catch (err) {
-    //   console.log(err.response);
-    // }
+    try {
+      const data = await e.target.id.split(",");
+      const res = await axios.post(
+        "http://localhost:5000/doctors/deletebooking",
+        {
+          patientId: state[0].id | window.localStorage.getItem("userId"),
+          appointmentId: data[0],
+          doctorId: data[2],
+          dateAppointment: data[1],
+        }
+      );
+      // console.log(res);
+      // console.log(res.data.result);
+      setDeleteBookingRes(res.data);
+    } catch (err) {
+      console.log(err.response);
+    }
   };
 
   // =====================================

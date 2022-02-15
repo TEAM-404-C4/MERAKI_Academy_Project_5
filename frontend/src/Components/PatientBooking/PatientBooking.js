@@ -81,14 +81,17 @@ export default function PatientBooking() {
               <td className="row">{element.dateAppointment}</td>
               <td className="row">{element.phone}</td>
               <td>
-                <FcCancel
+                <button
+                  className="deleteButtons"
                   id={[
                     element.appointmentId,
                     element.dateAppointment,
                     element.patientId,
                   ]}
                   onClick={deleteBooking}
-                />
+                >
+                  <FcCancel className="delete" />
+                </button>
               </td>
             </tr>
           );
