@@ -12,7 +12,7 @@ import "./login.css";
 
 //====================================================//Create Login Function
 
-const Login = (e) => {
+const Login = () => {
   const history = useNavigate();
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");

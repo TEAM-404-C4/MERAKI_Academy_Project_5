@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import FeedBack from "../FeedBack/FeedBack"
+import FeedBack from "../FeedBack/FeedBack";
 const Footer = () => {
   return (
     <div className="footerMainDiv">
@@ -38,9 +38,7 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="footerSection">
-          <FeedBack/>
-        </div>
+        <div className="footerSection">{/* <FeedBack/> */}</div>
       </div>
     </div>
   );
