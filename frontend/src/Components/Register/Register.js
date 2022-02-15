@@ -10,7 +10,7 @@ const Register = () => {
   const [lastNamePatient, setLastNamePatient] = useState("");
   const [phonePatient, setPhonePatient] = useState("");
   const [passwordPatient, setPasswordPatient] = useState("");
-  const [gender, setGender] = useState("MALE");
+  const [gender, setGender] = useState("Male");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
 
@@ -50,7 +50,7 @@ const Register = () => {
         setFirstNamePatient("");
         setLastNamePatient("");
         setPhonePatient("");
-        setGender("MALE");
+        setGender("");
         setPasswordPatient("");
         setStatus(true);
         navigate("/login");
@@ -68,7 +68,7 @@ const Register = () => {
   return (
     <>
       <div className="RegisterHeader">
-        <h1>Sign Up</h1>
+        <h1 className="signUpDiv">Sign Up</h1>
       </div>
       <div className="signUpInstructions">
         <span className="register">Register Now It's Free.</span>
@@ -112,7 +112,7 @@ const Register = () => {
           />
         </div>
 
-        <select onChange={genderHandler}>
+        <select onChange={genderHandler} className="patientGender" required>
           <option value="MALE">MALE</option>
           <option value="FEMALE">FEMALE</option>
         </select>

@@ -31,7 +31,7 @@
   height: 30px;
 }
 .doctorGender {
-  font: inherit;
+  font-family: "Righteous", cursive;
   width: 400px;
   height: 45px;
   border-radius: 5px;
