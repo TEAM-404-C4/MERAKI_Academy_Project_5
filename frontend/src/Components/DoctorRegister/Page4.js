@@ -77,16 +77,18 @@ const Page4 = () => {
               );
               history("/login");
             } else {
-              setMessage("PLEASE FILL THE SCINTIFIC CERTIFICATE INPUT ");
+              setMessageRequired(
+                "PLEASE FILL THE SCINTIFIC CERTIFICATE INPUT "
+              );
             }
           } else {
-            setMessage("PLEASE FILL THE CITY INPUT ");
+            setMessageRequired("PLEASE FILL THE CITY INPUT ");
           }
         } else {
-          setMessage("PLEASE FILL THE DEPARTMENT INPUT ");
+          setMessageRequired("PLEASE FILL THE DEPARTMENT INPUT ");
         }
       } else {
-        setMessage("PLEASE FILL THE CONSULTATION TIME INPUT ");
+        setMessageRequired("PLEASE FILL THE CONSULTATION TIME INPUT ");
       }
     } catch (err) {
       console.log(err.response.data.err.sqlMessage);
@@ -180,6 +182,13 @@ const Page4 = () => {
             </button>
           </div>
           {message ? <p>{message}</p> : ""}
+          {messageRequired && (
+            <div className="messageDoctorRegister">
+              <FcCancel />
+              {messageRequired}
+              <FcCancel />
+            </div>
+          )}
         </div>
       </div>
     </>

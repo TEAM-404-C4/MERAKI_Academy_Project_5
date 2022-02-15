@@ -47,17 +47,21 @@ const Page2 = () => {
     if (Nationality) {
       if (specialization) {
         if (phone) {
-          await dispatch(
-            addInfoPage({
-              gender,
-              Nationality,
-              specialization,
-              phone,
-              latitude,
-              longitude,
-            })
-          );
-          history("/doctorsignup3");
+          if (latitude && longitude) {
+            await dispatch(
+              addInfoPage({
+                gender,
+                Nationality,
+                specialization,
+                phone,
+                latitude,
+                longitude,
+              })
+            );
+            history("/doctorsignup3");
+          } else {
+            setMessage("PLEASE SELECT THE LOCATION INPUT ");
+          }
         } else {
           setMessage("PLEASE FILL THE PHONE INPUT ");
         }
