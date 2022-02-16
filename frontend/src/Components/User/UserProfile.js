@@ -28,7 +28,7 @@ const UserProfile = () => {
 
       const res2 = await axios.post(
         `http://localhost:5000/doctors/getappointementpatient`,
-        { patientId: state[0].id }
+        { patientId: window.localStorage.getItem('userIdForSettings') }
       );
       // console.log(res2.data);
       // console.log(res2.data.result[0]["Appointment Time  "]);
@@ -69,32 +69,33 @@ const UserProfile = () => {
     //     <h3>{`${patient.firstName}1-${patient.lastName}`}</h3>
     //     <p>{patient.phone}</p>
     //   </div>
-    <div className="patientBookingMainDiv">
-      <table className="patientTableDashboardMainDiv">
+    <div className="patient_Profile">
+      {(patientAppointment.length===0)? <h2 className="Check_Booking_DashBord">You Don't Have Any Bookings</h2>: (
+      <table className="patient_Table_Profile_Main_Div">
         <thead>
-          <tr className="patientTableDashboardTitle">
-            <th className="titleNo">No.</th>
-            <th className="title">Doctor Name</th>
-            <th className="title">Doctor Phone Number</th>
-            <th className="title">Doctor Email</th>
-            <th className="title">Doctor Address </th>
-            <th className="title">Date Appointment </th>
-            <th className="title">Delete Booking </th>
+          <tr className="patient_Table_Profile_Title">
+            <th className="titleNo_Profile">No.</th>
+            <th className="title_Profile">Doctor Name</th>
+            <th className="title_Profile">Doctor Phone Number</th>
+            <th className="title_Profile">Doctor Email</th>
+            <th className="title_Profile">Doctor Address </th>
+            <th className="title_Profile">Date Appointment </th>
+            <th className="title_Profile">Delete Booking </th>
           </tr>
         </thead>
-
+       
         <tbody>
           {patientAppointment.map((element, index) => {
             return (
-              <tr className="patientTableDashboard">
-                <td className="rowNo">{index + 1}</td>
+              <tr className="patient_Table_Profile">
+                <td className="rowNo_Profile">{index + 1}</td>
 
-                <td className="row">{element["Doctor Name "]}</td>
-                <td className="row">{element["Doctor Phone Number "]}</td>
-                <td className="row">{element["Doctor Email  "]}</td>
-                <td className="row">{element["Doctor Address "]}</td>
-                <td className="row">{element["Date Appointment  "]}</td>
-                <td className="row">{element["Appointment Time  "]}</td>
+                <td className="row_Profile">{element["Doctor Name "]}</td>
+                <td className="row_Profile">{element["Doctor Phone Number "]}</td>
+                <td className="row_Profile">{element["Doctor Email  "]}</td>
+                <td className="row_Profile">{element["Doctor Address "]}</td>
+                <td className="row_Profile">{element["Date Appointment  "]}</td>
+                <td className="row_Profile">{element["Appointment Time  "]}</td>
 
                 <td>
                   <button
@@ -114,6 +115,8 @@ const UserProfile = () => {
           })}
         </tbody>
       </table>
+      )}
+
     </div>
   );
 };

@@ -79,8 +79,8 @@ const DoctorProfile = () => {
     try {
       const res = await axios.post(`http://localhost:5000/doctors/booking`, {
         appointmentId: e.target.value,
-        patientId: state.userId.id,
-        doctorId: state.doctorId,
+        patientId: window.localStorage.getItem('userIdForSettings'),
+        doctorId: window.localStorage.getItem('doctorId'),
         dateAppointment: date || today,
       });
 

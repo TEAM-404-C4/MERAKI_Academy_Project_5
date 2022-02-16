@@ -1,10 +1,18 @@
 .patientBookingMainDiv {
-  max-height: 500px;
-  min-height: 100vh;
+  max-height: 80vh;
+  min-height: 20vh;
+  margin-top:2vh;
+  /* overflow: scroll; */
+  /* display:flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-content: center; */
 }
 
 .patientTableDashboardMainDiv {
   border: 1px solid #ffffff;
+  overflow: scroll;
+
 }
 
 .patientTableDashboardTitle {
@@ -47,4 +55,7 @@
   border: 1px solid #ffffff;
   width: 50px;
   font-size: 15px;
+}
+.Check_Booking_DashBord{
+  color: white;
 }
