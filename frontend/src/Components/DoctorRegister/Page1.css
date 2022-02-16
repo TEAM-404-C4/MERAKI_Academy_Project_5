@@ -125,12 +125,6 @@
   border-radius: 50%;
   outline: 2px solid #4397cf;
 }
-.messageDoctorRegister {
-  color: red;
-  font-weight: bolder;
-  font-family: "Times New Roman", Times, serif;
-  font-style: italic;
-}
 
 .profilePictureDiv {
   display: flex;
