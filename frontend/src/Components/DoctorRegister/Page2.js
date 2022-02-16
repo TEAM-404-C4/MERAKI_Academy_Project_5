@@ -141,7 +141,7 @@ const Page2 = () => {
             <input
               value={phone}
               placeholder="PHONE"
-              type="text"
+              type="number"
               className="doctorPhone"
               onChange={(e) => {
                 setPhone(e.target.value);

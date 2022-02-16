@@ -132,7 +132,7 @@ const CardDoctor = ({
             {comments.length ? (
               <div className="filledStars">
                 {ratingCard()}  
-                {average(ratingGroup).toFixed(2)}
+                {average(ratingGroup).toFixed(1)}
               </div>
             ) : (
               <>
@@ -170,7 +170,7 @@ const CardDoctor = ({
           <div className="card-row">
             <div>
               <GiMoneyStack style={{ color: "#0EB800" }} />
-                 Fees : {consultationFee}
+                 Fees : {consultationFee} $
             </div>
           </div>
           <div className="card-row">
