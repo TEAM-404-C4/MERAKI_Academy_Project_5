@@ -128,7 +128,7 @@ const Page3 = () => {
             <div className="nextbtn3Div">
               <button
                 onClick={nextButton}
-                className="backBtn2"
+                className="backBtn3"
                 onClick={() => {
                   history("/doctorsignup2");
                 }}
