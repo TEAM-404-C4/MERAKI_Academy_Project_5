@@ -122,7 +122,6 @@ const Setting = () => {
           },
         }
       );
-      console.log(result);
       if (result.data.success) {
         const myTimeout = setTimeout(logout, 2000);
         Swal.fire({
@@ -163,9 +162,7 @@ const Setting = () => {
           },
         }
       );
-      console.log(result);
       if (result.data.success) {
-        console.log(result);
         const myTimeout = setTimeout(logout, 2000);
         Swal.fire({
           position: "center",
@@ -190,7 +187,6 @@ const Setting = () => {
 
   // ======================================================= Change Doctor Information
   const changeDoctorInfo = async (e) => {
-    console.log("From inside");
     e.preventDefault();
     try {
       const result = await axios.put(
@@ -240,10 +236,7 @@ const Setting = () => {
   // ======================================================= get Doctor by name
   const getDoctoById = async () => {
     try {
-      const result = await axios.get(
-        `http://localhost:5000/doctors/${localStorage.getItem("userId")}`
-      );
-      console.log(result.data.result[0]);
+      const result = await axios.get(`http://localhost:5000/doctors/1`);
       if (result.data.success) {
         setFullName(result.data.result[0].fullName);
         setEmail(result.data.result[0].email);
