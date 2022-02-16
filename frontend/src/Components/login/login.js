@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import GoogleSignIn from "../GoogleLogin/googleLogin";
 import Swal from "sweetalert2";
-
+import Facebook from "../Facebook/Facebook"
 //CSS File
 import "./login.css";
 
@@ -118,6 +118,7 @@ const Login = () => {
           </div>
           <div className="googleLogin">
             <GoogleSignIn />
+            <Facebook/>
           </div>
         </form>
       </div>
