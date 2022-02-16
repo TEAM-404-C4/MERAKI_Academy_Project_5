@@ -35,7 +35,7 @@ export default function FullCalender() {
           doctorId: state.userId | window.localStorage.getItem("userId"),
         }
       );
-      console.log(res);
+      console.log("state", state);
       console.log(res.data.result);
       setAppointement(res.data.result);
     } catch (err) {
@@ -51,6 +51,7 @@ export default function FullCalender() {
 
   const handleDateClick = (dateClickInfo) => {
     console.log(dateClickInfo.dateStr);
+    console.log(state);
     setDayAppointment(dateClickInfo.dateStr);
   };
 
@@ -101,7 +102,7 @@ export default function FullCalender() {
           plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
           events={events}
           onClick={(e) => {
-            console.log(e.target);
+            // console.log(e.target);
           }}
           dateClick={handleDateClick}
         />
