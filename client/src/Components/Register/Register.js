@@ -37,7 +37,7 @@ const Register = () => {
   const submitPatientRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/patients/create", {
+      const res = await axios.post("/patients/create", {
         firstName: firstNamePatient,
         lastName: lastNamePatient,
         phone: phonePatient,

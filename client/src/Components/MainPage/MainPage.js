@@ -35,7 +35,7 @@ const MainPage = () => {
   //====================================================//Create Get All Doctors
   const getAllDoctors = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/doctors");
+      const res = await axios.get("/doctors");
       if (res.data.success) {
         console.log(res.data.results);
         setDoctors(res.data.results);

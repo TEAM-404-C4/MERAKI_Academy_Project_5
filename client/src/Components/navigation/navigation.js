@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RiContrastDropLine, RiLogoutCircleRLine } from "react-icons/ri";
 import { BsFillCalendarWeekFill } from "react-icons/bs";
 import { MdOutlineEmergency } from "react-icons/md";
-import {FiSettings} from "react-icons/fi"
+import { FiSettings } from "react-icons/fi";
 import axios from "axios";
 
 //====================================================// Navigation function
@@ -35,7 +35,7 @@ const Navigation = () => {
   const profileImage = async () => {
     try {
       const result = await axios.post(
-        "http://localhost:5000/doctors/profileimage",
+        "/doctors/profileimage",
         {},
         {
           headers: {
@@ -99,7 +99,6 @@ const Navigation = () => {
                 patient profile
               </button> */}
             </div>
-            
           ) : (
             <></>
           )}
@@ -109,9 +108,7 @@ const Navigation = () => {
                 <FiSettings />
               </Link>
               <div></div>
-              
             </div>
-            
           ) : (
             <></>
           )}

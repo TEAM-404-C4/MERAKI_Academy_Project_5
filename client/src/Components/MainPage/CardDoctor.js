@@ -48,7 +48,7 @@ const CardDoctor = ({
 
   useEffect(async () => {
     try {
-      const res = await axios.post("http://localhost:5000/comment/", {
+      const res = await axios.post("/comment/", {
         doctorId: id,
       });
       console.log(res.data.result);
@@ -113,7 +113,6 @@ const CardDoctor = ({
               dispatch(setDoctor(id));
               history("/DoctorProfile");
               window.localStorage.setItem("doctorId", id);
-
             }}
           />
         </div>
@@ -125,7 +124,6 @@ const CardDoctor = ({
               dispatch(setDoctor(id));
               history("/DoctorProfile");
               window.localStorage.setItem("doctorId", id);
-
             }}
           >
             <div className="DoctorName">DOCTOR . {fullName.toUpperCase()}</div>

@@ -52,31 +52,28 @@ const Page4 = () => {
                   ScientificCertificateDoctorRegister,
                 })
               );
-              const result = await axios.post(
-                "http://localhost:5000/doctors/",
-                {
-                  fullName: state.doctorInfo.fullName,
-                  email: state.doctorInfo.email,
-                  password: state.doctorInfo.password,
-                  profileImage: state.doctorInfo.profileImage,
-                  gender: state.doctorInfo.gender,
-                  Nationality: state.doctorInfo.Nationality,
-                  specialization: state.doctorInfo.specialization,
-                  phone: state.doctorInfo.phone,
-                  workingDays: state.doctorInfo.workingDays,
-                  address: state.doctorInfo.address,
-                  careersLicense: state.doctorInfo.careersLicense,
-                  waitingTime: state.doctorInfo.waitingTime,
-                  consultationFee: res.payload.consultationFee,
-                  latitude: state.doctorInfo.latitude,
-                  longitude: state.doctorInfo.longitude,
-                  departmentId: res.payload.departmentDoctorRegister,
-                  cityId: res.payload.cityDoctorRegister,
-                  roleId: 2,
-                  ScientificCertificate:
-                    res.payload.ScientificCertificateDoctorRegister,
-                }
-              );
+              const result = await axios.post("/doctors/", {
+                fullName: state.doctorInfo.fullName,
+                email: state.doctorInfo.email,
+                password: state.doctorInfo.password,
+                profileImage: state.doctorInfo.profileImage,
+                gender: state.doctorInfo.gender,
+                Nationality: state.doctorInfo.Nationality,
+                specialization: state.doctorInfo.specialization,
+                phone: state.doctorInfo.phone,
+                workingDays: state.doctorInfo.workingDays,
+                address: state.doctorInfo.address,
+                careersLicense: state.doctorInfo.careersLicense,
+                waitingTime: state.doctorInfo.waitingTime,
+                consultationFee: res.payload.consultationFee,
+                latitude: state.doctorInfo.latitude,
+                longitude: state.doctorInfo.longitude,
+                departmentId: res.payload.departmentDoctorRegister,
+                cityId: res.payload.cityDoctorRegister,
+                roleId: 2,
+                ScientificCertificate:
+                  res.payload.ScientificCertificateDoctorRegister,
+              });
               history("/login");
             } else {
               Swal.fire({

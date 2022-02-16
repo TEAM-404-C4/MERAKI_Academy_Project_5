@@ -12,7 +12,7 @@ const Facebook = () => {
 
   const responseFacebook = (response) => {
     axios
-      .post("http://localhost:5000/patients/googlelogin", {
+      .post("/patients/googlelogin", {
         firstName: response.name,
         lastName: "",
         phone: response.email,

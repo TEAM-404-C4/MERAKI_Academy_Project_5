@@ -45,22 +45,17 @@ const DoctorProfile = () => {
     console.log("state.doctorId", state.doctorId, state.doctorId.doctorId);
     try {
       const res = await axios.get(
-        `http://localhost:5000/doctors/${window.localStorage.getItem(
-          "doctorId"
-        )}`
+        `/doctors/${window.localStorage.getItem("doctorId")}`
       );
       console.log("Doctor id", state.doctorId, res);
       setDoctor(res.data.result[0]);
       console.log("dd", res.data.result[0]);
       // ===================================================appointement
       console.log(today);
-      const res2 = await axios.post(
-        `http://localhost:5000/doctors/appointement`,
-        {
-          doctorId: state.doctorId,
-          dateAppointment: date || new Date().toISOString().substring(0, 10),
-        }
-      );
+      const res2 = await axios.post(`/doctors/appointement`, {
+        doctorId: state.doctorId,
+        dateAppointment: date || new Date().toISOString().substring(0, 10),
+      });
 
       console.log(res2.data.result);
       setAppointement(res2.data.result);
@@ -77,10 +72,10 @@ const DoctorProfile = () => {
     }
 
     try {
-      const res = await axios.post(`http://localhost:5000/doctors/booking`, {
+      const res = await axios.post(`/doctors/booking`, {
         appointmentId: e.target.value,
-        patientId: window.localStorage.getItem('userIdForSettings'),
-        doctorId: window.localStorage.getItem('doctorId'),
+        patientId: window.localStorage.getItem("userIdForSettings"),
+        doctorId: window.localStorage.getItem("doctorId"),
         dateAppointment: date || today,
       });
 

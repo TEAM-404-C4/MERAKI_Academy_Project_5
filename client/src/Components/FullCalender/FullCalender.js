@@ -10,8 +10,8 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import './FullCalender.css';
-import Appointement from "../DoctorAppointment/Appointement"
+import "./FullCalender.css";
+import Appointement from "../DoctorAppointment/Appointement";
 
 export default function FullCalender() {
   const [appointement, setAppointement] = useState([]);
@@ -32,12 +32,9 @@ export default function FullCalender() {
   }, []);
   const getAppointement = async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/doctors/getappointement",
-        {
-          doctorId: state.userId | window.localStorage.getItem("userId"),
-        }
-      );
+      const res = await axios.post("/doctors/getappointement", {
+        doctorId: state.userId | window.localStorage.getItem("userId"),
+      });
       console.log("state", state);
       console.log(res.data.result);
       setAppointement(res.data.result);
@@ -65,10 +62,10 @@ export default function FullCalender() {
         return dayAppointment == element.dateAppointment;
       });
 
-    return array.map((element1,index) => {
+    return array.map((element1, index) => {
       return (
         <tr className="patient_Table_Appointment_title">
-                <td className="rowNo_Appointment">{index + 1}</td>
+          <td className="rowNo_Appointment">{index + 1}</td>
 
           <td className="row_Appointment">{`${element1.firstName}  ${element1.lastName} `}</td>
           <td className="row_Appointment">{element1.time}</td>
@@ -90,52 +87,45 @@ export default function FullCalender() {
   return (
     <div>
       <div className="container">
-        
-<div className="calendar">
-        <FullCalendar
-          initialView="dayGridMonth"
-          on
-          header={{
-            left: "prev,next",
-            center: "title",
-            right: "dayGridMonth,timeGridWeek,timeGridDay",
-          }}
-          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-          events={events}
-          onClick={(e) => {
-            // console.log(e.target);
-          }}
-          dateClick={handleDateClick}
-          cssClass="full"
-        />
+        <div className="calendar">
+          <FullCalendar
+            initialView="dayGridMonth"
+            on
+            header={{
+              left: "prev,next",
+              center: "title",
+              right: "dayGridMonth,timeGridWeek,timeGridDay",
+            }}
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            events={events}
+            onClick={(e) => {
+              // console.log(e.target);
+            }}
+            dateClick={handleDateClick}
+            cssClass="full"
+          />
         </div>
-        <div >
+        <div>
+          {dayAppointment && (
+            <div className="TableBooking">
+              <Appointement />
 
-        {dayAppointment && (
-        <div className="TableBooking">
-        <Appointement />
+              <table className="patient_Table_Appointment">
+                <thead>
+                  <tr className="patient_Table_Appointment_title">
+                    <th className="titleNo_Appointment">No.</th>
 
-          <table className="patient_Table_Appointment">
-          <thead>
-          <tr className="patient_Table_Appointment_title">
-          <th className="titleNo_Appointment">No.</th>
-
-            <th className="title_Appointment">FullName</th>
-            <th className="title_Appointment">Time</th>
-            <th className="title_Appointment">Phone</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          {showDayAppointment()}
-        </tbody>
-
-        </table>
-        </div>
-      )}
+                    <th className="title_Appointment">FullName</th>
+                    <th className="title_Appointment">Time</th>
+                    <th className="title_Appointment">Phone</th>
+                  </tr>
+                </thead>
+                <tbody>{showDayAppointment()}</tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
-     
     </div>
   );
 }

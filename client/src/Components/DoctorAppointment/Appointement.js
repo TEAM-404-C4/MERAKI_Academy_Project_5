@@ -22,14 +22,11 @@ const Appointement = () => {
   // =============================================================
   const saveAppointement = async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/doctors/setappointement",
-        {
-          doctor_appointment: Object.values(schedual),
+      const res = await axios.post("/doctors/setappointement", {
+        doctor_appointment: Object.values(schedual),
 
-          doctorId: state[0].id,
-        }
-      );
+        doctorId: state[0].id,
+      });
 
       if (!res.data.success) {
         setRepeatAppointment(res.data.response);
@@ -104,7 +101,7 @@ const Appointement = () => {
   };
   // =======================================================
   const showSchedual = (e) => {
-    console.log(e.target.value)
+    console.log(e.target.value);
     let inner_Text = e.target.value;
     let id = e.target.id;
     let newObj = { [inner_Text]: id };
@@ -129,31 +126,60 @@ const Appointement = () => {
   return (
     <div className="AppointementDoctor">
       <div className="select_appointement">
-     
         <select onChange={showSchedual}>
-        <option value={0} disabled selected hidden>
-          Chose Time ...
-        </option>
-          <option value="9:00  - 9:30 am" id={1}>9:00  - 9:30 am</option>
-          <option value="9:30  - 10:00 am" id={2}>9:30  - 10:00 am</option>
-          <option value="10:00 - 10:30 am" id={3}>10:00 - 10:30 am</option>
-          <option value="10:30 - 11:00 am" id={4}>10:30 - 11:00 am</option>
-          <option value="11:00 - 11:30 am" id={5}>11:00 - 11:30 am</option>
-          <option value="11:30 - 12:00 pm" id={6}>11:30 - 12:00 pm</option>
-          <option value="12:00 - 12:30 pm" id={7}>12:00 - 12:30 pm</option>
-          <option value="12:30 - 1:00 pm" id={8}>12:30 - 1:00 pm</option>
-          <option value="1:00 - 1:30 pm" id={9}>1:00 - 1:30 pm</option>
-          <option value="1:30 - 2:00 pm" id={10}>1:30 - 2:00 pm</option>
-          <option value="2:00 - 2:30 pm" id={11}>2:00 - 2:30 pm</option>
-          <option value="2:30 - 3:00 pm" id={12}>2:30 - 3:00 pm</option>
-          <option value="3:00 - 3:30 pm" id={13}>3:00 - 3:30 pm</option>
-          <option value="3:30 - 4:00 pm" id={14}>3:30 - 4:00 pm</option>
-          <option value="4:00 - 4:30 pm" id={15}>4:00 - 4:30 pm</option>
-          <option value="4:30 - 5:00 pm" id={16}>4:30 - 5:00 pm</option>
-
+          <option value={0} disabled selected hidden>
+            Chose Time ...
+          </option>
+          <option value="9:00  - 9:30 am" id={1}>
+            9:00 - 9:30 am
+          </option>
+          <option value="9:30  - 10:00 am" id={2}>
+            9:30 - 10:00 am
+          </option>
+          <option value="10:00 - 10:30 am" id={3}>
+            10:00 - 10:30 am
+          </option>
+          <option value="10:30 - 11:00 am" id={4}>
+            10:30 - 11:00 am
+          </option>
+          <option value="11:00 - 11:30 am" id={5}>
+            11:00 - 11:30 am
+          </option>
+          <option value="11:30 - 12:00 pm" id={6}>
+            11:30 - 12:00 pm
+          </option>
+          <option value="12:00 - 12:30 pm" id={7}>
+            12:00 - 12:30 pm
+          </option>
+          <option value="12:30 - 1:00 pm" id={8}>
+            12:30 - 1:00 pm
+          </option>
+          <option value="1:00 - 1:30 pm" id={9}>
+            1:00 - 1:30 pm
+          </option>
+          <option value="1:30 - 2:00 pm" id={10}>
+            1:30 - 2:00 pm
+          </option>
+          <option value="2:00 - 2:30 pm" id={11}>
+            2:00 - 2:30 pm
+          </option>
+          <option value="2:30 - 3:00 pm" id={12}>
+            2:30 - 3:00 pm
+          </option>
+          <option value="3:00 - 3:30 pm" id={13}>
+            3:00 - 3:30 pm
+          </option>
+          <option value="3:30 - 4:00 pm" id={14}>
+            3:30 - 4:00 pm
+          </option>
+          <option value="4:00 - 4:30 pm" id={15}>
+            4:00 - 4:30 pm
+          </option>
+          <option value="4:30 - 5:00 pm" id={16}>
+            4:30 - 5:00 pm
+          </option>
         </select>
-        </div>
-     
+      </div>
 
       <div>
         <button onClick={saveAppointement}>click</button>

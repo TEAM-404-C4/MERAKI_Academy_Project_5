@@ -18,7 +18,7 @@ const GoogleSignIn = () => {
     console.log(googleData);
 
     axios
-      .post("http://localhost:5000/patients/googlelogin", {
+      .post("/patients/googlelogin", {
         firstName: googleData.profileObj.name,
         lastName: googleData.profileObj.familyName,
         phone: googleData.profileObj.email,
