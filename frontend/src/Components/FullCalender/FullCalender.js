@@ -10,6 +10,9 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import './FullCalender.css';
+import Appointement from "../DoctorAppointment/Appointement"
+
 export default function FullCalender() {
   const [appointement, setAppointement] = useState([]);
   const [dayAppointment, setDayAppointment] = useState("");
@@ -62,12 +65,14 @@ export default function FullCalender() {
         return dayAppointment == element.dateAppointment;
       });
 
-    return array.map((element1) => {
+    return array.map((element1,index) => {
       return (
-        <tr>
-          <td>{`${element1.firstName}  ${element1.lastName} `}</td>
-          <td>{element1.time}</td>
-          <td> {element1.phone}</td>
+        <tr className="patient_Table_Appointment_title">
+                <td className="rowNo_Appointment">{index + 1}</td>
+
+          <td className="row_Appointment">{`${element1.firstName}  ${element1.lastName} `}</td>
+          <td className="row_Appointment">{element1.time}</td>
+          <td className="row_Appointment"> {element1.phone}</td>
         </tr>
       );
     });
@@ -85,12 +90,8 @@ export default function FullCalender() {
   return (
     <div>
       <div className="container">
-        <div className="row title" style={{ marginTop: "20px" }}>
-          <div class="col-sm-12 btn btn-info">
-            FullCalendar In React Application
-          </div>
-        </div>
-
+        
+<div className="calendar">
         <FullCalendar
           initialView="dayGridMonth"
           on
@@ -105,18 +106,36 @@ export default function FullCalender() {
             // console.log(e.target);
           }}
           dateClick={handleDateClick}
+          cssClass="full"
         />
-      </div>
-      {dayAppointment && (
-        <table>
-          <tr>
-            <th>FullName</th>
-            <th>Time</th>
-            <th>Phone</th>
+        </div>
+        <div >
+
+        {dayAppointment && (
+        <div className="TableBooking">
+        <Appointement />
+
+          <table className="patient_Table_Appointment">
+          <thead>
+          <tr className="patient_Table_Appointment_title">
+          <th className="titleNo_Appointment">No.</th>
+
+            <th className="title_Appointment">FullName</th>
+            <th className="title_Appointment">Time</th>
+            <th className="title_Appointment">Phone</th>
           </tr>
+        </thead>
+        <tbody>
+
           {showDayAppointment()}
+        </tbody>
+
         </table>
+        </div>
       )}
+        </div>
+      </div>
+     
     </div>
   );
 }
