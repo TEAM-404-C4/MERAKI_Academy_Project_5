@@ -95,6 +95,7 @@ const UserProfile = () => {
                 <td className="row">{element["Doctor Address "]}</td>
                 <td className="row">{element["Date Appointment  "]}</td>
                 <td className="row">{element["Appointment Time  "]}</td>
+
                 <td>
                   <button
                     className="deleteButtons"
@@ -108,6 +109,7 @@ const UserProfile = () => {
                     <FcCancel className="delete" />
                   </button>
                 </td>
+
               </tr>
             );
           })}

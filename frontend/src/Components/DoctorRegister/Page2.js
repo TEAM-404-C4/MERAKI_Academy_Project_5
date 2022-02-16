@@ -7,10 +7,12 @@ import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
-import { FcCancel } from "react-icons/fc";
+import { GrMapLocation } from "react-icons/gr";
 
 //CSS File
 import "./Page2.css";
+
+import Swal from "sweetalert2";
 
 //====================================================//Page 2 Function
 const Page2 = () => {
@@ -25,7 +27,6 @@ const Page2 = () => {
   const [phone, setPhone] = useState(state.phone);
   const [latitude, setLatitude] = useState(state.latitude);
   const [longitude, setLongitude] = useState(state.longitude);
-  const [message, setMessage] = useState("");
 
   // =========================================================================
 
@@ -60,16 +61,40 @@ const Page2 = () => {
             );
             history("/doctorsignup3");
           } else {
-            setMessage("PLEASE SELECT THE LOCATION INPUT ");
+            Swal.fire({
+              position: "center",
+              icon: "warning",
+              title: "Please Enter Your Location",
+              showConfirmButton: false,
+              timer: 2000,
+            });
           }
         } else {
-          setMessage("PLEASE FILL THE PHONE INPUT ");
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Please Enter Your Phone",
+            showConfirmButton: false,
+            timer: 2000,
+          });
         }
       } else {
-        setMessage("PLEASE FILL THE SPECIALIZATION INPUT ");
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Please Enter Your Specialization",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     } else {
-      setMessage("PLEASE FILL THE NATIONALITY INPUT ");
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Please Enter Your Nationality",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
   };
 
@@ -78,86 +103,93 @@ const Page2 = () => {
     <>
       <div className="mainPage2">
         <div className="Page2">
-          <label className="levelLabel2">
-            {" "}
-            Gender , Nationality ,Specialization and Phone- Step 2 of 4
-          </label>
-          <select
-            name={gender}
-            placeholder="Gender"
-            className="doctorGender"
-            onChange={(e) => {
-              setGender(e.target.value);
-            }}
-          >
-            <option className="test" value="MALE">
-              MALE
-            </option>
-            <option className="test" value="FEMALE">
-              FEMALE
-            </option>
-          </select>
-          <input
-            value={Nationality}
-            placeholder="NATIONALITY"
-            type="text"
-            className="doctorNationality"
-            onChange={(e) => {
-              setNationality(e.target.value);
-            }}
-          />
-          <input
-            value={specialization}
-            placeholder="SPECIALIZATION"
-            type="text"
-            className="doctorSpecialization"
-            onChange={(e) => {
-              setSpecialization(e.target.value);
-            }}
-          />
-          <input
-            value={phone}
-            placeholder="PHONE"
-            type="text"
-            className="doctorPhone"
-            onChange={(e) => {
-              setPhone(e.target.value);
-            }}
-          />{" "}
-          <br />
-          <button className="locationButton" onClick={setLocation}>
-            Upload location
-          </button>
-          {latitude && (
-            <a
-              href={`https://www.google.com/maps?q=${latitude},${longitude}`}
-              target="_blank"
-            >
-              See my location
-            </a>
-          )}
-          <br />
-          <div className="nextAndBackBtn">
-            <button
-              onClick={nextButton}
-              className="backBtn"
-              onClick={() => {
-                history("/doctorsignup1");
+          <div className="labelDiv2">
+            <div className="levelLabel2">
+              Gender , Nationality ,Specialization and Phone- Step 2 of 4
+            </div>
+          </div>
+          <div className="infoRegisterDoctorDiv2">
+            <select
+              name={gender}
+              placeholder="Gender"
+              className="doctorGender"
+              onChange={(e) => {
+                setGender(e.target.value);
               }}
             >
-              <BsFillArrowLeftCircleFill />
-            </button>
-            <button onClick={nextButton} className="nextBtn">
-              <BsFillArrowRightCircleFill />
-            </button>
-          </div>
-          {message && (
-            <div className="messageDoctorRegister">
-              <FcCancel />
-              {message}
-              <FcCancel />
+              <option value="MALE">MALE</option>
+              <option value="FEMALE">FEMALE</option>
+            </select>
+            <input
+              value={Nationality}
+              placeholder="NATIONALITY"
+              type="text"
+              className="doctorNationality"
+              onChange={(e) => {
+                setNationality(e.target.value);
+              }}
+            />
+            <input
+              value={specialization}
+              placeholder="SPECIALIZATION"
+              type="text"
+              className="doctorSpecialization"
+              onChange={(e) => {
+                setSpecialization(e.target.value);
+              }}
+            />
+            <input
+              value={phone}
+              placeholder="PHONE"
+              type="text"
+              className="doctorPhone"
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
+            />
+            <div className="locationButtonDiv">
+              <div className="setYourLocationDiv">
+                <div className="setYourLocation">Set Your Location</div>
+                <div>
+                  <button className="locationButton" onClick={setLocation}>
+                    <GrMapLocation size={25} style={{ color: "#B600F2" }} />
+                  </button>
+                </div>
+              </div>
+              <div className="showLocation">
+                <div>
+                  {latitude && (
+                    <a
+                      href={`https://www.google.com/maps?q=${latitude},${longitude}`}
+                      target="_blank"
+                    >
+                      <div className="locationReview">
+                        <img
+                          className="map"
+                          src="https://sakusaku.ch/wp-content/plugins/wp-google-maps/images/icons8-google-maps-500.png"
+                        />
+                      </div>
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
-          )}
+            <div></div>
+            <div className="nextbtn2Div">
+              <button
+                onClick={nextButton}
+                className="backBtn2"
+                onClick={() => {
+                  history("/doctorsignup1");
+                }}
+              >
+                <BsFillArrowLeftCircleFill />
+              </button>
+              <button onClick={nextButton} className="nextBtn2">
+                <BsFillArrowRightCircleFill />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
