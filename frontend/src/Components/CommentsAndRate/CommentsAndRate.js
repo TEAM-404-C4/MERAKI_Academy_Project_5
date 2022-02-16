@@ -29,15 +29,15 @@ export default function CommentsAndRate({ doctorFullName }) {
   // ======================================
 
   useEffect(async () => {
-    console.log("state", state);
+    console.log('line 32',"state", state);
     try {
-      const res = await axios.post("http://localhost:5000/comment/", {
+      const res = await axios.post(`http://localhost:5000/comment/`, {
         doctorId: state.doctorId,
       });
-      console.log(res.data.result);
+      console.log('line 37',res.data.result ,state.doctorId);
       setComments(res.data.result);
     } catch (err) {
-      console.log(err.response);
+      console.log('err.response line 40',err.response);
     }
   }, [showComments, response]);
 
@@ -50,11 +50,11 @@ export default function CommentsAndRate({ doctorFullName }) {
         comment: comment,
         reating: rate,
         doctorId: state.doctorId,
-        patientId: state.userId.id,
+        patientId: localStorage.getItem("userIdForSettings"),
         commentDate: new Date().toISOString().substring(0, 10),
       });
       setResponse(res);
-      console.log(res);
+      console.log('res',res);
       setComment("");
       setRate(0);
       setStar1(offStar);
@@ -63,7 +63,8 @@ export default function CommentsAndRate({ doctorFullName }) {
       setStar4(offStar);
       setStar5(offStar);
     } catch (err) {
-      console.log(err.response);
+      const e= new Error(err.message)
+      console.log('err.response',e);
     }
   };
   // ==============================================

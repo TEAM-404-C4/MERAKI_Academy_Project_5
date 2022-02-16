@@ -21,7 +21,7 @@ const MainPage = () => {
   const history = useNavigate();
 
   // Status For Pagination
-  const [itemsPerPage, setitemsPerPage] = useState(10);
+  const [itemsPerPage, setitemsPerPage] = useState(6);
   const [currentPage, setcurrentPage] = useState(1);
   const dispatch = useDispatch();
   const [pageNumberLimit, setpageNumberLimit] = useState(5);
