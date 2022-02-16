@@ -1,6 +1,6 @@
 .patientBookingMainDiv {
   max-height: 500px;
-  overflow-y: scroll;
+  min-height: 100vh;
 }
 
 .patientTableDashboardMainDiv {
@@ -47,9 +47,4 @@
   border: 1px solid #ffffff;
   width: 50px;
   font-size: 15px;
-}
-
-thead,
-tbody {
-  display: block;
 }

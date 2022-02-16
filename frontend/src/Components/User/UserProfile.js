@@ -79,7 +79,7 @@ const UserProfile = () => {
             <th className="title">Doctor Email</th>
             <th className="title">Doctor Address </th>
             <th className="title">Date Appointment </th>
-            <th className="title">Date Appointment </th>
+            <th className="title">Delete Booking </th>
           </tr>
         </thead>
 
@@ -109,7 +109,6 @@ const UserProfile = () => {
                     <FcCancel className="delete" />
                   </button>
                 </td>
-
               </tr>
             );
           })}
