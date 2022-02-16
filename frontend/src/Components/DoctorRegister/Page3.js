@@ -8,6 +8,7 @@ import {
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 import { FcCancel } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 //CSS File
 import "./Page3.css";
@@ -40,16 +41,40 @@ const Page3 = () => {
             );
             history("/doctorsignup4");
           } else {
-            setMessage("PLEASE FILL THE WORKING DAYS INPUT ");
+            Swal.fire({
+              position: "center",
+              icon: "warning",
+              title: "Please Enter The Wating Time ",
+              showConfirmButton: false,
+              timer: 2000,
+            });
           }
         } else {
-          setMessage("PLEASE FILL THE ADDRESS INPUT ");
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Please Enter The Career License ",
+            showConfirmButton: false,
+            timer: 2000,
+          });
         }
       } else {
-        setMessage("PLEASE FILL THE CAREER LICENSE INPUT ");
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Please Enter The Address  ",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     } else {
-      setMessage("PLEASE FILL THE WATING TIME INPUT ");
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Please Enter The Working Days",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
   };
 
@@ -58,67 +83,63 @@ const Page3 = () => {
     <>
       <div className="mainPage3">
         <div className="Page3">
-          <label className="levelLabel3">
-            Working Days , Address , Licenes and Wating - Step 3 of 4
-          </label>
-          <input
-            value={workingDays}
-            placeholder="Working Days"
-            type="text"
-            className="doctorWorkingDays"
-            onChange={(e) => {
-              setWorkingDays(e.target.value);
-            }}
-          />
-          <input
-            value={address}
-            placeholder="Address"
-            type="text"
-            className="doctorAddress"
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-          />
-          <input
-            value={careersLicense}
-            placeholder="Careers Licenes"
-            type="text"
-            className="doctorCareersLicense"
-            onChange={(e) => {
-              setCareersLicense(e.target.value);
-            }}
-          />
-          <input
-            value={waitingTime}
-            placeholder="Wating Time"
-            type="text"
-            className="doctorWaitingTime"
-            onChange={(e) => {
-              setWaitingTime(e.target.value);
-            }}
-          />{" "}
-          <br />
-          <div className="nextAndBackBtn">
-            <button
-              onClick={nextButton}
-              className="backBtn"
-              onClick={() => {
-                history("/doctorsignup2");
-              }}
-            >
-              <BsFillArrowLeftCircleFill />
-            </button>
-            <button onClick={nextButton} className="nextBtn">
-              <BsFillArrowRightCircleFill />
-            </button>
-          </div>
-          {message && (
-            <div className="messageDoctorRegister">
-              <FcCancel />
-              {message}
-              <FcCancel />
+          <div className="labelDiv3">
+            <div className="levelLabel3">
+              Working Days , Address , Licenes and Wating - Step 3 of 4
             </div>
-          )}
+          </div>
+          <div className="infoRegisterDoctorDiv3">
+            <input
+              value={workingDays}
+              placeholder="Working Days for example sun,mon...etc"
+              type="text"
+              className="doctorWorkingDays"
+              onChange={(e) => {
+                setWorkingDays(e.target.value);
+              }}
+            />
+            <input
+              value={address}
+              placeholder="Address for example : 34 Stone Street,Jackson,FL 34."
+              type="text"
+              className="doctorAddress"
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+            />
+            <input
+              value={careersLicense}
+              placeholder="Careers Licenes"
+              type="text"
+              className="doctorCareersLicense"
+              onChange={(e) => {
+                setCareersLicense(e.target.value);
+              }}
+            />
+            <input
+              value={waitingTime}
+              placeholder="Wating Time in min for example : 30 min"
+              type="text"
+              className="doctorWaitingTime"
+              onChange={(e) => {
+                setWaitingTime(e.target.value);
+              }}
+            />
+            <div className="nextbtn3Div">
+              <button
+                onClick={nextButton}
+                className="backBtn2"
+                onClick={() => {
+                  history("/doctorsignup2");
+                }}
+              >
+                <BsFillArrowLeftCircleFill />
+              </button>
+              <button onClick={nextButton} className="nextBtn3">
+                <BsFillArrowRightCircleFill />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
