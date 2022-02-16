@@ -8,6 +8,8 @@ import "./navigation.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RiContrastDropLine, RiLogoutCircleRLine } from "react-icons/ri";
 import { BsFillCalendarWeekFill } from "react-icons/bs";
+import { MdOutlineEmergency } from "react-icons/md";
+
 import axios from "axios";
 
 //====================================================// Navigation function
@@ -100,7 +102,12 @@ const Navigation = () => {
           ) : (
             <></>
           )}
-
+          {/* for calling 911 */}
+          <div className="option" title="Calling 911">
+            <a href="tel:911" style={{ color: "red" }}>
+              <MdOutlineEmergency />
+            </a>
+          </div>
           <div className="option" title="Main">
             <Link to="/mainpage" alt="test">
               <BsHouseFill />
