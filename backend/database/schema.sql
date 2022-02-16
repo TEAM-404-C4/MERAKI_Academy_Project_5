@@ -137,6 +137,7 @@ CREATE TABLE Feedback(
     email varchar(255),
     subject varchar(255),
     message varchar(255),
+    
     is_deleted TINYINT default 0
 
 );
