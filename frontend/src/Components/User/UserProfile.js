@@ -44,41 +44,38 @@ const UserProfile = () => {
     //     <h3>{`${patient.firstName}1-${patient.lastName}`}</h3>
     //     <p>{patient.phone}</p>
     //   </div>
-<div className="patientBookingMainDiv">
-<table className="patientTableDashboardMainDiv">
-<thead>
+    <div className="patientBookingMainDiv">
+      <table className="patientTableDashboardMainDiv">
+        <thead>
+          <tr className="patientTableDashboardTitle">
+            <th className="titleNo">No.</th>
+            <th className="title">Doctor Name</th>
+            <th className="title">Doctor Phone Number</th>
+            <th className="title">Doctor Email</th>
+            <th className="title">Doctor Address </th>
+            <th className="title">Date Appointment </th>
+            <th className="title">Date Appointment </th>
+          </tr>
+        </thead>
 
-<tr className="patientTableDashboardTitle">
-          <th className="titleNo">No.</th>
-          <th className="title">Doctor Name</th>
-          <th className="title">Doctor Phone Number</th>
-          <th className="title">Doctor Email</th>
-          <th className="title">Doctor Address </th>
-          <th className="title">Date Appointment </th>
-          <th className="title">Date Appointment </th>
+        <tbody>
+          {patientAppointment.map((element, index) => {
+            return (
+              <tr className="patientTableDashboard">
+                <td className="rowNo">{index + 1}</td>
 
-        </tr>
-</thead>
-
-<tbody>
-
-        {patientAppointment.map((element,index) => {
-          return (
-            <tr className="patientTableDashboard">
-              <td className="rowNo">{index + 1}</td>
-
-              <td className="row">{element["Doctor Name "]}</td>
-              <td className="row">{element["Doctor Phone Number "]}</td>
-              <td className="row">{element["Doctor Email  "]}</td>
-              <td className="row">{element["Doctor Address "]}</td>
-              <td className="row">{element["Date Appointment  "]}</td>
-              <td className="row">{element["Appointment Time  "]}</td>
-            </tr>
-          );
-        })}
+                <td className="row">{element["Doctor Name "]}</td>
+                <td className="row">{element["Doctor Phone Number "]}</td>
+                <td className="row">{element["Doctor Email  "]}</td>
+                <td className="row">{element["Doctor Address "]}</td>
+                <td className="row">{element["Date Appointment  "]}</td>
+                <td className="row">{element["Appointment Time  "]}</td>
+              </tr>
+            );
+          })}
         </tbody>
-</table>
-</div>
+      </table>
+    </div>
   );
 };
 

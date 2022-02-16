@@ -4,10 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addInfoPage } from "../Reducer/DoctorRegister/index";
 import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { storage } from "../Firebase/firebase";
-import { Image } from "cloudinary-react";
 import axios from "axios";
-import { FcCancel } from "react-icons/fc";
+import Swal from "sweetalert2";
 
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 //CSS File
@@ -24,7 +22,9 @@ const Page1 = () => {
   const [email, setEmail] = useState(state.email);
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("");
-  const [profileImage, setprofileImage] = useState();
+  const [profileImage, setprofileImage] = useState(
+    "https://i.ibb.co/5YV7j9Z/Male-doctor-with-stethoscope-avatar-Health-care-services-concept-Vector-illustration.jpg"
+  );
   const [imageSelected, setImageSelected] = useState();
   const [message, setMessage] = useState("");
   const uploudImage = () => {
@@ -60,13 +60,31 @@ const Page1 = () => {
           );
           history("/doctorsignup2");
         } else {
-          setMessage("PLEASE FILL THE PASWORD INPUT ");
+          Swal.fire({
+            position: "center",
+            icon: "warning",
+            title: "Please Enter The Password",
+            showConfirmButton: false,
+            timer: 2000,
+          });
         }
       } else {
-        setMessage("PLEASE FILL THE EMAIL INPUT ");
+        Swal.fire({
+          position: "center",
+          icon: "warning",
+          title: "Please Enter your Email",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     } else {
-      setMessage("PLEASE FILL THE FULL NAME INPUT ");
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Please Enter Your Full Name",
+        showConfirmButton: false,
+        timer: 2000,
+      });
     }
     // const metadata = {
     //   contentType: 'image/jpeg',
@@ -119,57 +137,63 @@ const Page1 = () => {
     <>
       <div className="mainPage1">
         <div className="Page1">
-          <label className="levelLabel1">
-            Name , Email and Password - Step 1 of 4
-          </label>
-          <input
-            value={fullName}
-            placeholder="Full Name"
-            type="text"
-            className="fullName"
-            onChange={(e) => {
-              setFullName(e.target.value);
-            }}
-          />
-          <input
-            value={email}
-            placeholder="E-Mail"
-            type="email"
-            className="doctorEmail"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          <input
-            value={password}
-            placeholder="Password"
-            type="password"
-            className="doctorPassword"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-          <input
-            type="file"
-            className="doctorProfileImage"
-            id="image"
-            accept="image/*"
-            onChange={(e) => {
-              ImageChange(e);
-            }}
-          />
-          {/* <Image publicID={URL}/> */}
-          <Image cloudName="dbnsxsigi" publicId={profileImage} />
-          <button onClick={nextButton} className="nextBtn">
-            <BsFillArrowRightCircleFill />
-          </button>
-          {message && (
-            <div className="messageDoctorRegister">
-              <FcCancel />
-              {message}
-              <FcCancel />
+          <div className="labelDiv1">
+            <div className="levelLabel1">
+              Name , Email and Password - Step 1 of 4
             </div>
-          )}
+          </div>
+          <div className="infoRegisterDoctorDiv1">
+            <input
+              value={fullName}
+              placeholder="Full Name"
+              type="text"
+              className="fullName"
+              onChange={(e) => {
+                setFullName(e.target.value);
+              }}
+            />
+            <input
+              value={email}
+              placeholder="E-Mail"
+              type="email"
+              className="doctorEmail"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <input
+              value={password}
+              placeholder="Password"
+              type="password"
+              className="doctorPassword"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <div className="uploadImageAndShowPicture">
+              <div className="uploadProfileImagebtn">
+                <div className="profilePictureDiv">Profile Picture</div>
+
+                <input
+                  type="file"
+                  className="doctorProfileImage"
+                  id="image"
+                  accept="image/*"
+                  onChange={(e) => {
+                    ImageChange(e);
+                  }}
+                />
+              </div>
+              <div className="showPic">
+                <img className="doctocImgTag" src={profileImage} />
+              </div>
+            </div>
+            <div className="nextbtn1">
+              <button onClick={nextButton} className="nextBtn">
+                <BsFillArrowRightCircleFill />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </>
