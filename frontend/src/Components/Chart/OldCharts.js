@@ -13,7 +13,7 @@ export default function Chart() {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
-      userId: state.loginReducer.userId,
+      userId: state.loginReducer.userId[0].id,
       roleId: state.loginReducer.roleId,
     };
   });
@@ -27,8 +27,8 @@ export default function Chart() {
           doctorId: state.userId | window.localStorage.getItem("userId"),
         }
       );
-      console.log(res);
-      console.log(res.data.result);
+      // console.log(res);
+      // console.log(res.data.result);
       setAppointement(res.data.result);
     } catch (err) {
       console.log(err);
@@ -42,7 +42,7 @@ export default function Chart() {
     return element.gender == "FEMALE";
   });
 
-  console.log("malePatient", malePatient, "femalePatient", femalePatient);
+  // console.log("malePatient", malePatient, "femalePatient", femalePatient);
   //================================================ Chart
 
   var options = {
@@ -198,7 +198,7 @@ export default function Chart() {
     return count;
   });
 
-  console.log("PatientsMonthly", PatientsMonthly);
+  // console.log("PatientsMonthly", PatientsMonthly);
   var options2 = {
     chart: {
       type: "bar",

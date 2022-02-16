@@ -249,6 +249,7 @@ const Appointement = () => {
             return <p>{element.time}</p>;
           })}
       </div>
+      <DoctorAppointement />
     </div>
   );
 };

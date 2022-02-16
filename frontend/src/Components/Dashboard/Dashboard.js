@@ -9,7 +9,7 @@ import { BsFillPeopleFill, BsFillCalendarCheckFill } from "react-icons/bs";
 import { FaStar } from "react-icons/fa";
 import FullCalender from "../FullCalender/FullCalender";
 import Setting from "../Settings/Setting";
-import Charts from "../Chart/OldCharts";
+import Charts from "../Chart/Chart";
 import PatientBooking from "../PatientBooking/PatientBooking";
 import Appointement from "../DoctorAppointment/Appointement";
 const Dashboard = () => {

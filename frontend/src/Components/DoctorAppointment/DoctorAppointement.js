@@ -11,7 +11,7 @@ const DoctorAppointement = () => {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
-      userId: state.loginReducer.userId,
+      userId: state.loginReducer.userId[0].id,
       roleId: state.loginReducer.roleId,
     };
   });
@@ -29,6 +29,7 @@ const DoctorAppointement = () => {
         }
       );
       console.log(res.data.result);
+      console.log("state", state);
       setAppointement(res.data.result);
       dispatch(setAppointmentDoctor(res.data.result));
     } catch (err) {
