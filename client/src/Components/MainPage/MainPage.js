@@ -101,9 +101,11 @@ const MainPage = () => {
   if (minPageNumberLimit >= 1) {
     pageDecrementBtn = <li onClick={handlePrevbtn}> &hellip; </li>;
   }
+  // For button load more pages
   const handleLoadMore = () => {
     setitemsPerPage(itemsPerPage + 5);
   };
+  // Render data for Pagination
   const renderData = (data) => {
     let doctorCard = currentItems.map((card, index) => {
       return (

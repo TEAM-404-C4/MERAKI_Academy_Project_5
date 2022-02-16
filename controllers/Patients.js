@@ -22,8 +22,8 @@ const checkPatientExist = (req, res, next) => {
     }
 
     if (result.length == 0) {
-      const data1 = [firstName, lastName, phone, 3];
-      const query1 = `INSERT INTO patient (firstName,lastName,phone,roleId) VALUES (?,?,?,?)`;
+      const data1 = [firstName, lastName, phone, 3,'male'];
+      const query1 = `INSERT INTO patient (firstName,lastName,phone,roleId,gender) VALUES (?,?,?,?,?)`;
       connection.query(query1, data1, (err1, result1) => {
         if (err1) {
           return res.status(409).json({
@@ -109,7 +109,7 @@ const createNewPatient = async (req, res) => {
 
 //====================================================//Get All Patients Function
 const getAllPatients = (req, res) => {
-  const query = `SELECT* FROM patient`;
+  const query = `SELECT * FROM patient`;
   connection.query(query, (err, result) => {
     if (err) {
       return res.status(500).json({

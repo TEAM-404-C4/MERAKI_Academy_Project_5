@@ -27,6 +27,8 @@ const Setting = () => {
   const [profileImage, setProfileImage] = useState("");
   const [specialization, setSpecialization] = useState("");
   const [phone, setPhone] = useState("");
+  const [Patientphone, setPatientPhone] = useState("");
+
   const [address, setAddress] = useState("");
   const [waitingTime, setWaitingTime] = useState("");
   const [consultationFee, setConsultationFee] = useState("");
@@ -232,7 +234,21 @@ const Setting = () => {
       }
     }
   };
-
+// =================================== get Patient by id
+const getPatientById = async()=>{
+  try {
+    const patientId=window.localStorage.getItem('userIdForSettings');
+    const result = await axios.get(`http://localhost:5000/patients/${patientId}`);
+    if (result.data.success) {
+      setFirstName(result.data.result[0].firstName);
+      setPatientPhone((result.data.result[0].phone!==null ? 'You Do Not Have Phone Please Add it':result.data.result[0].phone));
+      setlastName(result.data.result[0].lastName);
+    } else throw Error;
+  } catch (error) {
+    if (error.response && error.response.data) {
+    }
+  }
+};
   // ======================================================= get Doctor by name
   const getDoctoById = async () => {
     try {
@@ -257,6 +273,7 @@ const Setting = () => {
 
   useEffect(() => {
     getDoctoById();
+    getPatientById();
   }, []);
 
   return (
@@ -406,6 +423,7 @@ const Setting = () => {
                     <label className="patientLabel">First name</label>
                     <input
                       type="text"
+                      defaultValue={firstName}
                       className="patientInfo"
                       onChange={(e) => {
                         setFirstName(e.target.value);
@@ -414,6 +432,8 @@ const Setting = () => {
                     <label className="patientLabel">Last name</label>
                     <input
                       type="text"
+                      defaultValue={lastName}
+
                       className="patientInfo"
                       onChange={(e) => {
                         setlastName(e.target.value);
@@ -476,14 +496,14 @@ const Setting = () => {
             {/* --------------------------------------------------change phone  */}
             <div>
               <div className="changePhoneDiv">
-                {true ? (
+                
                   <div className="changeInfoForm">
                     <form onSubmit={changePhone} className="cInfoFrom">
                       <label className="patientLabel">Old phone number</label>
-
                       <input
                         type="number"
                         className="patientInfo"
+                        defaultValue={Patientphone}
                         onChange={(e) => {
                           setOldPhone(e.target.value);
                         }}
@@ -512,9 +532,9 @@ const Setting = () => {
                       </button>
                     </form>
                   </div>
-                ) : (
+                
                   <></>
-                )}
+                
               </div>
             </div>
           </div>
