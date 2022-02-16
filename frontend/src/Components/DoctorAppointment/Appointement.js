@@ -128,53 +128,129 @@ const Appointement = () => {
   // ==============================================
   return (
     <div className="AppointementDoctor">
-      <div className="select_appointement">
-     
-        <select onChange={showSchedual}>
-        <option value={0} disabled selected hidden>
-          Chose Time ...
-        </option>
-          <option value="9:00  - 9:30 am" id={1}>9:00  - 9:30 am</option>
-          <option value="9:30  - 10:00 am" id={2}>9:30  - 10:00 am</option>
-          <option value="10:00 - 10:30 am" id={3}>10:00 - 10:30 am</option>
-          <option value="10:30 - 11:00 am" id={4}>10:30 - 11:00 am</option>
-          <option value="11:00 - 11:30 am" id={5}>11:00 - 11:30 am</option>
-          <option value="11:30 - 12:00 pm" id={6}>11:30 - 12:00 pm</option>
-          <option value="12:00 - 12:30 pm" id={7}>12:00 - 12:30 pm</option>
-          <option value="12:30 - 1:00 pm" id={8}>12:30 - 1:00 pm</option>
-          <option value="1:00 - 1:30 pm" id={9}>1:00 - 1:30 pm</option>
-          <option value="1:30 - 2:00 pm" id={10}>1:30 - 2:00 pm</option>
-          <option value="2:00 - 2:30 pm" id={11}>2:00 - 2:30 pm</option>
-          <option value="2:30 - 3:00 pm" id={12}>2:30 - 3:00 pm</option>
-          <option value="3:00 - 3:30 pm" id={13}>3:00 - 3:30 pm</option>
-          <option value="3:30 - 4:00 pm" id={14}>3:30 - 4:00 pm</option>
-          <option value="4:00 - 4:30 pm" id={15}>4:00 - 4:30 pm</option>
-          <option value="4:30 - 5:00 pm" id={16}>4:30 - 5:00 pm</option>
-
-        </select>
-        </div>
-     
-
-      <div>
-        <button onClick={saveAppointement}>click</button>
-        <table>
-          {showResult().map((element) => {
-            return element;
-          })}
-        </table>
-      </div>
-
-      <div>
-        {repeatAppointment && (
-          <p>You have conflicts at the following Appointments</p>
-        )}
-        {repeatAppointment &&
-          repeatAppointment.map((element) => {
-            return <p>{element.time}</p>;
-          })}
-      </div>
-      <DoctorAppointement />
+    <div className="list">
+      <table>
+        <tr>
+          <td>
+            {" "}
+            <button className="0" id={1} onClick={showSchedual}>
+              9-9:30
+            </button>
+          </td>
+          <td>
+            {" "}
+            <button className="0" id={2} onClick={showSchedual}>
+              9:30-10
+            </button>
+          </td>
+          <td>
+            <button className="0" id={3} onClick={showSchedual}>
+              10-10:30
+            </button>
+          </td>
+          <td>
+            {" "}
+            <button className="0" id={4} onClick={showSchedual}>
+              10:30-11
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {" "}
+            <button className="0" id={5} onClick={showSchedual}>
+              11-11:30
+            </button>
+          </td>
+          <td>
+            <button className="0" id={6} onClick={showSchedual}>
+              11:30-12
+            </button>
+          </td>
+          <td>
+            {" "}
+            <button className="0" id={7} onClick={showSchedual}>
+              12-12:30
+            </button>
+          </td>
+          <td>
+            {" "}
+            <button className="0" id={8} onClick={showSchedual}>
+              12:30-1
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {" "}
+            <button className="0" id={9} onClick={showSchedual}>
+              1-1:30
+            </button>
+          </td>
+          <td>
+            <button className="0" id={10} onClick={showSchedual}>
+              1:30-2
+            </button>
+          </td>
+          <td>
+            {" "}
+            <button className="0" id={11} onClick={showSchedual}>
+              2-2:30
+            </button>
+          </td>
+          <td>
+            <button className="0" id={12} onClick={showSchedual}>
+              2:30-3
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            {" "}
+            <button className="0" id={13} onClick={showSchedual}>
+              3-3:30
+            </button>
+          </td>
+          <td>
+            {" "}
+            <button className="0" id={14} onClick={showSchedual}>
+              3:30-4
+            </button>
+          </td>
+          <td>
+            {" "}
+            <button className="0" id={15} onClick={showSchedual}>
+              4-4:30
+            </button>
+          </td>
+          <td>
+            <button className="0" id={16} onClick={showSchedual}>
+              4:30-5
+            </button>
+          </td>
+        </tr>
+      </table>
     </div>
+
+    <div>
+      <button onClick={saveAppointement}>click</button>
+      <table>
+        {showResult().map((element) => {
+          return element;
+        })}
+      </table>
+    </div>
+
+    <div>
+      {repeatAppointment && (
+        <p>You have conflicts at the following Appointments</p>
+      )}
+      {repeatAppointment &&
+        repeatAppointment.map((element) => {
+          return <p>{element.time}</p>;
+        })}
+    </div>
+  </div>
   );
 };
 
