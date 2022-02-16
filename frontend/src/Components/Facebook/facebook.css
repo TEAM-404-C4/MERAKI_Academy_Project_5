@@ -1,23 +1,28 @@
-.facebook_logo{
-    background-color: #0d79e5;
-    color: white;
-    font-size: 1.4vw;
-    margin-left: 1vw;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+.facebook_logo {
+  background-color: #346ea7;
+  color: white;
+  font-size: 17px;
+  height: 56px;
+  width: 180px;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
-.facebook_logo svg{
-    margin-top: 1vw;
-    margin-left: 1vw;
-    /* margin-right: 1vw; */
-
-    margin-bottom: 1vw;
-
-    font-size: 1.7vw;
-    
+.facebook_logo svg {
+  margin-left: 10px;
+  font-size: 25px;
 }
-.facebook_logo button{
-    text-align: center;
+.facebook_logo button {
+  text-align: center;
+}
+
+.facebookDiv {
+  background-color: red;
+  object-fit: contain;
+}
+.facebookDiv :hover {
+  cursor: pointer;
 }
