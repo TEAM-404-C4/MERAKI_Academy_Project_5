@@ -89,26 +89,15 @@
   text-align: left;
 }
 
-.backBtn2 {
-  border: none;
-  background: none;
-  font-size: 30px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  color: #4397cf;
-  width: 40px;
-}
-.backBtn2:hover {
-  cursor: pointer;
-  color: white;
-}
-
 .nextbtn2Div {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+}
+.backBtn2:hover {
+  cursor: pointer;
+  color: white;
 }
 
 .nextBtn2 {
@@ -118,6 +107,7 @@
   display: flex;
   justify-content: flex-end;
   color: #4397cf;
+  padding-right: 20px;
 }
 .nextBtn2:hover {
   cursor: pointer;
@@ -128,9 +118,8 @@
   border: none;
   background: none;
   font-size: 30px;
-  display: flex;
-  justify-content: flex-end;
   color: #4397cf;
+  padding-left: 20px;
 }
 
 .locationButtonDiv {
@@ -181,8 +170,9 @@
   align-items: center;
   height: 100%;
   width: 50%;
-  gap: 50px;
+  gap: 20px;
   padding: 12px;
+  margin-top: 25px;
 }
 
 .showLocation {

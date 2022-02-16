@@ -236,9 +236,7 @@ const Setting = () => {
   // ======================================================= get Doctor by name
   const getDoctoById = async () => {
     try {
-      const result = await axios.get(
-        `http://localhost:5000/doctors/${localStorage.getItem("userIdForSettings")}`
-      );
+      const result = await axios.get(`http://localhost:5000/doctors/1`);
       if (result.data.success) {
         setFullName(result.data.result[0].fullName);
         setEmail(result.data.result[0].email);
