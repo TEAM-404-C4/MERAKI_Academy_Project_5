@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import GoogleSignIn from "../GoogleLogin/googleLogin";
 import Swal from "sweetalert2";
-import Facebook from "../Facebook/Facebook"
+import Facebook from "../Facebook/Facebook";
 //CSS File
 import "./login.css";
 
@@ -31,7 +31,7 @@ const Login = () => {
   const checkUser = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post("/login", {
         phone,
         password,
       });
@@ -118,7 +118,7 @@ const Login = () => {
           </div>
           <div className="googleLogin">
             <GoogleSignIn />
-            <Facebook/>
+            <Facebook />
           </div>
         </form>
       </div>

@@ -22,12 +22,9 @@ const DoctorAppointement = () => {
 
   const getAppointement = async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/doctors/getappointement",
-        {
-          doctorId: state.userId,
-        }
-      );
+      const res = await axios.post("/doctors/getappointement", {
+        doctorId: state.userId,
+      });
       console.log(res.data.result);
       console.log("state", state);
       setAppointement(res.data.result);

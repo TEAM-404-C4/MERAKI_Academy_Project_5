@@ -27,10 +27,10 @@ export default function Chart() {
   console.log("state", state);
   useEffect(async () => {
     try {
-      res = await axios.post("http://localhost:5000/doctors/getappointement", {
+      res = await axios.post("doctors/getappointement", {
         doctorId: state.userId | window.localStorage.getItem("userId"),
       });
-      res2 = await axios.post("http://localhost:5000/comment/", {
+      res2 = await axios.post("/comment/", {
         doctorId: state.userId | window.localStorage.getItem("userId"),
       });
       // console.log("res", res, "res2", res2, "state", state);

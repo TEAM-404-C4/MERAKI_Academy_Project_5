@@ -16,7 +16,7 @@ const Filter = ({ setSearch }) => {
 
     // if (e.target.value != 0 ) {
     try {
-      const res = await axios.post("http://localhost:5000/doctors/department", {
+      const res = await axios.post("/doctors/department", {
         department: e.target.value,
         city,
       });
@@ -38,7 +38,7 @@ const Filter = ({ setSearch }) => {
 
     // if (e.target.value != 0) {
     try {
-      const res = await axios.post("http://localhost:5000/doctors/department", {
+      const res = await axios.post("/doctors/department", {
         department: department1,
         city: e.target.value,
       });

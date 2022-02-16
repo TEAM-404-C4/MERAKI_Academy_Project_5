@@ -21,12 +21,9 @@ export default function Chart() {
   // =======================================================
   useEffect(async () => {
     try {
-      const res = await axios.post(
-        "http://localhost:5000/doctors/getappointement",
-        {
-          doctorId: state.userId | window.localStorage.getItem("userId"),
-        }
-      );
+      const res = await axios.post("/doctors/getappointement", {
+        doctorId: state.userId | window.localStorage.getItem("userId"),
+      });
       // console.log(res);
       // console.log(res.data.result);
       setAppointement(res.data.result);

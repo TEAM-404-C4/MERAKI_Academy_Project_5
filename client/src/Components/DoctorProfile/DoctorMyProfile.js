@@ -25,7 +25,7 @@ const DoctorMyProfile = () => {
   useEffect(async () => {
     const userId = state || localStorage.getItem("userId");
     try {
-      const res = await axios.get(`http://localhost:5000/doctors/${userId}`);
+      const res = await axios.get(`/doctors/${userId}`);
       setDoctor(res.data.result[0]);
     } catch (err) {
       console.log(err);

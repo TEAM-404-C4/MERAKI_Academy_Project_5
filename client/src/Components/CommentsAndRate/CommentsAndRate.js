@@ -17,12 +17,12 @@ export default function CommentsAndRate({ doctorFullName }) {
   const [comments, setComments] = useState([]);
   const [showComments, setshowComments] = useState(false);
   const [response, setResponse] = useState("");
-   // Status For Pagination
-   const [itemsPerPage, setitemsPerPage] = useState(3);
-   const [currentPage, setcurrentPage] = useState(1);
-   const [pageNumberLimit, setpageNumberLimit] = useState(5);
-   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
-   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+  // Status For Pagination
+  const [itemsPerPage, setitemsPerPage] = useState(3);
+  const [currentPage, setcurrentPage] = useState(1);
+  const [pageNumberLimit, setpageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
   // ====================================== state redux
 
   const state = useSelector((state) => {
@@ -36,15 +36,15 @@ export default function CommentsAndRate({ doctorFullName }) {
   // ======================================
 
   useEffect(async () => {
-    console.log('line 32',"state", state);
+    console.log("line 32", "state", state);
     try {
-      const res = await axios.post(`http://localhost:5000/comment/`, {
+      const res = await axios.post(`/comment/`, {
         doctorId: state.doctorId,
       });
-      console.log('line 37',res.data.result ,state.doctorId);
+      console.log("line 37", res.data.result, state.doctorId);
       setComments(res.data.result);
     } catch (err) {
-      console.log('err.response line 40',err.response);
+      console.log("err.response line 40", err.response);
     }
   }, [showComments, response]);
 
@@ -53,7 +53,7 @@ export default function CommentsAndRate({ doctorFullName }) {
   const commentButton = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/comment/create", {
+      const res = await axios.post("/comment/create", {
         comment: comment,
         reating: rate,
         doctorId: state.doctorId,
@@ -61,7 +61,7 @@ export default function CommentsAndRate({ doctorFullName }) {
         commentDate: new Date().toISOString().substring(0, 10),
       });
       setResponse(res);
-      console.log('res',res);
+      console.log("res", res);
       setComment("");
       setRate(0);
       setStar1(offStar);
@@ -70,8 +70,8 @@ export default function CommentsAndRate({ doctorFullName }) {
       setStar4(offStar);
       setStar5(offStar);
     } catch (err) {
-      const e= new Error(err.message)
-      console.log('err.response',e);
+      const e = new Error(err.message);
+      console.log("err.response", e);
     }
   };
   // ==============================================
@@ -97,8 +97,8 @@ export default function CommentsAndRate({ doctorFullName }) {
     }
     return stars;
   };
-// ============================================ Pagination 
-const pages = [];
+  // ============================================ Pagination
+  const pages = [];
   for (let i = 1; i <= Math.ceil(comments.length / itemsPerPage); i++) {
     pages.push(i);
   }
@@ -336,30 +336,32 @@ const pages = [];
 
           {showComments && renderData(comments)}
           <div className="pageNumbers">
-        <ul className="pageNumberUl">
-          <li>
-            <button
-              onClick={handlePrevbtn}
-              disabled={currentPage == pages[0] ? true : false}
-            >
-              <AiOutlineArrowLeft />
-            </button>
-          </li>
-          {pageDecrementBtn}
-          {renderPageNumbers}
-          {pageIncrementBtn}
+            <ul className="pageNumberUl">
+              <li>
+                <button
+                  onClick={handlePrevbtn}
+                  disabled={currentPage == pages[0] ? true : false}
+                >
+                  <AiOutlineArrowLeft />
+                </button>
+              </li>
+              {pageDecrementBtn}
+              {renderPageNumbers}
+              {pageIncrementBtn}
 
-          <li>
-            <button
-              className="nextButton"
-              onClick={handleNextbtn}
-              disabled={currentPage == pages[pages.length - 1] ? true : false}
-            >
-              <AiOutlineArrowRight />
-            </button>
-          </li>
-        </ul>
-      </div>
+              <li>
+                <button
+                  className="nextButton"
+                  onClick={handleNextbtn}
+                  disabled={
+                    currentPage == pages[pages.length - 1] ? true : false
+                  }
+                >
+                  <AiOutlineArrowRight />
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </>
     </div>

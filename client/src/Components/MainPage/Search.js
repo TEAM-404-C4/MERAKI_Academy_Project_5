@@ -5,7 +5,7 @@ import "./Search.css";
 const Search = ({ setSearch }) => {
   const search = async (e) => {
     try {
-      const res = await axios.post("http://localhost:5000/doctors/search", {
+      const res = await axios.post("/doctors/search", {
         fullName: e.target.value,
       });
       setSearch(res.data.result);
