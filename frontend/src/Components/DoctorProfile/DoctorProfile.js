@@ -110,13 +110,13 @@ const DoctorProfile = () => {
           <div className="chatWhatsApp">
             <div className="doctorWhatsApp">
               <IoLogoWhatsapp style={{ color: "#25D366" }} />
-              <div className="doctorWhatsAppNumber">1231321</div>
+              <div className="doctorWhatsAppNumber"><a href={"https://wa.me/"+doctor.phone+"/?text=Hello"+doctor.fullName  }>{doctor.phone}</a></div>
             </div>
             <div className="doctorEmailAndWhatsApp">
               <div>
                 <MdAlternateEmail style={{ color: " #F4E6F2 " }} />
               </div>
-              <div className="doctorEmail2"> {doctor.email} </div>
+              <div className="doctorEmail2"><a href={'https://mail.google.com/mail/?view=cm&source=mailto&to=['+doctor.email+']'}>{doctor.email}</a> </div>
             </div>
           </div>
         </div>
