@@ -145,7 +145,7 @@ const Page1 = () => {
           <div className="infoRegisterDoctorDiv1">
             <input
               value={fullName}
-              placeholder="Full Name"
+              placeholder="Full Name-Example: JohnDoe."
               type="text"
               className="fullName"
               onChange={(e) => {
@@ -154,7 +154,7 @@ const Page1 = () => {
             />
             <input
               value={email}
-              placeholder="E-Mail"
+              placeholder="E-Mail -Example : JohnDoe@hotmail.com."
               type="email"
               className="doctorEmail"
               onChange={(e) => {
@@ -163,7 +163,7 @@ const Page1 = () => {
             />
             <input
               value={password}
-              placeholder="Password"
+              placeholder="Password "
               type="password"
               className="doctorPassword"
               onChange={(e) => {

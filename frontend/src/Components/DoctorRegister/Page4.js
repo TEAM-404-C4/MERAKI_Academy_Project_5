@@ -107,7 +107,7 @@ const Page4 = () => {
           </label>{" "}
           <input
             value={consultationFee}
-            placeholder="Consultation"
+            placeholder="CONSULTATION FEE-EXAMPLE : 20$"
             type="text"
             className="doctorConsultationFee"
             onChange={(e) => {
@@ -159,7 +159,7 @@ const Page4 = () => {
           </select>
           <input
             value={ScientificCertificateDoctorRegister}
-            placeholder="Cientific Certificate"
+            placeholder="CIENTIFIC CERTIFICATE"
             type="text"
             className="doctorScientificCertificate"
             onChange={(e) => {
