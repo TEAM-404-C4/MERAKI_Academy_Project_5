@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../Reducer/login/index";
 import {BsFacebook} from "react-icons/bs"
+import './facebook.css';
  const Facebook=()=> {
 
     const dispatch = useDispatch();
@@ -42,7 +43,9 @@ import {BsFacebook} from "react-icons/bs"
     // autoLoad={true}
     fields="name,email,picture"
     callback={responseFacebook}
+    cssClass="facebook_logo"
     icon={<BsFacebook/>}
+
   />
     </div>
   )

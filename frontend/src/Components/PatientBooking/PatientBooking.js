@@ -57,10 +57,11 @@ export default function PatientBooking() {
       console.log(err.response);
     }
   };
-
+console.log(appointement)
   // =======================================
   return (
     <div className="patientBookingMainDiv">
+      {(appointement.length===0)? <h2 className="Check_Booking_DashBord">You Don't Have Any Bookings</h2>: (
       <table className="patientTableDashboardMainDiv">
         <tr className="patientTableDashboardTitle">
           <th className="titleNo">No.</th>
@@ -70,8 +71,9 @@ export default function PatientBooking() {
           <th className="title">Date </th>
           <th className="title">Phone No </th>
           <th className="title">Delete Booking </th>
-        </tr>
-        {appointement.map((element, index) => {
+        </tr> 
+            
+             {appointement.map((element, index) => {
           return (
             <tr className="patientTableDashboard">
               <td className="rowNo">{index + 1}</td>
@@ -95,9 +97,10 @@ export default function PatientBooking() {
               </td>
             </tr>
           );
-        })}
+        })} 
         {console.log(appointement)}
       </table>
+      )}
     </div>
   );
 }

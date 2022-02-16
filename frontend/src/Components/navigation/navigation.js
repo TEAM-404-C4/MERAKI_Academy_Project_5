@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RiContrastDropLine, RiLogoutCircleRLine } from "react-icons/ri";
 import { BsFillCalendarWeekFill } from "react-icons/bs";
 import { MdOutlineEmergency } from "react-icons/md";
-
+import {FiSettings} from "react-icons/fi"
 import axios from "axios";
 
 //====================================================// Navigation function
@@ -99,6 +99,19 @@ const Navigation = () => {
                 patient profile
               </button> */}
             </div>
+            
+          ) : (
+            <></>
+          )}
+          {state.roleId === 3 || localStorage.getItem("roleId") == 3 ? (
+            <div className="option" title="setting Page">
+              <Link to="/setting" alt="test">
+                <FiSettings />
+              </Link>
+              <div></div>
+              
+            </div>
+            
           ) : (
             <></>
           )}

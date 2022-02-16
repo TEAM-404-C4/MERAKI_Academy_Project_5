@@ -1,7 +1,7 @@
 const initialState = {
   token: "" || localStorage.getItem("token"),
   isLoggedIn: localStorage.getItem("token") ? true : false,
-  userId: "",
+  userId: "" || localStorage.getItem("userIdForSettings"),
   roleId: "",
   profileImage: "",
 };
