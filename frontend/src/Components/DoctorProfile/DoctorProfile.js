@@ -150,7 +150,7 @@ const DoctorProfile = () => {
             <div className="profile-row">
               <MdAlternateEmail style={{ color: " #F4E6F2 " }} /> 
               <h5>
-                Email : <span></span>
+                Email : <span>{doctor.email}</span>
               </h5>
             </div>
             <div className="profile-row">
