@@ -1,11 +1,11 @@
--- ====================================================//Drop DataBase
-Drop Database if exists HealthCare;
+-- -- ====================================================//Drop DataBase
+-- Drop Database if exists HealthCare;
 
--- ====================================================//Create DataBase
-CREATE Database HealthCare;
+-- -- ====================================================//Create DataBase
+-- CREATE Database HealthCare;
 
 -- ====================================================//Use DataBase
-Use HealthCare;
+Use sql11473333;
 
 -- ====================================================//Create Role Table
 Create Table Role(
