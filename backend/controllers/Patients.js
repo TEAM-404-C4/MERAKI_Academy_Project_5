@@ -63,6 +63,26 @@ const loginGoogle = (req, res) => {
     });
   });
 };
+const loginFacebook = (req, res) => {
+  const { firstName, lastName, phone } = req.body;
+  const data = [phone];
+  const query = `SELECT * from patient WHERE phone=?`;
+  connection.query(query, data, (err, result) => {
+    if (err) {
+      return res.status(409).json({
+        success: false,
+        message: " server error",
+        err,
+      });
+    }
+
+    return res.status(201).json({
+      success: true,
+      message: " login patient with google",
+      result,
+    });
+  });
+};
 
 //====================================================//Create New Patient Function
 const createNewPatient = async (req, res) => {
@@ -234,4 +254,5 @@ module.exports = {
   deletePatientById,
   checkPatientExist,
   loginGoogle,
+  loginFacebook
 };
