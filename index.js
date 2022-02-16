@@ -5,6 +5,14 @@ const cors = require("cors");
 require("dotenv").config();
 const app = express();
 app.use(cors());
+
+//==================================================== to make sure it works on refresh//
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 //====================================================//import database
 const connection = require("./database/db");
 
@@ -14,7 +22,7 @@ const doctorRouter = require("./routes/doctors");
 const loginRouter = require("./routes/login");
 const RoleRouter = require("./routes/Role");
 const commentRouter = require("./routes/Comment");
-const FeedBackRouter= require("./routes/FeedBack")
+const FeedBackRouter = require("./routes/FeedBack");
 app.use(express.json());
 
 //====================================================// Routes Middleware
@@ -23,7 +31,7 @@ app.use("/doctors", doctorRouter);
 app.use("/login", loginRouter);
 app.use("/role", RoleRouter);
 app.use("/comment", commentRouter);
-app.use("/feedback",FeedBackRouter);
+app.use("/feedback", FeedBackRouter);
 
 //====================================================// Handles any other endpoints [unassigned - endpoints]
 app.use("*", (req, res) => res.status(404).json("NO content at this path"));
