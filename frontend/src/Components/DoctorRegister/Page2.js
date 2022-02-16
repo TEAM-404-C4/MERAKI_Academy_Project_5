@@ -122,7 +122,7 @@ const Page2 = () => {
             </select>
             <input
               value={Nationality}
-              placeholder="NATIONALITY"
+              placeholder="NATIONALITY-EXAMPLE:AMERICAN,JORDANIAN...etc"
               type="text"
               list="Country"
               className="doctorNationality"
@@ -393,7 +393,7 @@ const Page2 = () => {
 
             <input
               value={specialization}
-              placeholder="SPECIALIZATION"
+              placeholder="SPECIALIZATION-EXAMPLE : SURGERY, RADIOLOGY..etc."
               type="text"
               className="doctorSpecialization"
               onChange={(e) => {
@@ -403,7 +403,7 @@ const Page2 = () => {
 
             <input
               value={phone}
-              placeholder="PHONE"
+              placeholder="PHONE-EXAMPLE : 079xxxxxxx."
               type="number"
               className="doctorPhone"
               onChange={(e) => {

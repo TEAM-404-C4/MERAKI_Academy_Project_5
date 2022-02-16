@@ -91,7 +91,7 @@ const Page3 = () => {
           <div className="infoRegisterDoctorDiv3">
             <input
               value={workingDays}
-              placeholder="Working Days for example sun,mon...etc"
+              placeholder="WORKING DAYS - EXAMPLE : SUN,MON...etc."
               type="text"
               className="doctorWorkingDays"
               onChange={(e) => {
@@ -100,7 +100,7 @@ const Page3 = () => {
             />
             <input
               value={address}
-              placeholder="Address for example : 34 Stone Street,Jackson,FL 34."
+              placeholder="ADDRESS - EXAMPLE : 34 Stone Street,Jackson,FL 34."
               type="text"
               className="doctorAddress"
               onChange={(e) => {
@@ -109,7 +109,7 @@ const Page3 = () => {
             />
             <input
               value={careersLicense}
-              placeholder="Careers Licenes"
+              placeholder="CAREERS LICENES"
               type="text"
               className="doctorCareersLicense"
               onChange={(e) => {
@@ -118,7 +118,7 @@ const Page3 = () => {
             />
             <input
               value={waitingTime}
-              placeholder="Wating Time in min for example : 30 min"
+              placeholder="WATING TIME in min - EXAMPLE : 30 min."
               type="text"
               className="doctorWaitingTime"
               onChange={(e) => {
