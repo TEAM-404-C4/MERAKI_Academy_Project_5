@@ -112,6 +112,8 @@ const CardDoctor = ({
             onClick={() => {
               dispatch(setDoctor(id));
               history("/DoctorProfile");
+              window.localStorage.setItem("doctorId", id);
+
             }}
           />
         </div>
@@ -122,9 +124,11 @@ const CardDoctor = ({
             onClick={() => {
               dispatch(setDoctor(id));
               history("/DoctorProfile");
+              window.localStorage.setItem("doctorId", id);
+
             }}
           >
-            <div className="DoctorName">DOCTOR</div>. {fullName.toUpperCase()}
+            <div className="DoctorName">DOCTOR . {fullName.toUpperCase()}</div>
           </div>
           <div className="card-row">
             <MdOutlineStarRate />
