@@ -25,7 +25,8 @@ export default function PatientBooking() {
       const res = await axios.post(
         "http://localhost:5000/doctors/getappointement",
         {
-          doctorId: state.userId || window.localStorage.getItem("userId"),
+          doctorId:
+            state.userId || window.localStorage.getItem("userIdForSettings"),
         }
       );
       console.log("state", window.localStorage.getItem("userId"));
