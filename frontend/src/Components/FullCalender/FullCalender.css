@@ -8,17 +8,26 @@
   align-items: center;
   height: 100%;
   margin-top: 50px;
+  gap: 50px;
 }
 .TableBooking {
-  margin-left: 1vw;
+  background-color: #0c1a32;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+  padding: 50px;
+  border-radius: 12px;
+  border: 1px solid #4397cf;
 }
 .calendar {
   width: 900px;
   height: 600px;
 }
-/* Table Css */
 .patient_Table_Appointment {
-  width: 100%;
+  width: 800px;
   border: 1px solid #ffffff;
 }
 .patient_Table_Appointment_title {
@@ -58,4 +67,18 @@
   padding: 50px;
   border-radius: 12px;
   border: 1px solid #4397cf;
+}
+
+.AppointementTablePerDay {
+  color: white;
+  font-family: "Righteous", cursive;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.noAppointmen {
+  color: white;
+  padding: 20px;
+  font-family: "Righteous", cursive;
 }

@@ -41,34 +41,34 @@ const [message, setMessage]= useState("");
   },[]);
   return (
     <div>
-      <div className="patient_Profile">
+      <div className="parentTableDoctors">
       
-      <table className="patient_Table_Profile_Main_Div">
+      <table className="tableDoctors">
         <thead>
-          <tr className="patient_Table_Profile_Title">
-            <th className="titleNo_Profile">No.</th>
-            <th className="title_Profile">Full Name</th>
-            <th className="title_Profile">Email</th>
-            <th className="title_Profile">Gender</th>
-            <th className="title_Profile">Phone</th>
-            <th className="title_Profile">Department</th>
-            <th className="title_Profile">City</th>
-            <th className="title_Profile">Actions</th>
+          <tr className="trHeadDoctors">
+            <th className="thNODoctors">No.</th>
+            <th className="thDoctors">Full Name</th>
+            <th className="thDoctors">Email</th>
+            <th className="thDoctors">Gender</th>
+            <th className="thDoctors">Phone</th>
+            <th className="thDoctors">Department</th>
+            <th className="thDoctors">City</th>
+            <th className="thDoctors">Actions</th>
           </tr>
         </thead>
        
         <tbody>
           {AllDoctors.map((element, index) => {
             return (
-              <tr className="patient_Table_Profile">
-                <td className="rowNo_Profile">{index + 1}</td>
+              <tr className="trBodyDoctors">
+                <td className="tdNoDoctors">{index + 1}</td>
 
-                <td className="row_Profile">{element.fullName}</td>
-                <td className="row_Profile">{element.email}</td>
-                <td className="row_Profile">{element.gender}</td>
-                <td className="row_Profile">{element.phone}</td>
-                <td className="row_Profile">{element.Department}</td>
-                <td className="row_Profile">{element.city}</td>
+                <td className="tdDoctors">{element.fullName}</td>
+                <td className="tdDoctors">{element.email}</td>
+                <td className="tdDoctors">{element.gender}</td>
+                <td className="tdDoctors">{element.phone}</td>
+                <td className="tdDoctors">{element.Department}</td>
+                <td className="tdDoctors">{element.city}</td>
                 
 
                 <td>
