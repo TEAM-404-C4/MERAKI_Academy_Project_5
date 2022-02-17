@@ -332,9 +332,16 @@ export default function Chart() {
           data: ratingGroup.reverse(),
         },
       ],
+      legend: {
+        show: false,
+      },
       chart: {
+        height: "100px",
+        toolbar: {
+          show: false,
+        },
         type: "bar",
-        height: 380,
+        height: 300,
       },
       plotOptions: {
         bar: {
@@ -391,21 +398,14 @@ export default function Chart() {
           show: false,
         },
       },
-      title: {
-        text: "Rating",
-        align: "center",
-        floating: true,
-      },
-      // subtitle: {
-      //   text: "Category Names as DataLabels inside bars",
-      //   align: "center",
-      // },
+
       tooltip: {
         theme: "dark",
         x: {
           show: false,
         },
         y: {
+          show: false,
           title: {
             formatter: function () {
               return "";
@@ -422,12 +422,22 @@ export default function Chart() {
   return (
     <div className="dashboardChartMainDiv">
       <div className="dashBoardChart">
-        <div className="chart" id="chartOne"></div>
-        <div className="chart" id="chartTwo"></div>
+        <div className="chart" id="chartOne">
+          <div className="chartLabel">Appointments Overview</div>
+        </div>
+        <div className="chart" id="chartTwo">
+          {" "}
+          <div className="chartLabel2">Monthly Appointment-Gender</div>
+        </div>
       </div>
       <div className="dashBoardChart">
-        <div className="chart3x"> </div>
-        <div className="chart" id="chartFour"></div>
+        <div className="chart3x">
+          {" "}
+          <div className="chartLabel3">Total Appointment</div>
+        </div>
+        <div className="chart4" id="chartFour">
+          <div className="chartLabel4">Rating</div>
+        </div>
       </div>
     </div>
   );
