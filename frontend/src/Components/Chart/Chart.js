@@ -422,7 +422,7 @@ export default function Chart() {
         <div className="chart" id="chartTwo"></div>
       </div>
       <div className="dashBoardChart">
-        <div className="chart3x">Monthy Number of Booking </div>
+        <div className="chart3x"> </div>
         <div className="chart" id="chartFour"></div>
       </div>
     </div>
