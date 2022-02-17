@@ -59,7 +59,6 @@ export default function PatientBooking() {
     } catch (err) {
       console.log(err.response);
     }
-
   };
   console.log(appointement);
   // =======================================
@@ -77,7 +76,6 @@ export default function PatientBooking() {
             <th className="title">Date </th>
             <th className="title">Phone No </th>
             <th className="title">Delete </th>
-
           </tr>
 
           {appointement.map((element, index) => {
@@ -105,9 +103,6 @@ export default function PatientBooking() {
               </tr>
             );
           })}
-
-       
-
         </table>
       )}
     </div>

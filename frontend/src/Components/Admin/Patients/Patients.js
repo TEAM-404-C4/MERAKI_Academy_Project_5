@@ -27,7 +27,7 @@ export default function Patients() {
     }
   };
 
-  //====================================================//delet ePatient FUNCTION
+  //====================================================//delete Patient FUNCTION
 
   const deletePatient = async (e) => {
     try {
@@ -54,29 +54,29 @@ export default function Patients() {
 
   return (
     <div>
-      <div className="patient_Profile">
-        <table className="patient_Table_Profile_Main_Div">
+      <div className="parentTablePatints">
+        <table className="tablePatints">
           <thead>
-            <tr className="patient_Table_Profile_Title">
-              <th className="titleNo_Profile">No.</th>
-              <th className="title_Profile">First Name</th>
-              <th className="title_Profile">Last Name</th>
-              <th className="title_Profile">Gender</th>
-              <th className="title_Profile">Phone</th>
-              <th className="title_Profile">Actions</th>
+            <tr className="trHeadPatints">
+              <th className="thNOPatints">No.</th>
+              <th className="thPatints">First Name</th>
+              <th className="thPatints">Last Name</th>
+              <th className="thPatints">Gender</th>
+              <th className="thPatints">Phone</th>
+              <th className="thPatints">Actions</th>
             </tr>
           </thead>
 
           <tbody>
             {AllPatients.map((element, index) => {
               return (
-                <tr className="patient_Table_Profile">
-                  <td className="rowNo_Profile">{index + 1}</td>
+                <tr className="trBodyPatints">
+                  <td className="tdNoPatints">{index + 1}</td>
 
-                  <td className="row_Profile">{element.firstName}</td>
-                  <td className="row_Profile">{element.lastName}</td>
-                  <td className="row_Profile">{element.gender}</td>
-                  <td className="row_Profile">{element.phone}</td>
+                  <td className="tdPatints">{element.firstName}</td>
+                  <td className="tdPatints">{element.lastName}</td>
+                  <td className="tdPatints">{element.gender}</td>
+                  <td className="tdPatints">{element.phone}</td>
 
                   <td>
                     <button

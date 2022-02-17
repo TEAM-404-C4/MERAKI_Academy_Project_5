@@ -12,6 +12,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "./FullCalender.css";
 import Appointement from "../DoctorAppointment/Appointement";
+import { AiFillCarryOut } from "react-icons/ai";
 
 export default function FullCalender() {
   const [appointement, setAppointement] = useState([]);
@@ -58,7 +59,6 @@ export default function FullCalender() {
   // ====================================================
 
   const handleDateClick = (dateClickInfo) => {
-    console.log(dateClickInfo.dateStr);
     setDayAppointment(dateClickInfo.dateStr);
   };
 
@@ -73,7 +73,6 @@ export default function FullCalender() {
       return (
         <tr className="patient_Table_Appointment_title">
           <td className="rowNo_Appointment">{index + 1}</td>
-
           <td className="row_Appointment">{`${element1.firstName}  ${element1.lastName} `}</td>
           <td className="row_Appointment">{element1.time}</td>
           <td className="row_Appointment"> {element1.phone}</td>
@@ -110,25 +109,34 @@ export default function FullCalender() {
             cssClass="full"
           />
         </div>
-        <div>
-          {dayAppointment && (
-            <div className="TableBooking">
-              {/* <Appointement /> */}
-
-              <table className="patient_Table_Appointment">
-                <thead>
-                  <tr className="patient_Table_Appointment_title">
-                    <th className="titleNo_Appointment">No.</th>
-
-                    <th className="title_Appointment">FullName</th>
-                    <th className="title_Appointment">Time</th>
-                    <th className="title_Appointment">Phone</th>
-                  </tr>
-                </thead>
-                <tbody>{showDayAppointment()}</tbody>
-              </table>
+        <div></div>
+        <div className="TableBooking">
+          {/* <Appointement /> */}
+          <div className="AppointementTablePerDay">
+            Appointement Table - {dayAppointment || "Pick Date"}{" "}
+            <div>
+              <AiFillCarryOut size={20} />
             </div>
-          )}
+          </div>
+          <table className="patient_Table_Appointment">
+            <thead>
+              <tr className="patient_Table_Appointment_title">
+                <th className="titleNo_Appointment">No.</th>
+                <th className="title_Appointment">FullName</th>
+                <th className="title_Appointment">Time</th>
+                <th className="title_Appointment">Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+              {showDayAppointment().length ? (
+                showDayAppointment()
+              ) : (
+                <div>
+                  <div className="noAppointmen">No Appointment in This Day</div>
+                </div>
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
