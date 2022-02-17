@@ -144,7 +144,7 @@ const Dashboard = () => {
                 <div className="FullCalender">
                   <FullCalender />
                 </div>
-                <Appointement />
+                {/* <Appointement /> */}
               </div>
             ) : (
               <></>

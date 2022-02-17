@@ -234,25 +234,35 @@ const Setting = () => {
       }
     }
   };
-// =================================== get Patient by id
-const getPatientById = async()=>{
-  try {
-    const patientId=window.localStorage.getItem('userIdForSettings');
-    const result = await axios.get(`http://localhost:5000/patients/${patientId}`);
-    if (result.data.success) {
-      setFirstName(result.data.result[0].firstName);
-      setPatientPhone((result.data.result[0].phone!==null ? 'You Do Not Have Phone Please Add it':result.data.result[0].phone));
-      setlastName(result.data.result[0].lastName);
-    } else throw Error;
-  } catch (error) {
-    if (error.response && error.response.data) {
+  // =================================== get Patient by id
+  const getPatientById = async () => {
+    try {
+      const patientId = window.localStorage.getItem("userIdForSettings");
+      const result = await axios.get(
+        `http://localhost:5000/patients/${patientId}`
+      );
+      if (result.data.success) {
+        setFirstName(result.data.result[0].firstName);
+        setPatientPhone(
+          result.data.result[0].phone !== null
+            ? "You Do Not Have Phone Please Add it"
+            : result.data.result[0].phone
+        );
+        setlastName(result.data.result[0].lastName);
+      } else throw Error;
+    } catch (error) {
+      if (error.response && error.response.data) {
+      }
     }
-  }
-};
+  };
   // ======================================================= get Doctor by name
   const getDoctoById = async () => {
     try {
-      const result = await axios.get(`http://localhost:5000/doctors/1`);
+      const result = await axios.get(
+        `http://localhost:5000/doctors/${localStorage.getItem(
+          "userIdForSettings"
+        )}`
+      );
       if (result.data.success) {
         setFullName(result.data.result[0].fullName);
         setEmail(result.data.result[0].email);
@@ -296,7 +306,7 @@ const getPatientById = async()=>{
                           setFullName(e.target.value);
                         }}
                       />
-                      <label>e-mail</label>
+                      <label>E-mail</label>
                       <input
                         type="text"
                         className="doctorInfo"
@@ -347,7 +357,7 @@ const getPatientById = async()=>{
                           setAddress(e.target.value);
                         }}
                       />
-                      <label>Waiting time </label>
+                      <label>Waiting Time </label>
                       <input
                         type="text"
                         className="doctorInfo"
@@ -356,7 +366,7 @@ const getPatientById = async()=>{
                           setWaitingTime(e.target.value);
                         }}
                       />
-                      <label>Consultation fee </label>
+                      <label>Consultation Fee </label>
                       <input
                         type="text"
                         className="doctorInfo"
@@ -433,7 +443,6 @@ const getPatientById = async()=>{
                     <input
                       type="text"
                       defaultValue={lastName}
-
                       className="patientInfo"
                       onChange={(e) => {
                         setlastName(e.target.value);
@@ -496,45 +505,43 @@ const getPatientById = async()=>{
             {/* --------------------------------------------------change phone  */}
             <div>
               <div className="changePhoneDiv">
-                
-                  <div className="changeInfoForm">
-                    <form onSubmit={changePhone} className="cInfoFrom">
-                      <label className="patientLabel">Old phone number</label>
-                      <input
-                        type="number"
-                        className="patientInfo"
-                        defaultValue={Patientphone}
-                        onChange={(e) => {
-                          setOldPhone(e.target.value);
-                        }}
-                      />
-                      <label className="patientLabel">New phone number</label>
+                <div className="changeInfoForm">
+                  <form onSubmit={changePhone} className="cInfoFrom">
+                    <label className="patientLabel">Old phone number</label>
+                    <input
+                      type="number"
+                      className="patientInfo"
+                      defaultValue={Patientphone}
+                      onChange={(e) => {
+                        setOldPhone(e.target.value);
+                      }}
+                    />
+                    <label className="patientLabel">New phone number</label>
 
-                      <input
-                        type="number"
-                        className="patientInfo"
-                        onChange={(e) => {
-                          setNewPhone(e.target.value);
-                        }}
-                      />
-                      <label className="patientLabel">Password</label>
+                    <input
+                      type="number"
+                      className="patientInfo"
+                      onChange={(e) => {
+                        setNewPhone(e.target.value);
+                      }}
+                    />
+                    <label className="patientLabel">Password</label>
 
-                      <input
-                        type="password"
-                        className="patientInfo"
-                        onChange={(e) => {
-                          setPassword(e.target.value);
-                        }}
-                      />
+                    <input
+                      type="password"
+                      className="patientInfo"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
+                    />
 
-                      <button className="savebtn" type="submit">
-                        Save Changes
-                      </button>
-                    </form>
-                  </div>
-                
-                  <></>
-                
+                    <button className="savebtn" type="submit">
+                      Save Changes
+                    </button>
+                  </form>
+                </div>
+
+                <></>
               </div>
             </div>
           </div>

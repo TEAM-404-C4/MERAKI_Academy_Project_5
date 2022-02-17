@@ -38,6 +38,7 @@ export default function Chart() {
       res2 = await axios.post("http://localhost:5000/comment/", {
         doctorId: state.userId | window.localStorage.getItem("userId"),
       });
+      console.log(res, "----------------------------");
       // console.log("res", res, "res2", res2, "state", state);
       setComments(res2.data.result);
       setAppointement(res.data.result);

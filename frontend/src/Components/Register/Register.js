@@ -11,7 +11,7 @@ const Register = () => {
   const [lastNamePatient, setLastNamePatient] = useState("");
   const [phonePatient, setPhonePatient] = useState("");
   const [passwordPatient, setPasswordPatient] = useState("");
-  const [gender, setGender] = useState("Male");
+  const [gender, setGender] = useState("MALE");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
 

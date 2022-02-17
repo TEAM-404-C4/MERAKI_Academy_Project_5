@@ -75,7 +75,8 @@ const createNewDoctor = async (req, res) => {
 };
 // ==========================================Get All Doctor in Admin Panel
 const getAllDoctorsInAdmin = (req, res) => {
-  const query = "SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.gender,healthcare.doctor.Nationality,healthcare.doctor.phone,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department'  FROM doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId where doctor.is_deleted = 0 ";
+  const query =
+    "SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.gender,healthcare.doctor.Nationality,healthcare.doctor.phone,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department'  FROM doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId where doctor.is_deleted = 0 ";
   connection.query(query, (err, result) => {
     if (err) {
       res.status(500).json({
@@ -270,7 +271,6 @@ const deleteDoctorById = (req, res) => {
 //===================================================//Get Doctor By Name
 const getDoctorByName = (req, res) => {
   const fullName = req.body.fullName;
-
   const query = `SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.password,healthcare.doctor.profileImage,healthcare.doctor.gender,healthcare.doctor.status,healthcare.doctor.Nationality,healthcare.doctor.specialization,healthcare.doctor.phone,healthcare.doctor.workingDays,healthcare.doctor.address,healthcare.doctor.careersLicense,healthcare.doctor.waitingTime,healthcare.doctor.consultationFee,healthcare.doctor.ScientificCertificate,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department' FROM healthcare.doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId  where healthcare.doctor.is_deleted = 0 and healthcare.doctor.fullName  REGEXP  ?  `;
   const data = [fullName];
   connection.query(query, data, (err, result) => {
@@ -317,5 +317,5 @@ module.exports = {
   getDoctorByName,
   getDoctorByDepartment,
   DoctorProfileImageByID,
-  getAllDoctorsInAdmin
+  getAllDoctorsInAdmin,
 };
