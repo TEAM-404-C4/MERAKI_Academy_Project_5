@@ -1,7 +1,7 @@
 //====================================================//Require
 const connection = require("../database/db");
 
-//====================================================//CreateNewAppointment
+//====================================================//Create New Appointment Function
 
 const CreateNewAppointment = (req, res) => {
   const query = `Insert INTO Appointment (time) VALUES (?) `;
@@ -18,7 +18,7 @@ const CreateNewAppointment = (req, res) => {
   });
 };
 
-//====================================================//getAllAppointment
+//====================================================//get Al lAppointment Function
 
 const getAllAppointment = (req, res) => {
   const query = `Select * from Appointment  `;
@@ -34,7 +34,7 @@ const getAllAppointment = (req, res) => {
   });
 };
 
-//====================================================//deleteAppointmentById
+//====================================================//delete Appointment By Id Function
 
 const deleteAppointmentById = (req, res) => {
   const query = `UPDATE Appointment SET is_deleted=1 WHERE id=?`;
@@ -51,7 +51,7 @@ const deleteAppointmentById = (req, res) => {
   });
 };
 
-//====================================================//updateAppointmentById
+//====================================================//update Appointment By Id Function
 
 const updateAppointmentById = (req, res) => {
   const query = `UPDATE Appointment SET time = ? WHERE id=?`;

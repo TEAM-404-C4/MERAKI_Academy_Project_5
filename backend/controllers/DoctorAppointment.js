@@ -43,7 +43,7 @@ const setDoctorAppointement = (req, res) => {
   });
 };
 
-//====================================================// getAppointmentByDoctorId
+//====================================================// get Appointment By Doctor Id Function
 
 // in Doctor Panel
 // الدكتور بشوف المرضى
@@ -65,7 +65,7 @@ const getAppointmentByDoctorId = (req, res) => {
   });
 };
 
-//====================================================// getDoctorAppointmentByPatientId
+//====================================================// get Doctor Appointment By PatientId Function
 
 // Patient Retrieve Information Doctors for All Appointments.
 // المريض بشوف معلومات الدكتور
@@ -89,7 +89,7 @@ const getDoctorAppointmentByPatientId = (req, res) => {
   });
 };
 
-//====================================================// getAvalibleAppointment
+//====================================================// get Avalible Appointment Function
 
 // Doctor Available Patient Can Booking
 const getAvalibleAppointment = (req, res) => {
@@ -118,7 +118,7 @@ const getAvalibleAppointment = (req, res) => {
     });
   });
 };
-//====================================================// setAppointmentIsBooking
+//====================================================// set Appointment I sBooking Function
 
 const setAppointmentIsBooking = (req, res, next) => {
   const query = `INSERT INTO doctor_appointment (doctorId,appointmentId,patientId,is_Booking,dateAppointment) VALUES(?,?,?,?,?)`;
@@ -135,7 +135,7 @@ const setAppointmentIsBooking = (req, res, next) => {
   });
 };
 
-//====================================================// setIsDeletedInAppointmentAvailable
+//====================================================// set Is Deleted In Appointment Available Function
 
 const setIsDeletedInAppointmentAvailable = (req, res) => {
   const query = `Update healthcare.doctorshowappointment SET is_deleted=1 where appointmentId = ? and doctorId = ?`;
@@ -154,7 +154,7 @@ const setIsDeletedInAppointmentAvailable = (req, res) => {
   });
 };
 
-// =========================================================================== doctor delete appointment
+// =========================================================================== doctor delete appointment Function
 
 const doctorDeleteAppointment = (req, res, next) => {
   const query = `DELETE FROM doctor_appointment  WHERE  doctorId=? AND appointmentId=? AND patientId=? AND dateAppointment=?`;
@@ -171,7 +171,7 @@ const doctorDeleteAppointment = (req, res, next) => {
   });
 };
 
-//====================================================// doctorDeleteBooking
+//====================================================// docto rDelete Booking Function
 
 const doctorDeleteBooking = (req, res) => {
   const query = `Update healthcare.doctorshowappointment SET is_deleted=0 where appointmentId = ? and doctorId = ?`;
