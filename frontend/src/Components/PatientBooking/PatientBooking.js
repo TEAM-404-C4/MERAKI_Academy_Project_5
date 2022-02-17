@@ -29,8 +29,9 @@ export default function PatientBooking() {
             state.userId || window.localStorage.getItem("userIdForSettings"),
         }
       );
-      console.log(res);
-      console.log(res.data.result);
+      console.log("state", window.localStorage.getItem("userId"));
+      // console.log(res);
+      // console.log(res.data.result);
       setAppointement(res.data.result);
     } catch (err) {
       console.log(err);

@@ -115,6 +115,18 @@ const Navigation = () => {
           ) : (
             <></>
           )}
+          {state.roleId === 1 || localStorage.getItem("roleId") == 1 ? (
+            <div className="option" title="setting Page">
+              <Link to="/admin" alt="test">
+                <FiSettings />
+              </Link>
+              <div></div>
+              
+            </div>
+            
+          ) : (
+            <></>
+          )}
           {/* for calling 911 */}
           <div className="option" title="Calling 911">
             <a href="tel:911" style={{ color: "red" }}>

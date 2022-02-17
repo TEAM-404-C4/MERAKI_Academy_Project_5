@@ -19,7 +19,7 @@ import UserProfile from "./Components/User/UserProfile";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Intro from "./Components/Intro/Intro";
 import Footer from "./Components/Footer/Footer";
-
+import AdminPanel from "./Components/Admin/AdminDashbord";
 //App Function
 function App() {
   return (
@@ -42,6 +42,8 @@ function App() {
         <Route path="/setting" element={<Setting />} />
         <Route path="/chart" element={<Chart />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<AdminPanel />} />
+
       </Routes>
       <Footer />
     </div>

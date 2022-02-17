@@ -1,7 +1,7 @@
 import React from "react";
 import "./Intro.css";
 import { useNavigate } from "react-router-dom";
-
+import SliderFeedBack from '../FeedBack/SliderFeedBack'
 function Intro() {
   const history = useNavigate();
   return (
@@ -182,6 +182,9 @@ function Intro() {
           </div>
         </div>
       </div>
+      {/* <div className="SliderFeedBack">
+        <SliderFeedBack/>
+      </div> */}
     </div>
   );
 }
