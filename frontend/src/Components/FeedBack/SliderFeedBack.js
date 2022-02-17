@@ -7,7 +7,7 @@ export default function SliderFeedBack() {
     const [message, setMessage]= useState("");
     const getAllFeedBack =async()=>{
         try {
-         const res = await axios.get('http://localhost:5000/feedback')
+         const res = await axios.get('http://localhost:5000/feedback/getapprove')
          if (res.data.success) {
            setAllFeedBack(res.data.results);
          }
