@@ -150,7 +150,6 @@ const Dashboard = () => {
                 <div className="FullCalender">
                   <FullCalender />
                 </div>
-
               </div>
             ) : (
               <></>
@@ -180,7 +179,7 @@ const Dashboard = () => {
             {ratingPanel ? (
               <>
                 <div className="dashBoardChart">
-                  <div>
+                  <div className="appoDiv">
                     <Appointement />
                   </div>
                 </div>
