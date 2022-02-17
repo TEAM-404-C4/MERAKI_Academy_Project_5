@@ -10,9 +10,7 @@ import {
   FaPhoneAlt,
   FaBuilding,
 } from "react-icons/fa";
-
 import { IoLogoWhatsapp } from "react-icons/io";
-
 import { GrCertificate } from "react-icons/gr";
 import { AiFillFlag } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
@@ -20,12 +18,19 @@ import { BsClockHistory, BsCalendarDay } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
 import { HiOutlineIdentification } from "react-icons/hi";
 import CommentsAndRate from "../CommentsAndRate/CommentsAndRate";
+
+//====================================================//COMPONENT
+
 const DoctorProfile = () => {
+  //====================================================//USESTATE
+
   const [doctor, setDoctor] = useState("");
   const [appointement, setAppointement] = useState([]);
   const [resultBooking, setResultBooking] = useState("");
   const [today, setToday] = useState("");
   const [date, setDate] = useState("");
+
+  //====================================================//useSelector
 
   const state = useSelector((state) => {
     return {
@@ -35,25 +40,24 @@ const DoctorProfile = () => {
       roleId: state.loginReducer.roleId,
     };
   });
-  // ========================================
+
+  //====================================================//USEEFFECT
 
   useEffect(async () => {
     setToday(() => {
       return new Date().toISOString().substring(0, 10);
     });
-    console.log(state.userId, state.roleId, state.userIdDoctor);
-    console.log("state.doctorId", state.doctorId, state.doctorId.doctorId);
+
     try {
       const res = await axios.get(
         `http://localhost:5000/doctors/${window.localStorage.getItem(
           "doctorId"
         )}`
       );
-      console.log("Doctor id", state.doctorId, res);
       setDoctor(res.data.result[0]);
-      console.log("dd", res.data.result[0]);
+
       // ===================================================appointement
-      console.log(today);
+
       const res2 = await axios.post(
         `http://localhost:5000/doctors/appointement`,
         {
@@ -62,14 +66,13 @@ const DoctorProfile = () => {
         }
       );
 
-      console.log(res2.data.result);
       setAppointement(res2.data.result);
     } catch (err) {
       console.log(err);
     }
   }, [resultBooking, date]);
 
-  // ================================================== booking
+  // ==================================================// booking FUNCTION
 
   const booking = async (e) => {
     if (state.roleId == 2) {
@@ -79,25 +82,24 @@ const DoctorProfile = () => {
     try {
       const res = await axios.post(`http://localhost:5000/doctors/booking`, {
         appointmentId: e.target.value,
-        patientId: window.localStorage.getItem('userIdForSettings'),
-        doctorId: window.localStorage.getItem('doctorId'),
+        patientId: window.localStorage.getItem("userIdForSettings"),
+        doctorId: window.localStorage.getItem("doctorId"),
         dateAppointment: date || today,
       });
 
-      console.log(res);
       setResultBooking(res);
     } catch (err) {
       console.log(err);
     }
   };
-  // ===================================== set date appointement
+
+  // ==================================================// set Date Appointement FUNCTION
 
   const setDateAppointement = (e) => {
     setDate(e.target.value.toString());
-    // console.log(e.target.value.toString());
   };
 
-  // ====================================
+  //====================================================//RETURN
 
   return (
     <div className="doctorProfileMainDiv">
