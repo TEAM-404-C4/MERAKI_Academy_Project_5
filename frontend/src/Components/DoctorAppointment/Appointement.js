@@ -1,25 +1,35 @@
+//====================================================//Require
+
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import DoctorAppointement from "./DoctorAppointement";
 import "./Appointement.css";
 
+//====================================================//COMPONENT
+
 const Appointement = () => {
+  //====================================================//USESTATE
+
   const [schedual, setSchedual] = useState({});
   const [schedual22, setSchedual22] = useState([]);
   const [appointementId, setAppointementId] = useState({});
   const [repeatAppointment, setRepeatAppointment] = useState("");
 
-  // ==========================================================
+  // ==========================================================// USESLECTOR
 
   const state = useSelector((state) => {
     return state.loginReducer.userId;
   });
 
+  //====================================================//USEEFFECT
+
   useEffect(() => {
     showResult();
   }, [schedual]);
-  // =============================================================
+
+  //====================================================//save Appointement FUNCTION
+
+
   const saveAppointement = async () => {
     try {
       const res = await axios.post(
@@ -35,11 +45,12 @@ const Appointement = () => {
         setRepeatAppointment(res.data.response);
       }
       setSchedual({});
-      console.log(res);
     } catch (err) {
       console.log(err.response);
     }
   };
+
+  //====================================================//show Result FUNCTION
 
   const showResult = () => {
     let array = Object.keys(schedual);
@@ -100,9 +111,10 @@ const Appointement = () => {
     }
 
     return newArray;
-    // Object.keys(schedual)
   };
-  // =======================================================
+
+  //====================================================//show Schedual FUNCTION
+
   const showSchedual = (e) => {
     let inner_Text = e.target.innerText;
     let id = e.target.id;
@@ -122,9 +134,8 @@ const Appointement = () => {
       e.target.className = "A";
     }
   };
-  // ===================================================
 
-  // ==============================================
+  //====================================================//RETURN
   return (
     <div className="AppointementDoctor">
       <div className="list">

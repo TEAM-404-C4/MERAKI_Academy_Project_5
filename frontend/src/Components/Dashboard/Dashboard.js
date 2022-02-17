@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+//====================================================//Require
 
-import axios from "axios";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import { AiOutlineRight, AiFillSetting } from "react-icons/ai";
 import { GoDashboard } from "react-icons/go";
 import { BsFillPeopleFill, BsFillCalendarCheckFill } from "react-icons/bs";
-import { FaStar } from "react-icons/fa";
 import FullCalender from "../FullCalender/FullCalender";
 import Setting from "../Settings/Setting";
 import Charts from "../Chart/Chart";
 import PatientBooking from "../PatientBooking/PatientBooking";
 import Appointement from "../DoctorAppointment/Appointement";
+//====================================================//COMPONENT
+
 const Dashboard = () => {
+  //====================================================//USESTATE
+
   const [dashboardPanel, setDashboardPanel] = useState(true);
   const [appointementPanel, setappointementPanel] = useState(false);
   const [patientsPanel, setPatientsPanel] = useState(false);
@@ -23,10 +25,10 @@ const Dashboard = () => {
   const [selectStyle3, setSelectStyle3] = useState("dashboardSelect");
   const [selectStyle4, setSelectStyle4] = useState("dashboardSelect");
   const [selectStyle5, setSelectStyle5] = useState("dashboardSelect");
-  const [appointement, setAppointement] = useState([]);
-  //   ===================================================================
 
-  // =====================================
+  
+  //====================================================//RETURN
+
   return (
     <>
       <div className="MainDivDashBoard">

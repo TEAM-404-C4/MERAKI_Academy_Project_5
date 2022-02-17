@@ -1,30 +1,44 @@
-import React, { useState, useEffect } from "react";
+//====================================================//Require
 
-import axios from "axios";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import { AiOutlineRight, AiFillSetting } from "react-icons/ai";
-import { GoDashboard } from "react-icons/go";
 import { BsFillPeopleFill, BsFillCalendarCheckFill } from "react-icons/bs";
-import { FaStar } from "react-icons/fa";
 import Doctors from "./Doctors/Doctors";
-import Patient from './Patients/Patients';
+import Patient from "./Patients/Patients";
 import FeedBack from "./FeedBack/FeedBack";
-import './AdminDashBord.css';
-const AdminDashbord=()=> {
+import "./AdminDashBord.css";
+
+//====================================================//COMPONENT
+
+const AdminDashbord = () => {
+  //====================================================//USESTATE
+
   const [DoctorsPanel, setDoctorsPanel] = useState(false);
   const [patientsPanel, setPatientsPanel] = useState(false);
   const [FeedBackPanel, setFeedBackPanel] = useState(false);
-  const [selectStyle1, setSelectStyle1] = useState("dashboardSelectAdminDashBord");
-  const [selectStyle2, setSelectStyle2] = useState("dashboardSelectAdminDashBord");
-  const [selectStyle3, setSelectStyle3] = useState("dashboardSelectAdminDashBord");
-  const [selectStyle4, setSelectStyle4] = useState("dashboardSelectAdminDashBord");
-  const [selectStyle5, setSelectStyle5] = useState("dashboardSelectAdminDashBord");
+  const [selectStyle1, setSelectStyle1] = useState(
+    "dashboardSelectAdminDashBord"
+  );
+  const [selectStyle2, setSelectStyle2] = useState(
+    "dashboardSelectAdminDashBord"
+  );
+  const [selectStyle3, setSelectStyle3] = useState(
+    "dashboardSelectAdminDashBord"
+  );
+  const [selectStyle4, setSelectStyle4] = useState(
+    "dashboardSelectAdminDashBord"
+  );
+  const [selectStyle5, setSelectStyle5] = useState(
+    "dashboardSelectAdminDashBord"
+  );
+
+  //====================================================//RETURN
+
   return (
     <>
-    <div className="MainDivDashBoardAdminDashBord">
+      <div className="MainDivDashBoardAdminDashBord">
         <div className="leftSideAdminDashBord">
           <div className="menuAdminDashBord">
-            
             <div
               className={selectStyle2}
               onClick={() => {
@@ -91,30 +105,23 @@ const AdminDashbord=()=> {
                 setDoctorsPanel(false);
                 setPatientsPanel(false);
                 setFeedBackPanel(false);
-               
+
                 setSelectStyle5("dashboardSelect2AdminDashBord");
                 setSelectStyle1("dashboardSelectAdminDashBord");
                 setSelectStyle2("dashboardSelectAdminDashBord");
                 setSelectStyle3("dashboardSelectAdminDashBord");
                 setSelectStyle4("dashboardSelectAdminDashBord");
               }}
-            >
-              
-              
-            </div>
+            ></div>
           </div>
         </div>
         <div className="rightSideAdminDashBord">
           <div className="dashboardItemAdminDashBord">
-            
-
             {DoctorsPanel ? (
               <div>
                 <div className="FullCalenderAdminDashBord">
-                  <Doctors/>
+                  <Doctors />
                 </div>
-                
-
               </div>
             ) : (
               <></>
@@ -123,7 +130,7 @@ const AdminDashbord=()=> {
               <>
                 <div className="dashBoardChartAdminDashBord">
                   <div className="chartOnePatientsAdminDashBord">
-                  <Patient/>
+                    <Patient />
                   </div>
                 </div>
               </>
@@ -134,22 +141,19 @@ const AdminDashbord=()=> {
               <>
                 <div className="dashBoardChartAdminDashBord">
                   <div>
-                    <FeedBack/>
+                    <FeedBack />
                   </div>
                 </div>
               </>
             ) : (
               <></>
             )}
-            
           </div>
         </div>
       </div>
     </>
-  )
-}
-// 
-
-
+  );
+};
+//
 
 export default AdminDashbord;
