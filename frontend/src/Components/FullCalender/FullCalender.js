@@ -64,8 +64,8 @@ export default function FullCalender() {
 
   const showDayAppointment = () => {
     let array =
-      state.appointments &&
-      state.appointments.filter((element) => {
+      appointement &&
+      appointement.filter((element) => {
         return dayAppointment == element.dateAppointment;
       });
 

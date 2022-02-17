@@ -38,7 +38,9 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="footerSection">{/* <FeedBack/> */}</div>
+        <div className="footerSection">
+          <FeedBack />
+        </div>
       </div>
     </div>
   );
