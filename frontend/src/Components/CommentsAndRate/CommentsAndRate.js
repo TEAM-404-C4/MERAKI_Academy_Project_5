@@ -1,10 +1,16 @@
+//====================================================//Require
+
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./CommentsAndRate.css";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from "react-icons/ai";
 
+//====================================================//COMPONENT
+
 export default function CommentsAndRate({ doctorFullName }) {
+  //====================================================//USESTATE
+
   const [rate, setRate] = useState(0);
   const [onStar, onSetStar] = useState("fa fa-star checked");
   const [offStar, offSetStar] = useState("fa fa-star");
@@ -17,13 +23,14 @@ export default function CommentsAndRate({ doctorFullName }) {
   const [comments, setComments] = useState([]);
   const [showComments, setshowComments] = useState(false);
   const [response, setResponse] = useState("");
-   // Status For Pagination
-   const [itemsPerPage, setitemsPerPage] = useState(3);
-   const [currentPage, setcurrentPage] = useState(1);
-   const [pageNumberLimit, setpageNumberLimit] = useState(5);
-   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
-   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
-  // ====================================== state redux
+  // Status For Pagination
+  const [itemsPerPage, setitemsPerPage] = useState(3);
+  const [currentPage, setcurrentPage] = useState(1);
+  const [pageNumberLimit, setpageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+
+  // ======================================// state redux
 
   const state = useSelector((state) => {
     return {
@@ -33,22 +40,21 @@ export default function CommentsAndRate({ doctorFullName }) {
     };
   });
 
-  // ======================================
+  //====================================================//USEEFFECT
 
   useEffect(async () => {
-    console.log('line 32',"state", state);
     try {
       const res = await axios.post(`http://localhost:5000/comment/`, {
         doctorId: state.doctorId,
       });
-      console.log('line 37',res.data.result ,state.doctorId);
+
       setComments(res.data.result);
     } catch (err) {
-      console.log('err.response line 40',err.response);
+      console.log("err.response line 40", err.response);
     }
   }, [showComments, response]);
 
-  // ======================================== comment button toggle
+  // ========================================// comment button toggle FUCTION
 
   const commentButton = async (e) => {
     e.preventDefault();
@@ -61,7 +67,6 @@ export default function CommentsAndRate({ doctorFullName }) {
         commentDate: new Date().toISOString().substring(0, 10),
       });
       setResponse(res);
-      console.log('res',res);
       setComment("");
       setRate(0);
       setStar1(offStar);
@@ -70,11 +75,12 @@ export default function CommentsAndRate({ doctorFullName }) {
       setStar4(offStar);
       setStar5(offStar);
     } catch (err) {
-      const e= new Error(err.message)
-      console.log('err.response',e);
+      const e = new Error(err.message);
+      console.log("err.response", e);
     }
   };
-  // ==============================================
+
+  // ==============================================// show Comment Button FUCTION
 
   const showCommentButton = () => {
     if (!showComments) {
@@ -83,7 +89,8 @@ export default function CommentsAndRate({ doctorFullName }) {
       setshowComments(false);
     }
   };
-  //===============================
+
+  // ==============================================// show Comment Button FUCTION
 
   const showRating = (rating) => {
     let stars = [];
@@ -97,15 +104,19 @@ export default function CommentsAndRate({ doctorFullName }) {
     }
     return stars;
   };
-// ============================================ Pagination 
-const pages = [];
+  // ============================================// Pagination
+
+  const pages = [];
   for (let i = 1; i <= Math.ceil(comments.length / itemsPerPage); i++) {
     pages.push(i);
   }
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = comments.slice(indexOfFirstItem, indexOfLastItem);
-  // list bottom numbers pagination
+
+  //============================================// list bottom numbers pagination FUCTION
+
   const handleClick = (event) => {
     setcurrentPage(Number(event.target.id));
   };
@@ -125,6 +136,9 @@ const pages = [];
       return null;
     }
   });
+
+  // ==============================================// handle Next Button FUCTION
+
   const handleNextbtn = () => {
     setcurrentPage(currentPage + 1);
 
@@ -133,6 +147,7 @@ const pages = [];
       setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
     }
   };
+  // ==============================================// handle Previos Button FUCTION
 
   const handlePrevbtn = () => {
     setcurrentPage(currentPage - 1);
@@ -151,12 +166,9 @@ const pages = [];
   if (minPageNumberLimit >= 1) {
     pageDecrementBtn = <li onClick={handlePrevbtn}> &hellip; </li>;
   }
-  // For button load more pages
-  const handleLoadMore = () => {
-    setitemsPerPage(itemsPerPage + 5);
-  };
-  // Render data for Pagination
-  const renderData = (data) => {
+
+  // ==============================================// Render data for Pagination FUCTION
+  const renderData = () => {
     let commentsSection = currentItems.map((element) => {
       return (
         <div className="commentRatingElement">
@@ -177,7 +189,7 @@ const pages = [];
     return commentsSection;
   };
 
-  // =======================================
+  //====================================================// RETURN
   return (
     <div className="rateMainDiv">
       <>
@@ -336,30 +348,32 @@ const pages = [];
 
           {showComments && renderData(comments)}
           <div className="pageNumbers">
-        <ul className="pageNumberUl">
-          <li>
-            <button
-              onClick={handlePrevbtn}
-              disabled={currentPage == pages[0] ? true : false}
-            >
-              <AiOutlineArrowLeft />
-            </button>
-          </li>
-          {pageDecrementBtn}
-          {renderPageNumbers}
-          {pageIncrementBtn}
+            <ul className="pageNumberUl">
+              <li>
+                <button
+                  onClick={handlePrevbtn}
+                  disabled={currentPage == pages[0] ? true : false}
+                >
+                  <AiOutlineArrowLeft />
+                </button>
+              </li>
+              {pageDecrementBtn}
+              {renderPageNumbers}
+              {pageIncrementBtn}
 
-          <li>
-            <button
-              className="nextButton"
-              onClick={handleNextbtn}
-              disabled={currentPage == pages[pages.length - 1] ? true : false}
-            >
-              <AiOutlineArrowRight />
-            </button>
-          </li>
-        </ul>
-      </div>
+              <li>
+                <button
+                  className="nextButton"
+                  onClick={handleNextbtn}
+                  disabled={
+                    currentPage == pages[pages.length - 1] ? true : false
+                  }
+                >
+                  <AiOutlineArrowRight />
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </>
     </div>
