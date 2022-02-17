@@ -8,19 +8,19 @@ import {
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
 import { GrMapLocation } from "react-icons/gr";
-
-//CSS File
 import "./Page2.css";
-
 import Swal from "sweetalert2";
 
-//====================================================//Page 2 Function
+//====================================================//Page 2 COMPONENT
 const Page2 = () => {
+  //====================================================//useSelector
+
   const state = useSelector((state) => {
     return state.doctorRegReducer.doctorInfo;
   });
 
-  // ====================================================
+  //====================================================//USESTATE
+
   const [gender, setGender] = useState("MALE");
   const [Nationality, setNationality] = useState(state.Nationality);
   const [specialization, setSpecialization] = useState(state.specialization);
@@ -28,16 +28,13 @@ const Page2 = () => {
   const [latitude, setLatitude] = useState(state.latitude);
   const [longitude, setLongitude] = useState(state.longitude);
 
-  // =========================================================================
-
   //====================================================//Dispatch & Navigate
   const history = useNavigate();
   const dispatch = useDispatch();
 
-  // ====================================
+  //====================================================//set Location FUNCTION
   const setLocation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords);
       setLatitude(position.coords.latitude);
       setLongitude(position.coords.longitude);
     });
