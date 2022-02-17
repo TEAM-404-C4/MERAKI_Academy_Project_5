@@ -1,7 +1,10 @@
 //====================================================//Require
+
 const express = require("express");
 
-//====================================================//Require doctors Controllers
+
+//====================================================// DOCTORS CONTROLLER
+
 const {
   createNewDoctor,
   getDoctorById,
@@ -11,8 +14,10 @@ const {
   getDoctorByName,
   getDoctorByDepartment,
   DoctorProfileImageByID,
-  getAllDoctorsInAdmin
+  getAllDoctorsInAdmin,
 } = require("../controllers/Doctors");
+
+//====================================================// DOCTORAPPOINTMENT CONTROLLER
 
 const {
   setDoctorAppointement,
@@ -23,43 +28,51 @@ const {
   getDoctorAppointmentByPatientId,
   doctorDeleteAppointment,
   doctorDeleteBooking,
-  
 } = require("../controllers/DoctorAppointment");
+
+//====================================================// ENDPOINTS
 
 const { authentication } = require("../middleware/authentication");
 
-//====================================================//Create doctor Router
+//====================================================//  Router
+
 const doctorRouter = express.Router();
+
+//====================================================// ENDPOINTS
 
 doctorRouter.post("/", createNewDoctor);
 doctorRouter.get("/", getAllDoctors);
 doctorRouter.get("/all", getAllDoctorsInAdmin);
-
 doctorRouter.put("/update", authentication, updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.post("/Search", getDoctorByName);
 doctorRouter.get("/:id", getDoctorById);
 doctorRouter.post("/department", getDoctorByDepartment);
+doctorRouter.post("/setappointement", setDoctorAppointement);
+doctorRouter.post("/profileimage", authentication, DoctorProfileImageByID);
 
-// doctors Appointment
+//====================================================// ENDPOINTS
+
 doctorRouter.post("/setappointement", setDoctorAppointement);
 doctorRouter.post(
   "/booking",
   setAppointmentIsBooking,
   setIsDeletedInAppointmentAvailable
 );
-// ================================================= DOCTOR DELETE BOOKING
-
+doctorRouter.post("/getappointement", getAppointmentByDoctorId);
+doctorRouter.post("/appointement", getAvalibleAppointment);
+doctorRouter.post("/getappointementpatient", getDoctorAppointmentByPatientId);
 doctorRouter.post(
   "/deletebooking",
   doctorDeleteAppointment,
   doctorDeleteBooking
 );
-doctorRouter.post("/appointement", getAvalibleAppointment);
-doctorRouter.post("/getappointement", getAppointmentByDoctorId);
-doctorRouter.post("/getappointementpatient", getDoctorAppointmentByPatientId);
-// doctors Profile Image
-doctorRouter.post("/profileimage", authentication, DoctorProfileImageByID);
+doctorRouter.post(
+  "/deletebooking",
+  doctorDeleteAppointment,
+  doctorDeleteBooking
+);
 
-DoctorProfileImageByID;
+//====================================================// module.exports
+
 module.exports = doctorRouter;

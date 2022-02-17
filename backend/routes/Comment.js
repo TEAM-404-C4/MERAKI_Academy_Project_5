@@ -8,4 +8,6 @@ const commentRouter = express.Router();
 commentRouter.post("/", getAllComments);
 commentRouter.post("/create", createComment);
 
+//====================================================// module.exports
+
 module.exports = commentRouter;
