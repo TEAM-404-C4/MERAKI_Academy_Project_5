@@ -16,7 +16,6 @@ const setDoctorAppointement = (req, res) => {
     if (err) {
       return res.json(err);
     }
-    // console.log(result, data1);
     const find = result.filter((element) => {
       return doctor_appointment.includes(String(element.appointmentId));
     });
@@ -43,6 +42,9 @@ const setDoctorAppointement = (req, res) => {
     }
   });
 };
+
+//====================================================// getAppointmentByDoctorId
+
 // in Doctor Panel
 // الدكتور بشوف المرضى
 // Doctor Retrieve Information Patients  for All Appointments.
@@ -51,17 +53,20 @@ const getAppointmentByDoctorId = (req, res) => {
   const data = [req.body.doctorId];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res
+      return res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: `Retrieve All Appointment for Doctor =>${data[0]}`,
       result: result,
     });
   });
 };
+
+//====================================================// getDoctorAppointmentByPatientId
+
 // Patient Retrieve Information Doctors for All Appointments.
 // المريض بشوف معلومات الدكتور
 const getDoctorAppointmentByPatientId = (req, res) => {
@@ -72,17 +77,20 @@ const getDoctorAppointmentByPatientId = (req, res) => {
   const data = [req.body.patientId];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res
+      return res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: `Retrieve All Appointment for Patient =>${data[0]}`,
       result,
     });
   });
 };
+
+//====================================================// getAvalibleAppointment
+
 // Doctor Available Patient Can Booking
 const getAvalibleAppointment = (req, res) => {
   const query = `select a.id,a.time FROM doctorshowappointment d join appointment a on a.id=d.appointmentId
@@ -98,33 +106,37 @@ const getAvalibleAppointment = (req, res) => {
 
   connection.query(query, data, (err, result) => {
     if (err) {
-      res
+      return res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: `All Appointment Available From Doctor =>${req.body.doctorId} `,
       result: result,
     });
   });
 };
+//====================================================// setAppointmentIsBooking
+
 const setAppointmentIsBooking = (req, res, next) => {
   const query = `INSERT INTO doctor_appointment (doctorId,appointmentId,patientId,is_Booking,dateAppointment) VALUES(?,?,?,?,?)`;
 
-  console.log(req.body);
   const { doctorId, appointmentId, patientId, dateAppointment } = req.body;
   const data = [doctorId, appointmentId, patientId, 1, dateAppointment];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res
+      return res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
     next();
   });
 };
+
+//====================================================// setIsDeletedInAppointmentAvailable
+
 const setIsDeletedInAppointmentAvailable = (req, res) => {
   const query = `Update healthcare.doctorshowappointment SET is_deleted=1 where appointmentId = ? and doctorId = ?`;
   const { doctorId, appointmentId } = req.body;
@@ -132,21 +144,21 @@ const setIsDeletedInAppointmentAvailable = (req, res) => {
   const data = [appointmentId, doctorId];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res
+      return res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
-    res
+    return res
       .status(200)
       .json({ success: true, message: `SuccessFully Appointment =>` });
   });
-
-  // =========================================================================== doctor delete appointment
 };
+
+// =========================================================================== doctor delete appointment
+
 const doctorDeleteAppointment = (req, res, next) => {
   const query = `DELETE FROM doctor_appointment  WHERE  doctorId=? AND appointmentId=? AND patientId=? AND dateAppointment=?`;
 
-  console.log("omar", req.body);
   const { doctorId, appointmentId, patientId, dateAppointment } = req.body;
   const data = [doctorId, appointmentId, patientId, dateAppointment];
   connection.query(query, data, (err, result) => {
@@ -158,6 +170,9 @@ const doctorDeleteAppointment = (req, res, next) => {
     next();
   });
 };
+
+//====================================================// doctorDeleteBooking
+
 const doctorDeleteBooking = (req, res) => {
   const query = `Update healthcare.doctorshowappointment SET is_deleted=0 where appointmentId = ? and doctorId = ?`;
   const { doctorId, appointmentId } = req.body;
@@ -165,16 +180,18 @@ const doctorDeleteBooking = (req, res) => {
   const data = [appointmentId, doctorId];
   connection.query(query, data, (err, result) => {
     if (err) {
-      res
+      return res
         .status(500)
         .json({ success: false, message: "Server Error", error: err });
     }
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: `SuccessFully DELETE BOOKINF Appointment =>`,
     });
   });
 };
+
+//====================================================// module.exports
 
 module.exports = {
   setDoctorAppointement,
