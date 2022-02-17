@@ -23,7 +23,7 @@ const {
 //====================================================//Create Paitient Router
 const PaitientRouter = express.Router();
 
-PaitientRouter.get("/all", authentication, getAllPatients);
+PaitientRouter.get("/all", getAllPatients);
 PaitientRouter.get("/:id", getPatientById);
 PaitientRouter.post("/create", createNewPatient);
 PaitientRouter.put("/update", authentication, updatePatientByid);

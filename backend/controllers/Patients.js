@@ -109,7 +109,7 @@ const createNewPatient = async (req, res) => {
 
 //====================================================//Get All Patients Function
 const getAllPatients = (req, res) => {
-  const query = `SELECT * FROM patient`;
+  const query = `SELECT * FROM patient WHERE is_deleted=0`;
   connection.query(query, (err, result) => {
     if (err) {
       return res.status(500).json({
@@ -231,7 +231,7 @@ const deletePatientById = (req, res) => {
   const data = [id];
   connection.query(query, data, (err, result) => {
     if (!err) {
-      res.status(404).json({
+      res.status(200).json({
         success: true,
         message: `Succeeded to delete patient with id => ${id}`,
         result: result,
