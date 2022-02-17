@@ -1,4 +1,3 @@
-
 //====================================================//Require
 const express = require("express");
 
@@ -8,6 +7,10 @@ const { createNewRole } = require("../controllers/Roles");
 //====================================================//Create Paitient Router
 const RoleRouter = express.Router();
 
+//====================================================// ENDPOINTS
+
 RoleRouter.post("/", createNewRole);
+
+//====================================================// module.exports
 
 module.exports = RoleRouter;

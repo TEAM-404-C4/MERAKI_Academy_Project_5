@@ -11,9 +11,11 @@ const {
   updatePatientByid,
   checkPatientExist,
   loginGoogle,
-  loginFacebook
+  loginFacebook,
 } = require("../controllers/Patients");
 const { authentication } = require("../middleware/authentication");
+
+//====================================================//Import Setting Controllers
 
 const {
   ChangePatientPasswordById,
@@ -22,6 +24,8 @@ const {
 
 //====================================================//Create Paitient Router
 const PaitientRouter = express.Router();
+
+//====================================================// ENDPOINTS
 
 PaitientRouter.get("/all", getAllPatients);
 PaitientRouter.get("/:id", getPatientById);
@@ -38,5 +42,6 @@ PaitientRouter.put("/changephone/", authentication, ChangePatientPhoneById);
 PaitientRouter.post("/googlelogin", checkPatientExist, loginGoogle);
 PaitientRouter.post("/facebooklogin", checkPatientExist, loginFacebook);
 
+//====================================================// module.exports
 
 module.exports = PaitientRouter;
