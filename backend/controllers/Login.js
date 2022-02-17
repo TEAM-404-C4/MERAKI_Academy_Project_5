@@ -11,7 +11,7 @@ const doctorLogin = (req, res) => {
   const data = [phone];
   connection.query(query, data, async (err, result) => {
     if (!result.length) {
-      res.status(403).json({
+      return res.status(403).json({
         success: false,
         message: `This is account dose not exist`,
       });
@@ -33,7 +33,7 @@ const doctorLogin = (req, res) => {
         };
         const token = await jwt.sign(payload, process.env.SECRET, options);
 
-        res.status(200).json({
+        return res.status(200).json({
           success: true,
           message: `Login Successfully`,
           token: token,
@@ -41,7 +41,6 @@ const doctorLogin = (req, res) => {
           role: result[0].roleId,
           profileImage: result[0].profileImage,
         });
-        console.log(result);
       } catch (error) {
         throw new Error(error.message);
       }
@@ -75,8 +74,8 @@ const login = (req, res, next) => {
           expiresIn: "60m",
         };
         const token = await jwt.sign(payload, process.env.SECRET, options);
-        console.log(result);
-        res.status(200).json({
+
+        return res.status(200).json({
           success: true,
           message: `Login Successfully`,
           token: token,
@@ -89,6 +88,9 @@ const login = (req, res, next) => {
     }
   });
 };
+
+//====================================================// admin Login Function
+
 const adminLogin = (req, res, next) => {
   const password = req.body.password;
   const phone = req.body.phone;
@@ -114,8 +116,8 @@ const adminLogin = (req, res, next) => {
           expiresIn: "60m",
         };
         const token = await jwt.sign(payload, process.env.SECRET, options);
-        console.log(result);
-        res.status(200).json({
+
+        return res.status(200).json({
           success: true,
           message: `Login Successfully`,
           token: token,
@@ -128,6 +130,9 @@ const adminLogin = (req, res, next) => {
     }
   });
 };
+
+//====================================================// module.exports
+
 module.exports = {
   login,
   doctorLogin,

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./FeedBack.css";
 import { useSelector } from "react-redux";
-import { FcApproval } from "react-icons/fc";
+import { FcApproval , FcCancel } from "react-icons/fc";
 export default function FeedBack() {
     const [AllFeedBack,setAllFeedBack]=useState([]);
     const [message, setMessage]= useState("");
@@ -22,7 +22,22 @@ export default function FeedBack() {
       };
       const ApproveFeedBack = async(e)=>{
         try {
-          const res = await axios.put(`http://localhost:5000/feedback/${e.target.id}`)
+          const res = await axios.put(`http://localhost:5000/feedback/approve/${e.target.id}`)
+          if (res.data.success) {
+            setMessage(res.data.message);
+    
+          }
+          else{
+        setMessage(res.data.message);
+          }
+         } catch (error) {
+            
+           setMessage(error.message);
+         }
+      };
+      const DeleteFeedBack = async(e)=>{
+        try {
+          const res = await axios.delete(`http://localhost:5000/feedback/${e.target.id}`)
           if (res.data.success) {
             setMessage(res.data.message);
     
@@ -41,34 +56,35 @@ export default function FeedBack() {
       },[]);
       return (
         <div>
-          <div className="patient_Profile">
+          <div className="parentTableFeedBack">
           
-          <table className="patient_Table_Profile_Main_Div">
+          <table className="tableFeedBack">
             <thead>
-              <tr className="patient_Table_Profile_Title">
-                <th className="titleNo_Profile">No.</th>
-                <th className="title_Profile">Full Name</th>
-                <th className="title_Profile">Email</th>
-                <th className="title_Profile">Subject</th>
-                <th className="title_Profile">Message</th>
+              <tr className="trHeadFeedBack">
+                <th className="thNOFeedBack">No.</th>
+                <th className="thFeedBack">Full Name</th>
+                <th className="thFeedBack">Email</th>
+                <th className="thFeedBack">Subject</th>
+                <th className="thFeedBack">Message</th>
                
-                <th className="title_Profile">Actions</th>
+                <th className="thFeedBack">Actions</th>
               </tr>
             </thead>
            
             <tbody>
               {AllFeedBack.map((element, index) => {
                 return (
-                  <tr className="patient_Table_Profile">
-                    <td className="rowNo_Profile">{index + 1}</td>
-                    <td className="row_Profile">{element.fullname}</td>
-                    <td className="row_Profile">{element.email}</td>
-                    <td className="row_Profile">{element.subject}</td>
-                    <td className="row_Profile">{element.message}</td>
+                  <tr className="trBodyFeedBack">
+                    <td className="tdNoFeedBack">{index + 1}</td>
+                    <td className="tdFeedBack">{element.fullname}</td>
+                    <td className="tdFeedBack">{element.email}</td>
+                    <td className="tdFeedBack">{element.subject}</td>
+                    <td className="tdFeedBack">{element.message}</td>
                     
                     
     
                     <td>
+                      <div>
                       <button
                         className="deleteButtons"
                         id={element.id}
@@ -76,6 +92,15 @@ export default function FeedBack() {
                       >
                         <FcApproval className="delete" />
                       </button>
+                      <button
+                        className="deleteButtons"
+                        id={element.id}
+                        onClick={DeleteFeedBack}
+                      >
+                        <FcCancel className="delete" />
+                      </button>
+                      </div>
+                      
                     </td>
                   </tr>
                 );

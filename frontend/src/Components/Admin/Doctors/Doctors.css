@@ -1,0 +1,46 @@
+.parentTableDoctors{
+    max-height: 80vh;
+  min-height: 20vh;
+  margin-top:2vh;
+}
+.tableDoctors{
+    border: 1px solid #ffffff;
+  overflow: scroll;
+}
+.trHeadDoctors{
+  background-color: #0d79e5;
+
+}
+.thNODoctors{
+    color: white;
+    border: 1px solid #ffffff;
+    padding: 0px;
+    font-weight: bold;
+}
+.thDoctors{
+    color: white;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    font-weight: bold;
+}
+.trBodyDoctors{
+    color: white;
+    width: 100px;
+}
+    .trBodyDoctors:hover{
+        color: rgb(240, 83, 83);
+
+    }
+.tdNoDoctors{
+    padding: 10px;
+  border: 1px solid #ffffff;
+  width: 50px;
+  font-size: 15px;
+}
+.tdDoctors{
+    padding: 5px;
+  border: 1px solid #ffffff;
+  width: 170px;
+  font-size: 15px;
+  transition: 0.2s;
+}

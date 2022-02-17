@@ -79,15 +79,15 @@ const getAllDoctorsInAdmin = (req, res) => {
     "SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.gender,healthcare.doctor.Nationality,healthcare.doctor.phone,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department'  FROM doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId where doctor.is_deleted = 0 ";
   connection.query(query, (err, result) => {
     if (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         massage: "server error",
         err: err,
       });
     }
-    // console.log(result);
+
     // result are the data returned by mysql server
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       massage: "All the Doctors",
       results: result,
@@ -100,15 +100,15 @@ const getAllDoctors = (req, res) => {
     "SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.password,healthcare.doctor.profileImage,healthcare.doctor.gender,healthcare.doctor.status,healthcare.doctor.Nationality,healthcare.doctor.specialization,healthcare.doctor.phone,healthcare.doctor.workingDays,healthcare.doctor.address,healthcare.doctor.careersLicense,healthcare.doctor.waitingTime,healthcare.doctor.consultationFee,healthcare.doctor.latitude,healthcare.doctor.longitude,healthcare.doctor.ScientificCertificate,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department' FROM healthcare.doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId where healthcare.doctor.is_deleted = 0 ";
   connection.query(query, (err, result) => {
     if (err) {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         massage: "server error",
         err: err,
       });
     }
-    // console.log(result);
+
     // result are the data returned by mysql server
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       massage: "All the Doctors",
       results: result,
@@ -158,8 +158,7 @@ const getDoctorByDepartment = (req, res) => {
       "  departmentId =  ALL (SELECT departmentId FROM healthcare.MedicalDepartment) and cityId = ?";
     data = [city];
   }
-  // ANY (SELECT id FROM city)
-  // const query = `SELECT * FROM healthcare.doctor  ${subQuery} Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId`;
+
   const query = `SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.password,healthcare.doctor.profileImage,healthcare.doctor.gender,healthcare.doctor.status,healthcare.doctor.Nationality,healthcare.doctor.specialization,healthcare.doctor.phone,healthcare.doctor.workingDays,healthcare.doctor.address,healthcare.doctor.careersLicense,healthcare.doctor.waitingTime,healthcare.doctor.consultationFee,healthcare.doctor.ScientificCertificate,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department' FROM healthcare.doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId  where doctor.is_deleted = 0 and (${subQuery})`;
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -170,7 +169,7 @@ const getDoctorByDepartment = (req, res) => {
       return res.status(200).json({ result: [] });
     }
     // result are the data returned by mysql server
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       massage: "All the Doctors in MedicalDepartment = ",
       result: result,
@@ -178,7 +177,7 @@ const getDoctorByDepartment = (req, res) => {
   });
 };
 
-//===================================================//Update Doctor By Id
+//===================================================//Update Doctor By Id Function
 const updateDoctorById = async (req, res) => {
   const id = req.token.userId;
   const password = req.body.password;
@@ -239,7 +238,7 @@ const updateDoctorById = async (req, res) => {
   });
 };
 
-//===================================================//Delete Doctor By Department
+//===================================================//Delete Doctor By Department Function
 const deleteDoctorById = (req, res) => {
   const id = req.params.id;
 
@@ -260,7 +259,7 @@ const deleteDoctorById = (req, res) => {
         err: err,
       });
     }
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       massage: `Succeeded to delete Doctor with id: ${id}`,
       results: results,
@@ -268,7 +267,7 @@ const deleteDoctorById = (req, res) => {
   });
 };
 
-//===================================================//Get Doctor By Name
+//===================================================//Get Doctor By Name Function
 const getDoctorByName = (req, res) => {
   const fullName = req.body.fullName;
   const query = `SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.password,healthcare.doctor.profileImage,healthcare.doctor.gender,healthcare.doctor.status,healthcare.doctor.Nationality,healthcare.doctor.specialization,healthcare.doctor.phone,healthcare.doctor.workingDays,healthcare.doctor.address,healthcare.doctor.careersLicense,healthcare.doctor.waitingTime,healthcare.doctor.consultationFee,healthcare.doctor.ScientificCertificate,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department' FROM healthcare.doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId  where healthcare.doctor.is_deleted = 0 and healthcare.doctor.fullName  REGEXP  ?  `;
@@ -286,7 +285,8 @@ const getDoctorByName = (req, res) => {
     });
   });
 };
-//===================================================//Get DoctorProfileImageByID
+
+//===================================================//Get Doctor ProfileImage By ID Function
 
 const DoctorProfileImageByID = (req, res) => {
   const id = req.token.userId;
@@ -307,6 +307,8 @@ const DoctorProfileImageByID = (req, res) => {
     }
   });
 };
+
+//====================================================// module.exports
 
 module.exports = {
   createNewDoctor,
