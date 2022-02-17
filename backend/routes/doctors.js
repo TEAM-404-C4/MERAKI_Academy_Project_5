@@ -11,6 +11,7 @@ const {
   getDoctorByName,
   getDoctorByDepartment,
   DoctorProfileImageByID,
+  getAllDoctorsInAdmin
 } = require("../controllers/Doctors");
 
 const {
@@ -22,6 +23,7 @@ const {
   getDoctorAppointmentByPatientId,
   doctorDeleteAppointment,
   doctorDeleteBooking,
+  
 } = require("../controllers/DoctorAppointment");
 
 const { authentication } = require("../middleware/authentication");
@@ -31,6 +33,8 @@ const doctorRouter = express.Router();
 
 doctorRouter.post("/", createNewDoctor);
 doctorRouter.get("/", getAllDoctors);
+doctorRouter.get("/all", getAllDoctorsInAdmin);
+
 doctorRouter.put("/update", authentication, updateDoctorById);
 doctorRouter.delete("/:id", deleteDoctorById);
 doctorRouter.post("/Search", getDoctorByName);

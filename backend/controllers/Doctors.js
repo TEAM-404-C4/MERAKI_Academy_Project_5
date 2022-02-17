@@ -73,7 +73,26 @@ const createNewDoctor = async (req, res) => {
     });
   }
 };
-
+// ==========================================Get All Doctor in Admin Panel
+const getAllDoctorsInAdmin = (req, res) => {
+  const query = "SELECT healthcare.doctor.id,healthcare.doctor.fullName,healthcare.doctor.email,healthcare.doctor.gender,healthcare.doctor.Nationality,healthcare.doctor.phone,healthcare.city.Name as 'city',healthcare.medicaldepartment.Name as 'Department'  FROM doctor Join healthcare.city on healthcare.city.id=healthcare.doctor.cityId Join healthcare.medicaldepartment on healthcare.medicaldepartment.id=healthcare.doctor.departmentId where doctor.is_deleted = 0 ";
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        success: false,
+        massage: "server error",
+        err: err,
+      });
+    }
+    // console.log(result);
+    // result are the data returned by mysql server
+    res.status(200).json({
+      success: true,
+      massage: "All the Doctors",
+      results: result,
+    });
+  });
+};
 //===================================================//Get All Doctor
 const getAllDoctors = (req, res) => {
   const query =
@@ -298,4 +317,5 @@ module.exports = {
   getDoctorByName,
   getDoctorByDepartment,
   DoctorProfileImageByID,
+  getAllDoctorsInAdmin
 };
