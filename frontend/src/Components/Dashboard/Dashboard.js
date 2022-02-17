@@ -132,10 +132,7 @@ const Dashboard = () => {
                 setSelectStyle3("dashboardSelect");
                 setSelectStyle4("dashboardSelect");
               }}
-            >
-              
-              
-            </div>
+            ></div>
           </div>
         </div>
         <div className="rightSide">
@@ -147,8 +144,7 @@ const Dashboard = () => {
                 <div className="FullCalender">
                   <FullCalender />
                 </div>
-                {/* <Appointement /> */}
-
+                <Appointement />
               </div>
             ) : (
               <></>
@@ -175,7 +171,6 @@ const Dashboard = () => {
             ) : (
               <></>
             )}
-            
           </div>
         </div>
       </div>

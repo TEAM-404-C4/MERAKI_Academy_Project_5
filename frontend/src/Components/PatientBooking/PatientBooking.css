@@ -2,11 +2,13 @@
   max-height: 500px;
   overflow-y: scroll;
   width: 100%;
+
 }
 
 .patientTableDashboardMainDiv {
   border: 1px solid #ffffff;
   width: 855px;
+
 }
 
 .patientTableDashboardTitle {
@@ -50,3 +52,11 @@
   width: 50px;
   font-size: 15px;
 }
+
+.Check_Booking_DashBord {
+  color: white;
+}
+.delete {
+  pointer-events: none;
+}
+

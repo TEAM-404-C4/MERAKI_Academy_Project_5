@@ -2,11 +2,11 @@
 const express = require("express");
 
 //====================================================//Import doctors Controllers
-const { login, doctorLogin } = require("../controllers/Login");
+const { login, doctorLogin ,adminLogin} = require("../controllers/Login");
 
 //====================================================//Create login Router
 const loginRouter = express.Router();
 
-loginRouter.post("/", login, doctorLogin);
+loginRouter.post("/",adminLogin, login, doctorLogin);
 
 module.exports = loginRouter;

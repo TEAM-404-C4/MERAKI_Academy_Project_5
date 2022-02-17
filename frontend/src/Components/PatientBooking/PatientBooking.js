@@ -29,8 +29,9 @@ export default function PatientBooking() {
             state.userId || window.localStorage.getItem("userIdForSettings"),
         }
       );
-      console.log(res);
-      console.log(res.data.result);
+      console.log("state", window.localStorage.getItem("userId"));
+      // console.log(res);
+      // console.log(res.data.result);
       setAppointement(res.data.result);
     } catch (err) {
       console.log(err);
@@ -58,6 +59,7 @@ export default function PatientBooking() {
     } catch (err) {
       console.log(err.response);
     }
+
   };
   console.log(appointement);
   // =======================================
@@ -75,6 +77,7 @@ export default function PatientBooking() {
             <th className="title">Date </th>
             <th className="title">Phone No </th>
             <th className="title">Delete </th>
+
           </tr>
 
           {appointement.map((element, index) => {
@@ -102,6 +105,9 @@ export default function PatientBooking() {
               </tr>
             );
           })}
+
+       
+
         </table>
       )}
     </div>
