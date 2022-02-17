@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 50vw;
-  gap: 1vw;
-  margin-left: 12vw;
+  width: 800px;
+  gap: 15px;
+  margin-left: 200px;
 }
 
 .departmentDoctorFilter {
-  width: 400px;
+  width: 350px;
   height: 50px;
   color: grey;
   font-weight: bold;
@@ -20,7 +20,7 @@
 }
 
 .cityDoctorRegister {
-  width: 400px;
+  width: 350px;
   height: 50px;
   color: grey;
   font-weight: bold;
@@ -46,15 +46,4 @@ select:invalid {
   color: grey;
   font-weight: bold;
   font-size: 15px;
-}
-
-@media screen and (max-width: 780px) {
-  .mainFilterDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50vw;
-    gap: 1vw;
-    margin-left: 12vw;
-  }
 }
