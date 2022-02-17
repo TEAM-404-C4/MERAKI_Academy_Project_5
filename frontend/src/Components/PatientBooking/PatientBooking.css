@@ -1,26 +1,23 @@
 .patientBookingMainDiv {
-  max-height: 80vh;
-  min-height: 20vh;
-  margin-top: 2vh;
-  /* overflow: scroll; */
-  /* display:flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-content: center; */
+  max-height: 500px;
+  overflow-y: scroll;
+  width: 100%;
+
 }
 
 .patientTableDashboardMainDiv {
   border: 1px solid #ffffff;
-  overflow: scroll;
+  width: 855px;
+
 }
 
 .patientTableDashboardTitle {
-  background-color: #0d79e5;
+  background-color: #4397cf;
 }
 
 .patientTableDashboard {
   color: white;
-  width: 100px;
+  font-weight: bold;
 }
 
 .patientTableDashboard:hover {
@@ -30,15 +27,15 @@
 .row {
   padding: 5px;
   border: 1px solid #ffffff;
-  width: 170px;
-  font-size: 15px;
+  width: 250px;
+  font-size: 14px;
   transition: 0.2s;
 }
 
 .title {
   color: white;
   border: 1px solid #ffffff;
-  padding: 10px;
+  padding: 5px;
   font-weight: bold;
 }
 
@@ -55,9 +52,11 @@
   width: 50px;
   font-size: 15px;
 }
+
 .Check_Booking_DashBord {
   color: white;
 }
 .delete {
   pointer-events: none;
 }
+

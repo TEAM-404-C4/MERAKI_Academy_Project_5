@@ -41,24 +41,25 @@ export default function PatientBooking() {
   // =========================================
 
   const deleteBooking = async (e) => {
-    console.log(e.target.id);
-    // try {
-    //   const data = await e.target.id.split(",");
-    //   const res = await axios.post(
-    //     "http://localhost:5000/doctors/deletebooking",
-    //     {
-    //       doctorId: state.userId | window.localStorage.getItem("userId"),
-    //       appointmentId: data[0],
-    //       patientId: data[2],
-    //       dateAppointment: data[1],
-    //     }
-    //   );
-    //   console.log(res);
-    //   console.log(res.data.result);
-    //   setDeleteBookingRes(res.data);
-    // } catch (err) {
-    //   console.log(err.response);
-    // }
+    try {
+      const data = await e.target.id.split(",");
+      const res = await axios.post(
+        "http://localhost:5000/doctors/deletebooking",
+        {
+          doctorId:
+            state.userId || window.localStorage.getItem("userIdForSettings"),
+          appointmentId: data[0],
+          patientId: data[2],
+          dateAppointment: data[1],
+        }
+      );
+      console.log(res);
+      console.log(res.data.result);
+      setDeleteBookingRes(res.data);
+    } catch (err) {
+      console.log(err.response);
+    }
+
   };
   console.log(appointement);
   // =======================================
@@ -75,7 +76,8 @@ export default function PatientBooking() {
             <th className="title">Time</th>
             <th className="title">Date </th>
             <th className="title">Phone No </th>
-            <th className="title">Delete Booking </th>
+            <th className="title">Delete </th>
+
           </tr>
 
           {appointement.map((element, index) => {
@@ -103,7 +105,9 @@ export default function PatientBooking() {
               </tr>
             );
           })}
-          {console.log(appointement)}
+
+       
+
         </table>
       )}
     </div>
