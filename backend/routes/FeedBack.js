@@ -5,7 +5,9 @@ const express = require("express");
 const {
     getAllFeedBack,
     createNewFeedBack,
-    deleteFeedback
+    deleteFeedback,
+    getAllFeedBackForGuest,
+    ApproveFeedback
 }= require("../controllers/FeedBack");
 
 //====================================================//Create FeedBack Router
@@ -13,6 +15,9 @@ const FeedBackRouter = express.Router();
 
 FeedBackRouter.post("/", createNewFeedBack);
 FeedBackRouter.get('/',getAllFeedBack);
-FeedBackRouter.put('/:id',deleteFeedback);
+FeedBackRouter.get('/getapprove',getAllFeedBackForGuest);
+FeedBackRouter.put('/approve/:id',ApproveFeedback);
+
+FeedBackRouter.delete('/:id',deleteFeedback);
 
 module.exports = FeedBackRouter;
