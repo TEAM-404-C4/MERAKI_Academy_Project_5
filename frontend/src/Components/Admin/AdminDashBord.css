@@ -1,0 +1,166 @@
+.MainDivDashBoardAdminDashBord {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+  }
+  
+  .rightSideAdminDashBord {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #1c2e4c;
+  }
+  
+  .leftSideAdminDashBord {
+    position: sticky;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 12px;
+    background-color: #0c1a32;
+    gap: 50px;
+    margin-left: 20px;
+    margin-top: 50px;
+    height: 65vh;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .menuAdminDashBord {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .dashboardSelectAdminDashBord {
+    color: grey;
+    letter-spacing: 0.5px;
+    padding: 20px;
+    border-radius: 7px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+  }
+  .dashboardSelectAdminDashBord:hover {
+    background-color: rgb(255, 255, 255, 0.2);
+    cursor: pointer;
+    color: #f6cd50;
+  }
+  
+  .dashboardSelect2AdminDashBord {
+    color: white;
+    background-color: rgb(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+    padding: 20px;
+    border-radius: 7px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+  }
+  
+  .dashboardSelect2AdminDashBord:hover {
+    background-color: rgb(255, 255, 255, 0.2);
+    cursor: pointer;
+    color: #f6cd50;
+  }
+  
+  .dashboardItemAdminDashBord {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .dashBoardChartAdminDashBord {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    width: 100%;
+    background-color: #1c2e4c;
+    height: 400px;
+    margin-top: 30px;
+  }
+  
+  .chartOneAdminDashBord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c1a32;
+    width: 35%;
+    height: 90%;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .chartTwoAdminDashBord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c1a32;
+    width: 35%;
+    height: 90%;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .chartThreeAdminDashBord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c1a32;
+    width: 35%;
+    height: 90%;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .chartFourAdminDashBord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c1a32;
+    width: 35%;
+    height: 90%;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  .dashboardIconAdminDashBord {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+  
+  .chartOnePatientsAdminDashBord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c1a32;
+    margin-top: 220px;
+    width: 80%;
+    height: 580px;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgb(253, 194, 85);
+  }
+  

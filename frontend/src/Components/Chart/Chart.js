@@ -14,9 +14,9 @@ export default function Chart() {
   // ====================================================
   const state = useSelector((state) => {
     return {
-      doctorId: state.doctorsReducer.doctorId || 11,
-      userId: state.loginReducer.userId[0].id,
-      roleId: state.loginReducer.roleId,
+      doctorId: state.doctorsReducer.doctorId || window.localStorage.getItem('doctorId'),
+      userId: state.loginReducer.userId[0].id || window.localStorage.getItem('userIdForSettings')  ,
+      roleId: state.loginReducer.roleId || window.localStorage.getItem('roleId'),
     };
   });
 
