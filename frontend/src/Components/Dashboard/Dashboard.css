@@ -21,7 +21,7 @@
   border-radius: 12px;
   background-color: #0c1a32;
   gap: 50px;
-  margin-left: 20px;
+  margin-left: 30px;
   margin-top: 50px;
   height: 65vh;
   border: 1px solid #4397cf;
@@ -74,7 +74,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  flex-direction: column;
   gap: 50px;
 }
 

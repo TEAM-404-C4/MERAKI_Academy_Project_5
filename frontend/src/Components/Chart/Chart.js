@@ -14,9 +14,14 @@ export default function Chart() {
   // ====================================================
   const state = useSelector((state) => {
     return {
-      doctorId: state.doctorsReducer.doctorId || window.localStorage.getItem('doctorId'),
-      userId: state.loginReducer.userId[0].id || window.localStorage.getItem('userIdForSettings')  ,
-      roleId: state.loginReducer.roleId || window.localStorage.getItem('roleId'),
+      doctorId:
+        state.doctorsReducer.doctorId ||
+        window.localStorage.getItem("doctorId"),
+      userId:
+        state.loginReducer.userId[0].id ||
+        window.localStorage.getItem("userIdForSettings"),
+      roleId:
+        state.loginReducer.roleId || window.localStorage.getItem("roleId"),
     };
   });
 
@@ -415,9 +420,8 @@ export default function Chart() {
   };
   // =====================================================
   return (
-    <div>
+    <div className="dashboardChartMainDiv">
       <div className="dashBoardChart">
-        {/* <button onClick={test}>click </button> */}
         <div className="chart" id="chartOne"></div>
         <div className="chart" id="chartTwo"></div>
       </div>
