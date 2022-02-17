@@ -177,7 +177,7 @@ const getDoctorByDepartment = (req, res) => {
   });
 };
 
-//===================================================//Update Doctor By Id
+//===================================================//Update Doctor By Id Function
 const updateDoctorById = async (req, res) => {
   const id = req.token.userId;
   const password = req.body.password;
@@ -238,7 +238,7 @@ const updateDoctorById = async (req, res) => {
   });
 };
 
-//===================================================//Delete Doctor By Department
+//===================================================//Delete Doctor By Department Function
 const deleteDoctorById = (req, res) => {
   const id = req.params.id;
 
@@ -267,7 +267,7 @@ const deleteDoctorById = (req, res) => {
   });
 };
 
-//===================================================//Get Doctor By Name
+//===================================================//Get Doctor By Name Function
 const getDoctorByName = (req, res) => {
   const fullName = req.body.fullName;
 
@@ -287,7 +287,7 @@ const getDoctorByName = (req, res) => {
   });
 };
 
-//===================================================//Get DoctorProfileImageByID
+//===================================================//Get Doctor ProfileImage By ID Function
 
 const DoctorProfileImageByID = (req, res) => {
   const id = req.token.userId;
