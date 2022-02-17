@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+//====================================================//Require
 
+import React, { useState } from "react";
 import "./Booking.css";
+
+//====================================================//COMPONENT
+
 export default function Booking() {
+  //====================================================//USESTATE
+
   const [message, setMessage] = useState("lala");
+
+  //====================================================//book FUNCTION
+
   const book = () => {
     let arr = [];
     let start = 12.0;
     let end = 17.0;
-    let time = end - start;
     for (let index = start; index < end; index++) {
       let element0 = index;
       for (let index = 0; index < 4; index++) {
@@ -33,6 +41,8 @@ export default function Booking() {
       );
     });
     return date;
+
+    //====================================================//RETURN
   };
   return (
     <div>

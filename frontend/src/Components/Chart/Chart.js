@@ -1,17 +1,22 @@
+// =========================================================required
+
 import React, { useState, useEffect } from "react";
 import ApexCharts from "apexcharts";
 import { useSelector } from "react-redux";
 import "./styleChart.css";
 import axios from "axios";
 
-// =========================================================required
+//====================================================//COMPONENT
 
 export default function Chart() {
+  //====================================================//USESTATE
+
   const [appointement, setAppointement] = useState([]);
   const [comments, setComments] = useState([]);
   const [rating, setRating] = useState([]);
 
-  // ====================================================
+  //====================================================//useSelector
+
   const state = useSelector((state) => {
     return {
       doctorId:
@@ -25,11 +30,10 @@ export default function Chart() {
     };
   });
 
-  // =======================================================
+  //====================================================// USEEFFECT
 
   let res;
   let res2;
-  console.log("state", state);
   useEffect(async () => {
     try {
       res = await axios.post("http://localhost:5000/doctors/getappointement", {
@@ -38,22 +42,18 @@ export default function Chart() {
       res2 = await axios.post("http://localhost:5000/comment/", {
         doctorId: state.userId | window.localStorage.getItem("userId"),
       });
-      console.log(res, "----------------------------");
-      // console.log("res", res, "res2", res2, "state", state);
       setComments(res2.data.result);
       setAppointement(res.data.result);
-
-      console.log("state", state);
       test();
     } catch (err) {
       console.log(err.response);
     }
-    console.log("state", state);
   }, []);
 
-  // =========================================================
+ 
 
-  //================================================ Chart
+  //================================================// TEST CHART FUNCTION
+
   const test = () => {
     let malePatient = res.data.result.filter((element) => {
       return element.gender == "MALE";
@@ -62,9 +62,10 @@ export default function Chart() {
       return element.gender == "FEMALE";
     });
 
-    console.log("malePatient", malePatient, "femalePatient", femalePatient);
-    // =============================
-    var options = {
+   
+  //================================================// INVOKE CHART FUNCTION
+
+  var options = {
       series: [malePatient.length, femalePatient.length],
       chart: {
         width: 380,
@@ -89,44 +90,8 @@ export default function Chart() {
 
     var chart = new ApexCharts(document.querySelector("#chartOne"), options);
     chart.render();
-    // =============================
-    // var options = {
-    //   series: [malePatient.length, femalePatient.length],
-
-    //   chart: {
-    //     height: 200,
-    //     type: "polarArea",
-    //   },
-    //   labels: ["Male", "Female"],
-    //   fill: {
-    //     opacity: 1,
-    //   },
-    //   stroke: {
-    //     width: 1,
-    //     colors: undefined,
-    //   },
-    //   yaxis: {
-    //     show: false,
-    //   },
-    //   legend: {
-    //     position: "right",
-    //   },
-    //   colors: ["#3246D3", "#00D0FF"],
-    //   plotOptions: {
-    //     polarArea: {
-    //       rings: {
-    //         strokeWidth: 0,
-    //       },
-    //       spokes: {
-    //         strokeWidth: 0,
-    //       },
-    //     },
-    //   },
-    // };
-
-    // var chart = new ApexCharts(document.querySelector("#chartOne"), options);
-    // chart.render();
-    // =====================================chart2
+    
+    // =====================================// chart2
 
     let month = [
       "01",
@@ -231,7 +196,7 @@ export default function Chart() {
 
     var chart1 = new ApexCharts(document.querySelector("#chartTwo"), options1);
     chart1.render();
-    // ===================================chart3
+    // ===================================// chart3
 
     let PatientsMonthly = month.map((element, index) => {
       let count = 0;
@@ -243,8 +208,8 @@ export default function Chart() {
 
       return count;
     });
+    // ===================================
 
-    // console.log("PatientsMonthly", PatientsMonthly);
     var options2 = {
       chart: {
         type: "bar",
@@ -311,7 +276,7 @@ export default function Chart() {
     var chart2 = new ApexCharts(document.querySelector(".chart3x"), options2);
     chart2.render();
 
-    // ==================================================== chart4
+    // ====================================================// chart4
 
     let ratingConst = [0, 1, 2, 3, 4, 5];
 
@@ -324,8 +289,7 @@ export default function Chart() {
       });
       return group;
     });
-    // console.log("ratingGroup", ratingGroup);
-
+    
     // =========================================================
     var options = {
       series: [
@@ -419,7 +383,7 @@ export default function Chart() {
     var chart = new ApexCharts(document.querySelector("#chartFour"), options);
     chart.render();
   };
-  // =====================================================
+  // =====================================================// RETURN
   return (
     <div className="dashboardChartMainDiv">
       <div className="dashBoardChart">
