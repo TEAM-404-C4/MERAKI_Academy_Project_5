@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 const doctorLogin = (req, res) => {
   const password = req.body.password;
   const phone = req.body.phone;
-  const query = `SELECT * FROM doctor WHERE phone=?`;
+  const query = `SELECT * FROM doctor WHERE phone=? AND is_deleted=0`;
   const data = [phone];
   connection.query(query, data, async (err, result) => {
     if (!result.length) {
@@ -52,7 +52,7 @@ const doctorLogin = (req, res) => {
 const login = (req, res, next) => {
   const password = req.body.password;
   const phone = req.body.phone;
-  const query = `SELECT * FROM patient WHERE phone=?`;
+  const query = `SELECT * FROM patient WHERE phone=? AND is_deleted=0`;
   const data = [phone];
   connection.query(query, data, async (err, result) => {
     if (!result.length) {
