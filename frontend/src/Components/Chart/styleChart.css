@@ -1,22 +1,29 @@
+.dashboardChartMainDiv {
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
 .dashBoardChart {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 100px;
+  gap: 30px;
   width: 100%;
-  background-color: #1c2e4c;
   height: 400px;
-  /* width:80vw; */
+  margin-top: 30px;
 }
 .chart {
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #0c1a32;
-  width: 35%;
-  height: 90%;
+  padding: 20px;
+  width: 500px;
+  height: 400px;
   border-radius: 7px;
+  border: 1px solid #4397cf;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .chart3x {
@@ -24,8 +31,10 @@
   align-items: center;
   justify-content: center;
   background-color: #0c1a32;
-  width: 35%;
-  height: 90%;
+  width: 500px;
+  padding: 50px;
+  height: 400px;
   border-radius: 7px;
+  border: 1px solid #4397cf;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

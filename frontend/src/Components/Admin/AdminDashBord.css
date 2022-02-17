@@ -1,10 +1,11 @@
-.MainDivDashBoard {
+.MainDivDashBoardAdminDashBord {
   display: flex;
   flex-direction: row;
   min-height: 100vh;
+  gap: 20px;
 }
 
-.rightSide {
+.rightSideAdminDashBord {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -12,23 +13,22 @@
   background-color: #1c2e4c;
 }
 
-.leftSide {
+.leftSideAdminDashBord {
   position: sticky;
-  top: 100px;
+  top: 30px;
   display: flex;
   flex-direction: column;
   width: 300px;
   border-radius: 12px;
   background-color: #0c1a32;
   gap: 50px;
-  margin-left: 30px;
+  margin-left: 20px;
   margin-top: 50px;
   height: 65vh;
-  border: 1px solid #4397cf;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.menu {
+.menuAdminDashBord {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -36,7 +36,7 @@
   gap: 20px;
 }
 
-.dashboardSelect {
+.dashboardSelectAdminDashBord {
   color: grey;
   letter-spacing: 0.5px;
   padding: 20px;
@@ -46,13 +46,13 @@
   justify-content: space-between;
   margin-left: 5%;
 }
-.dashboardSelect:hover {
+.dashboardSelectAdminDashBord:hover {
   background-color: rgb(255, 255, 255, 0.2);
   cursor: pointer;
   color: #f6cd50;
 }
 
-.dashboardSelect2 {
+.dashboardSelect2AdminDashBord {
   color: white;
   background-color: rgb(255, 255, 255, 0.2);
   letter-spacing: 0.5px;
@@ -64,31 +64,43 @@
   margin-left: 5%;
 }
 
-.dashboardSelect2:hover {
+.dashboardSelect2AdminDashBord:hover {
   background-color: rgb(255, 255, 255, 0.2);
   cursor: pointer;
   color: #f6cd50;
 }
 
-.dashboardItem {
+.dashboardItemAdminDashBord {
   display: flex;
   flex-direction: column;
   height: 100%;
   gap: 50px;
 }
 
-/* .chartOne {
+.dashBoardChartAdminDashBord {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+  background-color: #1c2e4c;
+  height: 400px;
+  margin-top: 30px;
+}
+
+.chartOneAdminDashBord {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fc0101;
+  background-color: #0c1a32;
   width: 35%;
   height: 90%;
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.chartTwo {
+.chartTwoAdminDashBord {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +110,7 @@
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.chartThree {
+.chartThreeAdminDashBord {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,7 +120,7 @@
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.chartFour {
+.chartFourAdminDashBord {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,15 +129,15 @@
   height: 90%;
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-} */
+}
 
-.dashboardIcon {
+.dashboardIconAdminDashBord {
   display: flex;
   flex-direction: row;
   gap: 5px;
 }
 
-.chartOnePatients {
+.chartOnePatientsAdminDashBord {
   display: flex;
   align-items: center;
   justify-content: center;

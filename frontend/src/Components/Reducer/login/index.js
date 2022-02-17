@@ -16,7 +16,12 @@ const loginReducer = (state = initialState, { type, payload }) => {
       localStorage.setItem("token", payload.token);
       localStorage.setItem("roleId", payload.roleId);
       localStorage.setItem("userId", payload.userId);
+if(payload.roleId===2){
+      localStorage.setItem("doctorId", payload.userId[0].id === undefined
+          ? payload.userId
+          : payload.userId[0].id);
 
+}
       localStorage.setItem(
         "userIdForSettings",
         payload.userId[0].id === undefined
