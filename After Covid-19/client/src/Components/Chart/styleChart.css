@@ -1,0 +1,31 @@
+.dashBoardChart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  width: 100%;
+  background-color: #1c2e4c;
+  height: 400px;
+  /* width:80vw; */
+}
+/* .chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0c1a32;
+  width: 35%;
+  height: 90%;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */
+/* .chart3x {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0c1a32;
+  width: 35%;
+  height: 90%;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+} */

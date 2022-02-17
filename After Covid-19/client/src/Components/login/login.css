@@ -1,0 +1,96 @@
+.mainLoginDev {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 50px;
+  margin-top: 30px;
+  margin-left: 80px;
+}
+
+.loginDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 100px;
+  margin-top: 70px;
+  height: 100%;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  background-color: rgb(12, 26, 50);
+  border: 1px solid #4397cf;
+  gap: 30px;
+  height: 120%;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.loginInput {
+  height: 40px;
+  width: 100%;
+  border: none;
+  border: none;
+  text-align: left;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.loginButton {
+  height: 40px;
+}
+
+.loginInput::placeholder {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  word-spacing: 1px;
+  color: rgb(77, 77, 77);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+.loginButtonDiv {
+  width: 100%;
+}
+
+.loginButton {
+  color: grey;
+  background-color: #1c2e4c;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  width: 100%;
+}
+
+.loginButton:hover {
+  background-color: #0d79e5;
+  color: white;
+  cursor: pointer;
+}
+
+.loginPageImage {
+  display: flex;
+  height: 550px;
+  margin-top: -20px;
+}
+
+.or {
+  color: white;
+}
+.googleLogin {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.kep {
+  background-color: red;
+}

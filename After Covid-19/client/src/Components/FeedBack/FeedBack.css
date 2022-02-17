@@ -1,0 +1,49 @@
+.FeedBack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  background-color: white;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  
+}
+.rowFeedBack{
+    display: flex;
+    flex-direction: row;
+}
+
+.FeedBackName {
+    border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.FeedBackEmail {
+    border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.FeedBackSubject {
+    border-left: none;
+  border-right: none;
+  border-top: none;
+  
+}
+.FeedBackMessage {
+    resize: none;
+  width: 10vw;
+  height: 7vh;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.FeedBackSubmit {
+  color: white;
+  background-color: #0d79e5;
+  width: 10vw;
+  /* border-radius: 5vw; */
+  font-family: "Righteous", cursive;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  letter-spacing: 1px;
+}

@@ -1,0 +1,127 @@
+.mainPageDiv {
+  display: flex;
+  justify-content: center;
+  width: 45vw;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgb(12, 26, 50);
+  border-radius: 12px;
+  padding: 10px;
+  margin: 1%;
+  gap: 1%;
+  width: 500px;
+  height: 290px;
+  border: 1px solid #4397cf;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.CardImageDiv {
+  height: 60vh;
+  padding: 20px;
+}
+
+.card-image {
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #4397cf;
+}
+
+.cardInformation {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  gap: 12px;
+  width: 100%;
+  padding: 10px;
+  color: grey;
+  font-family: "Righteous", cursive;
+  padding-top: 30px;
+}
+
+.DoctorName {
+  cursor: pointer;
+}
+
+.card-row {
+  font-size: 18px;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.doctorNameDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  color: #4397cf;
+  font-weight: bold;
+}
+
+.DoctorName {
+  color: #4397cf;
+}
+
+.Rating {
+  background-color: #ecf2f7;
+  height: 70px;
+}
+
+.bookingBtn {
+  color: white;
+  height: 40px;
+  width: 150px;
+  font-size: 15px;
+  background-color: #0d79e5;
+  border: none;
+  border-radius: 12px;
+  font-family: "Righteous", cursive;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: -5px;
+}
+.card-row-btn {
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.bookingBtn:hover {
+  cursor: pointer;
+  background-color: #3581cc;
+  border: 1px solid white;
+}
+.emptyString {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  padding-top: 25px;
+  text-align: left;
+}
+.card-row {
+  color: white;
+}
+
+.Rating {
+  background-color: rgb(12, 26, 50);
+  height: 60px;
+}
+
+.ratingNumber {
+  color: gold;
+  font-size: 1.3vw;
+  padding-right: 8px;
+}
+
+.doctorLocation {
+  margin-left: -12px;
+  margin-top: -12px;
+}

@@ -14,9 +14,9 @@ export default function Chart() {
   // ====================================================
   const state = useSelector((state) => {
     return {
-      doctorId: state.doctorsReducer.doctorId || window.localStorage.getItem('doctorId'),
-      userId: state.loginReducer.userId[0].id || window.localStorage.getItem('userIdForSettings')  ,
-      roleId: state.loginReducer.roleId || window.localStorage.getItem('roleId'),
+      doctorId: state.doctorsReducer.doctorId || 11,
+      userId: state.loginReducer.userId[0].id,
+      roleId: state.loginReducer.roleId,
     };
   });
 
@@ -27,10 +27,10 @@ export default function Chart() {
   console.log("state", state);
   useEffect(async () => {
     try {
-      res = await axios.post("http://localhost:5000/doctors/getappointement", {
+      res = await axios.post("doctors/getappointement", {
         doctorId: state.userId | window.localStorage.getItem("userId"),
       });
-      res2 = await axios.post("http://localhost:5000/comment/", {
+      res2 = await axios.post("/comment/", {
         doctorId: state.userId | window.localStorage.getItem("userId"),
       });
       // console.log("res", res, "res2", res2, "state", state);

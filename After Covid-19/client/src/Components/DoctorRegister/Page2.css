@@ -1,0 +1,185 @@
+.mainPage2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+.Page2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgb(12, 26, 50);
+  padding: 10px;
+  border: 1px solid #4397cf;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.labelDiv2 {
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.levelLabel2 {
+  color: White;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #4397cf;
+  font-weight: bold;
+  word-spacing: px;
+  height: 50px;
+  width: 100%;
+  border-radius: 7px;
+  font-family: "Righteous", cursive;
+  letter-spacing: 1px;
+  padding: 10px;
+}
+
+.infoRegisterDoctorDiv2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+
+.doctorPhone,
+.doctorSpecialization,
+.doctorNationality {
+  width: 400px;
+  padding: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 2px solid grey;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.doctorPhone,
+.doctorSpecialization,
+.doctorNationality::placeholder {
+  font-family: "Righteous", cursive;
+  text-align: left;
+}
+
+.doctorPhone,
+.doctorSpecialization,
+.doctorNationality:focus {
+  outline-color: #4397cf;
+  text-align: left;
+}
+
+.doctorGender {
+  width: 400px;
+  height: 45px;
+  border-radius: 5px;
+  border: 2px solid grey;
+  font-size: 15px;
+  cursor: pointer;
+  font-family: "Righteous", cursive;
+}
+
+.doctorGender option {
+  text-align: left;
+}
+
+.nextbtn2Div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.backBtn2:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.nextBtn2 {
+  border: none;
+  background: none;
+  font-size: 30px;
+  display: flex;
+  justify-content: flex-end;
+  color: #4397cf;
+  padding-right: 20px;
+}
+.nextBtn2:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.backBtn2 {
+  border: none;
+  background: none;
+  font-size: 30px;
+  color: #4397cf;
+  padding-left: 20px;
+}
+
+.locationButtonDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.map {
+  height: 100px;
+  width: 100px;
+  margin-top: 15px;
+}
+
+.locationButton {
+  color: white;
+  height: 40px;
+  width: 150px;
+  font-size: 15px;
+  background-color: #0d79e5;
+  border: none;
+  border-radius: 12px;
+  font-family: "Righteous", cursive;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: -5px;
+}
+
+.locationButton:hover {
+  cursor: pointer;
+  background-color: #3581cc;
+  border: 1px solid white;
+}
+
+.setYourLocation {
+  display: flex;
+  color: white;
+  font-size: 20px;
+  font-family: "Righteous", cursive;
+}
+
+.setYourLocationDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  gap: 20px;
+  padding: 12px;
+  margin-top: 25px;
+}
+
+.showLocation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+}
