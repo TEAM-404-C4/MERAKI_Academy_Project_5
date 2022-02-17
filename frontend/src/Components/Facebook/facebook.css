@@ -3,13 +3,14 @@
   color: white;
   font-size: 17px;
   height: 56px;
-  width: 180px;
+  width: 170px;
   border: none;
   outline: none;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border-radius: 2px;
 }
 .facebook_logo svg {
   margin-left: 10px;
@@ -20,7 +21,6 @@
 }
 
 .facebookDiv {
-  background-color: red;
   object-fit: contain;
 }
 .facebookDiv :hover {
