@@ -2,7 +2,7 @@
 const connection = require("../database/db");
 const bcrypt = require("bcrypt");
 
-// ==========================================// check accout google
+// ==========================================// check accout google Function
 
 const checkPatientExist = (req, res, next) => {
   //  تم استخدام الايميل بدل التلفون ولكن بنفس الخانة
@@ -22,7 +22,7 @@ const checkPatientExist = (req, res, next) => {
     }
 
     if (result.length == 0) {
-      const data1 = [firstName, lastName, phone, 3,'male'];
+      const data1 = [firstName, lastName, phone, 3, "male"];
       const query1 = `INSERT INTO patient (firstName,lastName,phone,roleId,gender) VALUES (?,?,?,?,?)`;
       connection.query(query1, data1, (err1, result1) => {
         if (err1) {
@@ -41,7 +41,7 @@ const checkPatientExist = (req, res, next) => {
   });
 };
 
-// ==============================================login google
+// ============================================== login google Function
 
 const loginGoogle = (req, res) => {
   const { firstName, lastName, phone } = req.body;
@@ -63,6 +63,9 @@ const loginGoogle = (req, res) => {
     });
   });
 };
+
+//====================================================//login Facebook Function
+
 const loginFacebook = (req, res) => {
   const { firstName, lastName, phone } = req.body;
   const data = [phone];
@@ -90,16 +93,15 @@ const createNewPatient = async (req, res) => {
   const query = `INSERT INTO patient (firstName,lastName,password,gender,phone,roleId) VALUES (?,?,?,?,?,?)`;
   password = await bcrypt.hash(password, 10);
   const data = [firstName, lastName, password, gender, phone, roleId];
-  console.log(data);
   connection.query(query, data, (err, result) => {
     if (!err) {
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: "SignUp Successfully",
         result: result,
       });
     } else {
-      res.status(409).json({
+      return res.status(409).json({
         success: false,
         message: " This account already exists",
       });
@@ -120,13 +122,13 @@ const getAllPatients = (req, res) => {
     }
 
     if (result.length) {
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: `All the patients`,
         patients: result,
       });
     } else {
-      res.status(200).json({
+      return res.status(200).json({
         success: false,
         message: `No patients Yet`,
       });
@@ -137,7 +139,6 @@ const getAllPatients = (req, res) => {
 const getPatientById = (req, res) => {
   const query = `SELECT * FROM patient WHERE id=?`;
   const id = req.params.id;
-  console.log(id);
   const data = [id];
   connection.query(query, data, (err, result) => {
     if (err) {
@@ -149,7 +150,7 @@ const getPatientById = (req, res) => {
     }
 
     if (result.length) {
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: `GET patients`,
         result,
@@ -173,7 +174,7 @@ const getPatientByPhone = (req, res) => {
     }
 
     if (result.length) {
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: `The patient => ${phone} `,
         patient: result,
@@ -187,7 +188,7 @@ const getPatientByPhone = (req, res) => {
   });
 };
 
-//====================================================//Update Patient By Id
+//====================================================//Update Patient By Id Function
 const updatePatientByid = (req, res) => {
   userId = req.token.userId;
   const { firstName, lastName, password } = req.body;
@@ -224,26 +225,29 @@ const updatePatientByid = (req, res) => {
   });
 };
 
-//delete patient by id
+//====================================================// delete Patient By Id Function
+
 const deletePatientById = (req, res) => {
   const id = req.params.id;
   const query = `UPDATE patient SET is_deleted=1  WHERE id=?`;
   const data = [id];
   connection.query(query, data, (err, result) => {
     if (!err) {
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         message: `Succeeded to delete patient with id => ${id}`,
         result: result,
       });
     } else {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         message: `The patient => ${id} is not found`,
       });
     }
   });
 };
+
+//====================================================// module.exports
 
 module.exports = {
   createNewPatient,
@@ -254,5 +258,5 @@ module.exports = {
   deletePatientById,
   checkPatientExist,
   loginGoogle,
-  loginFacebook
+  loginFacebook,
 };

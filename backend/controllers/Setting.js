@@ -2,7 +2,8 @@
 const connection = require("../database/db");
 const bcrypt = require("bcrypt");
 
-//====================================================//Setting Function
+//====================================================// Change Patient Password By Id Function
+
 const ChangePatientPasswordById = (req, res) => {
   const id = req.token.userId;
   const oldPassword = req.body.oldPassword;
@@ -22,26 +23,28 @@ const ChangePatientPasswordById = (req, res) => {
         const data = [newPassword, id];
         connection.query(query, data, (err, result) => {
           if (!err) {
-            res.status(200).json({
+            return res.status(200).json({
               success: true,
               message: "Password has changed successfully",
             });
           }
         });
       } else {
-        res.status(404).json({
+        return res.status(404).json({
           success: false,
           message: " Old Password is Wrong",
         });
       }
     } else {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         message: "SERVER ERROR",
       });
     }
   });
 };
+
+//====================================================// Change Patient Phone By Id Function
 
 const ChangePatientPhoneById = (req, res) => {
   const id = req.token.userId;
@@ -63,31 +66,33 @@ const ChangePatientPhoneById = (req, res) => {
           const query = `UPDATE patient SET phone=? WHERE id= ?;`;
           const data = [newPhone, id];
           connection.query(query, data, (err, result) => {
-            res.status(200).json({
+            return res.status(200).json({
               success: true,
               message: "Phone Number has changed successfully",
             });
           });
         } else {
-          res.status(404).json({
+          return res.status(404).json({
             success: false,
             message: "Your Password is Wrong",
           });
         }
       } else {
-        res.status(404).json({
+        return res.status(404).json({
           success: false,
           message: " Old Phone Number is Wrong",
         });
       }
     } else {
-      res.status(500).json({
+      return res.status(500).json({
         success: false,
         message: "SERVER ERROR",
       });
     }
   });
 };
+
+//====================================================// module.exports
 
 module.exports = {
   ChangePatientPasswordById,
