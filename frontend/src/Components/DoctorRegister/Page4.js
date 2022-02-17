@@ -5,21 +5,17 @@ import { addInfoPage } from "../Reducer/DoctorRegister/index";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BsCheckSquareFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
-import { FcCancel } from "react-icons/fc";
-
 import Swal from "sweetalert2";
-
-//CSS File
 import "./Page4.css";
 
 //====================================================//Page 4 Function
 const Page4 = () => {
-  //Selector
+  //====================================================Selector
   const state = useSelector((state) => {
     return state.doctorRegReducer;
   });
 
-  // =================================
+  //====================================================//USESTATE
   const [consultationFee, setConsultationFee] = useState(
     state.doctorInfo.consultationFee
   );

@@ -14,17 +14,20 @@ import { MdAlternateEmail } from "react-icons/md";
 import { BsClockHistory, BsCalendarDay } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
 import { HiOutlineIdentification } from "react-icons/hi";
-//====================================================//Require
+
+//====================================================//COMPONENT
 
 const DoctorMyProfile = () => {
+  //====================================================//USESTATE
+
   const [doctor, setDoctor] = useState([]);
 
-  // =============================
+  //====================================================//useSelector
   const state = useSelector((state) => {
     return state.loginReducer.userId;
   });
 
-  // =================================
+  //====================================================//USEEFFECT
   useEffect(async () => {
     const userId = state || localStorage.getItem("userId");
     try {
@@ -34,6 +37,8 @@ const DoctorMyProfile = () => {
       console.log(err);
     }
   }, []);
+  
+  //====================================================//RETURN
 
   return (
     <div>

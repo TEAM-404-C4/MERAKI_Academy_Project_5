@@ -7,14 +7,12 @@ import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
 } from "react-icons/bs";
-import { FcCancel } from "react-icons/fc";
 import Swal from "sweetalert2";
-
-//CSS File
 import "./Page3.css";
 
-//====================================================//Page 3 Function
+//====================================================//Page 3 COMPONENT
 const Page3 = () => {
+  //====================================================// useSelector
   const state = useSelector((state) => {
     return state.doctorRegReducer.doctorInfo;
   });
@@ -24,7 +22,6 @@ const Page3 = () => {
   const [address, setAddress] = useState(state.address);
   const [careersLicense, setCareersLicense] = useState(state.careersLicense);
   const [waitingTime, setWaitingTime] = useState(state.waitingTime);
-  const [message, setMessage] = useState("");
 
   //====================================================//Dispatch & Navigate
   const dispatch = useDispatch();

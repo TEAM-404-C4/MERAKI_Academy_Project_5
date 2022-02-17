@@ -1,11 +1,18 @@
+//====================================================//Require
+
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setAppointmentDoctor } from "../Reducer/Doctor/index";
 
+//====================================================//COMPONENT
+
 const DoctorAppointement = () => {
+  //====================================================//USESTATE
+
   const [appointement, setAppointement] = useState([]);
-  //   ===================================================================
+
+  //====================================================//useDispatch
 
   const dispatch = useDispatch();
   const state = useSelector((state) => {
@@ -15,10 +22,14 @@ const DoctorAppointement = () => {
       roleId: state.loginReducer.roleId,
     };
   });
-  // =====================================================================
+
+  //====================================================//USEEFFECT
+
   useEffect(() => {
     getAppointement();
   }, []);
+
+  //====================================================//get Appointement FUNCTION
 
   const getAppointement = async () => {
     try {
@@ -28,8 +39,7 @@ const DoctorAppointement = () => {
           doctorId: state.userId,
         }
       );
-      console.log(res.data.result);
-      console.log("state", state);
+
       setAppointement(res.data.result);
       dispatch(setAppointmentDoctor(res.data.result));
     } catch (err) {
@@ -37,22 +47,7 @@ const DoctorAppointement = () => {
     }
   };
 
-  return (
-    <div>
-      {/* {appointement.map((element, index) => {
-        return (
-          <div>
-            <p>
-              {" "}
-              {element.time} Date: {element.dateAppointment}{" "}
-            </p>
-            <p>{element.phone}</p>
-            <p>{`${element.firstName}  ${element.lastName} `}</p>
-          </div>
-        );
-      })} */}
-    </div>
-  );
+  return <div></div>;
 };
 
 export default DoctorAppointement;
