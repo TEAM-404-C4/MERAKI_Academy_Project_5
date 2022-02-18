@@ -38,11 +38,31 @@
   height: 400px;
   align-items: center;
 }
+.listShow {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: wrap-reverse;
+  width: 100%;
+  padding: 20px;
+  height: 230px;
+  align-items: center;
+  background-color: rgb(12, 26, 50);
+  justify-content: center;
+  border: 1px solid #4397cf;
+  border-radius: 12px;
+}
 .list1 {
   width: 100%;
   gap: 1vw;
   align-items: center;
   height: 300px;
+  color: white;
+}
+.list1Show {
+  width: 100%;
+  gap: 1vw;
+  align-items: center;
+  height: 165px;
   color: white;
 }
 table,
@@ -117,4 +137,46 @@ td {
 .tdSetAppointment {
   border: 1px solid #ffffff;
   padding: 5px;
+}
+.trSetAppointmentShow {
+  border: 1px solid #ffffff;
+}
+.tdSetAppointmentShow {
+  border: 1px solid #ffffff;
+  padding: 5px;
+  /* padding-left: 10%; */
+  color: black;
+  background-color: rgb(12, 26, 50);
+}
+.test1 {
+  height: 70%;
+  width: 90%;
+  margin-left: 6%;
+  text-align: center;
+  color: black;
+  background-color: #4397cf;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.setAppointmentButtonOk {
+  cursor: pointer;
+  background-color: GREEN;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 20%;
+  height: 15%;
+  text-align: center;
+  margin-bottom: 7px;
 }

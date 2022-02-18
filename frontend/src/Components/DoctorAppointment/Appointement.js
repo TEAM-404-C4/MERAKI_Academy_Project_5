@@ -3,6 +3,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 import "./Appointement.css";
 
 //====================================================//COMPONENT
@@ -55,14 +56,17 @@ const Appointement = () => {
     let array = Object.keys(schedual);
     let miniArray = [];
     let newArray = [];
-
     for (let i = 0; i < array.length; i++) {
-      miniArray.push(<td>{array[i]}</td>);
+      miniArray.push(
+        <td className="tdSetAppointmentShow">
+          <button className="test1">{array[i]}</button>
+        </td>
+      );
     }
 
     if (miniArray.length < 4) {
       newArray.push(
-        <tr>
+        <tr className="trSetAppointmentShow">
           {miniArray.map((element) => {
             return element;
           })}
@@ -71,7 +75,7 @@ const Appointement = () => {
     }
     if (miniArray.length >= 4) {
       newArray.push(
-        <tr>
+        <tr className="trSetAppointmentShow">
           {miniArray.slice(0, 4).map((element) => {
             return element;
           })}
@@ -81,7 +85,7 @@ const Appointement = () => {
 
     if (miniArray.length > 4 || miniArray.length <= 8) {
       newArray.push(
-        <tr>
+        <tr className="trSetAppointmentShow">
           {miniArray.slice(4, 8).map((element) => {
             return element;
           })}
@@ -91,7 +95,7 @@ const Appointement = () => {
 
     if (miniArray.length > 8 || miniArray.length <= 12) {
       newArray.push(
-        <tr>
+        <tr className="trSetAppointmentShow">
           {miniArray.slice(8, 12).map((element) => {
             return element;
           })}
@@ -101,7 +105,7 @@ const Appointement = () => {
 
     if (miniArray.length > 12 || miniArray.length < 16) {
       newArray.push(
-        <tr>
+        <tr className="trSetAppointment">
           {miniArray.slice(12).map((element) => {
             return element;
           })}
@@ -109,12 +113,14 @@ const Appointement = () => {
       );
     }
 
+    console.log(newArray[0].props.children);
     return newArray;
   };
 
   //====================================================//show Schedual FUNCTION
 
   const showSchedual = (e) => {
+    setRepeatAppointment("");
     let inner_Text = e.target.innerText;
     let id = e.target.id;
     let newObj = { [inner_Text]: id };
@@ -132,6 +138,15 @@ const Appointement = () => {
       setSchedual22(Object.values(schedual));
       e.target.className = "A";
     }
+  };
+
+  const repeatMessage = (arr) => {
+    let array = "";
+    arr.forEach((element) => {
+      array = array + element.time + "  ,  ";
+    });
+
+    Swal.fire("You have conflicts at the following Appointments", array);
   };
 
   //====================================================//RETURN
@@ -239,24 +254,29 @@ const Appointement = () => {
           </tr>
         </table>
       </div>
+      {console.log(showResult().length)}
+      {showResult()[0].props.children.length != 0 && (
+        <div className="listShow">
+          <table className="list1Show">
+            {showResult().map((element) => {
+              return element;
+            })}
+          </table>
+          <button className="setAppointmentButtonOk" onClick={saveAppointement}>
+            click
+          </button>
+        </div>
+      )}
 
       <div>
-        <button onClick={saveAppointement}>click</button>
-        <table>
-          {showResult().map((element) => {
-            return element;
-          })}
-        </table>
-      </div>
-
-      <div>
-        {repeatAppointment && (
+        {/* {repeatAppointment && (
           <p>You have conflicts at the following Appointments</p>
         )}
         {repeatAppointment &&
           repeatAppointment.map((element) => {
             return <p>{element.time}</p>;
-          })}
+          })} */}
+        {repeatAppointment && repeatMessage(repeatAppointment)}
       </div>
     </div>
   );
