@@ -35,7 +35,7 @@ export default function CommentsAndRate({ doctorFullName }) {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer.doctorId,
-      userId: state.loginReducer.userId[0],
+      // userId: state.loginReducer.userId[0],
       roleId: state.loginReducer.roleId,
     };
   });
@@ -113,13 +113,16 @@ export default function CommentsAndRate({ doctorFullName }) {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = comments.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = comments
+    .reverse()
+    .slice(indexOfFirstItem, indexOfLastItem);
 
   //============================================// list bottom numbers pagination FUCTION
 
   const handleClick = (event) => {
     setcurrentPage(Number(event.target.id));
   };
+  console.log(pages);
   const renderPageNumbers = pages.map((number) => {
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       return (
@@ -334,7 +337,8 @@ export default function CommentsAndRate({ doctorFullName }) {
         )}
 
         <div className="commentRatingBlock">
-          {localStorage.getItem("roleId") == 2 ? (
+          {localStorage.getItem("roleId") == 2 ||
+          localStorage.getItem("roleId") == null ? (
             <button
               className="showReviewsBtn"
               type="button"
