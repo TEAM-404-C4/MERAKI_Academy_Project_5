@@ -43,6 +43,7 @@
   gap: 1vw;
   align-items: center;
   height: 300px;
+  color: white;
 }
 table,
 th,
@@ -63,6 +64,10 @@ td {
 .A {
   color: black;
   background-color: #4397cf;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   outline: none;
   border: none;
   border-radius: 5px;
@@ -72,6 +77,7 @@ td {
   word-spacing: 2px;
   width: 90%;
   height: 80%;
+  margin-left: 10px;
 }
 
 .A:hover {
@@ -82,7 +88,11 @@ td {
 
 .B {
   color: black;
-  background-color: Green;
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   outline: none;
   border: none;
   border-radius: 5px;
@@ -92,10 +102,19 @@ td {
   word-spacing: 2px;
   width: 90%;
   height: 80%;
+  margin-left: 10px;
 }
 
 .B {
   background-color: red;
   color: white;
   cursor: pointer;
+}
+
+.trSetAppointment {
+  border: 1px solid #ffffff;
+}
+.tdSetAppointment {
+  border: 1px solid #ffffff;
+  padding: 5px;
 }

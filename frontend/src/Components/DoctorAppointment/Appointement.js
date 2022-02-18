@@ -29,7 +29,6 @@ const Appointement = () => {
 
   //====================================================//save Appointement FUNCTION
 
-
   const saveAppointement = async () => {
     try {
       const res = await axios.post(
@@ -140,101 +139,101 @@ const Appointement = () => {
     <div className="AppointementDoctor">
       <div className="list">
         <table className="list1">
-          <tr>
-            <td>
+          <tr className="trSetAppointment">
+            <td className="tdSetAppointment">
               <button className="A" id={1} onClick={showSchedual}>
-                9-9:30
+                9:00-9:30 am
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={2} onClick={showSchedual}>
-                9:30-10
+                9:30-10:00 am
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               <button className="A" id={3} onClick={showSchedual}>
-                10-10:30
+                10:00-10:30 am
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={4} onClick={showSchedual}>
-                10:30-11
+                10:30-11:00 am
               </button>
             </td>
           </tr>
-          <tr>
-            <td>
+          <tr className="trSetAppointment">
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={5} onClick={showSchedual}>
-                11-11:30
+                11:00-11:30 am
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               <button className="A" id={6} onClick={showSchedual}>
-                11:30-12
+                11:30-12:00 am
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={7} onClick={showSchedual}>
-                12-12:30
+                12:00-12:30 pm
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={8} onClick={showSchedual}>
-                12:30-1
+                12:30-1:00 pm
               </button>
             </td>
           </tr>
-          <tr>
-            <td>
+          <tr className="trSetAppointment">
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={9} onClick={showSchedual}>
-                1-1:30
+                1:00-1:30 pm
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               <button className="A" id={10} onClick={showSchedual}>
-                1:30-2
+                1:30-2:00 pm
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={11} onClick={showSchedual}>
-                2-2:30
+                2:00-2:30 pm
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               <button className="A" id={12} onClick={showSchedual}>
-                2:30-3
+                2:30-3:00 pm
               </button>
             </td>
           </tr>
-          <tr>
-            <td>
+          <tr className="trSetAppointment">
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={13} onClick={showSchedual}>
-                3-3:30
+                3:00-3:30 pm
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={14} onClick={showSchedual}>
-                3:30-4
+                3:30-4:00 pm
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               {" "}
               <button className="A" id={15} onClick={showSchedual}>
-                4-4:30
+                4:00-4:30 pm
               </button>
             </td>
-            <td>
+            <td className="tdSetAppointment">
               <button className="A" id={16} onClick={showSchedual}>
-                4:30-5
+                4:30-5:00 pm
               </button>
             </td>
           </tr>

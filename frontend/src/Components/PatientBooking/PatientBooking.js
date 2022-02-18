@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import "./PatientBooking.css";
-import { FcCancel } from "react-icons/fc";
+import { BsTrash } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 export default function PatientBooking() {
   const [appointement, setAppointement] = useState([]);
@@ -41,6 +42,7 @@ export default function PatientBooking() {
   // =========================================
 
   const deleteBooking = async (e) => {
+    console.log("is Running");
     try {
       const data = await e.target.id.split(",");
       const res = await axios.post(
@@ -87,7 +89,7 @@ export default function PatientBooking() {
                 <td className="row">{element.time}</td>
                 <td className="row">{element.dateAppointment}</td>
                 <td className="row">{element.phone}</td>
-                <td>
+                <td className="rowDelete">
                   <button
                     className="deleteButtons"
                     id={[
@@ -95,9 +97,27 @@ export default function PatientBooking() {
                       element.dateAppointment,
                       element.patientId,
                     ]}
-                    onClick={deleteBooking}
+                    onClick={(e) => {
+                      Swal.fire({
+                        title: "Are you sure?",
+                        text: "You won't be able to revert this!",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD1010",
+                        cancelButtonColor: "#077D35",
+                        confirmButtonText: "Yes, delete it!",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          deleteBooking(e);
+                        }
+                      });
+                    }}
                   >
-                    <FcCancel className="delete" />
+                    <BsTrash
+                      className="delete"
+                      size={25}
+                      style={{ color: "red" }}
+                    />
                   </button>
                 </td>
               </tr>
