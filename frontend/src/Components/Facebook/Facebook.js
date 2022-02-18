@@ -1,17 +1,25 @@
+//====================================================//Require
+
 import React from "react";
 import axios from "axios";
 import FacebookLogin from "react-facebook-login";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { loginRedux } from "../Reducer/login/index";
 import { BsFacebook } from "react-icons/bs";
 import "./facebook.css";
+
+//====================================================//COMPONENT
+
 const Facebook = () => {
+  //====================================================//useDispatch  useNavigate
+
   const dispatch = useDispatch();
   const history = useNavigate();
 
+  //====================================================//response Facebook FUNCTION
+
   const responseFacebook = (response) => {
-    console.log(response);
     axios
       .post("http://localhost:5000/patients/googlelogin", {
         firstName: response.name,
@@ -19,7 +27,6 @@ const Facebook = () => {
         phone: response.email,
       })
       .then((res) => {
-        console.log(res);
         dispatch(
           loginRedux({
             token: response.accessToken,
@@ -35,11 +42,12 @@ const Facebook = () => {
       });
   };
 
+  //====================================================//RETURN
+
   return (
     <div className="facebookDiv">
       <FacebookLogin
         appId="1785113761689971"
-        // autoLoad={true}
         fields="name,email,picture"
         callback={responseFacebook}
         cssClass="facebook_logo"

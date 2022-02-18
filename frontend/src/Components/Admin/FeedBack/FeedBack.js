@@ -3,11 +3,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./FeedBack.css";
-import { useSelector } from "react-redux";
 import { FcApproval, FcCancel } from "react-icons/fc";
+
+//====================================================//COMPONENT
+
 export default function FeedBack() {
+  //====================================================//USESTATE
+
   const [AllFeedBack, setAllFeedBack] = useState([]);
   const [message, setMessage] = useState("");
+
+  //====================================================//get All FeedBack FUNCTION
 
   const getAllFeedBack = async () => {
     try {
@@ -21,6 +27,9 @@ export default function FeedBack() {
       setMessage(error.message);
     }
   };
+
+  //====================================================//Approve FeedBack FUNCTION
+
   const ApproveFeedBack = async (e) => {
     try {
       const res = await axios.put(
@@ -35,6 +44,9 @@ export default function FeedBack() {
       setMessage(error.message);
     }
   };
+
+  //====================================================//Delete FeedBack FUNCTION
+
   const DeleteFeedBack = async (e) => {
     try {
       const res = await axios.delete(
@@ -49,10 +61,15 @@ export default function FeedBack() {
       setMessage(error.message);
     }
   };
-  console.log(AllFeedBack);
+
+  //====================================================//USEEFFECT
+
   useEffect(() => {
     getAllFeedBack();
   }, []);
+
+  //====================================================//RETURN
+
   return (
     <div>
       <div className="parentTableFeedBack">
