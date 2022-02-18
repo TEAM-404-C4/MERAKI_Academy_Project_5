@@ -294,7 +294,7 @@ const DoctorProfile = () => {
               />
             </div>
 
-            <div className="  buttonsTimeAppointmentDiv ">
+            <div className=" buttonsTimeAppointmentDiv ">
               {appointement.length == 0 && (
                 <>
                   <img
