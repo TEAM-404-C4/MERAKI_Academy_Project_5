@@ -1,25 +1,27 @@
 .patientBookingMainDiv {
   max-height: 500px;
   overflow-y: scroll;
-  width: 100%;
+  width: 910px;
 }
 
 .patientTableDashboardMainDiv {
   border: 1px solid #ffffff;
-  width: 855px;
+  width: 890px;
+  background-color: grey;
 }
 
 .patientTableDashboardTitle {
   background-color: #4397cf;
+  color: black;
 }
 
 .patientTableDashboard {
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
 .patientTableDashboard:hover {
-  color: rgb(240, 83, 83);
+  color: rgb(196, 22, 22);
 }
 
 .row {
@@ -29,18 +31,24 @@
   font-size: 14px;
   transition: 0.2s;
 }
+.rowDelete {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  width: 50px;
+  font-size: 14px;
+  transition: 0.2s;
+}
 
 .title {
-  color: white;
   border: 1px solid #ffffff;
   padding: 5px;
   font-weight: bold;
 }
 
 .titleNo {
-  color: white;
+  color: black;
   border: 1px solid #ffffff;
-  padding: 0px;
+  padding: 5px;
   font-weight: bold;
 }
 
@@ -56,4 +64,12 @@
 }
 .delete {
   pointer-events: none;
+}
+
+.deleteButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
 }
