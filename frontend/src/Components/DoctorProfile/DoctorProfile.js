@@ -2,8 +2,10 @@
 
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./DoctorProfile.css";
+import Swal from "sweetalert2";
 import {
   FaRegMoneyBillAlt,
   FaHandHoldingMedical,
@@ -30,6 +32,10 @@ const DoctorProfile = () => {
   const [today, setToday] = useState("");
   const [date, setDate] = useState("");
 
+  //====================================================//useNavigate
+
+  const history = useNavigate();
+
   //====================================================//useSelector
 
   const state = useSelector((state) => {
@@ -38,6 +44,7 @@ const DoctorProfile = () => {
       userId: state.loginReducer.userId[0],
       userIdDoctor: state.loginReducer.userId,
       roleId: state.loginReducer.roleId,
+      isLoggedIn: state.loginReducer.isLoggedIn,
     };
   });
 
@@ -75,6 +82,20 @@ const DoctorProfile = () => {
   // ==================================================// booking FUNCTION
 
   const booking = async (e) => {
+    if (!state.isLoggedIn) {
+      Swal.fire({
+        title: "YOU HAVE TO LOGIN BEFORE BOOKING",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "LOGIN",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          return history("/login");
+        }
+      });
+    }
     if (state.roleId == 2) {
       return;
     }
