@@ -203,7 +203,7 @@ const Footer = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.youtube.com/watch?v=inOnE2RGgCk">
+                      <a href="https://www.linkedin.com/in/omar-kata-a-983677175/">
                         <AiOutlineLinkedin />
                       </a>
                     </li>

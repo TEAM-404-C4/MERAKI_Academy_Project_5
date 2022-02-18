@@ -295,6 +295,15 @@ const DoctorProfile = () => {
             </div>
 
             <div className="  buttonsTimeAppointmentDiv ">
+              {appointement.length == 0 && (
+                <>
+                  <img
+                    className="noAvailbleAppointmentImg"
+                    src="https://i.pinimg.com/736x/35/e8/91/35e891011e2dfc2aae05334327a602b3.jpg"
+                    alt="no availble time"
+                  />
+                </>
+              )}
               {appointement.map((element) => {
                 return (
                   <button
