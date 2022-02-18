@@ -118,6 +118,8 @@ export default function FullCalender() {
               <AiFillCarryOut size={20} />
             </div>
           </div>
+          
+          <div className="patient_Table_Appointment_MainDiv">
           <table className="patient_Table_Appointment">
             <thead>
               <tr className="patient_Table_Appointment_title">
@@ -137,6 +139,7 @@ export default function FullCalender() {
               )}
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </div>
