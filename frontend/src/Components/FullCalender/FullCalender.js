@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from "react";
+//====================================================//Require
 
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
 import "@fullcalendar/timegrid/main.css";
 import "@fullcalendar/daygrid/main.css";
-
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "./FullCalender.css";
-import Appointement from "../DoctorAppointment/Appointement";
 import { AiFillCarryOut } from "react-icons/ai";
 
+//====================================================//COMPONENT
+
 export default function FullCalender() {
+  //====================================================//USESTATE
+
   const [appointement, setAppointement] = useState([]);
   const [dayAppointment, setDayAppointment] = useState("");
 
-  // ===================================================
+  // ===================================================// useSelector
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer,
@@ -30,10 +32,14 @@ export default function FullCalender() {
       appointments: state.doctorsReducer.appointment,
     };
   });
-  //======================================================
+
+  //======================================================// useEffect
   useEffect(() => {
     getAppointement();
   }, []);
+
+  //====================================================//get All Patients FUNCTION
+
   const getAppointement = async () => {
     try {
       const res = await axios.post(
@@ -43,24 +49,23 @@ export default function FullCalender() {
             state.userId || window.localStorage.getItem("userIdForSettings"),
         }
       );
-      console.log("state", state);
-      console.log(res.data.result);
       setAppointement(res.data.result);
     } catch (err) {
       console.log(err);
     }
   };
-  console.log("----------------", state);
 
-  // =====================================================
+  // =====================================================// events Date
 
   const events = [{ title: "Today", date: new Date() }];
 
-  // ====================================================
+  //====================================================//handle Date Click FUNCTION
 
   const handleDateClick = (dateClickInfo) => {
     setDayAppointment(dateClickInfo.dateStr);
   };
+
+  //====================================================//show Day Appointment FUNCTION
 
   const showDayAppointment = () => {
     let array =
@@ -81,15 +86,12 @@ export default function FullCalender() {
     });
   };
 
-  // =========================================
+  // =========================================// retrieve Data FUNCTION
   const retrieveData = async (from, to, callback) => {
     callback();
   };
-  // ==================================
-  const getData = (fetchInfo, callback) => {
-    retrieveData(fetchInfo.start, fetchInfo.end, callback);
-  };
-  // ============================================
+
+  // ============================================// RETURN
   return (
     <div className="containerDiv">
       <div className="container">
@@ -118,27 +120,29 @@ export default function FullCalender() {
               <AiFillCarryOut size={20} />
             </div>
           </div>
-          
+
           <div className="patient_Table_Appointment_MainDiv">
-          <table className="patient_Table_Appointment">
-            <thead>
-              <tr className="patient_Table_Appointment_title">
-                <th className="titleNo_Appointment">No.</th>
-                <th className="title_Appointment">FullName</th>
-                <th className="title_Appointment">Time</th>
-                <th className="title_Appointment">Phone</th>
-              </tr>
-            </thead>
-            <tbody>
-              {showDayAppointment().length ? (
-                showDayAppointment()
-              ) : (
-                <div>
-                  <div className="noAppointmen">No Appointment in This Day</div>
-                </div>
-              )}
-            </tbody>
-          </table>
+            <table className="patient_Table_Appointment">
+              <thead>
+                <tr className="patient_Table_Appointment_title">
+                  <th className="titleNo_Appointment">No.</th>
+                  <th className="title_Appointment">FullName</th>
+                  <th className="title_Appointment">Time</th>
+                  <th className="title_Appointment">Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                {showDayAppointment().length ? (
+                  showDayAppointment()
+                ) : (
+                  <div>
+                    <div className="noAppointmen">
+                      No Appointment in This Day
+                    </div>
+                  </div>
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
