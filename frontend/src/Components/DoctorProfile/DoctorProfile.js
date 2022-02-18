@@ -41,7 +41,7 @@ const DoctorProfile = () => {
   const state = useSelector((state) => {
     return {
       doctorId: state.doctorsReducer.doctorId,
-      userId: state.loginReducer.userId[0],
+      // userId: state.loginReducer.userId[0],
       userIdDoctor: state.loginReducer.userId,
       roleId: state.loginReducer.roleId,
       isLoggedIn: state.loginReducer.isLoggedIn,
@@ -82,6 +82,7 @@ const DoctorProfile = () => {
   // ==================================================// booking FUNCTION
 
   const booking = async (e) => {
+    console.log(state.isLoggedIn);
     if (!state.isLoggedIn) {
       Swal.fire({
         title: "YOU HAVE TO LOGIN BEFORE BOOKING",
@@ -95,54 +96,53 @@ const DoctorProfile = () => {
           return history("/login");
         }
       });
-    }
-    if (state.roleId == 2) {
+    } else if (state.roleId == 2) {
       return;
-    }
-
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: "btn btn-success",
-        cancelButton: "btn btn-danger",
-      },
-      buttonsStyling: true,
-    });
-
-    swalWithBootstrapButtons
-      .fire({
-        title: "Are You Sure To Book This Appoitment?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Yes, book it!",
-        cancelButtonText: "No, cancel!",
-        reverseButtons: true,
-      })
-      .then(async (result) => {
-        if (result.isConfirmed) {
-          try {
-            const res = await axios.post(
-              `http://localhost:5000/doctors/booking`,
-              {
-                appointmentId: e.target.value,
-                patientId: window.localStorage.getItem("userIdForSettings"),
-                doctorId: window.localStorage.getItem("doctorId"),
-                dateAppointment: date || today,
-              }
-            );
-
-            setResultBooking(res);
-          } catch (err) {
-            console.log(err);
-          }
-
-          swalWithBootstrapButtons.fire("BOOKIN!", "", "success");
-        } else if (
-          /* Read more about handling dismissals below */
-          result.dismiss === Swal.DismissReason.cancel
-        ) {
-          swalWithBootstrapButtons.fire("Cancelled", "", "error");
-        }
+    } else {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger",
+        },
+        buttonsStyling: true,
       });
+
+      swalWithBootstrapButtons
+        .fire({
+          title: "Are You Sure To Book This Appoitment?",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes, book it!",
+          cancelButtonText: "No, cancel!",
+          reverseButtons: true,
+        })
+        .then(async (result) => {
+          if (result.isConfirmed) {
+            try {
+              const res = await axios.post(
+                `http://localhost:5000/doctors/booking`,
+                {
+                  appointmentId: e.target.value,
+                  patientId: window.localStorage.getItem("userIdForSettings"),
+                  doctorId: window.localStorage.getItem("doctorId"),
+                  dateAppointment: date || today,
+                }
+              );
+
+              setResultBooking(res);
+            } catch (err) {
+              console.log(err);
+            }
+
+            swalWithBootstrapButtons.fire("BOOKIN!", "", "success");
+          } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+          ) {
+            swalWithBootstrapButtons.fire("Cancelled", "", "error");
+          }
+        });
+    }
 
     // try {
     //   const res = await axios.post(`http://localhost:5000/doctors/booking`, {

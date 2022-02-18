@@ -92,6 +92,7 @@ h3 {
   flex-direction: column;
   background-color: rgb(12, 26, 50);
   width: 50%;
+  border-left: #4397cf solid 1px;
 }
 .setDateAppointment {
   text-align: center;
@@ -205,5 +206,12 @@ h3 {
   align-items: center;
 }
 .noAvailbleAppointment {
-  /* padding: ; */
+  padding: 20px 0 0 100px;
+  color: white;
+}
+.noAvailbleAppointmentImg {
+  width: 90%;
+  height: 50%;
+  padding-left: 70px;
+  margin-top: 100px;
 }
