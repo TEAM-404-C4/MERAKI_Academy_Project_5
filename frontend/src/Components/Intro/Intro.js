@@ -1,9 +1,19 @@
+//====================================================//Require
+
 import React from "react";
 import "./Intro.css";
 import { useNavigate } from "react-router-dom";
 import SliderFeedBack from "../FeedBack/SliderFeedBack";
+
+//====================================================//COMPONENT
+
 function Intro() {
+  //====================================================//useNavigate
+
   const history = useNavigate();
+
+  //====================================================// RETURN
+
   return (
     <div className="introMainDiv" id="introMainDiv">
       <div className="aboutSection">
@@ -33,7 +43,10 @@ function Intro() {
               <div className="cardDetails">
                 <div className="cardTilte">Qualified Doctors</div>
                 <div className="cardExplain">
-                Doctors and specialists at SevenHills Hospital are considered to be one of the best doctors in Our Community, and this is considering the amount of experience and expertise they bring with them in their respective domains.
+                  Doctors and specialists at SevenHills Hospital are considered
+                  to be one of the best doctors in Our Community, and this is
+                  considering the amount of experience and expertise they bring
+                  with them in their respective domains.
                 </div>
               </div>
             </div>
@@ -44,7 +57,10 @@ function Intro() {
               <div className="cardDetails">
                 <div className="cardTilte">Emergency Care</div>
                 <div className="cardExplain">
-                Hospital emergency departments are prepared for every kind of medical emergency, including heart attacks, stroke, motor vehicle crashes, psychiatric emergencies, and other life-threatening conditions.
+                  Hospital emergency departments are prepared for every kind of
+                  medical emergency, including heart attacks, stroke, motor
+                  vehicle crashes, psychiatric emergencies, and other
+                  life-threatening conditions.
                 </div>
               </div>
             </div>{" "}
@@ -57,8 +73,8 @@ function Intro() {
               <div className="cardDetails">
                 <div className="cardTilte">24 Hours Service</div>
                 <div className="cardExplain">
-                Ambulance services moving patients to places where they can be seen by a doctor
-                or nurse to reduce the need for home visits.
+                  Ambulance services moving patients to places where they can be
+                  seen by a doctor or nurse to reduce the need for home visits.
                 </div>
               </div>
             </div>{" "}
@@ -69,7 +85,10 @@ function Intro() {
               <div className="cardDetails">
                 <div className="cardTilte">Operation Theater</div>
                 <div className="cardExplain">
-                Operating rooms are spacious, in a cleanroom, and well-lit, typically with overhead surgical lights, and may have viewing screens and monitors. Operating rooms are generally windowless.
+                  Operating rooms are spacious, in a cleanroom, and well-lit,
+                  typically with overhead surgical lights, and may have viewing
+                  screens and monitors. Operating rooms are generally
+                  windowless.
                 </div>
               </div>
             </div>
@@ -82,7 +101,7 @@ function Intro() {
               history("/mainpage");
             }}
           >
-                   Learn More
+            Learn More
           </button>
         </div>
       </div>

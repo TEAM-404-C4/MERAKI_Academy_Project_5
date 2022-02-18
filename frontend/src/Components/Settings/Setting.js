@@ -244,7 +244,7 @@ const Setting = () => {
       if (result.data.success) {
         setFirstName(result.data.result[0].firstName);
         setPatientPhone(
-          result.data.result[0].phone !== null
+          result.data.result[0].phone == null
             ? "You Do Not Have Phone Please Add it"
             : result.data.result[0].phone
         );

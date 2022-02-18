@@ -1,17 +1,24 @@
-import React, { useEffect, useState } from "react";
+//====================================================//Require
+
+import React, { useState } from "react";
 import "./Footer.css";
-import FeedBack from "../FeedBack/FeedBack";
 import { Link } from "react-router-dom";
 import { BiDownArrow } from "react-icons/bi";
 import { AiOutlineLinkedin, AiFillGithub } from "react-icons/ai";
+
+//====================================================//COMPONENT
+
 const Footer = () => {
+  //====================================================//USESTATE
+
   const [style2, setStyle2] = useState("socialLinksNone");
   const [style3, setStyle3] = useState("socialLinksNone");
   const [style4, setStyle4] = useState("socialLinksBlock");
-
   const [onStyle1, setOnStyle1] = useState(false);
   const [onStyle2, setOnStyle2] = useState(false);
   const [onStyle3, setOnStyle3] = useState(false);
+
+  //====================================================//RETURN
 
   return (
     <div className="footerMainDiv">
@@ -82,7 +89,8 @@ const Footer = () => {
                   <img
                     src="https://avatars.githubusercontent.com/u/93885250?v=4"
                     className="img-Developer"
-                    alt="Iyad Saadeh" onClick={() => {
+                    alt="Iyad Saadeh"
+                    onClick={() => {
                       onStyle1
                         ? setStyle2("socialLinksNone")
                         : setStyle2("socialLinksBlock");
@@ -123,7 +131,8 @@ const Footer = () => {
                   <img
                     src="https://avatars.githubusercontent.com/u/93844383?v=4"
                     className="img-Developer"
-                    alt="HaithamNawwaf" onClick={() => {
+                    alt="HaithamNawwaf"
+                    onClick={() => {
                       onStyle2
                         ? setStyle3("socialLinksNone")
                         : setStyle3("socialLinksBlock");
@@ -164,7 +173,8 @@ const Footer = () => {
                   <img
                     src="https://avatars.githubusercontent.com/u/93868769?v=4"
                     className="img-Developer"
-                    alt="Omar Kataaa" onClick={() => {
+                    alt="Omar Kataaa"
+                    onClick={() => {
                       onStyle3
                         ? setStyle4("socialLinksNone")
                         : setStyle4("socialLinksBlock");
@@ -193,7 +203,7 @@ const Footer = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.youtube.com/watch?v=inOnE2RGgCk">
+                      <a href="https://www.linkedin.com/in/omar-kata-a-983677175/">
                         <AiOutlineLinkedin />
                       </a>
                     </li>

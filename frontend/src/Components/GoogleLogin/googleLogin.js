@@ -1,3 +1,5 @@
+//====================================================//Require
+
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -5,14 +7,21 @@ import GoogleLogin from "react-google-login";
 import { useDispatch, useSelector } from "react-redux";
 import { loginRedux } from "../Reducer/login/index";
 
+//====================================================//COMPONENT
+
 const GoogleSignIn = () => {
+  //====================================================//useDispatch useNavigate
+
   const dispatch = useDispatch();
   const history = useNavigate();
 
-  // ===============================================
+  //====================================================// handle Failure FUNCTION
+
   const handleFailure = (result) => {
     console.log(result);
   };
+
+  //====================================================// handle Login FUNCTION
 
   const handleLogin = async (googleData) => {
     console.log(googleData);
@@ -39,6 +48,9 @@ const GoogleSignIn = () => {
         console.log(err);
       });
   };
+
+  //====================================================//RETURN
+
   return (
     <div>
       <GoogleLogin

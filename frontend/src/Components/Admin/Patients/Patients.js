@@ -50,7 +50,7 @@ export default function Patients() {
     getAllPatients();
   }, []);
 
-  //====================================================//RETURN
+  //====================================================// RETURN
 
   return (
     <div>
