@@ -8,7 +8,11 @@
   margin-top: 50px;
   box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.75);
 }
+*{
+  text-align: left;
+  font-family: "Righteous", cursive;
 
+}
 .footerDiv {
   width: 100%;
   display: flex;
@@ -24,16 +28,110 @@
   align-items: flex-start;
   height: 100%;
   padding: 20px;
+  width: 350px;
   gap: 10px;
 }
 .Title {
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 22px;
   font-family: "Righteous", cursive;
   color: white;
+  /* margin-left: 25px; */
 }
 
 .data {
   text-align: left;
   color: white;
+}
+/* New Footer */
+.logoSection{
+  background-image: url("https://rhythm-admin-template.multipurposethemes.com/images/logo-letter.png");
+  width: 60px;
+  height: 60px;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.AboutSection{
+
+}
+.useFullLinkSection{
+
+}
+.ContactSection{
+
+}
+.links{
+  list-style-type: none;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content:center ;
+  align-content: center;
+  width: 250px;
+  text-align: left;
+
+}
+.links_contact{
+  list-style-type: none;
+  color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content:center ;
+  align-content: center;
+  width: 250px;
+  text-align: left;
+}
+.link{
+  color: aliceblue;
+  text-align: left;
+
+}.link:hover{
+  color: rgb(248, 17, 152);
+}
+.socialLinks{
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  gap: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.h4Name{
+  margin-top:10px;
+  display: flex;
+  flex-direction: row;
+  gap:10px;
+  align-content: center;
+  background-color:#0c1a32;
+  box-shadow: 1px 1px 1px #1b1c1f;
+  justify-content: center;
+
+}
+.h4icon{
+  margin-top:5px;
+  cursor: pointer;
+}
+.socialLinksBlock{
+  display:block;
+}
+.socialLinksNone{
+  display: none;
+}
+.DeveloperInfo{
+  display: flex;
+  gap: 10px;
+}
+.img-Developer{
+  width:50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }
