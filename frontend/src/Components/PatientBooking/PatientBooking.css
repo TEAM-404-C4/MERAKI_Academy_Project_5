@@ -13,6 +13,8 @@
 .patientTableDashboardTitle {
   background-color: #4397cf;
   color: black;
+  position: sticky;
+  top: 0;
 }
 
 .patientTableDashboard {

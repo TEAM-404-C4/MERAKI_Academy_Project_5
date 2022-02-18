@@ -287,7 +287,7 @@ const Setting = () => {
   }, []);
 
   return (
-    <>
+    <div className="test26">
       {/* --------------------------------------------------------------------------part1 Doctor Setting */}
       {state.doctorId == 2 || localStorage.getItem("roleId") == 2 ? (
         <div className="mainChangeDoctorDiv">
@@ -425,8 +425,8 @@ const Setting = () => {
         <div className="mainChangeDiv">
           {/* --------------------------------------------------------------------------part 2  patient S*/}
 
-          <div className="changeDiv">
-            <div className="changeInfoDiv">
+          <div className="changeDivPatient">
+            <div className="changeInfoDivPatient">
               {true ? (
                 <div className="changeInfoForm">
                   <form onSubmit={changeInfo} className="cInfoFrom">
@@ -470,7 +470,7 @@ const Setting = () => {
 
           {/* ---------------------------------------------------change password  */}
 
-          <div className="changeDiv">
+          <div className="changeDivPatient">
             <div className="changePasswordDiv">
               {true ? (
                 <div className="changeInfoForm">
@@ -547,7 +547,7 @@ const Setting = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 export default Setting;

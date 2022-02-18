@@ -40,6 +40,9 @@
   border: 1px solid #ffffff;
   padding: 10px;
   font-weight: bold;
+  position: sticky;
+  top: 0;
+  background-color: #0d79e5;
 }
 .rowNo_Profile {
   padding: 10px;
@@ -56,6 +59,10 @@
   padding: 10px;
   font-weight: bold;
   color: black;
+  background-color: #0d79e5;
+
+  position: sticky;
+  top: 0;
 }
 /* css Buttons */
 .deleteButtons {
