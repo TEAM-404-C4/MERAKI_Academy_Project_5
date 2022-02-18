@@ -242,21 +242,27 @@ const DoctorProfile = () => {
             </div>
           </div>
           <div className="appointement">
-            <input
-              type="date"
-              onChange={setDateAppointement}
-              defaultValue={new Date().toISOString().substring(0, 10)}
-            />
+            <div className="setDateAppointment">
+              <input
+                type="date"
+                onChange={setDateAppointement}
+                defaultValue={new Date().toISOString().substring(0, 10)}
+              />
+            </div>
 
-            {appointement.map((element) => {
-              return (
-                <>
-                  <button onClick={booking} value={element.id}>
+            <div className="  buttonsTimeAppointmentDiv ">
+              {appointement.map((element) => {
+                return (
+                  <button
+                    className="buttonsTimeAppointment"
+                    onClick={booking}
+                    value={element.id}
+                  >
                     {element.time}
                   </button>
-                </>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
