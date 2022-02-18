@@ -181,7 +181,7 @@ const Dashboard = () => {
             {ratingPanel ? (
               <>
                 <div className="dashBoardChart">
-                  <div>
+                  <div className="appoDiv">
                     <Appointement />
                   </div>
                 </div>

@@ -29,6 +29,7 @@ const Appointement = () => {
 
   //====================================================//save Appointement FUNCTION
 
+
   const saveAppointement = async () => {
     try {
       const res = await axios.post(
@@ -118,10 +119,10 @@ const Appointement = () => {
     let inner_Text = e.target.innerText;
     let id = e.target.id;
     let newObj = { [inner_Text]: id };
-    if (e.target.className == "0") {
+    if (e.target.className == "A") {
       setSchedual(Object.assign({}, schedual, newObj));
       setSchedual22(Object.values(schedual));
-      e.target.className = "1";
+      e.target.className = "B";
     } else {
       const deleteValue = () => {
         let obj = schedual;
@@ -130,7 +131,7 @@ const Appointement = () => {
       };
       deleteValue();
       setSchedual22(Object.values(schedual));
-      e.target.className = "0";
+      e.target.className = "A";
     }
   };
 
@@ -138,28 +139,27 @@ const Appointement = () => {
   return (
     <div className="AppointementDoctor">
       <div className="list">
-        <table>
+        <table className="list1">
           <tr>
             <td>
-              {" "}
-              <button className="0" id={1} onClick={showSchedual}>
+              <button className="A" id={1} onClick={showSchedual}>
                 9-9:30
               </button>
             </td>
             <td>
               {" "}
-              <button className="0" id={2} onClick={showSchedual}>
+              <button className="A" id={2} onClick={showSchedual}>
                 9:30-10
               </button>
             </td>
             <td>
-              <button className="0" id={3} onClick={showSchedual}>
+              <button className="A" id={3} onClick={showSchedual}>
                 10-10:30
               </button>
             </td>
             <td>
               {" "}
-              <button className="0" id={4} onClick={showSchedual}>
+              <button className="A" id={4} onClick={showSchedual}>
                 10:30-11
               </button>
             </td>
@@ -167,24 +167,24 @@ const Appointement = () => {
           <tr>
             <td>
               {" "}
-              <button className="0" id={5} onClick={showSchedual}>
+              <button className="A" id={5} onClick={showSchedual}>
                 11-11:30
               </button>
             </td>
             <td>
-              <button className="0" id={6} onClick={showSchedual}>
+              <button className="A" id={6} onClick={showSchedual}>
                 11:30-12
               </button>
             </td>
             <td>
               {" "}
-              <button className="0" id={7} onClick={showSchedual}>
+              <button className="A" id={7} onClick={showSchedual}>
                 12-12:30
               </button>
             </td>
             <td>
               {" "}
-              <button className="0" id={8} onClick={showSchedual}>
+              <button className="A" id={8} onClick={showSchedual}>
                 12:30-1
               </button>
             </td>
@@ -192,23 +192,23 @@ const Appointement = () => {
           <tr>
             <td>
               {" "}
-              <button className="0" id={9} onClick={showSchedual}>
+              <button className="A" id={9} onClick={showSchedual}>
                 1-1:30
               </button>
             </td>
             <td>
-              <button className="0" id={10} onClick={showSchedual}>
+              <button className="A" id={10} onClick={showSchedual}>
                 1:30-2
               </button>
             </td>
             <td>
               {" "}
-              <button className="0" id={11} onClick={showSchedual}>
+              <button className="A" id={11} onClick={showSchedual}>
                 2-2:30
               </button>
             </td>
             <td>
-              <button className="0" id={12} onClick={showSchedual}>
+              <button className="A" id={12} onClick={showSchedual}>
                 2:30-3
               </button>
             </td>
@@ -216,24 +216,24 @@ const Appointement = () => {
           <tr>
             <td>
               {" "}
-              <button className="0" id={13} onClick={showSchedual}>
+              <button className="A" id={13} onClick={showSchedual}>
                 3-3:30
               </button>
             </td>
             <td>
               {" "}
-              <button className="0" id={14} onClick={showSchedual}>
+              <button className="A" id={14} onClick={showSchedual}>
                 3:30-4
               </button>
             </td>
             <td>
               {" "}
-              <button className="0" id={15} onClick={showSchedual}>
+              <button className="A" id={15} onClick={showSchedual}>
                 4-4:30
               </button>
             </td>
             <td>
-              <button className="0" id={16} onClick={showSchedual}>
+              <button className="A" id={16} onClick={showSchedual}>
                 4:30-5
               </button>
             </td>

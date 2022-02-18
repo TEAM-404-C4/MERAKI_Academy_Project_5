@@ -3,14 +3,30 @@
   margin: 0;
   box-sizing: 0;
 }
+.appoDiv {
+  width: 700px;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin-left: -270px;
+  background-color: rgb(12, 26, 50);
+  border-radius: 12px;
+  border: 1px solid #4397cf;
+}
+.appoTable {
+  width: 600px;
+  top: 500px;
+  height: 100%;
+  background-color: blue;
+}
 
-.AppointementDoctor {
-  padding-top: 10vh;
-  background-color: #1c2e4c;
+.AppointementDoctorMainDiv {
+  background-color: #ffffff;
+  height: 400px;
+  width: 100%;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
   align-items: center;
 }
 
@@ -18,28 +34,24 @@
   display: flex;
   flex-flow: wrap-reverse;
   width: 100%;
-  padding-top: 5vh;
-  height: 20vh;
-  gap: 2vw;
+  padding: 20px;
+  height: 400px;
   align-items: center;
 }
 .list1 {
-  display: flex;
-  flex-direction: row;
   width: 100%;
   gap: 1vw;
   align-items: center;
-  padding-left: 5vw;
+  height: 300px;
 }
 table,
 th,
 td {
   border: 1px solid black;
 }
-.select_appointement{
+.select_appointement {
   display: flex;
   flex-direction: row;
- 
 }
 .select_appointement label {
   display: flex;
@@ -47,8 +59,43 @@ td {
   align-items: end;
   justify-content: flex-start;
 }
-/* .list1 button {
-  background-color: aqua;
-  border-style: none;
-  width: 10%;
-} */
+
+.A {
+  color: black;
+  background-color: #4397cf;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  width: 90%;
+  height: 80%;
+}
+
+.A:hover {
+  background-color: GREEN;
+  color: white;
+  cursor: pointer;
+}
+
+.B {
+  color: black;
+  background-color: Green;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  width: 90%;
+  height: 80%;
+}
+
+.B {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
