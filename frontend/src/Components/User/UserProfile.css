@@ -1,14 +1,20 @@
 .patient_Profile {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 5vw;
-  /* overflow: scroll; */
-  /* overflow-wrap: break-word; */
+  background-color: rgb(12, 26, 50);
+  padding: 50px;
+  border-radius: 12px;
+  border: 1px solid #4397cf;
 }
 .patient_Table_Profile_Main_Div {
-  border: 1px solid #ffffff;
-  /* overflow: scroll; */
-  /* overflow-wrap: break-word; */
-  width: 100%;
+  /* border: 1px solid #ffffff;
+  width: 100%; */
+}
+.patient_Table_Profile_Main_Div {
+  max-height: 400px;
+  overflow-y: scroll;
 }
 .patient_Table_Profile_Title {
   background-color: #0d79e5;
@@ -26,11 +32,13 @@
   width: 170px;
   font-size: 15px;
   transition: 0.2s;
+  background-color: grey;
+  color: black;
 }
 .titleNo_Profile {
-  color: white;
+  color: black;
   border: 1px solid #ffffff;
-  padding: 0px;
+  padding: 10px;
   font-weight: bold;
 }
 .rowNo_Profile {
@@ -38,12 +46,16 @@
   border: 1px solid #ffffff;
   width: 50px;
   font-size: 15px;
+  background-color: grey;
+  color: black;
+  padding: 10px;
 }
 .title_Profile {
   color: white;
   border: 1px solid #ffffff;
   padding: 10px;
   font-weight: bold;
+  color: black;
 }
 /* css Buttons */
 .deleteButtons {
@@ -55,4 +67,15 @@
 }
 .delete {
   pointer-events: none;
+}
+
+.rowDeletePatient {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  width: 50px;
+  font-size: 14px;
+  transition: 0.2s;
+  background-color: grey;
+  color: black;
+  padding: 7px;
 }
