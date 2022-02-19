@@ -6,10 +6,10 @@ import { React, useEffect, useState } from "react";
 import { logoutRedux } from "../Reducer/login/index";
 import "./navigation.css";
 import { useDispatch, useSelector } from "react-redux";
-import { RiContrastDropLine, RiLogoutCircleRLine } from "react-icons/ri";
+import { RiTruckFill, RiLogoutCircleRLine } from "react-icons/ri";
 import { BsFillCalendarWeekFill } from "react-icons/bs";
 import { MdOutlineEmergency } from "react-icons/md";
-import {FiSettings} from "react-icons/fi"
+import { FiSettings } from "react-icons/fi";
 import axios from "axios";
 
 //====================================================// Navigation function
@@ -68,6 +68,19 @@ const Navigation = () => {
           <div>
             <p className="shefaaName">SHEFAA</p>
           </div>
+
+          <div className="emergencyCallDiv">
+            <div>
+              <p className="emergencyCall">IN CASE OF EMERGENCY CLICK HERE</p>
+            </div>
+            <div
+              onClick={() => {
+                <a href="tel:911" style={{ color: "red" }}></a>;
+              }}
+            >
+              <RiTruckFill size={60} style={{ color: "red" }} />
+            </div>
+          </div>
         </div>
         <div className="controlsDiv">
           {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (
@@ -99,7 +112,6 @@ const Navigation = () => {
                 patient profile
               </button> */}
             </div>
-            
           ) : (
             <></>
           )}
@@ -109,9 +121,7 @@ const Navigation = () => {
                 <FiSettings />
               </Link>
               <div></div>
-              
             </div>
-            
           ) : (
             <></>
           )}
@@ -121,18 +131,16 @@ const Navigation = () => {
                 <FiSettings />
               </Link>
               <div></div>
-              
             </div>
-            
           ) : (
             <></>
           )}
           {/* for calling 911 */}
-          <div className="option" title="Calling 911">
+          {/* <div className="option" title="Calling 911">
             <a href="tel:911" style={{ color: "red" }}>
               <MdOutlineEmergency />
             </a>
-          </div>
+          </div> */}
           <div className="option" title="Main">
             <Link to="/mainpage" alt="test">
               <BsHouseFill />

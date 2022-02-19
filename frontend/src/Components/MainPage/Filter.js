@@ -57,7 +57,7 @@ const Filter = ({ setSearch }) => {
         onChange={submitDep}
       >
         <option value={0} disabled selected hidden>
-          Search by Specialty ...
+          Filter by Department ...
         </option>
         <option value={0}>All</option>
         <option value={1}>RADIOLOGY</option>
@@ -88,7 +88,7 @@ const Filter = ({ setSearch }) => {
         }}
       >
         <option value={0} disabled selected hidden>
-          Search by Location ...
+          Filter by Location ...
         </option>
         <option value={0}>All </option>
         <option value={1}>AMMAN</option>

@@ -82,7 +82,7 @@ a:hover {
   color: white;
   display: flex;
   margin-top: 40px;
-  margin-left: -30px;
+  margin-left: -140px;
   font-family: "Righteous", cursive;
 }
 
@@ -92,8 +92,27 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  margin-top: -5px;
+  width: 850px;
 }
 
+.emergencyCallDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 5px;
+}
+.emergencyCall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 25px;
+  font-family: "Righteous", cursive;
+}
 .logoAndName:hover {
   cursor: pointer;
 }
