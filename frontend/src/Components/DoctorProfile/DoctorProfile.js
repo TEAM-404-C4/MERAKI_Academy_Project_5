@@ -288,6 +288,7 @@ const DoctorProfile = () => {
           <div className="appointement">
             <div className="setDateAppointment">
               <input
+              className="datedate"
                 type="date"
                 onChange={setDateAppointement}
                 defaultValue={new Date().toISOString().substring(0, 10)}

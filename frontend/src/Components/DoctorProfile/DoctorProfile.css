@@ -99,6 +99,18 @@ h3 {
   height: 70px;
   padding-top: 20px;
 }
+.datedate {
+  width: 330px;
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  padding-left: 10px;
+  font-size: 20px;
+  outline: none;
+  color: black;
+  font-family: "Righteous", cursive;
+  margin-left: 20px;
+}
 
 .buttonsTimeAppointmentDiv {
   display: flex;
