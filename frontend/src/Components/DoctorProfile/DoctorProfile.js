@@ -305,13 +305,15 @@ const DoctorProfile = () => {
               )}
               {appointement.map((element) => {
                 return (
-                  <button
-                    className="buttonsTimeAppointment"
-                    onClick={booking}
-                    value={element.id}
-                  >
-                    {element.time}
-                  </button>
+                  <div className="AppDiv123">
+                    <button
+                      className="buttonsTimeAppointment"
+                      onClick={booking}
+                      value={element.id}
+                    >
+                      {element.time}
+                    </button>
+                  </div>
                 );
               })}
             </div>
