@@ -187,6 +187,7 @@ const DoctorProfile = () => {
                     doctor.fullName +
                     " I'm From Shefaa, and I have some questions, please."
                   }
+                  target="_blank"
                 >
                   {doctor.phone}
                 </a>
@@ -204,6 +205,7 @@ const DoctorProfile = () => {
                     doctor.email +
                     "]"
                   }
+                  target="_blank"
                 >
                   {doctor.email}
                 </a>
@@ -288,7 +290,7 @@ const DoctorProfile = () => {
           <div className="appointement">
             <div className="setDateAppointment">
               <input
-              className="datedate"
+                className="datedate"
                 type="date"
                 onChange={setDateAppointement}
                 defaultValue={new Date().toISOString().substring(0, 10)}
@@ -303,13 +305,15 @@ const DoctorProfile = () => {
               )}
               {appointement.map((element) => {
                 return (
-                  <button
-                    className="buttonsTimeAppointment"
-                    onClick={booking}
-                    value={element.id}
-                  >
-                    {element.time}
-                  </button>
+                  <div className="AppDiv123">
+                    <button
+                      className="buttonsTimeAppointment"
+                      onClick={booking}
+                      value={element.id}
+                    >
+                      {element.time}
+                    </button>
+                  </div>
                 );
               })}
             </div>

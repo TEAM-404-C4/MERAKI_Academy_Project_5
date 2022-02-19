@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./FeedBack.css";
 import { FcApproval, FcCancel } from "react-icons/fc";
+import { BsTrash } from "react-icons/bs";
+import Swal from "sweetalert2";
 
 //====================================================//COMPONENT
 
@@ -12,6 +14,7 @@ export default function FeedBack() {
 
   const [AllFeedBack, setAllFeedBack] = useState([]);
   const [message, setMessage] = useState("");
+  const [render, setRender] = useState("");
 
   //====================================================//get All FeedBack FUNCTION
 
@@ -37,6 +40,7 @@ export default function FeedBack() {
       );
       if (res.data.success) {
         setMessage(res.data.message);
+        setRender(res);
       } else {
         setMessage(res.data.message);
       }
@@ -54,6 +58,7 @@ export default function FeedBack() {
       );
       if (res.data.success) {
         setMessage(res.data.message);
+        setRender(res);
       } else {
         setMessage(res.data.message);
       }
@@ -66,23 +71,22 @@ export default function FeedBack() {
 
   useEffect(() => {
     getAllFeedBack();
-  }, []);
+  }, [render]);
 
   //====================================================//RETURN
 
   return (
-    <div>
-      <div className="parentTableFeedBack">
-        <table className="tableFeedBack">
+    <div className="parentTablePatintsFeedbackDiv">
+      <div className="parentTableFeedback">
+        <table className="tableFeedback">
           <thead>
-            <tr className="trHeadFeedBack">
-              <th className="thNOFeedBack">No.</th>
-              <th className="thFeedBack">Full Name</th>
-              <th className="thFeedBack">Email</th>
-              <th className="thFeedBack">Subject</th>
-              <th className="thFeedBack">Message</th>
-
-              <th className="thFeedBack">Actions</th>
+            <tr className="trHeadFeedback">
+              <th className="thNOFeedback">No.</th>
+              <th className="thFeedback">Full Name</th>
+              <th className="thFeedback">Email</th>
+              <th className="thFeedback">Subject</th>
+              <th className="thFeedback">Message</th>
+              <th className="thFeedback">Delete</th>
             </tr>
           </thead>
 
@@ -95,24 +99,62 @@ export default function FeedBack() {
                   <td className="tdFeedBack">{element.email}</td>
                   <td className="tdFeedBack">{element.subject}</td>
                   <td className="tdFeedBack">{element.message}</td>
+                  <td className="tdFeedBack">
+                    <button
+                      className="deleteButtons"
+                      id={element.id}
+                      onClick={(e) => {
+                        Swal.fire({
+                          title: "Are you sure?",
+                          text: "You won't be able to revert this!",
+                          icon: "warning",
+                          showCancelButton: true,
+                          confirmButtonColor: "#DD1010",
+                          cancelButtonColor: "#077D35",
+                          confirmButtonText: "Yes, delete it!",
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            DeleteFeedBack(e);
+                          }
+                        });
+                      }}
+                    >
+                                 
+                      <BsTrash
+                        className="delete"
+                        size={25}
+                        style={{ color: "red" }}
+                        className="delete"
+                      />
+                    </button>
 
-                  <td>
-                    <div>
-                      <button
-                        className="deleteButtons"
-                        id={element.id}
-                        onClick={ApproveFeedBack}
-                      >
-                        <FcApproval className="delete" />
-                      </button>
-                      <button
-                        className="deleteButtons"
-                        id={element.id}
-                        onClick={DeleteFeedBack}
-                      >
-                        <FcCancel className="delete" />
-                      </button>
-                    </div>
+                    <button
+                      className="deleteButtons"
+                      id={element.id}
+                      onClick={(e) => {
+                        Swal.fire({
+                          title: "Are you sure?",
+                          text: "You Want Approve  this Feedback !",
+                          icon: "warning",
+                          showCancelButton: true,
+                          confirmButtonColor: "#DD1010",
+                          cancelButtonColor: "#077D35",
+                          confirmButtonText: "Yes, share it!",
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            ApproveFeedBack(e);
+                          }
+                        });
+                      }}
+                    >
+                                 
+                      <FcApproval
+                        className="delete"
+                        size={25}
+                        style={{ color: "red" }}
+                        className="delete"
+                      />
+                    </button>
                   </td>
                 </tr>
               );

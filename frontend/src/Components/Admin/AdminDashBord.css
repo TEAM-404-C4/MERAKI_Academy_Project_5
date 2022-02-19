@@ -144,15 +144,18 @@
 }
 
 .chartOnePatientsAdminDashBord {
+  max-height: 100vh;
+  margin-top: -20px;
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  background-color: #0c1a32;
-  margin-top: 220px;
-  width: 80%;
-  height: 580px;
+  align-items: center;
+  width: 900px;
   padding: 50px;
+  background-color: rgb(12, 26, 50);
   border-radius: 12px;
+  border: 1px solid #4397cf;
+  margin-left: -172px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

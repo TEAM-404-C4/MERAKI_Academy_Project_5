@@ -56,68 +56,70 @@ export default function Doctors() {
   //====================================================//RETURN
 
   return (
-    <div className="parentTableDoctors">
-      <table className="tableDoctors">
-        <thead className="doctorTilteTableAdmin">
-          <tr className="trHeadDoctors">
-            <th className="thNODoctors">  No.</th>
-            <th className="thDoctors">Full Name</th>
-            <th className="thDoctors">Email</th>
-            <th className="thDoctors">Gender</th>
-            <th className="thDoctors">Phone</th>
-            <th className="thDoctors">Department</th>
-            <th className="thDoctors">City</th>
-            <th className="thDoctors">Delete</th>
-          </tr>
-        </thead>
+    <div className="parentTableDoctorsDiv">
+      <div className="parentTableDoctors">
+        <table className="tableDoctors">
+          <thead className="doctorTilteTableAdmin">
+            <tr className="trHeadDoctors">
+              <th className="thNODoctors">  No.</th>
+              <th className="thDoctors">Full Name</th>
+              <th className="thDoctors2">Email</th>
+              <th className="thDoctors">Gender</th>
+              <th className="thDoctors">Phone</th>
+              <th className="thDoctors">Department</th>
+              <th className="thDoctors">City</th>
+              <th className="thDoctors">Delete</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {AllDoctors.map((element, index) => {
-            return (
-              <tr className="trBodyDoctors">
-                <td className="tdNoDoctors"> {index + 1}</td>
+          <tbody>
+            {AllDoctors.map((element, index) => {
+              return (
+                <tr className="trBodyDoctors">
+                  <td className="tdNoDoctors"> {index + 1}</td>
 
-                <td className="tdDoctors">{element.fullName}</td>
-                <td className="tdDoctors">{element.email}</td>
-                <td className="tdDoctors">{element.gender}</td>
-                <td className="tdDoctors">{element.phone}</td>
-                <td className="tdDoctors">{element.Department}</td>
-                <td className="tdDoctors">{element.city}</td>
+                  <td className="tdDoctors">{element.fullName}</td>
+                  <td className="tdDoctors">{element.email}</td>
+                  <td className="tdDoctors">{element.gender}</td>
+                  <td className="tdDoctors">{element.phone}</td>
+                  <td className="tdDoctors">{element.Department}</td>
+                  <td className="tdDoctors">{element.city}</td>
 
-                <td className="tdDoctorsDelete">
-                  <button
-                    className="deleteButtons"
-                    id={element.id}
-                    onClick={(e) => {
-                      Swal.fire({
-                        title: "Are you sure?",
-                        text: "You won't be able to revert this!",
-                        icon: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD1010",
-                        cancelButtonColor: "#077D35",
-                        confirmButtonText: "Yes, delete it!",
-                      }).then((result) => {
-                        if (result.isConfirmed) {
-                          deleteDoctors(e);
-                        }
-                      });
-                    }}
-                  >
-                     
-                    <BsTrash
-                      className="delete"
-                      size={25}
-                      style={{ color: "red" }}
-                      className="delete"
-                    />
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+                  <td className="tdDoctors">
+                    <button
+                      className="deleteButtons"
+                      id={element.id}
+                      onClick={(e) => {
+                        Swal.fire({
+                          title: "Are you sure?",
+                          text: "You won't be able to revert this!",
+                          icon: "warning",
+                          showCancelButton: true,
+                          confirmButtonColor: "#DD1010",
+                          cancelButtonColor: "#077D35",
+                          confirmButtonText: "Yes, delete it!",
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            deleteDoctors(e);
+                          }
+                        });
+                      }}
+                    >
+                             
+                      <BsTrash
+                        className="delete"
+                        size={25}
+                        style={{ color: "red" }}
+                        className="delete"
+                      />
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
