@@ -11,8 +11,8 @@ import { AiOutlineLinkedin, AiFillGithub } from "react-icons/ai";
 const Footer = () => {
   //====================================================//USESTATE
 
-  const [style2, setStyle2] = useState("socialLinksNone");
-  const [style3, setStyle3] = useState("socialLinksNone");
+  const [style2, setStyle2] = useState("socialLinksBlock");
+  const [style3, setStyle3] = useState("socialLinksBlock");
   const [style4, setStyle4] = useState("socialLinksBlock");
   const [onStyle1, setOnStyle1] = useState(false);
   const [onStyle2, setOnStyle2] = useState(false);
@@ -34,7 +34,7 @@ const Footer = () => {
           <div className="Title">ABOUT</div>
           <div className="dataMainDiv">
             <ul className="links">
-              <li>
+              <li className="liFooter">
                 <a
                   href="#introMainDiv"
                   style={{ transitionDelay: "5.1s" }}
@@ -44,12 +44,12 @@ const Footer = () => {
                 </a>
               </li>
 
-              <li>
+              <li className="liFooter">
                 <Link to="/login" className="link">
                   Login
                 </Link>
               </li>
-              <li>
+              <li className="liFooter">
                 <Link to="/Register" className="link">
                   Register
                 </Link>
@@ -61,18 +61,18 @@ const Footer = () => {
           <div className="Title">UseFull Links</div>
           <div className="dataMainDiv">
             <ul className="links">
-              <li>
+              <li className="liFooter">
                 <Link to="/mainpage" className="link">
                   Doctors
                 </Link>
               </li>
 
-              <li>
+              <li className="liFooter">
                 <a href="tel:911" className="link">
                   Emergency
                 </a>
               </li>
-              <li>
+              <li className="liFooter">
                 <Link to="/doctorsignup1" className="link">
                   Join as a Doctor
                 </Link>
@@ -80,8 +80,10 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="footerSection">
-          <div className="Title">CONTACT US</div>
+        <div className="footerSection3">
+          <div className="titleDivL">
+            <div className="Title">CONTACT US</div>
+          </div>
           <div className="dataMainDiv">
             <ul className="links_contact">
               <li>
@@ -114,12 +116,15 @@ const Footer = () => {
                 <div className={style2}>
                   <ol className="socialLinks">
                     <li>
-                      <a href="https://github.com/IyadSaadeh">
+                      <a href="https://github.com/IyadSaadeh" target="_blank">
                         <AiFillGithub />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.linkedin.com/in/iyad-saadeh/">
+                      <a
+                        href="https://www.linkedin.com/in/iyad-saadeh/"
+                        target="_blank"
+                      >
                         <AiOutlineLinkedin />
                       </a>
                     </li>
@@ -129,7 +134,7 @@ const Footer = () => {
               <li>
                 <div className="DeveloperInfo">
                   <img
-                    src="https://avatars.githubusercontent.com/u/93844383?v=4"
+                    src="https://avatars.githubusercontent.com/u/93844383?v=4 "
                     className="img-Developer"
                     alt="HaithamNawwaf"
                     onClick={() => {
@@ -156,12 +161,18 @@ const Footer = () => {
                 <div className={style3}>
                   <ol className="socialLinks">
                     <li>
-                      <a href="https://github.com/HaithamNawwaf">
+                      <a
+                        href="https://github.com/HaithamNawwaf"
+                        target="_blank"
+                      >
                         <AiFillGithub />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.linkedin.com/in/haitham-nawwaf-241461175/">
+                      <a
+                        href="https://www.linkedin.com/in/haitham-nawwaf-241461175/ "
+                        target="_blank"
+                      >
                         <AiOutlineLinkedin />
                       </a>
                     </li>
@@ -171,7 +182,7 @@ const Footer = () => {
               <li>
                 <div className="DeveloperInfo">
                   <img
-                    src="https://avatars.githubusercontent.com/u/93868769?v=4"
+                    src="https://avatars.githubusercontent.com/u/93868769?v=4 "
                     className="img-Developer"
                     alt="Omar Kataaa"
                     onClick={() => {
@@ -198,12 +209,15 @@ const Footer = () => {
                 <div className={style4}>
                   <ol className="socialLinks">
                     <li>
-                      <a href="https://github.com/OmarKataa">
+                      <a href="https://github.com/OmarKataa" target="_blank">
                         <AiFillGithub />
                       </a>
                     </li>
                     <li>
-                      <a href="https://www.linkedin.com/in/omar-kata-a-983677175/">
+                      <a
+                        href="https://www.linkedin.com/in/haitham-nawwaf-241461175/ "
+                        target="_blank"
+                      >
                         <AiOutlineLinkedin />
                       </a>
                     </li>
