@@ -8,10 +8,8 @@
   margin-top: 50px;
   box-shadow: 0px -4px 5px 0px rgba(0, 0, 0, 0.75);
 }
-*{
-  text-align: left;
+* {
   font-family: "Righteous", cursive;
-
 }
 .footerDiv {
   width: 100%;
@@ -44,7 +42,7 @@
   color: white;
 }
 /* New Footer */
-.logoSection{
+.logoSection {
   background-image: url("https://rhythm-admin-template.multipurposethemes.com/images/logo-letter.png");
   width: 60px;
   height: 60px;
@@ -56,46 +54,42 @@
   margin-top: 15px;
   cursor: pointer;
 }
-.AboutSection{
-
+.AboutSection {
 }
-.useFullLinkSection{
-
+.useFullLinkSection {
 }
-.ContactSection{
-
+.ContactSection {
 }
-.links{
+.links {
   list-style-type: none;
   color: aliceblue;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  justify-content:center ;
+  justify-content: center;
   align-content: center;
   width: 250px;
   text-align: left;
-
 }
-.links_contact{
+.links_contact {
   list-style-type: none;
   color: aliceblue;
   display: flex;
   flex-direction: row;
   gap: 8px;
-  justify-content:center ;
+  justify-content: center;
   align-content: center;
   width: 250px;
   text-align: left;
 }
-.link{
+.link {
   color: aliceblue;
   text-align: left;
-
-}.link:hover{
+}
+.link:hover {
   color: rgb(248, 17, 152);
 }
-.socialLinks{
+.socialLinks {
   display: flex;
   flex-direction: row;
   list-style-type: none;
@@ -104,33 +98,32 @@
   cursor: pointer;
   margin-top: 10px;
 }
-.h4Name{
-  margin-top:10px;
+.h4Name {
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
-  gap:10px;
+  gap: 10px;
   align-content: center;
-  background-color:#0c1a32;
+  background-color: #0c1a32;
   box-shadow: 1px 1px 1px #1b1c1f;
   justify-content: center;
-
 }
-.h4icon{
-  margin-top:5px;
+.h4icon {
+  margin-top: 5px;
   cursor: pointer;
 }
-.socialLinksBlock{
-  display:block;
+.socialLinksBlock {
+  display: block;
 }
-.socialLinksNone{
+.socialLinksNone {
   display: none;
 }
-.DeveloperInfo{
+.DeveloperInfo {
   display: flex;
   gap: 10px;
 }
-.img-Developer{
-  width:50px;
+.img-Developer {
+  width: 50px;
   height: 50px;
   border-radius: 50%;
   cursor: pointer;

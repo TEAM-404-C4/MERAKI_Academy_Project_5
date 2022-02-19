@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import GoogleSignIn from "../GoogleLogin/googleLogin";
 import Swal from "sweetalert2";
-import Facebook from "../Facebook/Facebook"
+import Facebook from "../Facebook/Facebook";
 //CSS File
 import "./login.css";
 
@@ -112,13 +112,11 @@ const Login = () => {
             <button className="loginButton"> Log in </button>
           </div>
           <div>
-            <p className="or">
-              ----------------------------- OR ----------------------------
-            </p>
+            <p className="or">------------------ OR ------------------</p>
           </div>
           <div className="googleLogin">
             <GoogleSignIn />
-            <Facebook/>
+            <Facebook />
           </div>
         </form>
       </div>
