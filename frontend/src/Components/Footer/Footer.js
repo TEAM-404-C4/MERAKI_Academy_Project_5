@@ -5,7 +5,7 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import { BiDownArrow } from "react-icons/bi";
 import { AiOutlineLinkedin, AiFillGithub } from "react-icons/ai";
-
+import FeedBack from "../FeedBack/FeedBack";
 //====================================================//COMPONENT
 
 const Footer = () => {
@@ -23,11 +23,9 @@ const Footer = () => {
   return (
     <div className="footerMainDiv">
       <div className="footerDiv">
-        <div className="footerSection">
+        <div className="footerSectionFeedback">
           <div>
-            <Link to="/" className="link">
-              <div className="logoSection"></div>
-            </Link>
+            <FeedBack />
           </div>
         </div>
         <div className="footerSection">
@@ -227,7 +225,6 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="footerSection">{/* <FeedBack /> */}</div>
       </div>
     </div>
   );

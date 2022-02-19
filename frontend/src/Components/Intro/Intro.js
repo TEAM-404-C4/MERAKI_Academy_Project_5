@@ -198,8 +198,11 @@ function Intro() {
           </div>
         </div>
       </div>
+      <div className="PatientsFeedBack">Patients FeedBack</div>
       <div className="SliderFeedBack">
-        <SliderFeedBack />
+        <div>
+          <SliderFeedBack />
+        </div>
       </div>
     </div>
   );
