@@ -70,18 +70,15 @@ const Navigation = () => {
           </div>
 
           <a href="tel:911" style={{ color: "red" }}>
-          <div className="emergencyCallDiv">
-            <div>
-              <p className="emergencyCall">IN CASE OF EMERGENCY CLICK HERE</p>
+            <div className="emergencyCallDiv">
+              <div>
+                <p className="emergencyCall">IN CASE OF EMERGENCY CLICK HERE</p>
+              </div>
+              <div>
+                <RiTruckFill size={60} style={{ color: "red" }} />
+              </div>
             </div>
-            <div
-              
-            >
-              <RiTruckFill size={60} style={{ color: "red" }} />
-            </div>
-          </div>
           </a>
-          
         </div>
         <div className="controlsDiv">
           {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (
