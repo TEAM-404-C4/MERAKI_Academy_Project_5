@@ -160,74 +160,74 @@ VALUES
 
 -- ==============================// Patient Data =============================
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('iyad', 'saadeh', '0000', '123456', 3);
+    ('iyad', 'saadeh', '0000', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('omar', 'kataa', '0001', '123456', 3);
+    ('omar', 'kataa', '0001', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('mohmmad', 'Farhan', '0002', '123456', 3);
+    ('mohmmad', 'Farhan', '0002', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('bayan', 'Alsafdi', '0003', '123456', 3);
+    ('bayan', 'Alsafdi', '0003', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"FEMALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('huda', 'Not TA', '0004', '123456', 3);
+    ('huda', 'Not TA', '0004', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"FEMALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('jozaa', 'CEO', '0005', '123456', 3);
+    ('jozaa', 'CEO', '0005', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('ghaidaa', 'TA', '0006', '123456', 3);
+    ('ghaidaa', 'TA', '0006', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"FEMALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('Farhan', 'Mohaamd', '0007', '123456', 3);
+    ('Farhan', 'Mohaamd', '0007', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('Issa', 'Alhls', '0008', '123456', 3);
+    ('Issa', 'Alhls', '0008', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('Haitham', 'Nawwaf', '0009', '123456', 3);
+    ('Haitham', 'Nawwaf', '0009', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('Alaa', 'Marai', '0010', '123456', 3);
+    ('Alaa', 'Marai', '0010', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('Sara', 'Ahmad', '0011', '123456', 3);
+    ('Sara', 'Ahmad', '0011', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"FEMALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('Rami', 'Nwaaf', '0012', '123456', 3);
+    ('Rami', 'Nwaaf', '0012', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 INSERT INTO
-    Patient (firstName, lastName, phone, password, roleId)
+    Patient (firstName, lastName, phone, password,gender, roleId)
 VALUES
-    ('Ammar', 'kataa', '0013', '123456', 3);
+    ('Ammar', 'kataa', '0013', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2',"MALE", 3);
 
 -- ====================================================//CITY DATA
 Insert INTO
@@ -561,4 +561,4 @@ VALUES
        'Mohannad Abu Saadeh', 'Mohannad@yahoo.com', '$2b$04$Veub/9FTslydJRdbzcduou6gSZT4Bdm8PMzXFSMU4ERGQN5fCtp3O', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287801/project4/xo1ivqivw8m4mxmgnflc.jpg', 'MALE', '0', 'Jordan', 'General Surgery Specialist', '0790000010', 'Sunday-Tuesday', 'Amman', 'Mohannad Abu Saadeh', '50 min', '80', '31.9671713', '35.8740798', '9', '10', '2', 'General Surgery Specialist'
     );
     -- ============================================================ Admin Data
-    INSERT INTO admin (email,password,firstName,lastName,phone,roleId) VALUES ('eyadsaadeh77@gmail.com', '$2b$10$va6DEEvVGmKWE/T1cvc6HO/EGDzcWMGOTXZckBpFUL2UZV0o8mTZy', 'iyad', 'saadeh', '0101', '1')
+    INSERT INTO admin (email,password,firstName,lastName,phone,roleId) VALUES ('eyadsaadeh77@gmail.com', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2', 'iyad', 'saadeh', '0101', '1')
