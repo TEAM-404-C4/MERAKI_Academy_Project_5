@@ -97,6 +97,11 @@ const Navigation = () => {
           ) : (
             <></>
           )}
+          <div className="option" title="Main">
+            <Link to="/mainpage" alt="test">
+              <BsHouseFill />
+            </Link>
+          </div>
 
           {state.roleId === 3 || localStorage.getItem("roleId") == 3 ? (
             <div className="option" title="Profile Page">
@@ -115,6 +120,7 @@ const Navigation = () => {
           ) : (
             <></>
           )}
+
           {state.roleId === 3 || localStorage.getItem("roleId") == 3 ? (
             <div className="option" title="setting Page">
               <Link to="/setting" alt="test">
@@ -141,11 +147,6 @@ const Navigation = () => {
               <MdOutlineEmergency />
             </a>
           </div> */}
-          <div className="option" title="Main">
-            <Link to="/mainpage" alt="test">
-              <BsHouseFill />
-            </Link>
-          </div>
 
           {/* {state.roleId == 2 && localStorage.getItem("roleId") == 2 ? (
             <div className="option">
