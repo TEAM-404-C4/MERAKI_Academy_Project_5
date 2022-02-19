@@ -113,7 +113,6 @@ const CardDoctor = ({
               dispatch(setDoctor(id));
               history("/DoctorProfile");
               window.localStorage.setItem("doctorId", id);
-
             }}
           />
         </div>
@@ -125,7 +124,6 @@ const CardDoctor = ({
               dispatch(setDoctor(id));
               history("/DoctorProfile");
               window.localStorage.setItem("doctorId", id);
-
             }}
           >
             <div className="DoctorName">DOCTOR . {fullName.toUpperCase()}</div>
@@ -151,7 +149,7 @@ const CardDoctor = ({
 
           <div className="card-row">
             <FaUserMd style={{ color: "#91D1BD" }} />
-               {Department} specialized in {specialization}
+               {Department}
           </div>
           {/* <div className="card-row">
              <div>

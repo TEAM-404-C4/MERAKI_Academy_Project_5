@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { GrCertificate } from "react-icons/gr";
-import { AiFillFlag } from "react-icons/ai";
+import { AiFillFlag, AiFillSafetyCertificate } from "react-icons/ai";
 import { MdAlternateEmail } from "react-icons/md";
 import { BsClockHistory, BsCalendarDay } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
@@ -176,7 +176,7 @@ const DoctorProfile = () => {
           </div>
           <div className="chatWhatsApp">
             <div className="doctorWhatsApp">
-              <IoLogoWhatsapp style={{ color: "#25D366" }} />
+              <IoLogoWhatsapp style={{ color: " #F4E6F2 " }} />
               <div className="doctorWhatsAppNumber">
                 Chat
                 <a
@@ -215,26 +215,26 @@ const DoctorProfile = () => {
         <div className="profileInformationDiv">
           <div className="profileInformation">
             <div className="profile-row">
-              <FaBuilding style={{ color: "#91D1BD" }} />
+              <FaBuilding style={{ color: " #F4E6F2 " }} />
               <h5>
                   Department : <span>{doctor.Department}</span>
               </h5>
             </div>
             <div className="profile-row">
-              <FaHandHoldingMedical style={{ color: "#B600F2" }} /> 
+              <FaHandHoldingMedical style={{ color: " #F4E6F2 " }} /> 
               <h5>
                 Specialization : <span>{doctor.specialization}</span>
               </h5>
             </div>
             <div className="profile-row">
-              <GrCertificate /> 
+              <AiFillSafetyCertificate style={{ color: " #F4E6F2 " }} b /> 
               <h5>
                 Scientific Certificate : 
                 <span>{doctor.ScientificCertificate}</span>{" "}
               </h5>
             </div>
             <div className="profile-row">
-              <AiFillFlag style={{ color: "#197500" }} /> 
+              <AiFillFlag style={{ color: " #F4E6F2 " }} /> 
               <h5>
                 Nationality : <span>{doctor.Nationality}</span>
               </h5>
@@ -246,19 +246,19 @@ const DoctorProfile = () => {
               </h5>
             </div>
             <div className="profile-row">
-              <FaPhoneAlt style={{ color: "#282727" }} /> 
+              <FaPhoneAlt style={{ color: " #F4E6F2 " }} /> 
               <h5>
                 Phone : <span>{doctor.phone}</span>
               </h5>
             </div>
             <div className="profile-row">
-              <HiOutlineIdentification style={{ color: " #F2C11D" }} /> 
+              <HiOutlineIdentification style={{ color: " #F4E6F2 " }} /> 
               <h5>
                 Careers License : <span>{doctor.careersLicense}</span>{" "}
               </h5>
             </div>
             <div className="profile-row">
-              <ImLocation style={{ color: "#0d79e5" }} /> 
+              <ImLocation style={{ color: " #F4E6F2 " }} /> 
               <h5>
                 Address: 
                 <span>
@@ -267,19 +267,19 @@ const DoctorProfile = () => {
               </h5>
             </div>
             <div className="profile-row">
-              <BsClockHistory style={{ color: "red" }} /> 
+              <BsClockHistory style={{ color: " #F4E6F2 " }} /> 
               <h5>
                 Waiting Time : <span>{doctor.waitingTime}</span>{" "}
               </h5>
             </div>
             <div className="profile-row">
-              <BsCalendarDay style={{ color: "#F06292" }} /> 
+              <BsCalendarDay style={{ color: " #F4E6F2 " }} /> 
               <h5>
                 Working Days : <span>{doctor.workingDays}</span>{" "}
               </h5>
             </div>
             <div className="profile-row">
-              <FaRegMoneyBillAlt style={{ color: "#0EB800" }} /> 
+              <FaRegMoneyBillAlt style={{ color: " #F4E6F2 " }} /> 
               <h5>
                 Consultation Fee : <span>{doctor.consultationFee}</span>{" "}
               </h5>
@@ -296,13 +296,9 @@ const DoctorProfile = () => {
 
             <div className=" buttonsTimeAppointmentDiv ">
               {appointement.length == 0 && (
-                <>
-                  <img
-                    className="noAvailbleAppointmentImg"
-                    src="https://i.pinimg.com/736x/35/e8/91/35e891011e2dfc2aae05334327a602b3.jpg"
-                    alt="no availble time"
-                  />
-                </>
+                <div className="SorryMessage">
+                  <div>SORRY NO APPOINTMENTS AVAILABLE </div>
+                </div>
               )}
               {appointement.map((element) => {
                 return (
