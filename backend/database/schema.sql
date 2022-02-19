@@ -141,6 +141,12 @@ CREATE TABLE Feedback(
     is_deleted TINYINT default 0
 
 );
+-- ===========================================//Feedback Data
+INSERT INTO Feedback (fullName,email,subject,message) VALUES ('omar Kataa','omar@yahoo.com','UI','very nice user interface');
+INSERT INTO Feedback (fullName,email,subject,message) VALUES ('iyad saadeh','iyad@yahoo.com','Easy to use','Easy to use website '); 
+INSERT INTO Feedback (fullName,email,subject,message) VALUES ('Haitham Nawwaf','Haitham@yahoo.com','Colors','nice colors'); 
+INSERT INTO Feedback (fullName,email,subject,message) VALUES ('Bayan ','Bayan@yahoo.com','Css','woow so beautiful'); 
+INSERT INTO Feedback (fullName,email,subject,message) VALUES ('Ghaidaa','ghaidaa@yahoo.com','Colors','You will need change colors example find Doctor'); 
 
 -- =====================================================//Role DATA
 Insert INTO
