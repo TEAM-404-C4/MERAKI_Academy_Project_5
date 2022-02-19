@@ -1,5 +1,15 @@
 .patient_ProfileMainDiv {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.patientTableDivLabel {
+  width: 100%;
+  color: white;
+  font-family: "Righteous", cursive;
+  margin-top: 50px;
+  font-size: 25px;
 }
 .patient_Profile {
   display: flex;
@@ -10,15 +20,11 @@
   padding: 50px;
   border-radius: 12px;
   border: 1px solid #4397cf;
-}
-.patient_Table_Profile_Main_Div {
-  /* border: 1px solid #ffffff;
-  width: 100%; */
-}
-.patient_Table_Profile_Main_Div {
   max-height: 400px;
   overflow-y: scroll;
+  margin-top: 10px;
 }
+
 .patient_Table_Profile_Title {
   background-color: #0d79e5;
 }
