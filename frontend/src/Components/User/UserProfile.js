@@ -83,84 +83,90 @@ const UserProfile = () => {
   // =====================================
 
   return (
-    <div className="patient_Profile">
-      {patientAppointment.length === 0 ? (
-        <h2 className="Check_Booking_DashBord">You Don't Have Any Bookings</h2>
-      ) : (
-        <div className="patient_Table_Profile_Main_Div">
-          <table>
-            <thead>
-              <tr className="patient_Table_Profile_Title">
-                <th className="titleNo_Profile">No.</th>
-                <th className="title_Profile">Doctor Name</th>
-                <th className="title_Profile">Doctor Phone </th>
-                <th className="title_Profile">Doctor Email</th>
-                <th className="title_Profile">Doctor Address </th>
-                <th className="title_Profile">Date Appointment </th>
-                <th className="title_Profile">Time </th>
-                <th className="title_Profile">Delete </th>
-              </tr>
-            </thead>
+    <div className="patient_ProfileMainDiv">
+      <div className="patient_Profile">
+        {patientAppointment.length === 0 ? (
+          <h2 className="Check_Booking_DashBord">
+            You Don't Have Any Bookings
+          </h2>
+        ) : (
+          <div className="patient_Table_Profile_Main_Div">
+            <table>
+              <thead>
+                <tr className="patient_Table_Profile_Title">
+                  <th className="titleNo_Profile">No.</th>
+                  <th className="title_Profile">Doctor Name</th>
+                  <th className="title_Profile">Doctor Phone </th>
+                  <th className="title_Profile">Doctor Email</th>
+                  <th className="title_Profile">Doctor Address </th>
+                  <th className="title_Profile">Date Appointment </th>
+                  <th className="title_Profile">Time </th>
+                  <th className="title_Profile">Delete </th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {patientAppointment.map((element, index) => {
-                return (
-                  <tr className="patient_Table_Profile">
-                    <td className="rowNo_Profile">  {index + 1}</td>
+              <tbody>
+                {patientAppointment.map((element, index) => {
+                  return (
+                    <tr className="patient_Table_Profile">
+                      <td className="rowNo_Profile">  {index + 1}</td>
 
-                    <td className="row_Profile">{element["Doctor Name "]}</td>
-                    <td className="row_Profile">
-                      {element["Doctor Phone Number "]}
-                    </td>
-                    <td className="row_Profile">{element["Doctor Email  "]}</td>
-                    <td className="row_Profile">
-                      {element["Doctor Address "]}
-                    </td>
-                    <td className="row_Profile">
-                      {element["Date Appointment  "]}
-                    </td>
-                    <td className="row_Profile">
-                      {element["Appointment Time  "]}
-                    </td>
+                      <td className="row_Profile">{element["Doctor Name "]}</td>
+                      <td className="row_Profile">
+                        {element["Doctor Phone Number "]}
+                      </td>
+                      <td className="row_Profile">
+                        {element["Doctor Email  "]}
+                      </td>
+                      <td className="row_Profile">
+                        {element["Doctor Address "]}
+                      </td>
+                      <td className="row_Profile">
+                        {element["Date Appointment  "]}
+                      </td>
+                      <td className="row_Profile">
+                        {element["Appointment Time  "]}
+                      </td>
 
-                    <td className="rowDeletePatient">
-                      <button
-                        className="deleteButtons"
-                        id={[
-                          element.appointmentId,
-                          element["Date Appointment  "],
-                          element.doctorId,
-                        ]}
-                        onClick={(e) => {
-                          Swal.fire({
-                            title: "Are you sure?",
-                            text: "You won't be able to revert this!",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "#DD1010",
-                            cancelButtonColor: "#077D35",
-                            confirmButtonText: "Yes, delete it!",
-                          }).then((result) => {
-                            if (result.isConfirmed) {
-                              deleteBooking(e);
-                            }
-                          });
-                        }}
-                      >
-                        <BsTrash
-                          className="delete"
-                          size={25}
-                          style={{ color: "red" }}
-                        />
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      )}
+                      <td className="rowDeletePatient">
+                        <button
+                          className="deleteButtons"
+                          id={[
+                            element.appointmentId,
+                            element["Date Appointment  "],
+                            element.doctorId,
+                          ]}
+                          onClick={(e) => {
+                            Swal.fire({
+                              title: "Are you sure?",
+                              text: "You won't be able to revert this!",
+                              icon: "warning",
+                              showCancelButton: true,
+                              confirmButtonColor: "#DD1010",
+                              cancelButtonColor: "#077D35",
+                              confirmButtonText: "Yes, delete it!",
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                deleteBooking(e);
+                              }
+                            });
+                          }}
+                        >
+                          <BsTrash
+                            className="delete"
+                            size={25}
+                            style={{ color: "red" }}
+                          />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
