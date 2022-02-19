@@ -350,7 +350,7 @@ export default function CommentsAndRate({ doctorFullName }) {
             ""
           )}
 
-          {showComments && renderData(comments)}
+          {(showComments && renderData(comments)) ?
           <div className="pageNumbers">
             <ul className="pageNumberUl">
               <li>
@@ -378,6 +378,7 @@ export default function CommentsAndRate({ doctorFullName }) {
               </li>
             </ul>
           </div>
+          :<></>}
         </div>
       </>
     </div>
