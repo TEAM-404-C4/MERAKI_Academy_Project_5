@@ -84,6 +84,7 @@ const UserProfile = () => {
 
   return (
     <div className="patient_ProfileMainDiv">
+      <div className="patientTableDivLabel">Your Appointements</div>
       <div className="patient_Profile">
         {patientAppointment.length === 0 ? (
           <h2 className="Check_Booking_DashBord">
