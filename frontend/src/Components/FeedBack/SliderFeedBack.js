@@ -47,8 +47,8 @@ export default function SliderFeedBack() {
   let feed = AllFeedBack.map((element, index) => {
     return (
       <div className="feedbackCol">
-        <h2>{element.subject}</h2>
-        <h6>{element.message}</h6>
+        <div className="subjectDiv">{element.subject}</div>
+        <div className="messageDiv">{element.message}</div>
       </div>
     );
   });
@@ -56,10 +56,8 @@ export default function SliderFeedBack() {
   //====================================================//RETURN
 
   return (
-    <div>
-      <SliderOne {...settings}>
-        <div className="feedbackRow">{feed}</div>
-      </SliderOne>
+    <div className="feddbackDiv">
+      <div className="feedbackRow">{feed}</div>
     </div>
   );
 }

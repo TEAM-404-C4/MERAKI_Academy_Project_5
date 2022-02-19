@@ -52,7 +52,7 @@ export default function FeedBack() {
 
   return (
     <div className="FeedBack">
-      <h2>Feedback</h2>
+      <div className="feedbackFormDiv">Feedback Form</div>
 
       <input
         type="text"
@@ -89,9 +89,6 @@ export default function FeedBack() {
       />
       <button className="FeedBackSubmit" onClick={CreateFeedBack}>
         Submit
-      </button>
-      <button className="FeedBackSubmit" onClick={GetFeedBack}>
-        Get Feedback
       </button>
     </div>
   );

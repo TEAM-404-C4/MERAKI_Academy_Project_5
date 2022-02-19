@@ -69,18 +69,19 @@ const Navigation = () => {
             <p className="shefaaName">SHEFAA</p>
           </div>
 
+          <a href="tel:911" style={{ color: "red" }}>
           <div className="emergencyCallDiv">
             <div>
               <p className="emergencyCall">IN CASE OF EMERGENCY CLICK HERE</p>
             </div>
             <div
-              onClick={() => {
-                <a href="tel:911" style={{ color: "red" }}></a>;
-              }}
+              
             >
               <RiTruckFill size={60} style={{ color: "red" }} />
             </div>
           </div>
+          </a>
+          
         </div>
         <div className="controlsDiv">
           {state.roleId == 2 || localStorage.getItem("roleId") == 2 ? (

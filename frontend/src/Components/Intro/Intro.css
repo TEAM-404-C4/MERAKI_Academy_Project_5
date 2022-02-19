@@ -50,11 +50,12 @@
   color: white;
   width: 78%;
   margin-top: 50px;
-  font-size: 25px;
+  font-size: 23px;
   text-align: left;
   word-spacing: 4px;
   line-height: 40px;
-  font-family: "Cairo", sans-serif;
+  font-family: "Righteous", cursive;
+  letter-spacing: 1px;
 }
 
 .aboutSection2 {
@@ -265,4 +266,31 @@
     opacity: 1;
     transform: translatey(0px);
   }
+}
+
+.SliderFeedBack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: rgb(12, 26, 50);
+  height: 300px;
+  width: 90%;
+  margin-top: 50px;
+  max-height: 300px;
+  overflow-y: scroll;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.PatientsFeedBack {
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 20px;
+  color: white;
+  width: 90%;
+  font-size: 30px;
+  margin-top: 80px;
+  margin-bottom: -30px;
 }
