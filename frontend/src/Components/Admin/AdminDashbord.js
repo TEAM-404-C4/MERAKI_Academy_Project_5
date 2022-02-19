@@ -118,18 +118,20 @@ const AdminDashbord = () => {
         <div className="rightSideAdminDashBord">
           <div className="dashboardItemAdminDashBord">
             {DoctorsPanel ? (
-              <div>
-                <div className="FullCalenderAdminDashBord">
-                  <Doctors />
+              <>
+                <div className="dashBoardChartAdminDashBord">
+                  <div>
+                    <Doctors />
+                  </div>
                 </div>
-              </div>
+              </>
             ) : (
               <></>
             )}
             {patientsPanel ? (
               <>
                 <div className="dashBoardChartAdminDashBord">
-                  <div className="chartOnePatientsAdminDashBord">
+                  <div>
                     <Patient />
                   </div>
                 </div>
