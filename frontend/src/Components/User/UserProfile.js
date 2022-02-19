@@ -73,8 +73,7 @@ const UserProfile = () => {
           dateAppointment: data[1],
         }
       );
-      console.log("btatat", res.data);
-      console.log(res.data.result);
+
       setDeleteBookingRes(res.data);
     } catch (err) {
       console.log(err.response);
