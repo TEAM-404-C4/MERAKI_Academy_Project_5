@@ -168,7 +168,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="https://www.linkedin.com/in/haitham-nawwaf-241461175/ "
+                        href="https://www.linkedin.com/in/omar-kata-a-983677175/ "
                         target="_blank"
                       >
                         <AiOutlineLinkedin />
@@ -191,7 +191,7 @@ const Footer = () => {
                     }}
                   />
                   <h4 className="h4Name">
-                    Omar Kataaa{" "}
+                    Omar Kataa{" "}
                     <BiDownArrow
                       className="h4icon"
                       onClick={() => {

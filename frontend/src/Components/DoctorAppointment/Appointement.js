@@ -263,7 +263,7 @@ const Appointement = () => {
             })}
           </table>
           <button className="setAppointmentButtonOk" onClick={saveAppointement}>
-            click
+            Submit
           </button>
         </div>
       )}
