@@ -152,6 +152,7 @@ const Appointement = () => {
   //====================================================//RETURN
   return (
     <div className="AppointementDoctor">
+      <div className="AppointementDoctorTitle">Pick Your Available Time</div>
       <div className="list">
         <table className="list1">
           <tr className="trSetAppointment">

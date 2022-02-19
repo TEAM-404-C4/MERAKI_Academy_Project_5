@@ -29,6 +29,10 @@
   flex-direction: column;
   align-items: center;
 }
+.AppointementDoctor {
+  display: flex;
+  flex-direction: column;
+}
 
 .list {
   display: flex;
@@ -37,6 +41,17 @@
   padding: 20px;
   height: 400px;
   align-items: center;
+}
+.AppointementDoctorTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: white;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: -30px;
+  margin-left: 20px;
 }
 .listShow {
   margin-top: 10px;

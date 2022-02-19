@@ -159,6 +159,7 @@ const Dashboard = () => {
               <>
                 <div className="dashBoardChart">
                   <div className="chartOnePatients">
+                    <div className="chartOnePatientTilte">Patients Table</div>
                     <PatientBooking />
                   </div>
                 </div>
