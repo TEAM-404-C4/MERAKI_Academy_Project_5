@@ -486,79 +486,79 @@ VALUES
 
 
     -- ===============================================
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-'Iyad Anabtawi', 'IyadAnabtawi@yahoo.com', '$2b$04$h06mCLcmxQ.tEvax8jIX1.SWfpTFBVUD8EUnsRr0obO3kG3ac4M9O', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287940/project4/vmgd5zo5szkvj0i64jzd.jpg', 'MALE', '0', 'Jordan', 'Consultant General surgeon', '0790000011', 'Sunday-Tuesday', 'Amman', 'Consultant General surgeon', '50 min', '80', '31.9671713', '35.8740798', '10', '11', '2', 'Consultant General surgeon'    );
-    INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+'Iyad Anabtawi', 'Iyad@yahoo.com', '$2b$04$h06mCLcmxQ.tEvax8jIX1.SWfpTFBVUD8EUnsRr0obO3kG3ac4M9O', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287940/project4/vmgd5zo5szkvj0i64jzd.jpg', 'MALE', '0', 'Jordan', 'Consultant General surgeon', '0790000011', 'Sunday-Tuesday', 'Amman', 'Consultant General surgeon', '50 min', '80', '31.9671713', '35.8740798', '10', '11', '2', 'Consultant General surgeon'    );
+    INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-'Haitham Atoom', 'HaithamAtoom@yahoo.com', '$2b$04$xq8dbEQWzurjvE6.opyD.OX86WPOKWMZUWvRaegPp0LyEC5iI4Xiu', 'https://res.cloudinary.com/omarkataa/image/upload/v1645288156/project4/sxs8pdatodjyrw0535w4.jpg', 'MALE', '0', 'Jordan', 'Dentistry Specialist', '0790000012', 'Sunday-Tuesday', 'Amman', 'Dentistry Specialist', '50 min', '80', '31.9671713', '35.8740798', '12', '12', '2', 'Dentistry Specialist'    );
+'Haitham Atoom', 'Hythm@yahoo.com', '$2b$04$xq8dbEQWzurjvE6.opyD.OX86WPOKWMZUWvRaegPp0LyEC5iI4Xiu', 'https://res.cloudinary.com/omarkataa/image/upload/v1645288156/project4/sxs8pdatodjyrw0535w4.jpg', 'MALE', '0', 'Jordan', 'Dentistry Specialist', '0790000012', 'Sunday-Tuesday', 'Amman', 'Dentistry Specialist', '50 min', '80', '31.9671713', '35.8740798', '12', '12', '2', 'Dentistry Specialist'    );
     -- ===================================================
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Amir Malkawi', 'amirMalkawi@yahoo.com', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2', 'https://res.cloudinary.com/omarkataa/image/upload/v1645285101/project4/gilabyrt8s28mtsizpqk.jpg', 'MALE', '0', 'Jordan', 'Pediatric Vascular Surgery', '0790000000', 'Sunday-Friday', 'Amman - Jordan ', 'Pediatric Vascular Surgery', '30 min', '50', '31.9455232', '35.9170048', '1', '1', '2', 'Consultant Vascular Surgery'
+        'Amir Malkawi', 'amirM@yahoo.com', '$2b$04$I3GkQmvKJCJYNtqQuEt3ue7bR.31/67wwwikwnemuvQsXY8P7GiM2', 'https://res.cloudinary.com/omarkataa/image/upload/v1645285101/project4/gilabyrt8s28mtsizpqk.jpg', 'MALE', '0', 'Jordan', 'Pediatric Vascular Surgery', '0790000000', 'Sunday-Friday', 'Amman - Jordan ', 'Pediatric Vascular Surgery', '30 min', '50', '31.9455232', '35.9170048', '1', '1', '2', 'Consultant Vascular Surgery'
     );
 -- ====================================================//Doctors DATA
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Tareq Massimi', 'TareqMassimi@yahoo.com', '$2b$04$E89LbjWZqYsienGeNsdCtu0fram8pQnm/cpiEiEWAZH9G8nWid/Tm', 'https://res.cloudinary.com/omarkataa/image/upload/v1645285911/project4/vhhr3wlyhzsiybyyvamm.jpg', 'MALE', '0', 'Egypt', 'Adult Vascular Surgery', '0790000001', 'Sunday-Tuesday', 'Irbid', 'Consultant Vascular Surgery', '50 min', '60', '31.9455232', '35.9170048', '1', '1', '2', 'Consultant Vascular Surgery'
+        'Tareq Massimi', 'Tareq@yahoo.com', '$2b$04$E89LbjWZqYsienGeNsdCtu0fram8pQnm/cpiEiEWAZH9G8nWid/Tm', 'https://res.cloudinary.com/omarkataa/image/upload/v1645285911/project4/vhhr3wlyhzsiybyyvamm.jpg', 'MALE', '0', 'Egypt', 'Adult Vascular Surgery', '0790000001', 'Sunday-Tuesday', 'Irbid', 'Consultant Vascular Surgery', '50 min', '60', '31.9455232', '35.9170048', '1', '1', '2', 'Consultant Vascular Surgery'
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Izzedin Abushaikha', 'IzzedinAbushaikha@yahoo.com', '$2b$04$f4SAD5rEeA8eed9Lo1Elcu3zz7J70HS0/w8ufA2EAElYnKFbrIUsq', 'https://res.cloudinary.com/omarkataa/image/upload/v1645286202/project4/keogtonsh8mr3iyrx8ly.jpg', 'MALE', '0', 'Iraq', 'Cosmetic Dermatology and Laser Specialist  Read more: https://tebcan.com/en/Jordan/dr/Doctor-Izzedin-Abushaikha-Cosmetic-Dermatology-and-Laser_4189?Destination=inclinic', '0790000002', 'Sunday-Tuesday', 'IRbid', 'Cosmetic Dermatology and Laser Specialist', '50 min', '80', '31.9671713', '35.8740798', '2', '3', '2', 'Cosmetic Dermatology and Laser Specialist'
+        'Izzedin Abushaikha', 'Izedin@yahoo.com', '$2b$04$f4SAD5rEeA8eed9Lo1Elcu3zz7J70HS0/w8ufA2EAElYnKFbrIUsq', 'https://res.cloudinary.com/omarkataa/image/upload/v1645286202/project4/keogtonsh8mr3iyrx8ly.jpg', 'MALE', '0', 'Iraq', 'Cosmetic Dermatology and Laser Specialist  ', '0790000002', 'Sunday-Tuesday', 'IRbid', 'Cosmetic Dermatology and Laser Specialist', '50 min', '80', '31.9671713', '35.8740798', '2', '3', '2', 'Cosmetic Dermatology and Laser Specialist'
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Huda Al Qudah', 'HudaAlQudah@yahoo.com', '$2b$04$IKIZBKFObbjP5bFazb4K4u9xM4.DX8qqc9UgarCEaP815UlShjC2y', 'https://res.cloudinary.com/omarkataa/image/upload/v1645286863/project4/p2fwoi2tsitiugy1uuae.jpg', 'FEMALE', '0', 'Jordan', 'Dermatology ,  skin aesthetics, laser surgery and hair transplantation consultant ', '0790000003', 'Sunday-Tuesday', 'IRbid', 'Dermatology ,  skin aesthetics, laser surgery and hair transplantation consultant ', '50 min', '80', '31.9671713', '35.8740798', '2', '4', '2', 'Dermatology ,  skin aesthetics, laser surgery and hair transplantation consultant '
+        'Huda Al Qudah', 'HudaA@yahoo.com', '$2b$04$IKIZBKFObbjP5bFazb4K4u9xM4.DX8qqc9UgarCEaP815UlShjC2y', 'https://res.cloudinary.com/omarkataa/image/upload/v1645286863/project4/p2fwoi2tsitiugy1uuae.jpg', 'FEMALE', '0', 'Jordan', 'Dermatology ,  skin aesthetics, laser surgery and hair transplantation consultant ', '0790000003', 'Sunday-Tuesday', 'IRbid', 'Dermatology ,  skin aesthetics, laser surgery and hair transplantation consultant ', '50 min', '80', '31.9671713', '35.8740798', '2', '4', '2', 'Dermatology ,  skin aesthetics, laser surgery and hair transplantation consultant '
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Nesrin Al Dabbas', 'NesrinAlDabbas@yahoo.com', '$2b$04$qIi0FeEarjNZtbR1Fet6jOg0FmYiLLptVAMP44rDUD7n1TZBOgScO', 'https://res.cloudinary.com/omarkataa/image/upload/v1645286983/project4/c0gvua2vh0h1xxiid4gf.jpg', 'FEMALE', '0', 'Jordan', 'Psychiatry Specialist', '0790000004', 'Sunday-Tuesday', 'IRbid', 'Psychiatry Specialist', '50 min', '80', '31.9671713', '35.8740798', '3', '5', '2', 'Psychiatry Specialist'
+        'Nesrin Al Dabbas', 'Nesrin@yahoo.com', '$2b$04$qIi0FeEarjNZtbR1Fet6jOg0FmYiLLptVAMP44rDUD7n1TZBOgScO', 'https://res.cloudinary.com/omarkataa/image/upload/v1645286983/project4/c0gvua2vh0h1xxiid4gf.jpg', 'FEMALE', '0', 'Jordan', 'Psychiatry Specialist', '0790000004', 'Sunday-Tuesday', 'IRbid', 'Psychiatry Specialist', '50 min', '80', '31.9671713', '35.8740798', '3', '5', '2', 'Psychiatry Specialist'
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Hanadi Wasfi Abdelhalim', 'HanadiWasfiAbdelhalim@yahoo.com', '$2b$04$3QEz76uJlI2rtnIk135O5uWsCATAWns8KQgFN6MOfBQynhq4Pk.LK', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287128/project4/fpc2db7h8asautya8ikn.jpg', 'FEMALE', '0', 'Jordan', 'Dentist', '0790000005', 'Sunday-Tuesday', 'IRbid', 'Dentist', '50 min', '80', '31.9671713', '35.8740798', '4', '6', '2', 'Dentist'
+        'Hanadi Wasfi Abdelhalim', 'Hanadi@yahoo.com', '$2b$04$3QEz76uJlI2rtnIk135O5uWsCATAWns8KQgFN6MOfBQynhq4Pk.LK', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287128/project4/fpc2db7h8asautya8ikn.jpg', 'FEMALE', '0', 'Jordan', 'Dentist', '0790000005', 'Sunday-Tuesday', 'IRbid', 'Dentist', '50 min', '80', '31.9671713', '35.8740798', '4', '6', '2', 'Dentist'
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Maha Haroon Alrabadi', 'MahaHaroonAlrabadi@yahoo.com', '$2b$04$Hi2o38Li1aMgR7cNbvxHb.VBIl5GdVFLTzF1IhSeAOe2zFXEPnufW', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287228/project4/vosodnjfwijnigw1vok8.jpg', 'FEMALE', '0', 'Jordan', 'Gynecology and Infertility Specialist', '0790000006', 'Sunday-Tuesday', 'AJloun', 'Gynecology and Infertility Specialist', '50 min', '80', '31.9671713', '35.8740798', '6', '6', '2', 'Gynecology and Infertility Specialist'
+        'Maha Haroon Alrabadi', 'Maha@yahoo.com', '$2b$04$Hi2o38Li1aMgR7cNbvxHb.VBIl5GdVFLTzF1IhSeAOe2zFXEPnufW', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287228/project4/vosodnjfwijnigw1vok8.jpg', 'FEMALE', '0', 'Jordan', 'Gynecology and Infertility Specialist', '0790000006', 'Sunday-Tuesday', 'AJloun', 'Gynecology and Infertility Specialist', '50 min', '80', '31.9671713', '35.8740798', '6', '6', '2', 'Gynecology and Infertility Specialist'
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Miral Nimri', 'MiralNimri@yahoo.com', '$2b$04$5RBZ9Y3VrC7quNJvciYn1e6GjpRP1JUBi3Cmly/mEYNQJWapcO/OK', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287389/project4/xwkuj5vnu1yxyw8loisf.jpg', 'FEMALE', '0', 'Jordan', 'Dermatology and Venereology Specialist', '0790000007', 'Sunday-Tuesday', 'MadAba', 'Dermatology and Venereology Specialist', '50 min', '80', '31.9671713', '35.8740798', '6', '7', '2', 'Dermatology and Venereology Specialist'
+        'Miral Nimri', 'Mira@yahoo.com', '$2b$04$5RBZ9Y3VrC7quNJvciYn1e6GjpRP1JUBi3Cmly/mEYNQJWapcO/OK', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287389/project4/xwkuj5vnu1yxyw8loisf.jpg', 'FEMALE', '0', 'Jordan', 'Dermatology and Venereology Specialist', '0790000007', 'Sunday-Tuesday', 'MadAba', 'Dermatology and Venereology Specialist', '50 min', '80', '31.9671713', '35.8740798', '6', '7', '2', 'Dermatology and Venereology Specialist'
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-       'Alaa R Jabri', 'AlaaRJabri@yahoo.com', '$2b$04$9ZIkIDXuD1o5DT2pIij1qu7H190D..NpIRr8NiEtnTYytdYUV6C2K', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287547/project4/vqggbwjundsy1j83huw6.jpg', 'FEMALE', '0', 'Jordan', 'Pediatrician and New Born', '0790000008', 'Sunday-Tuesday', 'MadAba', 'Pediatrician and New Born', '50 min', '80', '31.9671713', '35.8740798', '7', '8', '2', 'Pediatrician and New Born'
+       'Alaa R Jabri', 'Alaa@yahoo.com', '$2b$04$9ZIkIDXuD1o5DT2pIij1qu7H190D..NpIRr8NiEtnTYytdYUV6C2K', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287547/project4/vqggbwjundsy1j83huw6.jpg', 'FEMALE', '0', 'Jordan', 'Pediatrician and New Born', '0790000008', 'Sunday-Tuesday', 'MadAba', 'Pediatrician and New Born', '50 min', '80', '31.9671713', '35.8740798', '7', '8', '2', 'Pediatrician and New Born'
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-        'Afnan Adel Hamdan', 'AfnanAdelHamdan@yahoo.com', '$2b$04$ihdCrzuI2V2yDJzTIXMBouBRs/CrLQx1M0B4IRestYjOlWPpbEsu6', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287671/project4/mvya3whjlkcgs00ovqdi.jpg', 'FEMALE', '0', 'Jordan', 'أخصائية الامراض الجلدية والتجميل والليزر', '0790000009', 'Sunday-Tuesday', 'MadAba', 'أخصائية الامراض الجلدية والتجميل والليزر', '50 min', '80', '31.9671713', '35.8740798', '8', '9', '2', 'أخصائية الامراض الجلدية والتجميل والليزر', '0'
+        'Afnan Adel Hamdan', 'Afnan@yahoo.com', '$2b$04$9ZIkIDXuD1o5DT2pIij1qu7H190D..NpIRr8NiEtnTYytdYUV6C2K', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287547/project4/vqggbwjundsy1j83huw6.jpg', 'FEMALE', '0', 'Jordan', 'Pediatrician and New Born', '0790000078', 'Sunday-Tuesday', 'MadAba', 'Pediatrician and New Born', '50 min', '80', '31.9671713', '35.8740798', '7', '8', '2', 'Pediatrician and New Born'
     );
 
-INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,departmentId,cityId,roleId,ScientificCertificate)
+INSERT INTO doctor (fullName,email,password,profileImage,gender,status,Nationality,specialization,phone,workingDays,address,careersLicense,waitingTime,consultationFee,latitude,longitude,departmentId,cityId,roleId,ScientificCertificate)
 VALUES
     (
-       'Mohannad Abu Saadeh', 'MohannadAbuSaadeh@yahoo.com', '$2b$04$Veub/9FTslydJRdbzcduou6gSZT4Bdm8PMzXFSMU4ERGQN5fCtp3O', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287801/project4/xo1ivqivw8m4mxmgnflc.jpg', 'MALE', '0', 'Jordan', 'General Surgery Specialist', '0790000010', 'Sunday-Tuesday', 'Amman', 'Mohannad Abu Saadeh', '50 min', '80', '31.9671713', '35.8740798', '9', '10', '2', 'General Surgery Specialist'
+       'Mohannad Abu Saadeh', 'Mohannad@yahoo.com', '$2b$04$Veub/9FTslydJRdbzcduou6gSZT4Bdm8PMzXFSMU4ERGQN5fCtp3O', 'https://res.cloudinary.com/omarkataa/image/upload/v1645287801/project4/xo1ivqivw8m4mxmgnflc.jpg', 'MALE', '0', 'Jordan', 'General Surgery Specialist', '0790000010', 'Sunday-Tuesday', 'Amman', 'Mohannad Abu Saadeh', '50 min', '80', '31.9671713', '35.8740798', '9', '10', '2', 'General Surgery Specialist'
     );
     -- ============================================================ Admin Data
     INSERT INTO admin (email,password,firstName,lastName,phone,roleId) VALUES ('eyadsaadeh77@gmail.com', '$2b$10$va6DEEvVGmKWE/T1cvc6HO/EGDzcWMGOTXZckBpFUL2UZV0o8mTZy', 'iyad', 'saadeh', '0101', '1')
